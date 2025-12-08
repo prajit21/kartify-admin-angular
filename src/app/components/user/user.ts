@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, viewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
@@ -30,9 +30,8 @@ import { UserState } from '../../shared/store/state/user.state';
     HasPermissionDirective,
     PageWrapper,
     Table,
-    ImportCsvModal,
-    CommonModule,
-  ],
+    ImportCsvModal
+],
   templateUrl: './user.html',
   styleUrl: './user.scss',
 })

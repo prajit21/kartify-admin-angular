@@ -9,7 +9,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { Store } from '@ngxs/store';
@@ -69,7 +69,8 @@ import { UserState } from '../../../shared/store/state/user.state';
     Button,
     AddCustomerModal,
     AddAddressModal,
-  ],
+    RouterLink
+],
   templateUrl: './checkout.html',
   styleUrl: './checkout.scss',
 })

@@ -27,7 +27,8 @@
                       (click)="AddCustomerModal().openModal()"
                       *hasPermission="'user.create'"
                     >
-                      <i class="ri-add-line me-1"></i> {{ 'add_new' | translate }}
+                      <i class="ri-add-line me-1"></i> {{ 'add_new' | translate
+                      }}
                     </a>
                   </div>
                   <form [formGroup]="form">
@@ -60,7 +61,8 @@
                       class="d-flex align-items-center fw-bold"
                       (click)="AddAddressModal().openModal('shipping')"
                     >
-                      <i class="ri-add-line me-1"></i> {{ 'add_new' | translate }}
+                      <i class="ri-add-line me-1"></i> {{ 'add_new' | translate
+                      }}
                     </a>
                     }
                   </div>
@@ -88,7 +90,8 @@
                       class="d-flex align-items-center fw-bold"
                       (click)="AddAddressModal().openModal('billing')"
                     >
-                      <i class="ri-add-line me-1"></i> {{ 'add_new' | translate }}
+                      <i class="ri-add-line me-1"></i> {{ 'add_new' | translate
+                      }}
                     </a>
                     }
                   </div>
@@ -139,7 +142,9 @@
                     <h2>{{ 'no_payment_options_found' | translate }}</h2>
                   </div>
                   } @if((selectedUser$ | async)){
-                  <app-payment-block (selectPaymentMethod)="selectPaymentMethod($event)" />
+                  <app-payment-block
+                    (selectPaymentMethod)="selectPaymentMethod($event)"
+                  />
                   }
                 </div>
               </li>
@@ -176,15 +181,20 @@
                     alt="product"
                   />
                   <div class="cart-content">
-                    <h4>{{ item?.variation ? item?.variation?.name : item?.product?.name }}</h4>
+                    <h4>
+                      {{ item?.variation ? item?.variation?.name :
+                      item?.product?.name }}
+                    </h4>
                     <h5 class="text-theme">
-                      {{ (item?.variation ? item?.variation.sale_price : item?.product &&
-                      item?.wholesale_price ? item?.wholesale_price : item?.product?.sale_price) |
+                      {{ (item?.variation ? item?.variation.sale_price :
+                      item?.product && item?.wholesale_price ?
+                      item?.wholesale_price : item?.product?.sale_price) |
                       currencySymbol }} X {{ item?.quantity }}
                     </h5>
                     <h5 class="price">
-                      {{ (item?.variation ? item?.variation.sale_price : item?.product &&
-                      item?.wholesale_price ? item?.wholesale_price : item?.product?.sale_price) *
+                      {{ (item?.variation ? item?.variation.sale_price :
+                      item?.product && item?.wholesale_price ?
+                      item?.wholesale_price : item?.product?.sale_price) *
                       item?.quantity | currencySymbol }}
                     </h5>
                   </div>
@@ -246,16 +256,16 @@
                   <li>
                     <h4>{{ 'subtotal' | translate }}</h4>
                     <h4 class="price">
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.sub_total | currencySymbol) :
-                      'not_calculated_yet' | translate) }}
+                      {{ (checkoutTotal ? (checkoutTotal?.total?.sub_total |
+                      currencySymbol) : 'not_calculated_yet' | translate) }}
                     </h4>
                   </li>
                   @if(!(cartDigital$ | async)){
                   <li>
                     <h4>{{ 'shipping' | translate }}</h4>
                     <h4 class="price">
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.shipping_total | currencySymbol) :
-                      'not_calculated_yet' | translate) }}
+                      {{ (checkoutTotal ? (checkoutTotal?.total?.shipping_total
+                      | currencySymbol) : 'not_calculated_yet' | translate) }}
                     </h4>
                   </li>
                   }
@@ -263,13 +273,13 @@
                   <li>
                     <h4>{{ 'tax' | translate }}</h4>
                     <h4 class="price">
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.tax_total | currencySymbol) :
-                      'not_calculated_yet' | translate) }}
+                      {{ (checkoutTotal ? (checkoutTotal?.total?.tax_total |
+                      currencySymbol) : 'not_calculated_yet' | translate) }}
                     </h4>
                   </li>
 
-                  @if((selectedUser$ | async) && checkoutTotal && (selectedUser$ |
-                  async).point?.balance){
+                  @if((selectedUser$ | async) && checkoutTotal && (selectedUser$
+                  | async).point?.balance){
                   <li>
                     <h4
                       [class]="form.controls['points_amount'].value ? 'txt-primary fw-bold' : 'text-muted'"
@@ -279,15 +289,17 @@
                     <h4
                       [class]="form.controls['points_amount'].value ? 'txt-primary fw-bold price' : 'text-muted price'"
                     >
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.convert_point_amount |
+                      {{ (checkoutTotal ?
+                      (checkoutTotal?.total?.convert_point_amount |
                       currencySymbol) : 'not_calculated_yet' | translate) }}
                     </h4>
                   </li>
-                  } @if((selectedUser$ | async) && checkoutTotal && (selectedUser$ |
-                  async).point?.balance){
+                  } @if((selectedUser$ | async) && checkoutTotal &&
+                  (selectedUser$ | async).point?.balance){
                   <li class="border-cls">
                     <label class="form-check-label m-0" for="ponts"
-                      >{{ 'would_you_prefer_to_pay_using_points?' | translate }}</label
+                      >{{ 'would_you_prefer_to_pay_using_points?' | translate
+                      }}</label
                     >
                     <input
                       class="checkbox_animated check-it"
@@ -296,8 +308,8 @@
                       formControlName="points_amount"
                     />
                   </li>
-                  } @if((selectedUser$ | async) && checkoutTotal && (selectedUser$ |
-                  async).wallet?.balance){
+                  } @if((selectedUser$ | async) && checkoutTotal &&
+                  (selectedUser$ | async).wallet?.balance){
                   <li>
                     <h4
                       [class]="form.controls['wallet_balance'].value ? 'txt-primary fw-bold' : 'text-muted'"
@@ -307,15 +319,17 @@
                     <h4
                       [class]="form.controls['wallet_balance'].value ? 'txt-primary fw-bold price' : 'text-muted price'"
                     >
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.convert_wallet_balance |
+                      {{ (checkoutTotal ?
+                      (checkoutTotal?.total?.convert_wallet_balance |
                       currencySymbol) : 'not_calculated_yet' | translate ) }}
                     </h4>
                   </li>
-                  } @if((selectedUser$ | async) && checkoutTotal && (selectedUser$ |
-                  async).wallet?.balance){
+                  } @if((selectedUser$ | async) && checkoutTotal &&
+                  (selectedUser$ | async).wallet?.balance){
                   <li class="border-cls">
                     <label class="form-check-label m-0" for="wallet"
-                      >{{ 'would_you_prefer_to_pay_using_wallet?' | translate }}</label
+                      >{{ 'would_you_prefer_to_pay_using_wallet?' | translate
+                      }}</label
                     >
                     <input
                       class="checkbox_animated check-it"
@@ -333,7 +347,10 @@
                     } @if(coupon && !appliedCoupon){
                     <div class="w-100">
                       <div class="coupon-box mt-2 d-flex w-100">
-                        <div class="input-group" [class.coupon-error]="couponError">
+                        <div
+                          class="input-group"
+                          [class.coupon-error]="couponError"
+                        >
                           <input
                             type="text"
                             [class]="'form-control'"
@@ -359,12 +376,16 @@
                     } @if(appliedCoupon){
                     <div class="apply-sec mb-3">
                       <div>
-                        <img src="assets/images/offer.gif" class="img-fluid" alt="offer" />
+                        <img
+                          src="assets/images/offer.gif"
+                          class="img-fluid"
+                          alt="offer"
+                        />
                         <h4>
                           {{ 'you_saved' | translate }}
                           <span
-                            >{{ checkoutTotal?.total?.coupon_total_discount | currencySymbol
-                            }}</span
+                            >{{ checkoutTotal?.total?.coupon_total_discount |
+                            currencySymbol }}</span
                           >
                           {{ 'with_this_code' | translate }} 🎉
                           <p>{{ 'coupon_applied' | translate }}</p>
@@ -380,8 +401,8 @@
                   <li class="list-total">
                     <h4>{{ 'total' | translate }}</h4>
                     <h4 class="price">
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.total | currencySymbol) :
-                      'not_calculated_yet' | translate ) }}
+                      {{ (checkoutTotal ? (checkoutTotal?.total?.total |
+                      currencySymbol) : 'not_calculated_yet' | translate ) }}
                     </h4>
                   </li>
                 </ul>
@@ -403,4 +424,7 @@
   </div>
 </div>
 <app-add-customer-modal #addCustomerModal />
-<app-add-address-modal #addAddressModal [id]="form.controls['consumer_id'].value" />
+<app-add-address-modal
+  #addAddressModal
+  [id]="form.controls['consumer_id'].value"
+/>

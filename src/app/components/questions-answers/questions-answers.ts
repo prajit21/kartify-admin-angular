@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, Renderer2, DOCUMENT, viewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -21,7 +21,7 @@ import { QuestionAnswersState } from '../../shared/store/state/questions-answers
 
 @Component({
   selector: 'app-questions-answers',
-  imports: [PageWrapper, Table, AnswersModal, CommonModule, TranslateModule],
+  imports: [PageWrapper, Table, AnswersModal, TranslateModule],
   templateUrl: './questions-answers.html',
   styleUrl: './questions-answers.scss',
 })

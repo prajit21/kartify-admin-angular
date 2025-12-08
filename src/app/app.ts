@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, DOCUMENT, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, RouterOutlet } from '@angular/router';
@@ -17,7 +17,7 @@ import { SettingState } from './shared/store/state/setting.state';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, LoadingBarRouterModule],
+  imports: [RouterOutlet, LoadingBarRouterModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

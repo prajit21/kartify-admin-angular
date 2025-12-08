@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, viewChild, output, input, Input } from '@angular/core';
 
 import { environment } from '../../../../../environments/environment.development';
@@ -7,7 +7,7 @@ import { MediaModal } from '../modal/media-modal/media-modal';
 
 @Component({
   selector: 'app-image-upload',
-  imports: [MediaModal, CommonModule],
+  imports: [MediaModal],
   templateUrl: './image-upload.html',
   styleUrl: './image-upload.scss',
 })
