@@ -3,8 +3,8 @@
     @if((setting$ | async)?.general?.light_logo_image){
     <a [routerLink]="['/dashboard']">
       <img
-        class="img-fluid for-white"
-        [src]="(setting$ | async )?.general?.light_logo_image?.asset_url"
+        class="img-fluid for-white" 
+        [src]="(setting$ | async )?.general?.light_logo_image?.asset_url" 
         alt="logo"
       />
     </a>
@@ -31,10 +31,12 @@
     <div class="back-btn">
       <i class="fa fa-angle-left"></i>
     </div>
-    <div class="toggle-sidebar" (click)="sidebarToggle()">
+    <div class="0-sidebar" (click)="sidebarToggle()">
       <i class="ri-apps-line status_toggle middle sidebar-toggle"></i>
     </div>
   </div>
+  <app-search />
+
   <nav class="sidebar-main">
     <div class="left-arrow" id="left-arrow">
       <i data-feather="arrow-left"></i>

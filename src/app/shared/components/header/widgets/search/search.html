@@ -7,7 +7,7 @@
   <div class="form-group w-100" #toggleButton>
     <input
       class="demo-input Typeahead-input form-control-plaintext w-100"
-      [(ngModel)]="text"
+      [(ngModel)]="text" 
       [ngModelOptions]="{ standalone: true }"
       (keyup)="searchTerm(text)"
       (click)="openDropDown(text)"

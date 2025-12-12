@@ -10,7 +10,7 @@
   --ck-color-button-on-active-background: rgba(13, 164, 134, 0.1) !important;
   --ck-color-button-on-background: rgba(13, 164, 134, 0.1) !important;
   --ck-color-focus-outer-shadow: rgba(13, 164, 134, 0.1) !important;
-  --ck-color-focus-border-coordinates: 168, 85%, 35% !important;
+  --ck-color-focus-border-coordinates: 168, 85%, 35% !important; 
   --ck-color-table-focused-cell-background: rgb(13 164 135 / 10%) !important;
 }
 
@@ -330,7 +330,7 @@ $breadcrumb-content: "/";
 $header-left-bg-color: $white;
 $main-header-padding: 27px 22px;
 $main-header-z-index: 5;
-$header-wrapper-padding: 22px 30px;
+$header-wrapper-padding: 17px 24px;
 $header-wrapper-nav-right: 0px;
 $header-wrapper-nav-icon-size: 20px;
 $header-wrapper-nav-icon-color: $theme-font-color;

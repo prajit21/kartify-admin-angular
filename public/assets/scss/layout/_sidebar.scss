@@ -7,10 +7,10 @@
     Sidebar CSS Start
 ==========================**/
 %sidebar-after {
-  @include mixins.pos;
+  @include mixins.pos; 
   top: 48%;
   width: 6px;
-  border-top: 2px solid variables.$white;
+  border-top: 2px solid variables.$white; 
 }
 
 %horizontal-after {
@@ -44,7 +44,7 @@
   &:before {
     width: 0;
     height: 0;
-    border-left: 7px solid transparent;
+    border-left: 7px solid transparent; 
     border-right: 7px solid transparent;
     border-bottom: 7px solid variables.$white;
     @include mixins.pos;
@@ -100,7 +100,9 @@
       align-items: center;
       padding: variables.$header-wrapper-padding;
       position: relative;
-
+      .header-logo-wrapper {
+        gap: 20px;
+      }
       @media (max-width: 1199px) {
         padding: 22px 20px;
       }
@@ -137,6 +139,7 @@
           height: 46px;
           background-color: #f8f8f8;
           border-radius: 0;
+          padding: 16px; 
 
           input {
             &::placeholder {
@@ -1172,6 +1175,7 @@
     .header-logo-wrapper {
       width: 150px;
 
+
       .toggle-sidebar {
         display: none;
       }
@@ -1185,7 +1189,6 @@
       li {
         display: inline-block;
       }
-
       .sidebar-wrapper {
         height: 54px;
         line-height: inherit;
@@ -1198,7 +1201,7 @@
         position: fixed;
         width: 100vw;
         border-top: 1px solid variables.$light-semi-gray;
-
+       
         .badge {
           position: absolute;
           top: 2px;
@@ -1210,7 +1213,7 @@
         .logo-icon-wrapper {
           display: none;
         }
-
+     
         .sidebar-main {
           text-align: left;
           position: relative;
@@ -1605,8 +1608,8 @@
   /* left sidebar css */
   &.compact-wrapper {
     .page-header {
-      margin-left: 320px;
-      width: calc(100vw - 320px);
+      margin-left: 264px;
+      width: calc(100vw - 264px);
 
       @media (max-width: 1199px) {
         margin-left: 260px;
@@ -1653,16 +1656,38 @@
         height: 100vh;
         line-height: inherit;
         background: var(--theme-color);
-        width: 320px;
+        width: 264px;
         text-align: left;
         transition: all 0.5s ease;
         box-shadow: 0 0 21px 0 rgba(variables.$semi-dark, 0.1);
-        background: #202020;
+        background: #202C3B;
         overflow: hidden;
-        background-image: url('../../images/sidebg.jpg');
-
+        app-search {
+          .search-full {
+            padding: 12px 16px 16px 16px;
+            position: relative;
+            .ri-search-line {
+              position: absolute;
+              left: 30px;
+              top: 47%;
+              transform: translateY(-50%);
+            }
+            .form-group {
+              background-color: rgba(variables.$white, 0.1);
+              border: 1px solid rgba(variables.$white, 0.18);
+              input {
+                padding: 12px 40px;
+                color: rgba(variables.$white,1);
+              }
+            }
+            &::placeholder {
+              color: variables.$white;
+            }
+          } 
+        }
+        // background-image: url('../../images/sidebg.jpg');
         @media (max-width: 1199px) {
-          width: 260px;
+        width: 260px;
         }
 
         @media (max-width: 991px) {
@@ -1690,13 +1715,11 @@
 
         .logo-wrapper,
         .logo-icon-wrapper {
+          gap: 79px;
           height: 82px;
           display: flex;
           align-items: center;
-          padding-left: 30px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          border-bottom: 1px solid #3a3a3a;
+          padding: 16px;
 
           [dir='rtl'] & {
             padding-left: 0;
@@ -1797,7 +1820,7 @@
           }
 
           &:hover {
-            width: 320px;
+            width: 264px;
             transition: all 0.3s ease;
 
             .logo-wrapper {
@@ -2558,7 +2581,7 @@
       .page-body {
         min-height: calc(100vh - 80px);
         margin-top: 90px;
-        margin-left: 320px;
+        margin-left: 264px;
         background-color: variables.$inner-bg;
         padding-top: 25px;
         padding-bottom: 44px;
@@ -3174,7 +3197,6 @@
           top: 37px;
           width: calc(100% - 50px);
           left: 25px;
-
           .form-group {
             .Typeahead {
               .u-posRelative {
@@ -3339,6 +3361,7 @@
           display: flex;
           flex: 1 0 auto;
           align-items: center;
+
         }
 
         .logo-wrapper {
@@ -3978,6 +4001,7 @@
     padding: 0 !important;
   }
 }
+
 
 .sidebar-links {
   &::-webkit-scrollbar-track {

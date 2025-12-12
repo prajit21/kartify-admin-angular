@@ -1,9 +1,12 @@
 <div class="header-wrapper m-0" [class.skeleton-header]="navServices.sidebarLoading">
-  <div class="header-logo-wrapper p-0">
+  <div class="header-logo-wrapper p-0 d-none d-lg-flex">
+    <app-quick-view />
+    <a [routerLink]="['/order/create']" class="btn btn-light-bg" *hasPermission="'order.create'">
+      {{ 'pos' | translate }}
+    </a> 
     <div class="toggle-sidebar" checked="checked">
       <i (click)="sidebarToggle()" class="ri-apps-line status_toggle middle sidebar-toggle"></i>
-
-      @if((setting$ | async)?.general?.dark_logo_image){
+      @if((setting$ | async)?.general?.dark_logo_image){ 
       <a [routerLink]="['/dashboard']">
         <img
           [src]="(setting$ | async)?.general?.dark_logo_image?.original_url"
@@ -11,34 +14,34 @@
           alt="header-logo"
         />
       </a>
-      }@else {
+      }@else { 
       <a [routerLink]="['/dashboard']">
         <h2 class="">
           {{(setting$ | async)?.general?.site_title ? (setting$ |
           async)?.general?.site_title.split(' ')[0] : 'Logo Here'}}
         </h2>
-      </a>
+      </a> 
       }
     </div>
-  </div>
-  <app-search />
+  </div> 
+  <!-- <app-search /> -->
   <div class="nav-right right-header p-0">
     <div class="header-btns d-none d-lg-flex">
-      <app-quick-view />
+      <!-- <app-quick-view />
       <a [routerLink]="['/order/create']" class="btn btn-animation" *hasPermission="'order.create'">
         {{ 'pos' | translate }}
-      </a>
+      </a> -->
     </div>
     <ul class="nav-menus">
       <li>
         <span class="header-search" (click)="clickHeaderOnMobile()">
-          <i class="ri-search-line"></i>
+          <i class="ri-search-line"></i> 
         </span>
       </li>
       @if(url){
       <li>
         <a href="{{url}}" target="_blank" ngbTooltip="Store">
-          <i class="ri-global-line"></i>
+          <i class="ri-global-line"></i> 
         </a>
       </li>
       }

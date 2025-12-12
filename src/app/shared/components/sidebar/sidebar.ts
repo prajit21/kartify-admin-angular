@@ -16,10 +16,11 @@ import { GetSidebarAction } from '../../store/action/sidebar.action';
 import { AccountState } from '../../store/state/account.state';
 import { SettingState } from '../../store/state/setting.state';
 import { SidebarState } from '../../store/state/sidebar.state';
+import { Search } from '../header/widgets/search/search';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [CommonModule, RouterModule, TranslateModule, HasPermissionDirective],
+  imports: [CommonModule, RouterModule, TranslateModule, HasPermissionDirective, Search],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
