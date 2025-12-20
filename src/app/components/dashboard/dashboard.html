@@ -6,18 +6,18 @@
       <div class="notice-content">
         <div class="icon-box">
           <i class="ri-error-warning-line"></i>
-        </div>
+        </div> 
         <div class="notice-box">
           <h3>{{ notice?.title }}</h3>
           <p [innerHTML]="notice?.description"></p>
         </div>
-      </div>
+      </div> 
       <a [routerLink]="['/notice']">{{ 'see_all' | translate }}</a>
       <a class="close-icon" (click)="markAsRead(notice?.id)"
         ><i class="ri-close-line"></i
       ></a>
     </div>
-  </div>
+  </div> 
 </section>
 }
 <!-- notice section -->
@@ -26,25 +26,38 @@
 <section class="dashboard-tiles">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4 welcome-tiles">
+      <div class="col-md-4">
+        <div class="card welcome-tiles-card">
+          <div class="card-body">
+            <h2>Welcome Back Admin</h2>
+            <p> 
+              Real-time analytics, user management, and advanced reporting in one dashboard.
+            </p>
+          </div>
+          <div class="welcome-img-vector">
+            <img src="assets/images/bg.jpg" class="img-fluid vector-1" alt="img" />       
+            <img src="assets/images/vector-2.png" class="img-fluid vector-2" alxt="img" />
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-md-4 welcome-tiles">
         <div class="card">
           <img src="assets/images/bg.jpg" class="img-fluid" alt="img" />
           <div class="card-body">
             <h2>Welcome Back Admin</h2>
             <p>
-              Manage application's data and operations with real time
-              analystics, user management tools and customizable reports.
+              Real-time analytics, user management, and advanced reporting in one dashboard.
             </p>
           </div>
-        </div>
-      </div>
+        </div> 
+      </div> -->
       <div class="col-md-8">
-        <div class="card">
-          <div class="card-body">
-            <div class="title-header">
+        <!-- <div class="card">
+          <div class="card-body"> -->
+            <!-- <div class="title-header">
               <div class="d-flex align-items-center">
                 <h5>{{ 'order_status' | translate }}</h5>
-              </div>
+              </div> 
               <div button>
                 @if(isBrowser) {
                 <select2
@@ -55,44 +68,43 @@
                 />
                 }
               </div>
-            </div>
-            <div class="row g-sm-4 g-3 booking-status-main">
-              <div class="col-xxl-4 col-sm-6 booking-status-card">
+            </div> --> 
+            <div class="row g-sm-4 g-3 booking-status-main"> 
+              <div class="col-xxl-4 col-sm-6 booking-status-card"> 
                 <a
                   href="javascript:void(0)"
-                  [routerLink]="['/order']"
+                  [routerLink]="['/order']" 
                   [queryParams]="{ status: 'pending'}"
-                  class="booking-widget-card card"
-                >
-                  <div class="booking-widget-icon">
+                  class="booking-widget-card card">  
+                  <div class="booking-widget-icon booking-widget-warning">
                     <img
-                      src="assets/images/svg/box-time.svg"
+                      src="assets/images/svg/empty-wallet.svg"
                       class="img-fluid"
                       alt="box-time"
                     />
                   </div>
-                  <div>
+                  <div> 
                     <h6>{{ 'pending' | translate }}</h6>
                     <h2>{{ (statistics$ | async)?.total_pending_orders }}</h2>
                   </div>
-                  <img
+                  <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
-                  />
+                  /> -->
                 </a>
               </div>
               <div class="col-xxl-4 col-sm-6 booking-status-card">
-                <a
+                <a 
                   href="javascript:void(0)"
                   [routerLink]="['/order']"
                   [queryParams]="{ status: 'processing'}"
-                  class="booking-widget-card card"
+                  class="booking-widget-card card" 
                 >
-                  <div class="booking-widget-icon">
+                  <div class="booking-widget-icon booking-widget-green">
                     <img
-                      src="assets/images/svg/note.svg"
-                      class="img-fluid"
+                      src="assets/images/svg/empty-wallet.svg"
+                      class="img-fluid" 
                       alt="note"
                     />
                   </div>
@@ -102,11 +114,11 @@
                       {{ (statistics$ | async)?.total_processing_orders }}
                     </h2>
                   </div>
-                  <img
+                  <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
-                  />
+                  /> -->
                 </a>
               </div>
               <div class="col-xxl-4 col-sm-6 booking-status-card">
@@ -116,9 +128,9 @@
                   [queryParams]="{ status: 'cancelled'}"
                   class="booking-widget-card card"
                 >
-                  <div class="booking-widget-icon">
+                  <div class="booking-widget-icon booking-widget-purple">
                     <img
-                      src="assets/images/svg/box-remove.svg"
+                      src="assets/images/svg/medal-star.svg"
                       class="img-fluid"
                       alt="box-1"
                     />
@@ -127,11 +139,11 @@
                     <h6>{{ 'cancelled' | translate }}</h6>
                     <h2>{{ (statistics$ | async)?.total_cancelled_orders }}</h2>
                   </div>
-                  <img
+                  <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
-                  />
+                  /> -->
                 </a>
               </div>
               <div class="col-xxl-4 col-sm-6 booking-status-card">
@@ -141,9 +153,9 @@
                   [queryParams]="{ status: 'shipped'}"
                   class="booking-widget-card card"
                 >
-                  <div class="booking-widget-icon">
+                  <div class="booking-widget-icon booking-widget-pitch">
                     <img
-                      src="assets/images/svg/box.svg"
+                      src="assets/images/svg/shop-white.svg"
                       class="img-fluid"
                       alt="group"
                     />
@@ -152,11 +164,11 @@
                     <h6>{{ 'shipped' | translate }}</h6>
                     <h2>{{ (statistics$ | async)?.total_shipped_orders }}</h2>
                   </div>
-                  <img
+                  <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
-                  />
+                  /> -->
                 </a>
               </div>
               <div class="col-xxl-4 col-sm-6 booking-status-card">
@@ -166,9 +178,9 @@
                   [queryParams]="{ status: 'out_for_delivery'}"
                   class="booking-widget-card card"
                 >
-                  <div class="booking-widget-icon">
+                  <div class="booking-widget-icon booking-widget-scarpa">
                     <img
-                      src="assets/images/svg/group.svg"
+                      src="assets/images/svg/people.svg"
                       class="img-fluid"
                       alt="shop"
                     />
@@ -179,11 +191,11 @@
                       {{ (statistics$ | async)?.total_out_of_delivery_orders }}
                     </h2>
                   </div>
-                  <img
+                  <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
-                  />
+                  /> -->
                 </a>
               </div>
               <div class="col-xxl-4 col-sm-6 booking-status-card">
@@ -193,27 +205,27 @@
                   [queryParams]="{ status: 'delivered'}"
                   class="booking-widget-card card"
                 >
-                  <div class="booking-widget-icon">
-                    <img
-                      src="assets/images/svg/shop.svg"
+                  <div class="booking-widget-icon booking-widget-pink">
+                    <img 
+                      src="assets/images/svg/medal-star.svg"
                       class="img-fluid"
-                      alt="box-remove"
-                    />
+                      alt="box-remove" 
+                    /> 
                   </div>
                   <div>
                     <h6>{{ 'delivered' | translate }}</h6>
                     <h2>{{ (statistics$ | async)?.total_delivered_orders }}</h2>
                   </div>
-                  <img
+                  <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
-                  />
+                  /> -->
                 </a>
               </div>
             </div>
-          </div>
-        </div>
+          <!-- </div>
+        </div> --> 
       </div>
     </div>
     <div class="card-bottom-space">
@@ -224,8 +236,8 @@
           <a href="javascript:void(0)" class="widget-card card">
             <div class="widget-icon">
               <img
-                src="assets/images/svg/empty-wallet.svg"
-                class="img-fluid"
+                src="assets/images/svg/truck.svg"
+                class="img-fluid" 
                 alt="empty-wallet"
               />
             </div>
@@ -242,7 +254,7 @@
           <a [routerLink]="['/product']" class="widget-card card">
             <div class="widget-icon">
               <img
-                src="assets/images/svg/receipt-2.svg"
+                src="assets/images/svg/truck.svg"
                 class="img-fluid"
                 alt="receipt"
               />
@@ -257,7 +269,7 @@
           <a [routerLink]="['/order']" class="widget-card card">
             <div class="widget-icon">
               <img
-                src="assets/images/svg/medal-star.svg"
+                src="assets/images/svg/truck.svg"
                 class="img-fluid"
                 alt="medal-star"
               />
@@ -272,8 +284,8 @@
           <a [routerLink]="['/store']" class="widget-card card">
             <div class="widget-icon">
               <img
-                src="assets/images/svg/shop-white.svg"
-                class="img-fluid"
+                src="assets/images/svg/truck.svg"
+                class="img-fluid" 
                 alt="shop-white"
               />
             </div>
@@ -287,7 +299,7 @@
           <a [routerLink]="['/user']" class="widget-card card">
             <div class="widget-icon">
               <img
-                src="assets/images/svg/people.svg"
+                src="assets/images/svg/truck.svg"
                 class="img-fluid"
                 alt="people"
               />
@@ -348,7 +360,7 @@
           <a href="javascript:void(0)" class="widget-card card">
             <div class="widget-icon">
               <img
-                src="assets/images/svg/empty-wallet.svg"
+                src="assets/images/svg/empty-wallet.svg" 
                 class="img-fluid"
                 alt="empty-wallet"
               />
@@ -368,18 +380,6 @@
 <!-- revenue & top vendor -->
 <section>
   <div class="row m-0">
-    <div
-      [class]="
-      (user$ | async)?.role?.name === 'vendor'
-        ? 'col-xl-12 col-md-6 p-0'
-        : 'col-xl-7 col-md-6 p-0'
-    "
-    >
-      <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'Average Revenue'">
-        <div #chart></div>
-      </app-page-wrapper>
-    </div>
-
     @if((user$ | async)?.role?.name !== 'vendor'){
     <div class="col-xl-5 col-md-6 p-0" *hasPermission="'store.index'">
       <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'top_stores'">
@@ -404,6 +404,19 @@
       </app-page-wrapper>
     </div>
     }
+    <div
+      [class]="
+      (user$ | async)?.role?.name === 'vendor'
+        ? 'col-xl-12 col-md-6 p-0'
+        : 'col-xl-7 col-md-6 p-0'
+    "
+    >
+      <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'Average Revenue'">
+        <div #chart></div>
+      </app-page-wrapper>
+    </div>
+
+
   </div>
   <div class="row m-0">
     <div class="col-xl-12 col-md-6 p-0" *hasPermission="'order.index'">

@@ -1,5 +1,5 @@
 :root {
-  --theme-color: #ff9900;
+  --theme-color: #FFA800;
   // ck editor variables
   --ck-color-base-active: var(--theme-color) !important;
   --ck-color-base-active-focus: var(--theme-color) !important;
@@ -18,9 +18,11 @@
 $theme-font-color: #222222;
 $theme-body-font-color: #4a5568;
 $theme-body-sub-title-color: rgba($theme-body-font-color, 0.7);
-$body-color: #fbfeff;
+$body-color: #fbfeff; 
 
 // Theme colors variables
+$primary-color-bg-color:   linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(180deg, #5783B9 0%, #5783B9 50%) border-box;;
 $box-shadow: #dedede;
 $grey-3: #333333;
 $grey-13: #9a9a9a;
@@ -61,28 +63,29 @@ $light-background: #d7e2e9;
 $light-font: #1b3155;
 $light-semi-font: $semi-dark;
 $light-chartist-grid-color: #f6f9fd;
-$pitch-color: #fe8a7d;
-$color-scarpa: #4c5667;
+$pitch-color: #EF958B;
+$pink-color: #F491C2; 
+$color-scarpa: #94A3B8;
 $color-fiord: #455a64;
 $black: #000;
 $black1: #232323;
-$white: #fff;
+$white: #fff; 
 $theme-medium-color: #eae8ff;
 $light-blue: #eff2f7;
 $font-light: #7e7e7e;
 $gray: #c7c7c5;
 $gray-light: #ddd;
 $silver-light: #efefee;
-$light-yellow: #ff9f40;
+$light-yellow: #FFCB66;
 $gray-dark: #555;
 $black1: #212529;
-$light-purple: #e3e0ff;
+$light-purple: #95ABEC;
 $mainly-blue: #f8f9fe;
 $suva-grey: #e8ebf2;
 $v-light-silver: #eeeeee;
 $purple: #7468f0;
 $yellow: #ff9f44;
-$light-green: #28c870;
+$light-green: #82D1CA;
 $green: #008000;
 $lavender: #e8eaf6;
 $white-ice: #ebf7fc;
@@ -107,11 +110,12 @@ $linkedin: #0077b5;
 $light-body-bg-color: #fafdff;
 
 //fonts
-$public-sans: "Montserrat", sans-serif;
+
+$public-sans: "BR Hendrix";
 $font-rubik: Rubik;
 $font-serif: sans-serif;
 $font-themify: themify;
-$font-ICO: IcoFont;
+$font-ICO: IcoFont; 
 
 // dark layout variables
 $dark-body-background: #0b141d;

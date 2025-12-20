@@ -73,6 +73,7 @@
       }
     }
   }
+
 }
 
 .onhover-dropdown {
@@ -80,14 +81,13 @@
   position: relative;
 
   &:hover {
-    .onhover-show-div {
+    .onhover-show-div { 
       // @extend side.for-animated-hover-box !optional;
-      opacity: 1;
+      opacity: 1; 
       transform: translateY(0px);
       visibility: visible;
       border-radius: 0;
       overflow: hidden;
-    
       &:before {
         width: 0;
         height: 0;
@@ -109,7 +109,7 @@
         @include mixins.pos;
         top: -7px;
         left: 10px;
-        z-index: 1;
+        z-index: 1; 
       }
     }
   }
@@ -120,6 +120,7 @@
   position: absolute;
   z-index: 8;
   background-color: variables.$white;
+  transition: all linear 0.3s;
   transition: all linear 0.3s;
   @extend %for-animated-hover !optional;
 

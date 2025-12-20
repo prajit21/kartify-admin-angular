@@ -7,7 +7,7 @@
         [src]="(setting$ | async )?.general?.light_logo_image?.asset_url" 
         alt="logo"
       />
-    </a>
+    </a> 
     }@else {
     <a [routerLink]="['/dashboard']">
       <h2 class="text-white">
@@ -31,7 +31,7 @@
     <div class="back-btn">
       <i class="fa fa-angle-left"></i>
     </div>
-    <div class="0-sidebar" (click)="sidebarToggle()">
+    <div class="0-sidebar custom-sidebar " (click)="sidebarToggle()">
       <i class="ri-apps-line status_toggle middle sidebar-toggle"></i>
     </div>
   </div>
@@ -39,7 +39,7 @@
 
   <nav class="sidebar-main">
     <div class="left-arrow" id="left-arrow">
-      <i data-feather="arrow-left"></i>
+      <i data-feather="arrow-left"></i> 
     </div>
     <div id="sidebar-menu">
       <ul class="sidebar-links" id="simple-bar">
@@ -49,7 +49,7 @@
           @for(menu of menus; track i; let i = $index){
           @if(hasMainLevelMenuPermission(menu?.acl_permission) && (!menu?.canAllow ||
           (menu?.canAllow?.length && role && menu?.canAllow?.includes(role)))){
-          <li [class.sidebar-list]="menu.type === 'sub'" *hasPermission="menu?.permission">
+          <li [class.sidebar-list]="menu.type === 'sub'" *hasPermission="menu?.permission"   routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">
             @if(menu.type === 'sub'){
             <a
               href="javascript:void(0)"
@@ -100,7 +100,7 @@
               }
             </a>
             }
-            <ul class="sidebar-submenu" [class.show]="menu.children && menu.active">
+            <ul class="sidebar-submenu" [class.show]="menu.children && menu.active" [class.active]="menu.children && menu.active">
               <ng-container
                 *ngTemplateOutlet="recursiveMenu; context: { $implicit: menu.children }"
               />

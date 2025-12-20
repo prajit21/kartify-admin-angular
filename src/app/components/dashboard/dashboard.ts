@@ -236,7 +236,7 @@ export class Dashboard {
     this.notice$.subscribe(data => (this.notice = data));
     config.max = 5;
     config.readonly = true;
-
+ 
     this.charts = {
       series: [
         {
