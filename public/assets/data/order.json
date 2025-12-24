@@ -822,7 +822,7 @@
           "deleted_at": null
         }
       ],
-      "products": [
+      "products": [    
         {
           "id": 24,
           "name": "Premium Over-Ear Noise Cancelling Headphones - Deep Bass & Comfort Fit",
@@ -832,7 +832,7 @@
           "order_amount": 0,
           "is_wishlist": false,
           "rating_count": null,
-          "review_ratings": [0, 0, 0, 0, 0],
+          "review_ratings": [0, 0, 0, 0, 0],   
           "related_products": [],
           "cross_sell_products": [],
           "pivot": {

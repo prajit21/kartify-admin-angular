@@ -10,7 +10,7 @@ body {
   overflow-x: hidden;
   font-family: variables.$public-sans;
   color: variables.$theme-body-font-color;
-  background-color: #f8f8f8;
+  background-color: #f8f8f8; 
 }
 
 ul {
@@ -145,7 +145,7 @@ h1 {
 }
 
 h2 {
-  font-size: calc(22px + (28 - 22) * ((100vw - 320px) / (1920 - 320)));
+  font-size: calc(26px + (28 - 26) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 600;
   line-height: 1;
   text-transform: capitalize;

@@ -6,7 +6,7 @@
   <div class="row">
     <div [ngClass]="navServices.collapseSidebar ? 'col-xxl-9' : 'col-xxl-8'">
       @if((category$ | async)?.data?.length){
-      <div class="card">
+      <div class="card"> 
         <div class="card-body">
           <div class="pos-product-screen">
             <div class="title-header">
@@ -14,7 +14,6 @@
                 <h5>{{ 'categories' | translate }}</h5>
               </div>
             </div>
-
             <owl-carousel-o [options]="customOptions">
               @for(category of (category$ | async)?.data; track category.id){
               <ng-template carouselSlide>
@@ -132,7 +131,7 @@
                       <h5>
                         {{ (item?.variation ? item?.variation.sale_price : item?.product &&
                         item?.wholesale_price ? item?.wholesale_price : item?.product?.sale_price) |
-                        currencySymbol}}
+                        currencySymbol}} 
                       </h5>
                       <div class="qty-box cart_qty">
                         <div class="input-group">
@@ -176,7 +175,7 @@
           <div class="card-body">
             <div class="title-header">
               <div class="d-flex align-items-center w-100">
-                <h5>{{"billing_summary"| translate}}</h5>
+                <h5>{{"billing_summary"| translate}}</h5> 
               </div>
             </div>
 
