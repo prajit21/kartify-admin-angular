@@ -13,11 +13,13 @@
         </div>
       </div>
       <a [routerLink]="['/notice']">{{ 'see_all' | translate }}</a>
-      <a class="close-icon" (click)="markAsRead(notice?.id)"><i class="ri-close-line"></i></a>
+      <a class="close-icon" (click)="markAsRead(notice?.id)"
+        ><i class="ri-close-line"></i
+      ></a>
     </div>
   </div>
 </section>
-} 
+}
 <!-- notice section -->
 
 <!-- tiles section -->
@@ -27,17 +29,26 @@
       <div class="col-md-4">
         <div class="card welcome-tiles-card">
           <div class="card-body">
-            <h2>Welcome Back Admin</h2> 
+            <h2>Welcome Back Admin</h2>
             <p>
-              Real-time analytics, user management, and advanced reporting in one dashboard.
-            </p> 
+              Real-time analytics, user management, and advanced reporting in
+              one dashboard.
+            </p>
           </div>
           <div class="welcome-img-vector">
-            <img src="assets/images/bg.jpg" class="img-fluid vector-1" alt="img" />       
-            <img src="assets/images/vector-2.png" class="img-fluid vector-2" alxt="img" />
+            <img
+              src="assets/images/bg.jpg"
+              class="img-fluid vector-1"
+              alt="img"
+            />
+            <img
+              src="assets/images/vector-2.png"
+              class="img-fluid vector-2"
+              alxt="img"
+            />
           </div>
         </div>
-      </div> 
+      </div>
       <!-- <div class="col-md-4 welcome-tiles">
         <div class="card">
           <img src="assets/images/bg.jpg" class="img-fluid" alt="img" />
@@ -52,7 +63,7 @@
       <div class="col-md-8">
         <!-- <div class="card">
           <div class="card-body"> -->
-            <!-- <div class="title-header">
+        <!-- <div class="title-header">
               <div class="d-flex align-items-center">
                 <h5>{{ 'order_status' | translate }}</h5>
               </div> 
@@ -66,164 +77,163 @@
                 />
                 }
               </div>
-            </div> --> 
-            <div class="row g-sm-4 g-3 booking-status-main"> 
-              <div class="col-xxl-4 col-sm-6 booking-status-card"> 
-                <a
-                  href="javascript:void(0)"
-                  [routerLink]="['/order']" 
-                  [queryParams]="{ status: 'pending'}"
-                  class="booking-widget-card card">  
-                  <div class="booking-widget-icon booking-widget-warning">
-                    <img
-                      src="assets/images/svg/empty-wallet.svg"
-                      class="img-fluid"
-                      alt="box-time"
-                    />
-                  </div>
-                  <div> 
-                    <h6>{{ 'pending' | translate }}</h6>
-                    <h2>{{ (statistics$ | async)?.total_pending_orders }}</h2>
-                  </div>
-                  <!-- <img
-                    src="assets/images/tiles-bg.png"
-                    class="img-fluid abs-icon"
-                    alt="box-time"
-                  /> --> 
-                </a>
+            </div> -->
+        <div class="row g-sm-4 g-3 booking-status-main">
+          <div class="col-xxl-4 col-sm-6 booking-status-card">
+            <a
+              href="javascript:void(0)"
+              [routerLink]="['/order']"
+              [queryParams]="{ status: 'pending'}"
+              class="booking-widget-card card"
+            >
+              <div class="booking-widget-icon booking-widget-warning">
+                <img
+                  src="assets/images/svg/empty-wallet.svg"
+                  class="img-fluid"
+                  alt="box-time"
+                />
               </div>
-              <div class="col-xxl-4 col-sm-6 booking-status-card">
-                <a 
-                  href="javascript:void(0)" 
-                  [routerLink]="['/order']"
-                  [queryParams]="{ status: 'processing'}"
-                  class="booking-widget-card card" 
-                >
-                  <div class="booking-widget-icon booking-widget-green">
-                    <img
-                      src="assets/images/svg/empty-wallet.svg"
-                      class="img-fluid"
-                      alt="note"
-                    /> 
-                  </div>
-                  <div>
-                    <h6>{{ 'processing' | translate }}</h6>
-                    <h2>
-                      {{ (statistics$ | async)?.total_processing_orders }}
-                    </h2>
-                  </div>
-                  <!-- <img
+              <div>
+                <h6>{{ 'pending' | translate }}</h6>
+                <h2>{{ (statistics$ | async)?.total_pending_orders }}</h2>
+              </div>
+              <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
                   /> -->
-                </a>
+            </a>
+          </div>
+          <div class="col-xxl-4 col-sm-6 booking-status-card">
+            <a
+              href="javascript:void(0)"
+              [routerLink]="['/order']"
+              [queryParams]="{ status: 'processing'}"
+              class="booking-widget-card card"
+            >
+              <div class="booking-widget-icon booking-widget-green">
+                <img
+                  src="assets/images/svg/empty-wallet.svg"
+                  class="img-fluid"
+                  alt="note"
+                />
               </div>
-              <div class="col-xxl-4 col-sm-6 booking-status-card">
-                <a
-                  href="javascript:void(0)"
-                  [routerLink]="['/order']"
-                  [queryParams]="{ status: 'cancelled'}"
-                  class="booking-widget-card card"
-                >
-                  <div class="booking-widget-icon booking-widget-purple">
-                    <img
-                      src="assets/images/svg/medal-star.svg"
-                      class="img-fluid"
-                      alt="box-1"
-                    />
-                  </div>
-                  <div>
-                    <h6>{{ 'cancelled' | translate }}</h6>
-                    <h2>{{ (statistics$ | async)?.total_cancelled_orders }}</h2>
-                  </div>
-                  <!-- <img
+              <div>
+                <h6>{{ 'processing' | translate }}</h6>
+                <h2>{{ (statistics$ | async)?.total_processing_orders }}</h2>
+              </div>
+              <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
                   /> -->
-                </a>
+            </a>
+          </div>
+          <div class="col-xxl-4 col-sm-6 booking-status-card">
+            <a
+              href="javascript:void(0)"
+              [routerLink]="['/order']"
+              [queryParams]="{ status: 'cancelled'}"
+              class="booking-widget-card card"
+            >
+              <div class="booking-widget-icon booking-widget-purple">
+                <img
+                  src="assets/images/svg/medal-star.svg"
+                  class="img-fluid"
+                  alt="box-1"
+                />
               </div>
-              <div class="col-xxl-4 col-sm-6 booking-status-card">
-                <a
-                  href="javascript:void(0)"
-                  [routerLink]="['/order']"
-                  [queryParams]="{ status: 'shipped'}"
-                  class="booking-widget-card card"
-                >
-                  <div class="booking-widget-icon booking-widget-pitch">
-                    <img
-                      src="assets/images/svg/shop-white.svg"
-                      class="img-fluid"
-                      alt="group"
-                    /> 
-                  </div> 
-                  <div>
-                    <h6>{{ 'shipped' | translate }}</h6>
-                    <h2>{{ (statistics$ | async)?.total_shipped_orders }}</h2>
-                  </div>
-                  <!-- <img
+              <div>
+                <h6>{{ 'cancelled' | translate }}</h6>
+                <h2>{{ (statistics$ | async)?.total_cancelled_orders }}</h2>
+              </div>
+              <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
                   /> -->
-                </a>
+            </a>
+          </div>
+          <div class="col-xxl-4 col-sm-6 booking-status-card">
+            <a
+              href="javascript:void(0)"
+              [routerLink]="['/order']"
+              [queryParams]="{ status: 'shipped'}"
+              class="booking-widget-card card"
+            >
+              <div class="booking-widget-icon booking-widget-pitch">
+                <img
+                  src="assets/images/svg/shop-white.svg"
+                  class="img-fluid"
+                  alt="group"
+                />
               </div>
-              <div class="col-xxl-4 col-sm-6 booking-status-card">
-                <a
-                  href="javascript:void(0)"
-                  [routerLink]="['/order']"
-                  [queryParams]="{ status: 'out_for_delivery'}"
-                  class="booking-widget-card card"
-                >
-                  <div class="booking-widget-icon booking-widget-scarpa">
-                    <img
-                      src="assets/images/svg/people.svg"
-                      class="img-fluid"
-                      alt="shop"
-                    />
-                  </div>
-                  <div>
-                    <h6>{{ 'out_for_delivery' | translate }}</h6>
-                    <h2>
-                      {{ (statistics$ | async)?.total_out_of_delivery_orders }}
-                    </h2>
-                  </div>
-                  <!-- <img
+              <div>
+                <h6>{{ 'shipped' | translate }}</h6>
+                <h2>{{ (statistics$ | async)?.total_shipped_orders }}</h2>
+              </div>
+              <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
                   /> -->
-                </a>
+            </a>
+          </div>
+          <div class="col-xxl-4 col-sm-6 booking-status-card">
+            <a
+              href="javascript:void(0)"
+              [routerLink]="['/order']"
+              [queryParams]="{ status: 'out_for_delivery'}"
+              class="booking-widget-card card"
+            >
+              <div class="booking-widget-icon booking-widget-scarpa">
+                <img
+                  src="assets/images/svg/people.svg"
+                  class="img-fluid"
+                  alt="shop"
+                />
               </div>
-              <div class="col-xxl-4 col-sm-6 booking-status-card">
-                <a
-                  href="javascript:void(0)"
-                  [routerLink]="['/order']"
-                  [queryParams]="{ status: 'delivered'}"
-                  class="booking-widget-card card"
-                >
-                  <div class="booking-widget-icon booking-widget-pink">
-                    <img 
-                      src="assets/images/svg/medal-star.svg"
-                      class="img-fluid"
-                      alt="box-remove" 
-                    /> 
-                  </div>
-                  <div>
-                    <h6>{{ 'delivered' | translate }}</h6>
-                    <h2>{{ (statistics$ | async)?.total_delivered_orders }}</h2>
-                  </div>
-                  <!-- <img
+              <div>
+                <h6>{{ 'out_for_delivery' | translate }}</h6>
+                <h2>
+                  {{ (statistics$ | async)?.total_out_of_delivery_orders }}
+                </h2>
+              </div>
+              <!-- <img
                     src="assets/images/tiles-bg.png"
                     class="img-fluid abs-icon"
                     alt="box-time"
                   /> -->
-                </a>
+            </a>
+          </div>
+          <div class="col-xxl-4 col-sm-6 booking-status-card">
+            <a
+              href="javascript:void(0)"
+              [routerLink]="['/order']"
+              [queryParams]="{ status: 'delivered'}"
+              class="booking-widget-card card"
+            >
+              <div class="booking-widget-icon booking-widget-pink">
+                <img
+                  src="assets/images/svg/medal-star.svg"
+                  class="img-fluid"
+                  alt="box-remove"
+                />
               </div>
-            </div>
-          <!-- </div>
-        </div> --> 
+              <div>
+                <h6>{{ 'delivered' | translate }}</h6>
+                <h2>{{ (statistics$ | async)?.total_delivered_orders }}</h2>
+              </div>
+              <!-- <img
+                    src="assets/images/tiles-bg.png"
+                    class="img-fluid abs-icon"
+                    alt="box-time"
+                  /> -->
+            </a>
+          </div>
+        </div>
+        <!-- </div>
+        </div> -->
       </div>
     </div>
     <div class="card-bottom-space">
@@ -235,7 +245,7 @@
             <div class="widget-icon">
               <img
                 src="assets/images/svg/truck.svg"
-                class="img-fluid" 
+                class="img-fluid"
                 alt="empty-wallet"
               />
             </div>
@@ -283,7 +293,7 @@
             <div class="widget-icon">
               <img
                 src="assets/images/svg/truck.svg"
-                class="img-fluid" 
+                class="img-fluid"
                 alt="shop-white"
               />
             </div>
@@ -358,7 +368,7 @@
           <a href="javascript:void(0)" class="widget-card card">
             <div class="widget-icon">
               <img
-                src="assets/images/svg/empty-wallet.svg" 
+                src="assets/images/svg/empty-wallet.svg"
                 class="img-fluid"
                 alt="empty-wallet"
               />
@@ -375,7 +385,7 @@
   </div>
 </section>
 
-<!-- revenue & top vendor --> 
+<!-- revenue & top vendor -->
 
 <section>
   <div class="row m-0">
@@ -383,30 +393,37 @@
     <div class="col-xl-5 col-md-6 p-0" *hasPermission="'store.index'">
       <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'top_stores'">
         <div button [class.show]="open">
-          @if(isBrowser) { 
+          @if(isBrowser) {
           <!-- <select2
             class="custom-select min-w-cls"
             [data]="filter?.length ? filter : []"
             [placeholder]="'filter_by' | translate"
             (update)="filterSeller($event)"
-          /> --> 
+          /> -->
           <div class="dropdown icon-dropdown">
-            <button id="userdropdown" type="button" class="btn dropdown-toggle" (click)="openToggle()">
-              <img src="assets/images/svg/more.svg" alt="icon" >
-              </button>
-              <div class="dropdown-menu dropdown-menu-end" [class.show]="open">
-                 @for(item of filter; track item){
-                <a href="javascript:void(0)" class="dropdown-item">{{item.label}}</a>
-                 }
-              </div> 
+            <button
+              id="userdropdown"
+              type="button"
+              class="btn dropdown-toggle"
+              (click)="openToggle()"
+            >
+              <img src="assets/images/svg/more.svg" alt="icon" />
+            </button>
+            <div class="dropdown-menu dropdown-menu-end" [class.show]="open">
+              @for(item of filter; track item){
+              <a href="javascript:void(0)" class="dropdown-item"
+                >{{item.label}}</a
+              >
+              }
             </div>
+          </div>
           }
         </div>
         <app-table
           [tableConfig]="sellerTableConfig"
           (tableChanged)="onSellerTableChange($event)"
           [pagination]="false"
-          [topbar]="false" 
+          [topbar]="false"
           [loading]="topSellerLoader"
           [hasCheckbox]="false"
         />
@@ -420,40 +437,46 @@
         : 'col-xl-7 col-md-6 p-0'
     "
     >
-      <app-page-wrapper [gridClass]="'col-sm-12'"  [title]="'Average Revenue'">
-        <div class="custom-average-revenue 
-" #chart></div> 
+      <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'Average Revenue'">
+        <div class="custom-average-revenue" #chart></div>
       </app-page-wrapper>
     </div>
-  </div> 
+  </div>
   <div class="row m-0">
     <div class="col-xl-6 col-md-6 p-0">
       <div *hasPermission="'product.index'">
-         <app-page-wrapper
-           [gridClass]="'col-sm-12'"
-           [title]="'top_selling_products'" 
-         >
-           <div button>
-             @if(isBrowser) {
-             <!-- <select2
+        <app-page-wrapper
+          [gridClass]="'col-sm-12'"
+          [title]="'top_selling_products'"
+        >
+          <div button>
+            @if(isBrowser) {
+            <!-- <select2
                class="custom-select min-w-cls"
                [data]="filter?.length ? filter : []"
                [placeholder]="'filter_by' | translate"
                (update)="filterTopProduct($event)" 
-             /> --> 
-          <div class="dropdown icon-dropdown">
-            <button id="userdropdown2" type="button" class="btn dropdown-toggle" (click)="openToggle2()">
-              <img src="assets/images/svg/more.svg" alt="icon" >
+             /> -->
+            <div class="dropdown icon-dropdown">
+              <button
+                id="userdropdown2"
+                type="button"
+                class="btn dropdown-toggle"
+                (click)="openToggle2()"
+              >
+                <img src="assets/images/svg/more.svg" alt="icon" />
               </button>
               <div class="dropdown-menu dropdown-menu-end" [class.show]="open2">
-                 @for(item of filter; track item){
-                <a href="javascript:void(0)" class="dropdown-item">{{item.label}}</a>
-                 }
+                @for(item of filter; track item){
+                <a href="javascript:void(0)" class="dropdown-item"
+                  >{{item.label}}</a
+                >
+                }
               </div>
             </div>
-             }
-           </div>
-           <!-- <div class="top-selling-table datatable-wrapper table-responsive">
+            }
+          </div>
+          <!-- <div class="top-selling-table datatable-wrapper table-responsive">
              @if(topProductLoader){
              <div class="table-loader">
                <span>{{ "please_wait" | translate }}...</span>
@@ -511,51 +534,49 @@
                }
              </table>
            </div> -->
-        <div class="top-selling-wrapper">
-          <!-- <div class="top-selling-header">
+          <div class="top-selling-wrapper">
+            <!-- <div class="top-selling-header">
             <h5>Top Selling Products</h5>
             <i class="ri-more-2-fill"></i>
           </div> -->
-                        @for(product of topProduct$ | async | slice:0:3; track product.id){
+            @for(product of topProduct$ | async | slice:0:3; track product.id){
 
-                        <div class="top-selling-card" >
-                      
-                          <div class="product-info">
-                            <img
-                              [src]="product?.product_thumbnail?.original_url || 'assets/images/product.png'"
-                              alt="product"
-                            />
-                            <div>
-                              <h6>{{ product?.name }}</h6>
-                              <span>{{ product?.created_at | date: 'dd MMM yyyy' }}</span>
-                            </div>
-                          </div> 
-                      
-                          <div class="product-meta">
-                            <span>Price</span>
-                            <h6>{{ product?.sale_price | currencySymbol }}</h6>
-                          </div>
-                      
-                          <div class="product-meta">
-                            <span>Orders</span>
-                            <h6>{{ product?.orders_count }}</h6>
-                          </div>
-                      
-                          <div class="product-meta">
-                            <span>Stock</span>
-                            <h6>{{ product?.quantity }}</h6>
-                          </div>
-                      
-                          <div class="product-meta amount">
-                            <span>Amount</span>
-                            <h6>{{ +product?.order_amount | currencySymbol }}</h6>
-                          </div>
-                        </div>
-          }
+            <div class="top-selling-card">
+              <div class="product-info">
+                <img
+                  [src]="product?.product_thumbnail?.original_url || 'assets/images/product.png'"
+                  alt="product"
+                />
+                <div>
+                  <h6>{{ product?.name }}</h6>
+                  <span>{{ product?.created_at | date: 'dd MMM yyyy' }}</span>
+                </div>
+              </div>
 
-        </div>
-         </app-page-wrapper>
-       </div>
+              <div class="product-meta">
+                <span>Price</span>
+                <h6>{{ product?.sale_price | currencySymbol }}</h6>
+              </div>
+
+              <div class="product-meta">
+                <span>Orders</span>
+                <h6>{{ product?.orders_count }}</h6>
+              </div>
+
+              <div class="product-meta">
+                <span>Stock</span>
+                <h6>{{ product?.quantity }}</h6>
+              </div>
+
+              <div class="product-meta amount">
+                <span>Amount</span>
+                <h6>{{ +product?.order_amount | currencySymbol }}</h6>
+              </div>
+            </div>
+            }
+          </div>
+        </app-page-wrapper>
+      </div>
     </div>
     <div class="col-xl-6 col-md-6 p-0" *hasPermission="'order.index'">
       <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'recent_orders'">
@@ -574,9 +595,10 @@
   </div>
   <div class="row m-0">
     <div class="col-md-6 p-0" *hasPermission="'product.index'">
-      <app-page-wrapper 
-        [gridClass]="'col-sm-12'" 
-        [title]="'product_stock_report'">
+      <app-page-wrapper
+        [gridClass]="'col-sm-12'"
+        [title]="'product_stock_report'"
+      >
         <div button>
           @if(isBrowser) {
           <!-- <select2
@@ -586,16 +608,23 @@
             (update)="filterProduct($event)"
             resettable
           /> -->
-           <div class="dropdown icon-dropdown">
-            <button id="userdropdown2" type="button" class="btn dropdown-toggle" (click)="openToggle4()">
-              <img src="assets/images/svg/more.svg" alt="icon" >
-              </button>
-              <div class="dropdown-menu dropdown-menu-end" [class.show]="open4">
-                 @for(item of filter; track item){
-                <a href="javascript:void(0)" class="dropdown-item">{{item.label}}</a>
-                 }
-              </div>
+          <div class="dropdown icon-dropdown">
+            <button
+              id="userdropdown2"
+              type="button"
+              class="btn dropdown-toggle"
+              (click)="openToggle4()"
+            >
+              <img src="assets/images/svg/more.svg" alt="icon" />
+            </button>
+            <div class="dropdown-menu dropdown-menu-end" [class.show]="open4">
+              @for(item of filter; track item){
+              <a href="javascript:void(0)" class="dropdown-item"
+                >{{item.label}}</a
+              >
+              }
             </div>
+          </div>
           }
         </div>
         <app-table
@@ -611,24 +640,32 @@
       </app-page-wrapper>
     </div>
     <div class="overflow-hidden col-md-6 p-0">
-      <app-page-wrapper 
+      <app-page-wrapper
         [gridClass]="'col-sm-12'"
-        [title]="'latest_reviews'" 
-        *hasPermission="'review.index'">
+        [title]="'latest_reviews'"
+        *hasPermission="'review.index'"
+      >
         <div button>
           <!-- <a [routerLink]="['/review']" class="txt-primary"
             >{{ "view_all" | translate }}</a
           > -->
-            <div class="dropdown icon-dropdown">
-            <button id="userdropdown2" type="button" class="btn dropdown-toggle" (click)="openToggle3()">
-              <img src="assets/images/svg/more.svg" alt="icon" >
-              </button>
-              <div class="dropdown-menu dropdown-menu-end" [class.show]="open3">
-                 @for(item of filter; track item){
-                <a href="javascript:void(0)" class="dropdown-item">{{item.label}}</a>
-                 } 
-              </div>
+          <div class="dropdown icon-dropdown">
+            <button
+              id="userdropdown2"
+              type="button"
+              class="btn dropdown-toggle"
+              (click)="openToggle3()"
+            >
+              <img src="assets/images/svg/more.svg" alt="icon" />
+            </button>
+            <div class="dropdown-menu dropdown-menu-end" [class.show]="open3">
+              @for(item of filter; track item){
+              <a href="javascript:void(0)" class="dropdown-item"
+                >{{item.label}}</a
+              >
+              }
             </div>
+          </div>
         </div>
         <div class="review-box table-responsive">
           <!-- <table> 
@@ -657,11 +694,84 @@
               </td>
             </tr>
             }
-          </table> --> 
-        
-        <!-- Review Card div wise -->
-          <div class="review-card">
-            <!-- Header -->
+          </table> -->
+
+          <!-- Review Card div wise -->
+
+          <!-- Swiper Container -->
+          <div class="swiper" #swiperContainer>
+            <div class="swiper-wrapper">
+              @for(review of (review$ | async)?.data | slice : 0 : 4; track
+              review.id){
+              <div class="swiper-slide">
+                <div class="review-card">
+                  <div class="row align-items-center mb-3">
+                    <div class="col-8">
+                      <div class="d-flex align-items-center gap-3">
+                        <img
+                          [src]="
+              review?.product?.product_thumbnail
+                ? review?.product?.product_thumbnail?.original_url
+                : 'assets/images/product.png'
+            "
+                          class="img-fluid"
+                          [alt]="'review'"
+                          class="user-img"
+                        />
+                        <div>
+                          <h4 class="mb-1">{{ review?.consumer?.name }}</h4>
+                          <span class="date">SEPTEMBER 24, 2025</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="rating">
+                        <ngb-rating
+                          class="rating-sec"
+                          [rate]="review?.rating"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-12">
+                      <p class="review-text">
+                        "Absolutely loved the bridal collection! The designs
+                        were unique, the quality was premium, and the fitting
+                        was..."
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row product align-items-center">
+                    <div class="col-3">
+                      <img
+                        src="product.jpg"
+                        alt="product"
+                        class="product-img"
+                      />
+                    </div>
+                    <div class="col-9">
+                      <h5 class="mb-1">{{ review?.product?.name }}</h5>
+                      <div class="price">
+                        <span class="new"
+                          >{{ review?.product?.sale_price }}</span
+                        >
+                        <span class="old">{{ review?.product?.price }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              }
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <!-- <div class="review-card">
             <div class="row align-items-center mb-3">
               <div class="col-8">
                 <div class="d-flex align-items-center gap-3">
@@ -696,7 +806,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           @if(!(review$ | async)?.data?.length){
           <div class="no-data-added">
             <h4>{{ "no_records_found" | translate }}</h4>

@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   Component,
@@ -23,9 +24,9 @@ import {
   ApexMarkers,
   ApexResponsive,
   ApexStroke,
-  ApexTitleSubtitle, 
+  ApexTitleSubtitle,
   ApexTooltip,
-  ApexXAxis,  
+  ApexXAxis,
   ApexYAxis,
 } from 'ng-apexcharts';
 import { Select2Data, Select2Module, Select2UpdateEvent } from 'ng-select2-component';
@@ -68,6 +69,14 @@ import { ProductState } from '../../shared/store/state/product.state';
 import { ReviewState } from '../../shared/store/state/review.state';
 import { StoreState } from '../../shared/store/state/store.state';
 
+import SwiperCore from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+import { SwiperOptions } from 'swiper/types';
+
+
+SwiperCore.use([Pagination, Navigation]);
+
+
 export interface ChartOptions {
   series: ApexAxisChartSeries;
   chart: ApexChart;
@@ -75,7 +84,7 @@ export interface ChartOptions {
   yaxis: ApexYAxis;
   stroke: ApexStroke;
   tooltip: ApexTooltip;
-  dataLabels: ApexDataLabels; 
+  dataLabels: ApexDataLabels;
   fill: ApexFill;
   title: ApexTitleSubtitle;
   grid: ApexGrid;
@@ -166,21 +175,47 @@ export class Dashboard {
   ) as Observable<INotice>;
 
   readonly chart = viewChild.required<ElementRef>('chart');
+  readonly swiperContainer = viewChild<ElementRef>('swiperContainer');
 
+  public swiperConfig: SwiperOptions = {
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
+    // pagination: {
+    //   el: '.swiper-pagination',
+    //   clickable: true,
+    // },
+    slidesPerView: 2,
+    spaceBetween: 20,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    },
+  };
   public today = new Date();
 
   public chartOptions!: Partial<ChartOptions>;
   public charts: Partial<Charts>;
-   public revenueCharts: Partial<RevenueCharts>;
+  public revenueCharts: Partial<RevenueCharts>;
   public isBrowser: boolean;
 
   public topProductLoader: boolean = false;
   public productStockLoader: boolean = false;
   public topSellerLoader: boolean = false;
-  public notice: INotice; 
+  public notice: INotice;
   public filterType: string;
   public filter: OptionSelect[] = [
-    { 
+    {
       value: 'today',
       label: 'Today',
     },
@@ -232,7 +267,7 @@ export class Dashboard {
       {
         title: 'image',
         dataField: 'product_thumbnail',
-        class: 'tbl-image', 
+        class: 'tbl-image',
         type: 'image',
         placeholder: 'assets/images/product.png',
       },
@@ -264,7 +299,7 @@ export class Dashboard {
     this.notice$.subscribe(data => (this.notice = data));
     config.max = 5;
     config.readonly = true;
- 
+
     this.charts = {
       series: [
         {
@@ -414,15 +449,15 @@ export class Dashboard {
           show: false,
         },
       },
-    }; 
+    };
 
     // Revenue & Commision Chart
     this.revenueChart$.subscribe(revenue => {
       if (revenue) {
         this.chartOptions = {
-          series: [ 
+          series: [
             {
-              name: 'Revenue', 
+              name: 'Revenue',
               data: revenue.revenues,
               color: '#7AA2F7',
             },
@@ -472,7 +507,7 @@ export class Dashboard {
           },
 
           xaxis: {
-            categories: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
             axisBorder: { show: false },
             axisTicks: { show: false },
           },
@@ -538,13 +573,13 @@ export class Dashboard {
     //     };
     //   }
     // });
-     
+
     // For Order
     this.order$.subscribe(order => {
       this.orderTableConfig.data = order ? order?.data.slice(0, 4) : [];
       this.orderTableConfig.total = order ? order?.total : 0;
     });
-  
+
     this.order$.subscribe(order => {
       let orders = order?.data?.filter((element: IOrder) => {
         element.order_id = `<span class="fw-bolder">#${element.order_number}</span>`;
@@ -552,12 +587,12 @@ export class Dashboard {
           ? `<div class="status-${element.payment_status.toLowerCase()}"><span>${element.payment_status.replace(/_/g, ' ')}</span></div>`
           : '-';
         element.consumer_name = `<span class="text-capitalize">${element?.consumer?.name}</span>`;
-        return element;      
-      }); 
+        return element;
+      });
       this.orderTableConfig.data = order ? orders.slice(0, 4) : [];
       this.orderTableConfig.total = order ? order?.total : 0;
-    }); 
-    
+    });
+
     // For Product
     this.product$.subscribe(product => {
       let products = product?.data?.filter((element: IProduct) => {
@@ -566,7 +601,7 @@ export class Dashboard {
           : '-';
         return element;
       });
-      this.productStockTableConfig.data = product ? products.slice(0,2) : [];
+      this.productStockTableConfig.data = product ? products.slice(0, 2) : [];
       this.productStockTableConfig.total = product ? product?.total : 0;
     });
 
@@ -583,6 +618,11 @@ export class Dashboard {
       const element = this.chart().nativeElement;
       var chart = new ApexCharts(element, this.chartOptions);
       void chart.render();
+
+      const swiperContainer = this.swiperContainer?.();
+      if (swiperContainer) {
+        new SwiperCore(swiperContainer.nativeElement, this.swiperConfig);
+      }
     }
   }
 
@@ -711,19 +751,19 @@ export class Dashboard {
   }
 
   openToggle() {
-  this.open = !this.open
+    this.open = !this.open
   }
 
-    openToggle2() {
-  this.open2 = !this.open2
-    }
-  
-      openToggle3() {
-  this.open3 = !this.open3
-      }
-  
-      openToggle4() {
-  this.open4 = !this.open4
+  openToggle2() {
+    this.open2 = !this.open2
+  }
+
+  openToggle3() {
+    this.open3 = !this.open3
+  }
+
+  openToggle4() {
+    this.open4 = !this.open4
   }
   ngOnDestroy() {
     this.renderer.removeClass(this.document.body, 'loader-none');
