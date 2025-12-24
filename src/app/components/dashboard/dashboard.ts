@@ -23,9 +23,9 @@ import {
   ApexMarkers,
   ApexResponsive,
   ApexStroke,
-  ApexTitleSubtitle,
+  ApexTitleSubtitle, 
   ApexTooltip,
-  ApexXAxis,
+  ApexXAxis,  
   ApexYAxis,
 } from 'ng-apexcharts';
 import { Select2Data, Select2Module, Select2UpdateEvent } from 'ng-select2-component';
@@ -75,7 +75,7 @@ export interface ChartOptions {
   yaxis: ApexYAxis;
   stroke: ApexStroke;
   tooltip: ApexTooltip;
-  dataLabels: ApexDataLabels;
+  dataLabels: ApexDataLabels; 
   fill: ApexFill;
   title: ApexTitleSubtitle;
   grid: ApexGrid;
@@ -83,6 +83,8 @@ export interface ChartOptions {
   legend: ApexLegend;
   responsive: ApexResponsive[];
 }
+
+
 
 export interface Charts {
   series: ApexAxisChartSeries;
@@ -94,6 +96,27 @@ export interface Charts {
   xaxis: ApexXAxis;
   yaxis: ApexYAxis;
   fill: ApexFill;
+}
+
+export interface RevenueCharts {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
+  stroke: ApexStroke;
+  tooltip: ApexTooltip;
+  dataLabels: ApexDataLabels;
+  fill: ApexFill;
+  title: ApexTitleSubtitle;
+  grid: ApexGrid;
+  markers: ApexMarkers;
+  legend: ApexLegend;
+  responsive: ApexResponsive[];
+}
+
+export interface OptionSelect {
+  value: string;
+  label: string;
 }
 
 @Component({
@@ -119,6 +142,10 @@ export class Dashboard {
   private store = inject(Store);
   private router = inject(Router);
   private platformId = inject<Object>(PLATFORM_ID);
+  public open: boolean = false;
+  public open2: boolean = false;
+  public open3: boolean = false;
+  public open4: boolean = false;
 
   statistics$: Observable<IStatisticsCount | null> = inject(Store).select(
     DashboardState.statistics,
@@ -144,15 +171,16 @@ export class Dashboard {
 
   public chartOptions!: Partial<ChartOptions>;
   public charts: Partial<Charts>;
+   public revenueCharts: Partial<RevenueCharts>;
   public isBrowser: boolean;
 
   public topProductLoader: boolean = false;
   public productStockLoader: boolean = false;
   public topSellerLoader: boolean = false;
-  public notice: INotice;
+  public notice: INotice; 
   public filterType: string;
-  public filter: Select2Data = [
-    {
+  public filter: OptionSelect[] = [
+    { 
       value: 'today',
       label: 'Today',
     },
@@ -204,7 +232,7 @@ export class Dashboard {
       {
         title: 'image',
         dataField: 'product_thumbnail',
-        class: 'tbl-image',
+        class: 'tbl-image', 
         type: 'image',
         placeholder: 'assets/images/product.png',
       },
@@ -386,53 +414,137 @@ export class Dashboard {
           show: false,
         },
       },
-    };
+    }; 
 
     // Revenue & Commision Chart
     this.revenueChart$.subscribe(revenue => {
       if (revenue) {
         this.chartOptions = {
-          series: [
+          series: [ 
             {
-              name: 'Revenues',
+              name: 'Revenue', 
               data: revenue.revenues,
-              color: '#ec8951',
+              color: '#7AA2F7',
             },
             {
               name: 'Commission',
               data: revenue.commissions,
-              color: '#86909C',
+              color: '#6ED3C6',
             },
           ],
+
           chart: {
-            type: 'line',
-            height: 350,
+            type: 'area',
+            height: 340,
+            toolbar: { show: false },
+            zoom: { enabled: false },
           },
           stroke: {
-            curve: 'stepline',
+            curve: 'smooth',
+            width: 2,
           },
+
+
+          fill: {
+            type: 'gradient',
+            gradient: {
+              shadeIntensity: 1,
+              opacityFrom: 0.90,
+              opacityTo: 0.05,
+              stops: [0, 100],
+            },
+          },
+
           dataLabels: {
             enabled: false,
           },
-          title: {
-            text: 'Stepline Chart',
-            align: 'left',
-          },
+
           markers: {
+            size: 0,
             hover: {
-              sizeOffset: 4,
+              size: 6,
             },
           },
+
+          grid: {
+            borderColor: '#eef1f5',
+            strokeDashArray: 4,
+          },
+
+          xaxis: {
+            categories: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+            axisBorder: { show: false },
+            axisTicks: { show: false },
+          },
+
+          yaxis: {
+            labels: {
+              formatter: (val) => val.toFixed(0),
+            },
+          },
+
+          tooltip: {
+            shared: true,
+            intersect: false,
+          },
+
+          legend: {
+            position: 'bottom',
+            markers: {
+              // radius: 12,
+            },
+          },
+
+
         };
       }
     });
 
+
+    // this.revenueChart$.subscribe(revenue => {
+    //   if (revenue) {
+    //     this.revenueCharts = {
+    //       series: [
+    //         {
+    //           name: 'Revenues',
+    //           data: revenue.revenues,
+    //           color: '#ec8951',
+    //         },
+    //         {
+    //           name: 'Commission',
+    //           data: revenue.commissions,
+    //           color: '#86909C',
+    //         },
+    //       ],
+    //       chart: {
+    //         type: 'line',
+    //         height: 350,
+    //       },
+    //       stroke: {
+    //         curve: 'stepline',
+    //       },
+    //       dataLabels: {
+    //         enabled: false,
+    //       },
+    //       title: {
+    //         text: 'Stepline Chart',
+    //         align: 'left',
+    //       },
+    //       markers: {
+    //         hover: {
+    //           sizeOffset: 4,
+    //         },
+    //       },
+    //     };
+    //   }
+    // });
+     
     // For Order
     this.order$.subscribe(order => {
-      this.orderTableConfig.data = order ? order?.data.slice(0, 5) : [];
+      this.orderTableConfig.data = order ? order?.data.slice(0, 4) : [];
       this.orderTableConfig.total = order ? order?.total : 0;
     });
-
+  
     this.order$.subscribe(order => {
       let orders = order?.data?.filter((element: IOrder) => {
         element.order_id = `<span class="fw-bolder">#${element.order_number}</span>`;
@@ -440,12 +552,12 @@ export class Dashboard {
           ? `<div class="status-${element.payment_status.toLowerCase()}"><span>${element.payment_status.replace(/_/g, ' ')}</span></div>`
           : '-';
         element.consumer_name = `<span class="text-capitalize">${element?.consumer?.name}</span>`;
-        return element;
-      });
-      this.orderTableConfig.data = order ? orders.slice(0, 5) : [];
+        return element;      
+      }); 
+      this.orderTableConfig.data = order ? orders.slice(0, 4) : [];
       this.orderTableConfig.total = order ? order?.total : 0;
-    });
-
+    }); 
+    
     // For Product
     this.product$.subscribe(product => {
       let products = product?.data?.filter((element: IProduct) => {
@@ -454,7 +566,7 @@ export class Dashboard {
           : '-';
         return element;
       });
-      this.productStockTableConfig.data = product ? products : [];
+      this.productStockTableConfig.data = product ? products.slice(0,2) : [];
       this.productStockTableConfig.total = product ? product?.total : 0;
     });
 
@@ -598,6 +710,21 @@ export class Dashboard {
     void this.router.navigate(['/product/edit', id]);
   }
 
+  openToggle() {
+  this.open = !this.open
+  }
+
+    openToggle2() {
+  this.open2 = !this.open2
+    }
+  
+      openToggle3() {
+  this.open3 = !this.open3
+      }
+  
+      openToggle4() {
+  this.open4 = !this.open4
+  }
   ngOnDestroy() {
     this.renderer.removeClass(this.document.body, 'loader-none');
   }

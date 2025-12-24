@@ -5,9 +5,9 @@
       <img
         class="img-fluid for-white" 
         [src]="(setting$ | async )?.general?.light_logo_image?.asset_url" 
-        alt="logo"
+        alt="logo" 
       />
-    </a> 
+    </a>
     }@else {
     <a [routerLink]="['/dashboard']">
       <h2 class="text-white">

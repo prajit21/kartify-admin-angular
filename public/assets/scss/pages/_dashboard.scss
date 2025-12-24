@@ -2,10 +2,10 @@
 @use './../utils/mixins';
 
 /**=====================
-    Dashboard CSS start
+  Dashboard CSS start
 ==========================**/
-.dashboard-tiles {
 
+.dashboard-tiles {
   .card-tiles {
     display: flex;
     align-items: center;
@@ -62,7 +62,7 @@
     overflow: hidden;
     .card-body {
       h2 {
-        color: #ffff;
+        color: #ffff; 
         margin-bottom: 12px;
       }
       p { 
@@ -148,9 +148,8 @@
 
 .review-box {
   border: 1px solid #eee;
-
   table {
-    width: 100%;
+    width: 100%; 
 
     tr {
       + tr {
@@ -200,15 +199,13 @@
   td {
     padding: 8px;
   }
-
   tr {
     td {
-      &:nth-child(2) {
+      &:nth-child(2) { 
         width: auto;
         min-width: 190px;
         text-align: center;
       }
-
       &:nth-child(1) {
         width: auto;
         min-width: 250px;
@@ -239,7 +236,16 @@
 .apexcharts-toolbar {
   z-index: 1 !important;
 }
-
+.title-header {
+  .icon-dropdown {
+    .dropdown-toggle {
+      padding: 0px;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
 .top-selling-table {
   border: 1px solid #eee;
   padding: 8px;
@@ -319,11 +325,11 @@
 .booking-widget-card {
   padding: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)))
     calc(12px + (20 - 12) * ((100vw - 320px) / (1920 - 320)));
-  display: flex;
+  display: flex; 
   align-items: center;
   flex-direction: row;
   margin-bottom: 0;
-  gap: 16px; 
+  gap: 16px;
   margin-bottom: 0;
   border-radius: calc(9px + (15 - 9) * ((100vw - 320px) / (1920 - 320)));
 
@@ -389,9 +395,17 @@
 
 .widget-card-box {
   .widget-card {
+    gap: 4px;
     background-color: #FFFF;
     .widget-icon {
+      padding: 0px;
+      width: 70px;
+      height: 70px;
       background-color: #F4F6FA;
+      img {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
   // &:nth-child(1) {

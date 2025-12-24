@@ -51,12 +51,13 @@
   }
 }
 
-.status-pending,
+.status-pending, 
 .status-low,
 .status-draft {
   span {
     color: #db8827;
     background-color: rgba($color: #db8827, $alpha: 0.1);
+    border: 1px solid #db8827;
   }
 }
 
