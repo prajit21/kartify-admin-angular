@@ -6,10 +6,10 @@
       <div class="notice-content">
         <div class="icon-box">
           <i class="ri-error-warning-line"></i>
-        </div> 
+        </div>
         <div class="notice-box">
           <h3>{{ notice?.title }}</h3>
-          <p [innerHTML]="notice?.description"></p>
+          <p [innerHTML]="notice?.description"></p> 
         </div>
       </div> 
       <a [routerLink]="['/notice']">{{ 'see_all' | translate }}</a>
@@ -114,7 +114,7 @@
                   src="assets/images/svg/empty-wallet.svg"
                   class="img-fluid"
                   alt="note"
-                />
+                /> 
               </div>
               <div>
                 <h6>{{ 'processing' | translate }}</h6>
