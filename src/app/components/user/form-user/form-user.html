@@ -25,7 +25,7 @@
     <div class="invalid-feedback">{{ 'enter_valid_email' | translate }}</div>
     }
   </app-form-fields>
-  <app-form-fields [label]="'phone'" [for]="'phone'" [required]="true">
+  <app-form-fields [label]="'phone'" [for]="'phone'" [required]="true" [gridClass]="'col-sm-9 d-flex gap-2'">
     @if(isBrowser) {
     <select2
       class="custom-select intl-tel-input"

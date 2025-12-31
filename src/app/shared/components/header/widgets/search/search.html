@@ -15,7 +15,7 @@
       autocomplete="off"
       placeholder="{{ 'search' | translate }} .."
     />
-    <i class="ri-search-line"></i>
+    <i class="ri-search-line" (click)="closeSearch()"></i>
   </div>
   <div class="onhover-dropdown" [class.open]="searchResult">
     <ul>

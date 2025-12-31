@@ -5,7 +5,7 @@
       "id": 3952,
       "name": "dummy-zip-file",
       "file_name": "dummy-zip-file.zip",
-      "mime_type": "application/zip",
+      "mime_type": "application/zip", 
       "disk": "public",
       "created_by_id": "1",
       "created_at": "2025-06-25T13:12:39.000000Z",

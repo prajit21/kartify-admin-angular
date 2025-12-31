@@ -5,21 +5,21 @@
       <img
         class="img-fluid for-white" 
         [src]="(setting$ | async )?.general?.light_logo_image?.asset_url" 
-        alt="logo"
+        alt="logo" 
       />
     </a>
-    }@else {
+    }@else { 
     <a [routerLink]="['/dashboard']">
       <h2 class="text-white">
         {{(setting$ | async)?.general?.site_name ? (setting$ | async)?.general?.site_name : 'Logo
-        Here'}}
+        Here'}} 
       </h2>
     </a>
     } @if((setting$ | async )?.general?.tiny_logo_image){
     <img
       class="img-fluid logo-sm"
       [src]="(setting$ | async )?.general?.tiny_logo_image?.asset_url"
-      alt="logo"
+      alt="logo" 
     />
     }@else {
     <h2 class="text-white logo-sm">
@@ -31,15 +31,14 @@
     <div class="back-btn">
       <i class="fa fa-angle-left"></i>
     </div>
-    <div class="0-sidebar" (click)="sidebarToggle()">
-      <i class="ri-apps-line status_toggle middle sidebar-toggle"></i>
+    <div class="0-sidebar custom-sidebar " (click)="sidebarToggle()">
+      <i class="ri-menu-line"></i>
     </div>
   </div>
   <app-search />
-
   <nav class="sidebar-main">
     <div class="left-arrow" id="left-arrow">
-      <i data-feather="arrow-left"></i>
+      <i data-feather="arrow-left"></i> 
     </div>
     <div id="sidebar-menu">
       <ul class="sidebar-links" id="simple-bar">
@@ -49,7 +48,7 @@
           @for(menu of menus; track i; let i = $index){
           @if(hasMainLevelMenuPermission(menu?.acl_permission) && (!menu?.canAllow ||
           (menu?.canAllow?.length && role && menu?.canAllow?.includes(role)))){
-          <li [class.sidebar-list]="menu.type === 'sub'" *hasPermission="menu?.permission">
+          <li [class.sidebar-list]="menu.type === 'sub'" *hasPermission="menu?.permission"   routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">
             @if(menu.type === 'sub'){
             <a
               href="javascript:void(0)"
@@ -78,7 +77,7 @@
               @if(menu.children){
               <div class="according-menu">
                 <!-- <i class="ri-arrow-{{ menu.active ? 'down' : 'right' }}-s-line"></i> -->
-                <i class="ri-{{ menu.active ? 'subtract' : 'add' }}-line"></i>
+                <i class="ri-{{ menu.active ? 'arrow-down-s' : 'arrow-up-s' }}-line"></i>
               </div>
               }
             </a>
@@ -100,7 +99,7 @@
               }
             </a>
             }
-            <ul class="sidebar-submenu" [class.show]="menu.children && menu.active">
+            <ul class="sidebar-submenu" [class.show]="menu.children && menu.active" [class.active]="menu.children && menu.active">
               <ng-container
                 *ngTemplateOutlet="recursiveMenu; context: { $implicit: menu.children }"
               />

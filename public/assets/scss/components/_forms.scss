@@ -74,7 +74,7 @@
   padding-top: 18px;
   margin-top: 26px;
   display: block;
-  font-weight: 600;
+  font-weight: 600; 
 }
 
 .theme-form {
@@ -158,8 +158,9 @@
   input[type='url'],
   input[type='file'],
   textarea,
-  select {
-    border-color: variables.$form-input-border-color !important;
+  select { 
+    border: none;
+    // border-color: variables.$form-input-border-color !important;
     background-color: variables.$inner-bg !important;
     font-size: variables.$form-placeholder-font-size;
     color: #444;
@@ -279,7 +280,7 @@
         .selection {
           height: 100%;
 
-          .select2-selection {
+          .select2-selection { 
             height: 100% !important;
           }
         }

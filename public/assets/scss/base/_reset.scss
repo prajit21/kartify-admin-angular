@@ -946,3 +946,150 @@ hr {
 .table> :not(caption)>*>* {
   background-color: transparent;
 }
+
+.custom-average-revenue {
+  margin: -25px 0px;
+}
+
+.top-selling-table {
+  table {
+    tr {
+      background-color: #F4F6FA;
+    }
+  } 
+}
+
+.top-selling-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  overflow: auto;
+  .top-selling-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  
+    h5 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  
+    i {
+      cursor: pointer;
+      color: #8b8b8b;
+    }
+  }
+  .top-selling-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .product-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    background: #F4F6FA;
+    padding: 17px 16px;
+    img {
+      width: 44px;
+      height: 44px;
+      background-color: #fff;
+      object-fit: cover;
+    }
+  
+    h6 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: #5E6A7B;
+      text-overflow:ellipsis;
+      overflow:hidden;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      white-space: normal;
+    }
+  
+    span {
+      font-size: 14px;
+      color: #202C3B;
+      text-overflow:ellipsis;
+      overflow:hidden; 
+      display: -webkit-box !important;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      white-space: normal;
+    }
+  }
+  
+  .product-meta {
+    background: #F4F6FA;
+    padding: 21px 16px;
+    min-width: 120px;
+    text-align: start;
+    span {
+      font-size: 12px;
+      color: #5E6A7B;
+      display: block;
+    }
+  
+    h6 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: #202C3B;
+    }
+  
+    &.amount {
+      text-align: right; 
+    }
+  }
+}
+.theme-table {
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background-color: #FFF;
+      } 
+      &:nth-child(even) {
+        background-color: #F4F6FA; 
+      }
+    }
+  }
+}
+
+.nav-menus {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .nav-item {
+    position: relative;
+  }
+
+  .header-search {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .search-input {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 6px 10px;
+    &.open {
+      width: 200px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

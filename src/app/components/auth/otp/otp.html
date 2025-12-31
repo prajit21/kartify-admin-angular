@@ -5,19 +5,18 @@
         <app-alert />
         <form [formGroup]="form" (ngSubmit)="submit();">
           <div class="log-in-box">
-            <div class="log-in-title">
-              <img
-                [src]="(setting$ | async)?.general?.dark_logo_image?.original_url"
+            <div class="log-in-title"> 
+              <img 
+                [src]="(setting$ | async)?.general?.dark_logo_image?.asset_url"
                 class="img-fluid logo-img"
-                alt=""
-              />
+                alt="logo"/>  
               <h3 class="text-content">
                 {{ 'please_enter_the_one_time_password_to_verify_your_account' | translate }}
               </h3>
               <h5 class="text-content">
                 {{ 'a_code_has_been_sent_to' | translate }} <span>{{ email }}</span>
               </h5>
-            </div>
+            </div> 
             <div id="otp" class="row d-flex row-cols-6 g-2 mb-5 m-auto">
               <div class="outer-otp">
                 <div class="inner-otp">
