@@ -6,9 +6,9 @@
         <div class="log-in-box">
           <div class="log-in-title">
             <img
-              [src]="(setting$ | async)?.general?.dark_logo_image?.original_url"
+              [src]="(setting$ | async)?.general?.dark_logo_image?.asset_url"
               class="img-fluid logo-img"
-              alt=""
+              alt="logo"
             />
             <h4>{{ 'setup_your_store_information' | translate }}</h4>
           </div>

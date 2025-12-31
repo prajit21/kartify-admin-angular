@@ -17,7 +17,7 @@
     &:checked+.switch-state {
       background-color: var(--theme-color);
 
-      &:before {
+    &:before {
         transform: translateX(26px);
       }
     }

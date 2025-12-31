@@ -33,6 +33,7 @@ export class Search {
   closeSearch() {
     this.navServices.search = false;
   }
+  
 
   openDropDown(text: string) {
     text && (this.searchResult = !this.searchResult);

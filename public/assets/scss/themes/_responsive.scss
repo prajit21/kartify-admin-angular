@@ -1,10 +1,10 @@
 @use "sass:list";
 @use './../utils/variables';
-@use './../utils/mixins';
+@use './../utils/mixins'; 
 
 /**=====================
      Responsive CSS Start
-==========================**/
+==========================**/ 
 
 /* ========= min and max scss for 1200 to 1366 screen ========= */
 @media (max-width: 1836px) {
@@ -189,15 +189,45 @@
 }
 
 @media screen and (max-width: 1535px) {
-
   .custome-1-bg,
   .custome-2-bg,
   .custome-3-bg,
   .custome-4-bg {
     padding: 25px 20px !important;
   }
+  .page-wrapper {
+    .page-header {
+      .header-wrapper {
+        .search-full {
+          display: none;
+        }
+      }
+    } 
+  }
+  .booking-status-main {
+    margin-bottom: 30px; 
+  }
+  .header-search {
+    display: inherit !important; 
+  }
 }
-
+@media screen and (max-width: 1499px) {
+  .dashboard-tiles {
+    .welcome-tiles-card {
+      .card-body {
+        z-index: 1;
+      }
+      .welcome-img-vector {
+        .vector-1 {
+          position: absolute;
+          right: -36px;
+          z-index: 0;
+          top: 2px;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 1428px) {
   .category-box {
     .content-category {
@@ -245,15 +275,38 @@
     }
   }
 }
+@media screen and (max-width: 1299px) {
+  .dashboard-tiles {
+    .welcome-tiles-card {
+      .welcome-img-vector {
+        .vector-1 {
+          top: 75px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+  .dashboard-tiles {
+    .welcome-tiles-card {
+      .welcome-img-vector {
+        .vector-1 {
+          top: 153px;
+        }
+      }
+    }
+  }
+
+}
 
 @media screen and (max-width: 668px) {
-
   .custome-1-bg,
   .custome-2-bg,
   .custome-3-bg,
-  .custome-4-bg {
+  .custome-4-bg { 
     padding: 25px 20px !important;
   }
+
 }
 
 @media screen and (max-width: 1380px) {
@@ -362,7 +415,6 @@
 }
 
 @media screen and (max-width: 1580px) and (min-width: 1200px) {
-
   .docs-buttons,
   .docs-toggles {
     flex: 0 0 100%;
@@ -1301,6 +1353,19 @@
     display: none;
   }
 
+  .dashboard-tiles {
+    .welcome-tiles-card {
+      .welcome-img-vector {
+        .vector-1 {
+          position: absolute;
+          right: -33px;
+          z-index: 0;
+          top: 95px;
+        }
+      }
+    }
+  }
+
   .wizard-4 {
     ul {
       &.anchor {
@@ -2120,6 +2185,7 @@
 }
 
 @media only screen and (max-width: 991.98px) {
+
   .order-menu-section {
     padding: 0;
   }
@@ -2430,6 +2496,7 @@
 
           .header-logo-wrapper {
             display: flex;
+            flex-direction: row-reverse; 
           }
 
           .toggle-sidebar {
@@ -2465,7 +2532,7 @@
             }
 
             .back-btn {
-              display: inline-block;
+              display: none;
               position: relative;
               font-size: 20px;
             }
@@ -2542,7 +2609,7 @@
 
         .nav-right {
           .notification {
-            top: 10px;
+            top: 10px; 
           }
         }
 
@@ -2558,6 +2625,12 @@
       }
 
       .header-logo-wrapper {
+        .btn-light-bg {
+          display: none;
+        }
+        app-quick-view {
+          display: none;
+        }
         .logo-wrapper {
           img {
             margin-top: 0;
@@ -2568,7 +2641,6 @@
   }
 
   .page-body-wrapper {
-
     .page-body,
     footer {
       #customer-review {
@@ -3408,6 +3480,7 @@
 }
 
 @media only screen and (max-width: 762px) {
+
   .page-wrapper {
     .page-header {
       .header-wrapper {
@@ -8211,9 +8284,9 @@
             gap: 5px;
             border-right: none;
             width: 100%;
-            line-height: 1;
-
+            line-height: 1; 
             a {
+              display: none;
               width: calc(100px + (140 - 100) * ((100vw - 320px) / (1920 - 320)));
             }
           }

@@ -3,9 +3,11 @@
 // @use "./vendor/bootstrap.scss";
 
 // swiper
-@use "../../../node_modules/swiper/swiper.scss";
+// @use "../../../node_modules/swiper/swiper.scss";
 
-@use "swiper/swiper-bundle.css";
+// @use "swiper/swiper-bundle.css";
+
+@use 'swiper/swiper-bundle.css';
 
 @use "ngx-toastr/toastr.css";
 @use "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";

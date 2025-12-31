@@ -6,16 +6,14 @@
       <div class="notice-content">
         <div class="icon-box">
           <i class="ri-error-warning-line"></i>
-        </div>
+        </div> 
         <div class="notice-box">
           <h3>{{ notice?.title }}</h3>
           <p [innerHTML]="notice?.description"></p>
         </div>
-      </div>
+      </div> 
       <a [routerLink]="['/notice']">{{ 'see_all' | translate }}</a>
-      <a class="close-icon" (click)="markAsRead(notice?.id)"
-        ><i class="ri-close-line"></i
-      ></a>
+      <a class="close-icon" (click)="markAsRead(notice?.id)"><i class="ri-close-line"></i></a>
     </div>
   </div>
 </section>
@@ -33,12 +31,12 @@
             <p>
               Real-time analytics, user management, and advanced reporting in
               one dashboard.
-            </p>
+            </p> 
           </div>
           <div class="welcome-img-vector">
             <img
               src="assets/images/bg.jpg"
-              class="img-fluid vector-1"
+              class="img-fluid vector-1" 
               alt="img"
             />
             <img
@@ -56,7 +54,7 @@
             <h2>Welcome Back Admin</h2>
             <p>
               Real-time analytics, user management, and advanced reporting in one dashboard.
-            </p>
+            </p> 
           </div>
         </div> 
       </div> -->
@@ -80,7 +78,7 @@
             </div> -->
         <div class="row g-sm-4 g-3 booking-status-main">
           <div class="col-xxl-4 col-sm-6 booking-status-card">
-            <a
+            <a 
               href="javascript:void(0)"
               [routerLink]="['/order']"
               [queryParams]="{ status: 'pending'}"
@@ -91,7 +89,7 @@
                   src="assets/images/svg/empty-wallet.svg"
                   class="img-fluid"
                   alt="box-time"
-                />
+                /> 
               </div>
               <div>
                 <h6>{{ 'pending' | translate }}</h6>
@@ -131,7 +129,7 @@
           </div>
           <div class="col-xxl-4 col-sm-6 booking-status-card">
             <a
-              href="javascript:void(0)"
+            href="javascript:void(0)"
               [routerLink]="['/order']"
               [queryParams]="{ status: 'cancelled'}"
               class="booking-widget-card card"
@@ -236,10 +234,8 @@
         </div> -->
       </div>
     </div>
-    <div class="card-bottom-space">
-      <div
-        class="row row-cols-xxl-5 row-cols-md-3 row-cols-sm-2 row-cols-1 g-sm-4 g-3"
-      >
+    <div class="card-bottom-space"> 
+      <div class="row row-cols-xxl-5 row-cols-md-3 row-cols-sm-2 row-cols-1 g-sm-4 g-3">
         <div class="widget-card-box">
           <a href="javascript:void(0)" class="widget-card card">
             <div class="widget-icon">
@@ -341,7 +337,7 @@
                 src="assets/images/svg/medal-star.svg"
                 class="img-fluid"
                 alt="medal-star"
-              />
+              /> 
             </div>
             <div>
               <h6>{{ 'total_orders' | translate }}</h6>
@@ -538,9 +534,8 @@
             <!-- <div class="top-selling-header">
             <h5>Top Selling Products</h5>
             <i class="ri-more-2-fill"></i>
-          </div> -->
+          </div> --> 
             @for(product of topProduct$ | async | slice:0:3; track product.id){
-
             <div class="top-selling-card">
               <div class="product-info">
                 <img
@@ -641,13 +636,13 @@
     </div>
     <div class="overflow-hidden col-md-6 p-0">
       <app-page-wrapper
-        [gridClass]="'col-sm-12'"
+        [gridClass]="'col-sm-12'" 
         [title]="'latest_reviews'"
-        *hasPermission="'review.index'"
+        *hasPermission="'review.index'" 
       >
         <div button>
           <!-- <a [routerLink]="['/review']" class="txt-primary"
-            >{{ "view_all" | translate }}</a
+            >{{ "view_all" | translate }}</a 
           > -->
           <div class="dropdown icon-dropdown">
             <button
@@ -661,13 +656,12 @@
             <div class="dropdown-menu dropdown-menu-end" [class.show]="open3">
               @for(item of filter; track item){
               <a href="javascript:void(0)" class="dropdown-item"
-                >{{item.label}}</a
-              >
+                >{{item.label}}</a>
               }
             </div>
           </div>
         </div>
-        <div class="review-box table-responsive">
+        <div class="review-box">
           <!-- <table> 
             @for(review of (review$ | async)?.data | slice : 0 : 4; track
             review.id){
@@ -699,65 +693,46 @@
           <!-- Review Card div wise -->
 
           <!-- Swiper Container -->
-          <div class="swiper" #swiperContainer>
+          <div class="swiper review-swiper" #swiperContainer>
             <div class="swiper-wrapper">
-              @for(review of (review$ | async)?.data | slice : 0 : 4; track
-              review.id){
+              @for (review of (review$ | async)?.data; track review.id) {
               <div class="swiper-slide">
                 <div class="review-card">
-                  <div class="row align-items-center mb-3">
-                    <div class="col-8">
-                      <div class="d-flex align-items-center gap-3">
-                        <img
-                          [src]="
-              review?.product?.product_thumbnail
-                ? review?.product?.product_thumbnail?.original_url
-                : 'assets/images/product.png'
-            "
-                          class="img-fluid"
-                          [alt]="'review'"
-                          class="user-img"
-                        />
-                        <div>
-                          <h4 class="mb-1">{{ review?.consumer?.name }}</h4>
-                          <span class="date">SEPTEMBER 24, 2025</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-4 text-end">
-                      <div class="rating">
-                        <ngb-rating
-                          class="rating-sec"
-                          [rate]="review?.rating"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <div class="col-12">
-                      <p class="review-text">
-                        "Absolutely loved the bridal collection! The designs
-                        were unique, the quality was premium, and the fitting
-                        was..."
-                      </p>
-                    </div>
-                  </div>
-                  <div class="row product align-items-center">
-                    <div class="col-3">
+                  <!-- Header -->
+                  <div class="review-header">
+                    <div class="user-info">
                       <img
-                        src="product.jpg"
-                        alt="product"
-                        class="product-img"
+                        [src]="review?.consumer?.profile_image?.original_url || 'assets/images/user.png'"
+                        alt="user" 
                       />
-                    </div>
-                    <div class="col-9">
-                      <h5 class="mb-1">{{ review?.product?.name }}</h5>
-                      <div class="price">
-                        <span class="new"
-                          >{{ review?.product?.sale_price }}</span
-                        >
-                        <span class="old">{{ review?.product?.price }}</span>
+                      <div class="review-title">
+                        <h4>{{ review?.consumer?.name }}</h4>
+                        <span class="date">SEPTEMBER 24, 2025</span>
                       </div>
+                    </div>
+                    <ngb-rating
+                      class="rating"
+                      [rate]="review?.rating"
+                      [readonly]="true"
+                    />
+                  </div>
+                  <!-- Review text -->
+                  <p class="review-text">
+                    “Absolutely loved the bridal collection! The designs were unique,
+                    the quality was premium, and the fitting was...”
+                  </p>
+                  <!-- Product -->
+                  <div class="review-product">
+                    <img
+                      [src]="review?.product?.product_thumbnail?.original_url || 'assets/images/product.png'"
+                      alt="product"
+                    /> 
+                    <div class="product-info">
+                      <h5 class="product-name">Versatile Shacket{{ review?.product?.name }}</h5>
+                      <div class="price">
+                        <span class="new">$2500.00{{ review?.product?.sale_price }}</span>
+                        <span class="old">$3500.00{{ review?.product?.price }}</span>
+                      </div> 
                     </div>
                   </div>
                 </div>
@@ -765,48 +740,11 @@
               }
             </div>
 
-            <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
-
+            <div class="swiper-button-next"></div>
             <div class="swiper-pagination"></div>
           </div>
 
-          <!-- <div class="review-card">
-            <div class="row align-items-center mb-3">
-              <div class="col-8">
-                <div class="d-flex align-items-center gap-3">
-                  <img src="user.jpg" alt="user" class="user-img" />
-                  <div>
-                    <h4 class="mb-1">Alia Bhatt</h4>
-                    <span class="date">SEPTEMBER 24, 2025</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4 text-end">
-                <div class="rating">★★★★★</div>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-12">
-                <p class="review-text">
-                  "Absolutely loved the bridal collection! The designs were unique,
-                  the quality was premium, and the fitting was..."
-                </p>
-              </div>
-            </div>
-            <div class="row product align-items-center">
-              <div class="col-3">
-                <img src="product.jpg" alt="product" class="product-img" />
-              </div>
-              <div class="col-9">
-                <h5 class="mb-1">Versatile Shacket...</h5>
-                <div class="price">
-                  <span class="new">₹2500.00</span>
-                  <span class="old">₹3500.00</span>
-                </div>
-              </div>
-            </div>
-          </div> -->
           @if(!(review$ | async)?.data?.length){
           <div class="no-data-added">
             <h4>{{ "no_records_found" | translate }}</h4>

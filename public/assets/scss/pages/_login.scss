@@ -100,7 +100,7 @@ input[type='number']::-webkit-outer-spin-button {
 
     input {
       margin: calc(2px + (8 - 2) * ((100vw - 320px) / (1920 - 320)));
-      border: none;
+      border: none; 
     }
   }
 
@@ -157,10 +157,9 @@ input[type='number']::-webkit-outer-spin-button {
 
     .custom-select {
       .select2-container {
-        .select2-selection {
+        .select2-selection { 
           background: white !important;
           height: 58px !important;
-
           .select2-selection__rendered {
             display: flex !important;
             align-items: center;

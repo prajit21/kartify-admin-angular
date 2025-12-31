@@ -142,7 +142,7 @@ export interface OptionSelect {
     HasPermissionDirective,
   ],
   providers: [CurrencySymbolPipe],
-  templateUrl: './dashboard.html',
+  templateUrl: './dashboard.html', 
   styleUrl: './dashboard.scss',
 })
 export class Dashboard {
@@ -177,31 +177,43 @@ export class Dashboard {
   readonly chart = viewChild.required<ElementRef>('chart');
   readonly swiperContainer = viewChild<ElementRef>('swiperContainer');
 
+  //  swiper slider
   public swiperConfig: SwiperOptions = {
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
-    // pagination: {
-    //   el: '.swiper-pagination',
-    //   clickable: true,
-    // },
     slidesPerView: 2,
     spaceBetween: 20,
+    slidesPerGroup: 2,
     loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
     breakpoints: {
-      768: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 },
-    },
+      0: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+      },
+      1499: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
+    }, 
+      // from 1299px
+      // 1399: {
+      //   slidesPerView: 2,
+      //   slidesPerGroup: 2,
+      // },
+
+      // from 1499px (large screens)
+
+    // pagination: {
+    //   show: false,
+    //   el: ".swiper-pagination",
+    //   clickable: true,
+    // },
+    // navigation: {
+    //   nextEl: ".swiper-button-next",
+    //   prevEl: ".swiper-button-prev",
+    // },
+   
   };
+
+
   public today = new Date();
 
   public chartOptions!: Partial<ChartOptions>;

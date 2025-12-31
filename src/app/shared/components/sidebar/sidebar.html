@@ -8,18 +8,18 @@
         alt="logo" 
       />
     </a>
-    }@else {
+    }@else { 
     <a [routerLink]="['/dashboard']">
       <h2 class="text-white">
         {{(setting$ | async)?.general?.site_name ? (setting$ | async)?.general?.site_name : 'Logo
-        Here'}}
+        Here'}} 
       </h2>
     </a>
     } @if((setting$ | async )?.general?.tiny_logo_image){
     <img
       class="img-fluid logo-sm"
       [src]="(setting$ | async )?.general?.tiny_logo_image?.asset_url"
-      alt="logo"
+      alt="logo" 
     />
     }@else {
     <h2 class="text-white logo-sm">
@@ -32,11 +32,10 @@
       <i class="fa fa-angle-left"></i>
     </div>
     <div class="0-sidebar custom-sidebar " (click)="sidebarToggle()">
-      <i class="ri-apps-line status_toggle middle sidebar-toggle"></i>
+      <i class="ri-menu-line"></i>
     </div>
   </div>
   <app-search />
-
   <nav class="sidebar-main">
     <div class="left-arrow" id="left-arrow">
       <i data-feather="arrow-left"></i> 
@@ -78,7 +77,7 @@
               @if(menu.children){
               <div class="according-menu">
                 <!-- <i class="ri-arrow-{{ menu.active ? 'down' : 'right' }}-s-line"></i> -->
-                <i class="ri-{{ menu.active ? 'subtract' : 'add' }}-line"></i>
+                <i class="ri-{{ menu.active ? 'arrow-down-s' : 'arrow-up-s' }}-line"></i>
               </div>
               }
             </a>
