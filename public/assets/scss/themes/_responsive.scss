@@ -308,7 +308,6 @@
   }
 
 }
-
 @media screen and (max-width: 1380px) {
   .single-section {
     .description-section {
@@ -3606,6 +3605,24 @@
 }
 
 @media only screen and (max-width: 767.98px) {
+  .dashboard-tiles {
+    .welcome-tiles-card {
+      .welcome-img-vector {
+        .vector-1 {
+          position: absolute;
+          right: -33px;
+          top: 2px;
+          z-index: 0;
+        }
+      }
+      .card-body {
+        p {
+          margin-bottom: 62px;
+        }
+      }
+    }
+  }
+
   .wizard-4 {
     ul.anchor {
       width: 100%;
@@ -8202,9 +8219,27 @@
   .apexcharts-legend-marker {
     margin-left: 0;
   }
+  .dashboard-tiles {
+    .welcome-tiles-card {
+      .welcome-img-vector {
+        .vector-1 {
+          top: 2px;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 396px) {
+  .dashboard-tiles {
+    .welcome-tiles-card {
+      .welcome-img-vector {
+        .vector-1 {
+          top: 64px; 
+        }
+      }
+    }
+  }
   .page-wrapper {
     .page-header {
       .header-wrapper {
@@ -8214,7 +8249,28 @@
       }
     }
   }
+
+  .dashboard-tiles {
+    .welcome-tiles-card {
+      .welcome-img-vector {
+        .vector-1 {
+          top: 2px; 
+        }
+      }
+    }
+  }
 }
+@media only screen and (max-width: 320px) {
+  .dashboard-tiles {
+    .welcome-tiles-card {
+      .welcome-img-vector {
+        .vector-1 {
+          top: 63px;
+        }
+      }
+    }
+  }
+} 
 
 @media screen and (max-width: 1199px) {
   .checkout {

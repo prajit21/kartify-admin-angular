@@ -151,7 +151,7 @@
   tbody {
     tr {
       background-color: #f4f6fa;
-      &:has(td[colspan="5"]) { 
+      &:has(td[colspan="5"]) {
         background-color: white;
       }
       td {
@@ -176,7 +176,7 @@
   }
   .review-swiper {
     .swiper-button-prev,
-    .swiper-button-next {
+    .swiper-button-next { 
       display: none;
     }
   }
@@ -416,8 +416,15 @@
 
 .widget-card-box {
   .widget-card {
-    gap: 4px;
+    gap: 8px;
     background-color: #ffff;
+    &:hover {
+      .widget-icon {
+        img {
+          animation: swing 2s ease infinite; 
+        }
+      }
+    }
     .widget-icon {
       padding: 0px;
       width: 70px;
@@ -478,12 +485,28 @@
   //   }
   // }
 }
+.booking-widget-card {
+  &:hover {
+    .booking-widget-icon {
+      img {
+        animation: swing 2s ease infinite; 
+      }
+    }
+  }
+}
 
 .booking-widget-card {
   &:hover {
     .abs-icon {
       transform: none;
-      transition: all 0.5s ease;
+      transition: all 0.5s ease; 
+    }
+    .booking-status-card {
+      .booking-widget-card {
+        img {
+          animation: swing 2s ease infinite;
+        }
+      }
     }
   }
   .abs-icon {
@@ -507,6 +530,7 @@
     padding: calc(0px + (10 - 0) * ((100vw - 320px) / (1920 - 320)));
     width: calc(36px + (70 - 36) * ((100vw - 320px) / (1920 - 320)));
     height: calc(36px + (70 - 36) * ((100vw - 320px) / (1920 - 320)));
+
     &.booking-widget-warning {
       background-color: variables.$light-yellow;
       border-radius: 6px;

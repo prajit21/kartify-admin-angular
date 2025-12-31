@@ -25,7 +25,7 @@ $i: 0;
 $i: 0;
 
 @while $i<=50 {
-  .p-l-#{$i} {
+  .p-l-#{$i} { 
     padding-left: #{$i}px;
   }
 
@@ -1088,8 +1088,30 @@ hr {
     padding: 6px 10px;
     &.open {
       width: 200px;
-      opacity: 1;
+      opacity: 1; 
       visibility: visible;
     }
   }
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+.swing {
+  transform-origin: top center;
+  animation-name: swing;
 }
