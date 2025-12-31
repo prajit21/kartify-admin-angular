@@ -8261,11 +8261,25 @@
   }
 }
 @media only screen and (max-width: 320px) {
+  .page-wrapper.compact-wrapper {
+    .page-body-wrapper {
+      .sidebar-wrapper {
+        app-search {
+          .search-full {
+            .ri-search-line {
+              top: 47%;
+              left: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
   .dashboard-tiles {
     .welcome-tiles-card {
       .welcome-img-vector {
         .vector-1 {
-          top: 63px;
+          top: 63px; 
         }
       }
     }
