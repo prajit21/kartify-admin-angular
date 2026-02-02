@@ -1,17 +1,17 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject } from "@angular/core";
 
-import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { tap } from 'rxjs';
+import { Action, Selector, State, StateContext } from "@ngxs/store";
+import { tap } from "rxjs";
 
-import { IAppValues, IValues } from '../../interface/setting.interface';
-import { NotificationService } from '../../services/notification.service';
-import { SettingService } from '../../services/setting.service';
+import { IAppValues, IValues } from "../../interface/setting.interface";
+import { NotificationService } from "../../services/notification.service";
+import { SettingService } from "../../services/setting.service";
 import {
   GetSettingOptionAction,
   TestEmailAction,
   UpdateAppSettingOptionAction,
   UpdateSettingOptionAction,
-} from '../action/setting.action';
+} from "../action/setting.action";
 
 export class SettingStateModel {
   setting: IValues | null;
@@ -19,7 +19,7 @@ export class SettingStateModel {
 }
 
 @State<SettingStateModel>({
-  name: 'setting',
+  name: "setting",
   defaults: {
     setting: null,
     appSetting: null,
@@ -44,12 +44,12 @@ export class SettingState {
   getSettingOptions(ctx: StateContext<SettingStateModel>) {
     return this.settingService.getSettingOption().pipe(
       tap({
-        next: result => {
+        next: (result) => {
           ctx.patchState({
             setting: result.values,
           });
         },
-        error: err => {
+        error: (err) => {
           throw new Error(err?.error?.message);
         },
       }),
@@ -57,12 +57,18 @@ export class SettingState {
   }
 
   @Action(UpdateSettingOptionAction)
-  updateSettingOption(_ctx: StateContext<SettingStateModel>, _action: UpdateSettingOptionAction) {
+  updateSettingOption(
+    _ctx: StateContext<SettingStateModel>,
+    _action: UpdateSettingOptionAction,
+  ) {
     // Update Setting Option Logic Here
   }
 
   @Action(TestEmailAction)
-  TestMailSetting(_ctx: StateContext<SettingStateModel>, _action: TestEmailAction) {
+  TestMailSetting(
+    _ctx: StateContext<SettingStateModel>,
+    _action: TestEmailAction,
+  ) {
     // Mail Testing Logic Here
   }
 

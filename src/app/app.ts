@@ -14,6 +14,7 @@ import { LogoutAction } from './shared/store/action/auth.action';
 import { GetCountriesAction } from './shared/store/action/country.action';
 import { GetStatesAction } from './shared/store/action/state.action';
 import { SettingState } from './shared/store/state/setting.state';
+import { GetSettingOptionAction } from './shared/store/action/setting.action';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +40,7 @@ export class App {
     this.translate.use('en');
     this.store.dispatch(new GetCountriesAction());
     this.store.dispatch(new GetStatesAction());
-    // this.store.dispatch(new GetSettingOptionAction());
+    this.store.dispatch(new GetSettingOptionAction());
     this.setting$.subscribe(setting => {
       // Set Direction
       if (setting?.general?.admin_site_language_direction === 'rtl') {
