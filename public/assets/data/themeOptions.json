@@ -17,7 +17,7 @@
         "created_by_id": "1",
         "created_at": "2024-05-06T03:56:14.000000Z",
         "asset_url": "/storage/107/fashion_two_1.png",
-        "original_url": "https://laravel.pixelstrap.net/multikart/storage/107/fashion_two_1.png"
+        "original_url": "/storage/107/fashion_two_1.png"
       }
     },
     "blog": {
@@ -390,13 +390,13 @@
         ]
       },
       "about": {
-        "title": "Start Your Business With Multikart & Reach Customers Across The World...",
+        "title": "Start Your Business With Kartify & Reach Customers Across The World...",
         "status": true,
         "image_url": "/storage/3831/vendor.jpg",
         "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,\n\nOn the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
       },
       "steps": {
-        "title": "Doing Business On Multikart Is Really Easy",
+        "title": "Doing Business On Kartify Is Really Easy",
         "status": true,
         "step_1": {
           "title": "List your products & Get support service provider",
@@ -412,7 +412,7 @@
         }
       },
       "services": {
-        "title": "WHY SELL ON MULTIKART?",
+        "title": "WHY SELL ON Kartify?",
         "status": true,
         "service_1": {
           "title": "lowest cost",
@@ -438,7 +438,7 @@
       "start_selling": {
         "title": "Start Selling",
         "status": true,
-        "description": "Kartify Angular is India’s leading platform for selling online. Be it a manufacturer, vendor or supplier, simply sell your products online on Multikart and become a top ecommerce player with minimum investment. Through a team of experts offering exclusive seller workshops, training, seller support and convenient seller portal, Multikart focuses on educating and empowering sellers across India. Selling on Multikart.com is easy and absolutely free. All you need is to register, list your catalogue and start selling your products."
+        "description": "Kartify Angular is India’s leading platform for selling online. Be it a manufacturer, vendor or supplier, simply sell your products online on Kartify and become a top ecommerce player with minimum investment. Through a team of experts offering exclusive seller workshops, training, seller support and convenient seller portal, Kartify focuses on educating and empowering sellers across India. Selling on Kartify.com is easy and absolutely free. All you need is to register, list your catalogue and start selling your products."
       }
     },
     "general": {
@@ -453,7 +453,7 @@
       "celebration_effect": true,
       "language_direction": "ltr",
       "exit_tagline_enable": true,
-      "seller_register_url": "https://angular.pixelstrap.net/multikart-rest"
+      "seller_register_url": "https://angular.pixelstrap.net/kartify"
     },
     "product": {
       "services": {

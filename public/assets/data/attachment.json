@@ -5,7 +5,7 @@
       "id": 3952,
       "name": "dummy-zip-file",
       "file_name": "dummy-zip-file.zip",
-      "mime_type": "application/zip", 
+      "mime_type": "application/zip",
       "disk": "public",
       "created_by_id": "1",
       "created_at": "2025-06-25T13:12:39.000000Z",
@@ -27499,7 +27499,7 @@
       "created_by_id": "1",
       "created_at": "2025-05-02T08:34:46.000000Z",
       "asset_url": "assets/images/logo/favicon.svg",
-      "original_url": "https://laravel.pixelstrap.net/multikart/storage/5/tiny-logo.png"
+      "original_url": "assets/images/logo/favicon.svg"
     },
     {
       "id": 6,
@@ -27513,10 +27513,8 @@
       "original_url": "https://laravel.pixelstrap.net/multikart/storage/6/maintainance.jpg"
     }
   ],
-  "first_page_url": "https://laravel.pixelstrap.net/multikart/api/admin/attachment?page=1",
   "from": 1,
   "last_page": 1,
-  "last_page_url": "https://laravel.pixelstrap.net/multikart/api/admin/attachment?page=1",
   "links": [
     {
       "url": null,
@@ -27524,7 +27522,6 @@
       "active": false
     },
     {
-      "url": "https://laravel.pixelstrap.net/multikart/api/admin/attachment?page=1",
       "label": "1",
       "active": true
     },
@@ -27535,7 +27532,6 @@
     }
   ],
   "next_page_url": null,
-  "path": "https://laravel.pixelstrap.net/multikart/api/admin/attachment",
   "per_page": 2501,
   "prev_page_url": null,
   "to": 2501,

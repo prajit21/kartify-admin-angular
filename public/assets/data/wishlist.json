@@ -510,7 +510,7 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/6.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         }
@@ -583,11 +583,6 @@
         "id": 7,
         "store_name": "Fit Gear Central",
         "slug": "fit-gear-central",
-        "product_images": [
-          "https://laravel.pixelstrap.net/multikart/storage/927/Sport_1133.jpg",
-          "https://laravel.pixelstrap.net/multikart/storage/1192/Sport_21.jpg",
-          "https://laravel.pixelstrap.net/multikart/storage/1144/Sport_832.jpg"
-        ],
         "order_amount": 0,
         "rating_count": 0,
         "store_logo": null,
@@ -1004,7 +999,7 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/6.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         }
@@ -1041,11 +1036,6 @@
         "id": 4,
         "store_name": "Trendy Fashion",
         "slug": "trendy-fashion",
-        "product_images": [
-          "https://laravel.pixelstrap.net/multikart/storage/21/fashion_331.jpg",
-          "https://laravel.pixelstrap.net/multikart/storage/33/fashion_21.jpg",
-          "https://laravel.pixelstrap.net/multikart/storage/45/fashion_41.jpg"
-        ],
         "order_amount": 281,
         "rating_count": 4.5,
         "store_logo": null,
@@ -1129,10 +1119,8 @@
       "cross_products": []
     }
   ],
-  "first_page_url": "https://multikart.webiots.co.in/api/wishlist?page=1",
   "from": 1,
   "last_page": 1,
-  "last_page_url": "https://multikart.webiots.co.in/api/wishlist?page=1",
   "links": [
     {
       "url": null,
@@ -1140,7 +1128,6 @@
       "active": false
     },
     {
-      "url": "https://multikart.webiots.co.in/api/wishlist?page=1",
       "label": "1",
       "active": true
     },
@@ -1151,7 +1138,6 @@
     }
   ],
   "next_page_url": null,
-  "path": "https://multikart.webiots.co.in/api/wishlist",
   "per_page": 2,
   "prev_page_url": null,
   "to": 2,

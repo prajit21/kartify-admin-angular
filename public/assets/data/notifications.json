@@ -310,10 +310,8 @@
       "updated_at": "2025-06-21T09:33:46.000000Z"
     }
   ],
-  "first_page_url": "https://multikart.webiots.co.in/api/notifications?page=1",
   "from": 1,
   "last_page": 1,
-  "last_page_url": "https://multikart.webiots.co.in/api/notifications?page=1",
   "links": [
     {
       "url": null,
@@ -321,7 +319,6 @@
       "active": false
     },
     {
-      "url": "https://multikart.webiots.co.in/api/notifications?page=1",
       "label": "1",
       "active": true
     },
@@ -332,7 +329,6 @@
     }
   ],
   "next_page_url": null,
-  "path": "https://multikart.webiots.co.in/api/notifications",
   "per_page": 34,
   "prev_page_url": null,
   "to": 22,

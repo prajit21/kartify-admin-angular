@@ -126,10 +126,8 @@
       }
     }
   ],
-  "first_page_url": "https://laravel.pixelstrap.net/multikart/api/admin/user?page=1",
   "from": 1,
   "last_page": 1,
-  "last_page_url": "https://laravel.pixelstrap.net/multikart/api/admin/user?page=1",
   "links": [
     {
       "url": null,
@@ -137,7 +135,6 @@
       "active": false
     },
     {
-      "url": "https://laravel.pixelstrap.net/multikart/api/admin/user?page=1",
       "label": "1",
       "active": true
     },
@@ -148,7 +145,6 @@
     }
   ],
   "next_page_url": null,
-  "path": "https://laravel.pixelstrap.net/multikart/api/admin/user",
   "per_page": 15,
   "prev_page_url": null,
   "to": 4,

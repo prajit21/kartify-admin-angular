@@ -140,10 +140,8 @@
       "deleted_at": null
     }
   ],
-  "first_page_url": "https://laravel.pixelstrap.net/multikart/api/coupon?page=1",
   "from": 1,
   "last_page": 1,
-  "last_page_url": "https://laravel.pixelstrap.net/multikart/api/coupon?page=1",
   "links": [
     {
       "url": null,
@@ -151,7 +149,6 @@
       "active": false
     },
     {
-      "url": "https://laravel.pixelstrap.net/multikart/api/coupon?page=1",
       "label": "1",
       "active": true
     },
@@ -162,7 +159,6 @@
     }
   ],
   "next_page_url": null,
-  "path": "https://laravel.pixelstrap.net/multikart/api/coupon",
   "per_page": 6,
   "prev_page_url": null,
   "to": 6,

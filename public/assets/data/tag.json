@@ -89,21 +89,17 @@
     { "id": 41, "name": "Grocery", "slug": "grocery", "status": 1 },
     { "id": 42, "name": "Vegetables", "slug": "vegetables", "status": 1 }
   ],
-  "first_page_url": "[https://laravel.pixelstrap.net/multikart/api/tag?page=1](https://laravel.pixelstrap.net/multikart/api/tag?page=1)",
   "from": 1,
   "last_page": 1,
-  "last_page_url": "[https://laravel.pixelstrap.net/multikart/api/tag?page=1](https://laravel.pixelstrap.net/multikart/api/tag?page=1)",
   "links": [
     { "url": null, "label": "« Previous", "active": false },
     {
-      "url": "[https://laravel.pixelstrap.net/multikart/api/tag?page=1](https://laravel.pixelstrap.net/multikart/api/tag?page=1)",
       "label": "1",
       "active": true
     },
     { "url": null, "label": "Next »", "active": false }
   ],
   "next_page_url": null,
-  "path": "[https://laravel.pixelstrap.net/multikart/api/tag](https://laravel.pixelstrap.net/multikart/api/tag)",
   "per_page": 26,
   "prev_page_url": null,
   "to": 26,

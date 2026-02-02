@@ -150,7 +150,7 @@
               "mime_type": "image/png",
               "file_name": "Classic-Furnishings.png",
               "asset_url": "/storage/3794/Classic-Furnishings.png",
-              "original_url": "https://laravel.pixelstrap.net/multikart/storage/3794/Classic-Furnishings.png"
+              "original_url": "/storage/3794/Classic-Furnishings.png"
             }
           },
           {
@@ -198,11 +198,6 @@
           "id": 6,
           "store_name": "Powerhouse Electronics",
           "slug": "powerhouse-electronics",
-          "product_images": [
-            "https://laravel.pixelstrap.net/multikart/storage/1316/iphone_111.png",
-            "https://laravel.pixelstrap.net/multikart/storage/578/electronic_131.jpg",
-            "https://laravel.pixelstrap.net/multikart/storage/580/electronic_141.jpg"
-          ],
           "order_amount": 2177,
           "rating_count": 0,
           "store_logo": null,
@@ -404,7 +399,7 @@
               "mime_type": "image/png",
               "file_name": "Baby-Essentials.png",
               "asset_url": "assets/images/category/8.png",
-              "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+              "original_url": "/storage/3790/Baby-Essentials.png"
             },
             "subcategories": []
           }
@@ -422,11 +417,6 @@
           "id": 15,
           "store_name": "Perfume Emporium",
           "slug": "perfume-emporium",
-          "product_images": [
-            "https://laravel.pixelstrap.net/multikart/storage/1463/perfume_111.jpg",
-            "https://laravel.pixelstrap.net/multikart/storage/1459/perfume_101.jpg",
-            "https://laravel.pixelstrap.net/multikart/storage/1455/perfume_161.jpg"
-          ],
           "order_amount": 0,
           "rating_count": 0,
           "store_logo": null,
@@ -755,7 +745,7 @@
               "mime_type": "image/png",
               "file_name": "Baby-Essentials.png",
               "asset_url": "assets/images/category/6.png",
-              "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+              "original_url": "/storage/3790/Baby-Essentials.png"
             },
             "subcategories": []
           }

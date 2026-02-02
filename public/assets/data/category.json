@@ -250,7 +250,7 @@
         "mime_type": "image/png",
         "file_name": "Baby-Essentials.png",
         "asset_url": "assets/images/category/8.png",
-        "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+        "original_url": "assets/images/category/8.png"
       },
       "subcategories": []
     },
@@ -332,7 +332,7 @@
         "mime_type": "image/png",
         "file_name": "Accessories.png",
         "asset_url": "assets/images/category/14.png",
-        "original_url": "https://laravel.pixelstrap.net/multikart/storage/3801/Accessories.png"
+        "original_url": "assets/images/category/14.png"
       },
       "subcategories": [
         {
@@ -489,7 +489,7 @@
         "mime_type": "image/png",
         "file_name": "Baby-Essentials.png",
         "asset_url": "assets/images/category/8.png",
-        "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+        "original_url": "assets/images/category/8.png"
       },
       "subcategories": []
     },
@@ -513,10 +513,8 @@
       "subcategories": []
     }
   ],
-  "first_page_url": "https://laravel.pixelstrap.net/multikart/api/category?page=1",
   "from": 1,
   "last_page": 1,
-  "last_page_url": "https://laravel.pixelstrap.net/multikart/api/category?page=1",
   "links": [
     {
       "url": null,
@@ -524,7 +522,6 @@
       "active": false
     },
     {
-      "url": "https://laravel.pixelstrap.net/multikart/api/category?page=1",
       "label": "1",
       "active": true
     },
@@ -535,7 +532,6 @@
     }
   ],
   "next_page_url": null,
-  "path": "https://laravel.pixelstrap.net/multikart/api/category",
   "per_page": 46,
   "prev_page_url": null,
   "to": 46,

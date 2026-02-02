@@ -30,11 +30,6 @@
       "orders_count": 0,
       "reviews_count": 0,
       "products_count": 15,
-      "product_images": [
-        "assets/images/product-new/electronic_2-1.png",
-        "assets/images/product-new/electronic_15-1.png",
-        "assets/images/product-new/electronic_21-1.png"
-      ],
       "order_amount": 0,
       "rating_count": 2,
       "store_logo": null,
@@ -94,7 +89,7 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/1.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         }
@@ -129,11 +124,6 @@
       "orders_count": 1,
       "reviews_count": 0,
       "products_count": 16,
-      "product_images": [
-        "assets/images/product-new/fashion_1-1-1.png",
-        "assets/images/product-new/fashion_2-1.png",
-        "assets/images/product-new/fashion_3-1.png"
-      ],
       "order_amount": 42,
       "rating_count": 3,
       "store_logo": null,
@@ -193,7 +183,7 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/6.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         },
@@ -212,7 +202,7 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/6.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         }
@@ -247,11 +237,6 @@
       "orders_count": 0,
       "reviews_count": 0,
       "products_count": 16,
-      "product_images": [
-        "assets/images/product-new/grocery_24-1.png",
-        "assets/images/product-new/grocery_14-1.png",
-        "assets/images/product-new/grocery_27-1.png"
-      ],
       "order_amount": 0,
       "rating_count": 1,
       "store_logo": null,
@@ -326,11 +311,6 @@
       "orders_count": 0,
       "reviews_count": 0,
       "products_count": 20,
-      "product_images": [
-        "assets/images/product-new/babyproduct_10-1.png",
-        "assets/images/product-new/babyproduct_11-1.png",
-        "assets/images/product-new/babyproduct_13-1.png"
-      ],
       "order_amount": 0,
       "rating_count": 4,
       "store_logo": null,
@@ -390,7 +370,7 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/4.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         }
@@ -425,11 +405,6 @@
       "orders_count": 0,
       "reviews_count": 0,
       "products_count": 16,
-      "product_images": [
-        "assets/images/product-new/electronic_9-1.png",
-        "assets/images/product-new/electronic_3-1.png",
-        "assets/images/product-new/electronic_4-1.png"
-      ],
       "order_amount": 0,
       "rating_count": 3,
       "store_logo": null,
@@ -489,7 +464,7 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/8.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         }
@@ -524,11 +499,6 @@
       "orders_count": 0,
       "reviews_count": 0,
       "products_count": 25,
-      "product_images": [
-        "assets/images/product-new/fashion_21-1.png",
-        "assets/images/product-new/fashion_24-1.png",
-        "assets/images/product-new/fashion_20-1.png"
-      ],
       "order_amount": 0,
       "rating_count": 2,
       "store_logo": null,
@@ -632,11 +602,6 @@
       "orders_count": 0,
       "reviews_count": 0,
       "products_count": 24,
-      "product_images": [
-        "assets/images/product-new/fashion_16-1.png",
-        "assets/images/product-new/electronic_25-1.png",
-        "assets/images/product-new/electronic_26-1.png"
-      ],
       "order_amount": 0,
       "rating_count": 3,
       "store_logo": null,
@@ -696,7 +661,7 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/2.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         }
@@ -731,11 +696,6 @@
       "orders_count": 0,
       "reviews_count": 0,
       "products_count": 14,
-      "product_images": [
-        "assets/images/product-new/fashion_22-1.png",
-        "assets/images/product-new/fashion_18-1.png",
-        "assets/images/product-new/fashion_19-1.png"
-      ],
       "order_amount": 0,
       "rating_count": 2,
       "store_logo": null,
@@ -795,7 +755,7 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/10.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         }
@@ -830,11 +790,6 @@
       "orders_count": 0,
       "reviews_count": 0,
       "products_count": 18,
-      "product_images": [
-        "assets/images/product-new/babyproduct_28-1.png",
-        "assets/images/product-new/babyproduct_30-1.png",
-        "assets/images/product-new/babyproduct_27-1.png"
-      ],
       "order_amount": 0,
       "rating_count": 4,
       "store_logo": null,
@@ -894,17 +849,15 @@
             "mime_type": "image/png",
             "file_name": "Baby-Essentials.png",
             "asset_url": "assets/images/category/7.png",
-            "original_url": "https://laravel.pixelstrap.net/multikart/storage/3790/Baby-Essentials.png"
+            "original_url": "/storage/3790/Baby-Essentials.png"
           },
           "subcategories": []
         }
       ]
     }
   ],
-  "first_page_url": "https://multikart.webiots.co.in/api/store?page=1",
   "from": 1,
   "last_page": 4,
-  "last_page_url": "https://multikart.webiots.co.in/api/store?page=4",
   "links": [
     {
       "url": null,
@@ -912,33 +865,26 @@
       "active": false
     },
     {
-      "url": "https://multikart.webiots.co.in/api/store?page=1",
       "label": "1",
       "active": true
     },
     {
-      "url": "https://multikart.webiots.co.in/api/store?page=2",
       "label": "2",
       "active": false
     },
     {
-      "url": "https://multikart.webiots.co.in/api/store?page=3",
       "label": "3",
       "active": false
     },
     {
-      "url": "https://multikart.webiots.co.in/api/store?page=4",
       "label": "4",
       "active": false
     },
     {
-      "url": "https://multikart.webiots.co.in/api/store?page=2",
       "label": "Next &raquo;",
       "active": false
     }
   ],
-  "next_page_url": "https://multikart.webiots.co.in/api/store?page=2",
-  "path": "https://multikart.webiots.co.in/api/store",
   "per_page": 9,
   "prev_page_url": null,
   "to": 9,

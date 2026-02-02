@@ -4,7 +4,8 @@
     <div class="mb-4">
       <div class="tracking-panel">
         <ul>
-          @for(orderStatus of (orderStatus$ | async)?.data; track orderStatus.id){
+          @for(orderStatus of (orderStatus$ | async)?.data; track
+          orderStatus.id){
           <li
             [class.active]="orderStatus?.sequence <= order?.order_status?.sequence"
             [ngClass]="{'d-none': ((orderStatus?.sequence >= order?.order_status?.sequence && order?.order_status?.slug === 'cancelled')
@@ -19,10 +20,14 @@
                 />
               </div>
               <div>
-                <div class="status">{{ orderStatus?.name.replaceAll('_', ' ') | titlecase }}</div>
+                <div class="status">
+                  {{ orderStatus?.name.replaceAll('_', ' ') | titlecase }}
+                </div>
                 @if(orderStatus?.sequence <= order?.order_status?.sequence &&
                 orderStatus.activities_date){
-                <span class="panel-content-sm">{{ orderStatus.activities_date }}</span>
+                <span class="panel-content-sm"
+                  >{{ orderStatus.activities_date }}</span
+                >
                 }
               </div>
             </div>
@@ -38,7 +43,8 @@
                 />
               </div>
               <div class="status">
-                {{ order?.order_status?.name?.replaceAll('_', ' ') | titlecase }}
+                {{ order?.order_status?.name?.replaceAll('_', ' ') | titlecase
+                }}
               </div>
             </div>
           </li>
@@ -52,8 +58,8 @@
       [gridClass]="'col-sm-12'"
       [title]="('order_number' | translate)+': #'+order?.order_number"
     >
-      @if(!order?.sub_orders?.length && (order?.order_status?.slug !== 'cancelled' &&
-      order?.order_status?.slug !== 'delivered')){
+      @if(!order?.sub_orders?.length && (order?.order_status?.slug !==
+      'cancelled' && order?.order_status?.slug !== 'delivered')){
       <div button>
         @if(isBrowser) {
         <select2
@@ -93,12 +99,14 @@
               </td>
               <td>
                 <h6>
-                  {{ product?.pivot?.variation ? product?.pivot?.variation?.name : product?.name }}
+                  {{ product?.pivot?.variation ? product?.pivot?.variation?.name
+                  : product?.name }}
                 </h6>
               </td>
               <td>
                 <h6>
-                  {{ (product?.pivot?.wholesale_price ? product?.pivot?.wholesale_price :
+                  {{ (product?.pivot?.wholesale_price ?
+                  product?.pivot?.wholesale_price :
                   product?.pivot?.single_price) | currencySymbol }}
                 </h6>
               </td>
@@ -135,7 +143,9 @@
                 <h6 class="fw-bold">{{ '#'+subOrder?.order_number }}</h6>
               </td>
               <td>
-                <h6>{{ subOrder?.created_at | date: 'dd MMM yyyy hh:mm a' }}</h6>
+                <h6>
+                  {{ subOrder?.created_at | date: 'dd MMM yyyy hh:mm a' }}
+                </h6>
               </td>
               <td>
                 @if(isBrowser) {
@@ -171,11 +181,13 @@
       <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'summary'">
         @if(order?.invoice_url){
         <div class="d-flex gap-2" button>
-          <a class="btn btn-light-bg btn-sm ms-auto" (click)="posInvoice.openModal(order)"
+          <a
+            class="btn btn-light-bg btn-sm ms-auto"
+            (click)="posInvoice.openModal(order)"
             >Receipt</a
           >
           <a
-            (click)="download(order.order_number)"
+            href="assets/text.txt"
             class="btn btn-animation btn-sm ms-auto"
             download="download"
             >{{ 'invoice' | translate }}
@@ -187,26 +199,34 @@
           <ul>
             <li>
               {{ 'subtotal' | translate }}
-              <span>{{ (order?.amount ? order?.amount : 0) | currencySymbol }}</span>
+              <span
+                >{{ (order?.amount ? order?.amount : 0) | currencySymbol
+                }}</span
+              >
             </li>
 
             @if(!order?.is_digital_only){
             <li>
               {{ 'shipping' | translate }}
               <span
-                >{{ (order?.shipping_total ? order?.shipping_total : 0) | currencySymbol }}</span
+                >{{ (order?.shipping_total ? order?.shipping_total : 0) |
+                currencySymbol }}</span
               >
             </li>
             }
 
             <li>
               {{ 'tax' | translate }}
-              <span>{{ (order?.tax_total ? order?.tax_total : 0) | currencySymbol }}</span>
+              <span
+                >{{ (order?.tax_total ? order?.tax_total : 0) | currencySymbol
+                }}</span
+              >
             </li>
 
             @if(order?.points_amount !== 0){
             <li class="txt-primary fw-bold">
-              {{ 'points' | translate }} <span>{{ order?.points_amount | currencySymbol }}</span>
+              {{ 'points' | translate }}
+              <span>{{ order?.points_amount | currencySymbol }}</span>
             </li>
             } @if(order?.wallet_balance !== 0){
             <li class="txt-primary fw-bold">
@@ -222,7 +242,9 @@
 
             <li>
               {{ 'total' | translate }}
-              <span>{{ (order?.total ? order?.total : 0) | currencySymbol }}</span>
+              <span
+                >{{ (order?.total ? order?.total : 0) | currencySymbol }}</span
+              >
             </li>
           </ul>
         </div>
@@ -242,10 +264,13 @@
             <li>
               <label>{{'billing_address' | translate }}:</label>
               <h4>
-                {{ order?.billing_address?.street }} {{ order?.billing_address?.city }} {{
-                order?.billing_address?.state?.name }} {{ order?.billing_address?.country?.name }}
-                {{ order?.billing_address?.pincode }} <br />
-                {{ 'phone' | translate }} : +{{ order?.shipping_address?.country_code }} {{
+                {{ order?.billing_address?.street }} {{
+                order?.billing_address?.city }} {{
+                order?.billing_address?.state?.name }} {{
+                order?.billing_address?.country?.name }} {{
+                order?.billing_address?.pincode }} <br />
+                {{ 'phone' | translate }} : +{{
+                order?.shipping_address?.country_code }} {{
                 order?.billing_address?.phone }}
               </h4>
             </li>
@@ -254,10 +279,13 @@
             <li>
               <label>{{ 'shipping_address' | translate }}:</label>
               <h4>
-                {{ order?.shipping_address?.street }} {{ order?.shipping_address?.city }} {{
-                order?.shipping_address?.state?.name }} {{ order?.shipping_address?.country?.name }}
-                {{ order?.shipping_address?.pincode }} <br />
-                {{ 'phone' | translate }} : +{{ order?.shipping_address?.country_code }} {{
+                {{ order?.shipping_address?.street }} {{
+                order?.shipping_address?.city }} {{
+                order?.shipping_address?.state?.name }} {{
+                order?.shipping_address?.country?.name }} {{
+                order?.shipping_address?.pincode }} <br />
+                {{ 'phone' | translate }} : +{{
+                order?.shipping_address?.country_code }} {{
                 order?.shipping_address?.phone }}
               </h4>
             </li>

@@ -15,10 +15,8 @@ export interface IVenderWallet {
 export interface ITransactions {
   current_page: number;
   data: ITransactionsData[];
-  first_page_url: string;
   from: string;
   last_page: number;
-  last_page_url: string;
   links: [];
   next_page_url: string | null;
   path: string;
