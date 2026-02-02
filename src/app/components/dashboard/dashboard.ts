@@ -142,7 +142,7 @@ export interface OptionSelect {
     HasPermissionDirective,
   ],
   providers: [CurrencySymbolPipe],
-  templateUrl: './dashboard.html', 
+  templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
 export class Dashboard {
@@ -192,14 +192,14 @@ export class Dashboard {
         slidesPerView: 2,
         slidesPerGroup: 2,
       },
-    }, 
-      // from 1299px
-      // 1399: {
-      //   slidesPerView: 2,
-      //   slidesPerGroup: 2,
-      // },
+    },
+    // from 1299px
+    // 1399: {
+    //   slidesPerView: 2,
+    //   slidesPerGroup: 2,
+    // },
 
-      // from 1499px (large screens)
+    // from 1499px (large screens)
 
     // pagination: {
     //   show: false,
@@ -210,7 +210,7 @@ export class Dashboard {
     //   nextEl: ".swiper-button-next",
     //   prevEl: ".swiper-button-prev",
     // },
-   
+
   };
 
 
