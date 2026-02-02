@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2, inject, viewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, Renderer2, inject, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -17,6 +17,7 @@ import { NavService } from '../../../../services/nav.service';
 export class Search {
   navServices = inject(NavService);
   private renderer = inject(Renderer2);
+  @Output() searchChange = new EventEmitter<string>();
 
   public menuItems: ISidebar[];
   public items: ISidebar[] = menu;
@@ -33,7 +34,11 @@ export class Search {
   closeSearch() {
     this.navServices.search = false;
   }
-  
+
+  onSearch(value: string) {
+    this.searchChange.emit(value);
+  }
+
 
   openDropDown(text: string) {
     text && (this.searchResult = !this.searchResult);

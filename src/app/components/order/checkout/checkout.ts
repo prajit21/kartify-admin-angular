@@ -69,8 +69,7 @@ import { UserState } from '../../../shared/store/state/user.state';
     Button,
     AddCustomerModal,
     AddAddressModal,
-    RouterLink
-],
+  ],
   templateUrl: './checkout.html',
   styleUrl: './checkout.scss',
 })
