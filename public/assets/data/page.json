@@ -76,7 +76,6 @@
       }
     }
   ],
-  " ": "https://laravel.pixelstrap.net/fastkart/api/page?page=1",
   "from": 1,
   "last_page": 1,
   "links": [
@@ -86,7 +85,6 @@
       "active": false
     },
     {
-      "url": "https://laravel.pixelstrap.net/fastkart/api/page?page=1",
       "label": "1",
       "active": true
     },
@@ -97,7 +95,6 @@
     }
   ],
   "next_page_url": null,
-  "path": "https://laravel.pixelstrap.net/fastkart/api/page",
   "per_page": 1,
   "prev_page_url": null,
   "to": 1,
