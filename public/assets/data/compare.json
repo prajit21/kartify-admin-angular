@@ -77,8 +77,8 @@
         "disk": "public",
         "file_name": "fashion_0131.jpg",
         "mime_type": "image/jpeg",
-        "asset_url": "assets/images/product-new/fashion_5-1.png",
-        "original_url": "assets/images/product-new/fashion_5-1.png"
+        "asset_url": "assets/images/product/fashion_5-1.png",
+        "original_url": "assets/images/product/fashion_5-1.png"
       },
       "product_galleries": [
         {
@@ -87,8 +87,8 @@
           "disk": "public",
           "file_name": "fashion_0133.jpg",
           "mime_type": "image/jpeg",
-          "asset_url": "assets/images/product-new/fashion_5-1.png",
-          "original_url": "assets/images/product-new/fashion_5-1.png"
+          "asset_url": "assets/images/product/fashion_5-1.png",
+          "original_url": "assets/images/product/fashion_5-1.png"
         },
         {
           "id": 157,
@@ -96,8 +96,8 @@
           "disk": "public",
           "file_name": "fashion_0132.jpg",
           "mime_type": "image/jpeg",
-          "asset_url": "assets/images/product-new/fashion_5-2.png",
-          "original_url": "assets/images/product-new/fashion_5-2.png"
+          "asset_url": "assets/images/product/fashion_5-2.png",
+          "original_url": "assets/images/product/fashion_5-2.png"
         },
         {
           "id": 157,
@@ -105,8 +105,8 @@
           "disk": "public",
           "file_name": "fashion_0132.jpg",
           "mime_type": "image/jpeg",
-          "asset_url": "assets/images/product-new/fashion_5-3.png",
-          "original_url": "assets/images/product-new/fashion_5-3.png"
+          "asset_url": "assets/images/product/fashion_5-3.png",
+          "original_url": "assets/images/product/fashion_5-3.png"
         }
       ],
       "attributes": [],
@@ -252,8 +252,8 @@
         "disk": "public",
         "file_name": "fashion_0131.jpg",
         "mime_type": "image/jpeg",
-        "asset_url": "assets/images/product-new/fashion_6-1.png",
-        "original_url": "assets/images/product-new/fashion_6-1.png"
+        "asset_url": "assets/images/product/fashion_6-1.png",
+        "original_url": "assets/images/product/fashion_6-1.png"
       },
       "product_galleries": [
         {
@@ -262,8 +262,8 @@
           "disk": "public",
           "file_name": "fashion_0133.jpg",
           "mime_type": "image/jpeg",
-          "asset_url": "assets/images/product-new/fashion_6-1.png",
-          "original_url": "assets/images/product-new/fashion_6-1.png"
+          "asset_url": "assets/images/product/fashion_6-1.png",
+          "original_url": "assets/images/product/fashion_6-1.png"
         },
         {
           "id": 157,
@@ -271,8 +271,8 @@
           "disk": "public",
           "file_name": "fashion_0132.jpg",
           "mime_type": "image/jpeg",
-          "asset_url": "assets/images/product-new/fashion_6-2.png",
-          "original_url": "assets/images/product-new/fashion_6-2.png"
+          "asset_url": "assets/images/product/fashion_6-2.png",
+          "original_url": "assets/images/product/fashion_6-2.png"
         },
         {
           "id": 157,
@@ -280,8 +280,8 @@
           "disk": "public",
           "file_name": "fashion_0132.jpg",
           "mime_type": "image/jpeg",
-          "asset_url": "assets/images/product-new/fashion_6-3.png",
-          "original_url": "assets/images/product-new/fashion_6-3.png"
+          "asset_url": "assets/images/product/fashion_6-3.png",
+          "original_url": "assets/images/product/fashion_6-3.png"
         }
       ],
       "attributes": [],
@@ -427,8 +427,8 @@
         "disk": "public",
         "file_name": "fashion_0131.jpg",
         "mime_type": "image/jpeg",
-        "asset_url": "assets/images/product-new/fashion_7-1.png",
-        "original_url": "assets/images/product-new/fashion_7-1.png"
+        "asset_url": "assets/images/product/fashion_7-1.png",
+        "original_url": "assets/images/product/fashion_7-1.png"
       },
       "product_galleries": [
         {
@@ -437,8 +437,8 @@
           "disk": "public",
           "file_name": "fashion_0133.jpg",
           "mime_type": "image/jpeg",
-          "asset_url": "assets/images/product-new/fashion_7-1.png",
-          "original_url": "assets/images/product-new/fashion_7-1.png"
+          "asset_url": "assets/images/product/fashion_7-1.png",
+          "original_url": "assets/images/product/fashion_7-1.png"
         },
         {
           "id": 157,
@@ -446,8 +446,8 @@
           "disk": "public",
           "file_name": "fashion_0132.jpg",
           "mime_type": "image/jpeg",
-          "asset_url": "assets/images/product-new/fashion_7-2.png",
-          "original_url": "assets/images/product-new/fashion_7-2.png"
+          "asset_url": "assets/images/product/fashion_7-2.png",
+          "original_url": "assets/images/product/fashion_7-2.png"
         },
         {
           "id": 157,
@@ -455,8 +455,8 @@
           "disk": "public",
           "file_name": "fashion_0132.jpg",
           "mime_type": "image/jpeg",
-          "asset_url": "assets/images/product-new/fashion_7-3.png",
-          "original_url": "assets/images/product-new/fashion_7-3.png"
+          "asset_url": "assets/images/product/fashion_7-3.png",
+          "original_url": "assets/images/product/fashion_7-3.png"
         }
       ],
       "attributes": [],

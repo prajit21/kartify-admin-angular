@@ -154,8 +154,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-06T10:09:20.000000Z",
-            "asset_url": "assets/images/product-new/fashion_1-1-1.png",
-            "original_url": "assets/images/product-new/fashion_1-1-1.png"
+            "asset_url": "assets/images/product/fashion_1-1-1.png",
+            "original_url": "assets/images/product/fashion_1-1-1.png"
           },
           "product_galleries": [
             {
@@ -166,8 +166,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:09:52.000000Z",
-              "asset_url": "assets/images/product-new/fashion_1-1-1.png",
-              "original_url": "assets/images/product-new/fashion_1-1-1.png"
+              "asset_url": "assets/images/product/fashion_1-1-1.png",
+              "original_url": "assets/images/product/fashion_1-1-1.png"
             },
             {
               "id": 157,
@@ -177,8 +177,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:09:43.000000Z",
-              "asset_url": "assets/images/product-new/fashion_1-1-2.png",
-              "original_url": "assets/images/product-new/fashion_1-1-2.png"
+              "asset_url": "assets/images/product/fashion_1-1-2.png",
+              "original_url": "assets/images/product/fashion_1-1-2.png"
             }
           ],
           "attributes": [],
@@ -342,8 +342,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-06-19T16:39:29.000000Z",
-            "asset_url": "assets/images/product-new/fashion_2-1.png",
-            "original_url": "assets/images/product-new/fashion_2-1.png"
+            "asset_url": "assets/images/product/fashion_2-1.png",
+            "original_url": "assets/images/product/fashion_2-1.png"
           },
           "product_galleries": [
             {
@@ -354,8 +354,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-19T16:39:29.000000Z",
-              "asset_url": "assets/images/product-new/fashion_2-1.png",
-              "original_url": "assets/images/product-new/fashion_2-1.png"
+              "asset_url": "assets/images/product/fashion_2-1.png",
+              "original_url": "assets/images/product/fashion_2-1.png"
             },
             {
               "id": 3707,
@@ -365,8 +365,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-19T16:39:29.000000Z",
-              "asset_url": "assets/images/product-new/fashion_2-1.png",
-              "original_url": "assets/images/product-new/fashion_2-1.png"
+              "asset_url": "assets/images/product/fashion_2-1.png",
+              "original_url": "assets/images/product/fashion_2-1.png"
             },
             {
               "id": 3706,
@@ -376,8 +376,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-19T16:39:29.000000Z",
-              "asset_url": "assets/images/product-new/fashion_2-1.png",
-              "original_url": "assets/images/product-new/fashion_2-1.png"
+              "asset_url": "assets/images/product/fashion_2-1.png",
+              "original_url": "assets/images/product/fashion_2-1.png"
             }
           ],
           "attributes": [],
@@ -419,8 +419,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-06-07T11:56:13.000000Z",
-            "asset_url": "assets/images/product-new/electronic_8-1-1.png",
-            "original_url": "assets/images/product-new/electronic_8-1-1.png"
+            "asset_url": "assets/images/product/electronic_8-1-1.png",
+            "original_url": "assets/images/product/electronic_8-1-1.png"
           },
           "product_galleries": [
             {
@@ -431,8 +431,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-07T11:58:53.000000Z",
-              "asset_url": "assets/images/product-new/electronic_8-1-1.png",
-              "original_url": "assets/images/product-new/electronic_8-1-1.png"
+              "asset_url": "assets/images/product/electronic_8-1-1.png",
+              "original_url": "assets/images/product/electronic_8-1-1.png"
             },
             {
               "id": 2863,
@@ -442,8 +442,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-07T11:58:53.000000Z",
-              "asset_url": "assets/images/product-new/electronic_8-1-2.png",
-              "original_url": "assets/images/product-new/electronic_8-1-2.png"
+              "asset_url": "assets/images/product/electronic_8-1-2.png",
+              "original_url": "assets/images/product/electronic_8-1-2.png"
             },
             {
               "id": 2861,
@@ -453,8 +453,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-07T11:56:13.000000Z",
-              "asset_url": "assets/images/product-new/electronic_8-1-3.png",
-              "original_url": "assets/images/product-new/electronic_8-1-3.png"
+              "asset_url": "assets/images/product/electronic_8-1-3.png",
+              "original_url": "assets/images/product/electronic_8-1-3.png"
             }
           ],
           "attributes": [],
@@ -857,8 +857,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-06T10:31:17.000000Z",
-            "asset_url": "assets/images/product-new/electronic_1-1.png",
-            "original_url": "assets/images/product-new/electronic_1-1.png"
+            "asset_url": "assets/images/product/electronic_1-1.png",
+            "original_url": "assets/images/product/electronic_1-1.png"
           },
           "product_galleries": [
             {
@@ -869,8 +869,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:31:38.000000Z",
-              "asset_url": "assets/images/product-new/electronic_1-1.png",
-              "original_url": "assets/images/product-new/electronic_1-1.png"
+              "asset_url": "assets/images/product/electronic_1-1.png",
+              "original_url": "assets/images/product/electronic_1-1.png"
             },
             {
               "id": 169,
@@ -880,8 +880,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:31:28.000000Z",
-              "asset_url": "assets/images/product-new/electronic_1-2.png",
-              "original_url": "assets/images/product-new/electronic_1-2.png"
+              "asset_url": "assets/images/product/electronic_1-2.png",
+              "original_url": "assets/images/product/electronic_1-2.png"
             }
           ],
           "attributes": [],
@@ -923,8 +923,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-06T10:18:42.000000Z",
-            "asset_url": "assets/images/product-new/electronic_2-1.png",
-            "original_url": "assets/images/product-new/electronic_2-1.png"
+            "asset_url": "assets/images/product/electronic_2-1.png",
+            "original_url": "assets/images/product/electronic_2-1.png"
           },
           "product_galleries": [
             {
@@ -935,8 +935,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:19:39.000000Z",
-              "asset_url": "assets/images/product-new/electronic_2-1.png",
-              "original_url": "assets/images/product-new/electronic_2-1.png"
+              "asset_url": "assets/images/product/electronic_2-1.png",
+              "original_url": "assets/images/product/electronic_2-1.png"
             },
             {
               "id": 163,
@@ -946,8 +946,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:19:30.000000Z",
-              "asset_url": "assets/images/product-new/electronic_2-3.png",
-              "original_url": "assets/images/product-new/electronic_2-3.png"
+              "asset_url": "assets/images/product/electronic_2-3.png",
+              "original_url": "assets/images/product/electronic_2-3.png"
             }
           ],
           "attributes": [],
@@ -1111,8 +1111,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-06T10:54:10.000000Z",
-            "asset_url": "assets/images/product-new/electronic_3-1.png",
-            "original_url": "assets/images/product-new/electronic_3-1.png"
+            "asset_url": "assets/images/product/electronic_3-1.png",
+            "original_url": "assets/images/product/electronic_3-1.png"
           },
           "product_galleries": [
             {
@@ -1123,8 +1123,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:54:34.000000Z",
-              "asset_url": "assets/images/product-new/electronic_3-1.png",
-              "original_url": "assets/images/product-new/electronic_3-1.png"
+              "asset_url": "assets/images/product/electronic_3-1.png",
+              "original_url": "assets/images/product/electronic_3-1.png"
             },
             {
               "id": 175,
@@ -1134,8 +1134,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:54:34.000000Z",
-              "asset_url": "assets/images/product-new/electronic_3-2.png",
-              "original_url": "assets/images/product-new/electronic_3-2.png"
+              "asset_url": "assets/images/product/electronic_3-2.png",
+              "original_url": "assets/images/product/electronic_3-2.png"
             }
           ],
           "attributes": [],
@@ -1187,8 +1187,8 @@
                 "disk": "public",
                 "created_by_id": "1",
                 "created_at": "2025-05-06T11:09:32.000000Z",
-                "asset_url": "assets/images/product-new/fashion_1-1-1.png",
-                "original_url": "assets/images/product-new/fashion_1-1-1.png"
+                "asset_url": "assets/images/product/fashion_1-1-1.png",
+                "original_url": "assets/images/product/fashion_1-1-1.png"
               },
               "variation_galleries": [],
               "attribute_values": [
@@ -1248,8 +1248,8 @@
                 "disk": "public",
                 "created_by_id": "1",
                 "created_at": "2025-05-06T11:09:08.000000Z",
-                "asset_url": "assets/images/product-new/fashion_1-2-1.png",
-                "original_url": "assets/images/product-new/fashion_1-2-1.png"
+                "asset_url": "assets/images/product/fashion_1-2-1.png",
+                "original_url": "assets/images/product/fashion_1-2-1.png"
               },
               "variation_galleries": [],
               "attribute_values": [
@@ -1299,8 +1299,8 @@
                 "disk": "public",
                 "created_by_id": "1",
                 "created_at": "2025-05-06T11:09:08.000000Z",
-                "asset_url": "assets/images/product-new/fashion_1-3-1.png",
-                "original_url": "assets/images/product-new/fashion_1-3-1.png"
+                "asset_url": "assets/images/product/fashion_1-3-1.png",
+                "original_url": "assets/images/product/fashion_1-3-1.png"
               },
               "variation_galleries": [],
               "attribute_values": [
@@ -1350,8 +1350,8 @@
                 "disk": "public",
                 "created_by_id": "1",
                 "created_at": "2025-05-06T11:09:32.000000Z",
-                "asset_url": "assets/images/product-new/fashion_1-1-1.png",
-                "original_url": "assets/images/product-new/fashion_1-1-1.png"
+                "asset_url": "assets/images/product/fashion_1-1-1.png",
+                "original_url": "assets/images/product/fashion_1-1-1.png"
               },
               "variation_galleries": [],
               "attribute_values": [
@@ -1381,8 +1381,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-06T11:09:32.000000Z",
-            "asset_url": "assets/images/product-new/fashion_1-1-1.png",
-            "original_url": "assets/images/product-new/fashion_1-1-1.png"
+            "asset_url": "assets/images/product/fashion_1-1-1.png",
+            "original_url": "assets/images/product/fashion_1-1-1.png"
           },
           "product_galleries": [
             {
@@ -1393,8 +1393,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T11:09:32.000000Z",
-              "asset_url": "assets/images/product-new/fashion_1-1-2.png",
-              "original_url": "assets/images/product-new/fashion_1-1-2.png"
+              "asset_url": "assets/images/product/fashion_1-1-2.png",
+              "original_url": "assets/images/product/fashion_1-1-2.png"
             },
             {
               "id": 181,
@@ -1404,8 +1404,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T11:09:08.000000Z",
-              "asset_url": "assets/images/product-new/fashion_1-1-3.png",
-              "original_url": "assets/images/product-new/fashion_1-1-3.png"
+              "asset_url": "assets/images/product/fashion_1-1-3.png",
+              "original_url": "assets/images/product/fashion_1-1-3.png"
             },
             {
               "id": 178,
@@ -1415,8 +1415,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T11:09:08.000000Z",
-              "asset_url": "assets/images/product-new/fashion_1-1-1.png",
-              "original_url": "assets/images/product-new/fashion_1-1-1.png"
+              "asset_url": "assets/images/product/fashion_1-1-1.png",
+              "original_url": "assets/images/product/fashion_1-1-1.png"
             }
           ],
           "attributes": [
@@ -1739,8 +1739,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-06-19T16:39:17.000000Z",
-            "asset_url": "assets/images/product-new/product_26-1.png",
-            "original_url": "assets/images/product-new/product_26-1.png"
+            "asset_url": "assets/images/product/product_26-1.png",
+            "original_url": "assets/images/product/product_26-1.png"
           },
           "product_galleries": [
             {
@@ -1751,8 +1751,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-19T16:39:17.000000Z",
-              "asset_url": "assets/images/product-new/product_26-1.png",
-              "original_url": "assets/images/product-new/product_26-1.png"
+              "asset_url": "assets/images/product/product_26-1.png",
+              "original_url": "assets/images/product/product_26-1.png"
             },
             {
               "id": 3700,
@@ -1762,8 +1762,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-19T16:39:17.000000Z",
-              "asset_url": "assets/images/product-new/product_26-2.png",
-              "original_url": "assets/images/product-new/product_26-2.png"
+              "asset_url": "assets/images/product/product_26-2.png",
+              "original_url": "assets/images/product/product_26-2.png"
             },
             {
               "id": 3698,
@@ -1773,8 +1773,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-19T16:39:02.000000Z",
-              "asset_url": "assets/images/product-new/product_26-3.png",
-              "original_url": "assets/images/product-new/product_26-3.png"
+              "asset_url": "assets/images/product/product_26-3.png",
+              "original_url": "assets/images/product/product_26-3.png"
             }
           ],
           "attributes": [],
@@ -1928,8 +1928,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-04T12:32:06.000000Z",
-            "asset_url": "assets/images/product-new/electronic_31-1.png",
-            "original_url": "assets/images/product-new/electronic_31-1.png"
+            "asset_url": "assets/images/product/electronic_31-1.png",
+            "original_url": "assets/images/product/electronic_31-1.png"
           },
           "product_galleries": [
             {
@@ -1940,8 +1940,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:32:06.000000Z",
-              "asset_url": "assets/images/product-new/electronic_31-1.png",
-              "original_url": "assets/images/product-new/electronic_31-1.png"
+              "asset_url": "assets/images/product/electronic_31-1.png",
+              "original_url": "assets/images/product/electronic_31-1.png"
             },
             {
               "id": 104,
@@ -1951,8 +1951,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:32:06.000000Z",
-              "asset_url": "assets/images/product-new/electronic_31-2.png",
-              "original_url": "assets/images/product-new/electronic_31-2.png"
+              "asset_url": "assets/images/product/electronic_31-2.png",
+              "original_url": "assets/images/product/electronic_31-2.png"
             },
             {
               "id": 103,
@@ -1962,8 +1962,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:32:06.000000Z",
-              "asset_url": "assets/images/product-new/electronic_31-3.png",
-              "original_url": "assets/images/product-new/electronic_31-3.png"
+              "asset_url": "assets/images/product/electronic_31-3.png",
+              "original_url": "assets/images/product/electronic_31-3.png"
             }
           ],
           "attributes": [],
@@ -2127,8 +2127,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-04T12:32:06.000000Z",
-            "asset_url": "assets/images/product-new/electronic_31-1.png",
-            "original_url": "assets/images/product-new/electronic_31-1.png"
+            "asset_url": "assets/images/product/electronic_31-1.png",
+            "original_url": "assets/images/product/electronic_31-1.png"
           },
           "product_galleries": [
             {
@@ -2139,8 +2139,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:32:06.000000Z",
-              "asset_url": "assets/images/product-new/electronic_31-1.png",
-              "original_url": "assets/images/product-new/electronic_31-1.png"
+              "asset_url": "assets/images/product/electronic_31-1.png",
+              "original_url": "assets/images/product/electronic_31-1.png"
             },
             {
               "id": 104,
@@ -2150,8 +2150,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:32:06.000000Z",
-              "asset_url": "assets/images/product-new/electronic_31-2.png",
-              "original_url": "assets/images/product-new/electronic_31-2.png"
+              "asset_url": "assets/images/product/electronic_31-2.png",
+              "original_url": "assets/images/product/electronic_31-2.png"
             },
             {
               "id": 103,
@@ -2161,8 +2161,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:32:06.000000Z",
-              "asset_url": "assets/images/product-new/electronic_31-3.png",
-              "original_url": "assets/images/product-new/electronic_31-3.png"
+              "asset_url": "assets/images/product/electronic_31-3.png",
+              "original_url": "assets/images/product/electronic_31-3.png"
             }
           ],
           "attributes": [],
@@ -2326,8 +2326,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-06-19T04:19:37.000000Z",
-            "asset_url": "assets/images/product-new/product_25-3.png",
-            "original_url": "assets/images/product-new/product_25-3.png"
+            "asset_url": "assets/images/product/product_25-3.png",
+            "original_url": "assets/images/product/product_25-3.png"
           },
           "product_galleries": [
             {
@@ -2338,8 +2338,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-19T04:20:08.000000Z",
-              "asset_url": "assets/images/product-new/product_25-3.png",
-              "original_url": "assets/images/product-new/product_25-3.png"
+              "asset_url": "assets/images/product/product_25-3.png",
+              "original_url": "assets/images/product/product_25-3.png"
             },
             {
               "id": 3637,
@@ -2349,8 +2349,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-19T04:20:08.000000Z",
-              "asset_url": "assets/images/product-new/product_25-1.png",
-              "original_url": "assets/images/product-new/product_25-1.png"
+              "asset_url": "assets/images/product/product_25-1.png",
+              "original_url": "assets/images/product/product_25-1.png"
             },
             {
               "id": 3635,
@@ -2360,8 +2360,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-06-19T04:19:37.000000Z",
-              "asset_url": "assets/images/product-new/product_25-2.png",
-              "original_url": "assets/images/product-new/product_25-2.png"
+              "asset_url": "assets/images/product/product_25-2.png",
+              "original_url": "assets/images/product/product_25-2.png"
             }
           ],
           "attributes": [],
@@ -2525,8 +2525,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-06T10:18:42.000000Z",
-            "asset_url": "assets/images/product-new/electronic_14-1-1.png",
-            "original_url": "assets/images/product-new/electronic_14-1-1.png"
+            "asset_url": "assets/images/product/electronic_14-1-1.png",
+            "original_url": "assets/images/product/electronic_14-1-1.png"
           },
           "product_galleries": [
             {
@@ -2537,8 +2537,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:19:39.000000Z",
-              "asset_url": "assets/images/product-new/electronic_14-1-2.png",
-              "original_url": "assets/images/product-new/electronic_14-1-2.png"
+              "asset_url": "assets/images/product/electronic_14-1-2.png",
+              "original_url": "assets/images/product/electronic_14-1-2.png"
             },
             {
               "id": 163,
@@ -2548,8 +2548,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:19:30.000000Z",
-              "asset_url": "assets/images/product-new/electronic_14-1-3.png",
-              "original_url": "assets/images/product-new/electronic_14-1-3.png"
+              "asset_url": "assets/images/product/electronic_14-1-3.png",
+              "original_url": "assets/images/product/electronic_14-1-3.png"
             }
           ],
           "attributes": [],
@@ -2591,8 +2591,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-06T10:31:17.000000Z",
-            "asset_url": "assets/images/product-new/electronic_15-1.png",
-            "original_url": "assets/images/product-new/electronic_15-1.png"
+            "asset_url": "assets/images/product/electronic_15-1.png",
+            "original_url": "assets/images/product/electronic_15-1.png"
           },
           "product_galleries": [
             {
@@ -2603,8 +2603,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:31:38.000000Z",
-              "asset_url": "assets/images/product-new/electronic_15-1.png",
-              "original_url": "assets/images/product-new/electronic_15-1.png"
+              "asset_url": "assets/images/product/electronic_15-1.png",
+              "original_url": "assets/images/product/electronic_15-1.png"
             },
             {
               "id": 169,
@@ -2614,8 +2614,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:31:28.000000Z",
-              "asset_url": "assets/images/product-new/electronic_15-2.png",
-              "original_url": "assets/images/product-new/electronic_15-2.png"
+              "asset_url": "assets/images/product/electronic_15-2.png",
+              "original_url": "assets/images/product/electronic_15-2.png"
             }
           ],
           "attributes": [],
@@ -2657,8 +2657,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-06T10:54:10.000000Z",
-            "asset_url": "assets/images/product-new/electronic_16-1.png",
-            "original_url": "assets/images/product-new/electronic_16-1.png"
+            "asset_url": "assets/images/product/electronic_16-1.png",
+            "original_url": "assets/images/product/electronic_16-1.png"
           },
           "product_galleries": [
             {
@@ -2669,8 +2669,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:54:34.000000Z",
-              "asset_url": "assets/images/product-new/electronic_16-2.png",
-              "original_url": "assets/images/product-new/electronic_16-2.png"
+              "asset_url": "assets/images/product/electronic_16-2.png",
+              "original_url": "assets/images/product/electronic_16-2.png"
             },
             {
               "id": 175,
@@ -2680,8 +2680,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T10:54:34.000000Z",
-              "asset_url": "assets/images/product-new/electronic_16-3.png",
-              "original_url": "assets/images/product-new/electronic_16-3.png"
+              "asset_url": "assets/images/product/electronic_16-3.png",
+              "original_url": "assets/images/product/electronic_16-3.png"
             }
           ],
           "attributes": [],
@@ -2733,8 +2733,8 @@
                 "disk": "public",
                 "created_by_id": "1",
                 "created_at": "2025-05-06T11:09:08.000000Z",
-                "asset_url": "assets/images/product-new/fashion_1-1-1.png",
-                "original_url": "assets/images/product-new/fashion_1-1-1.png"
+                "asset_url": "assets/images/product/fashion_1-1-1.png",
+                "original_url": "assets/images/product/fashion_1-1-1.png"
               },
               "variation_galleries": [],
               "attribute_values": [
@@ -2794,8 +2794,8 @@
                 "disk": "public",
                 "created_by_id": "1",
                 "created_at": "2025-05-06T11:09:08.000000Z",
-                "asset_url": "assets/images/product-new/fashion_1-2-1.png",
-                "original_url": "assets/images/product-new/fashion_1-2-1.png"
+                "asset_url": "assets/images/product/fashion_1-2-1.png",
+                "original_url": "assets/images/product/fashion_1-2-1.png"
               },
               "variation_galleries": [],
               "attribute_values": [
@@ -2845,8 +2845,8 @@
                 "disk": "public",
                 "created_by_id": "1",
                 "created_at": "2025-05-06T11:09:08.000000Z",
-                "asset_url": "assets/images/product-new/fashion_1-3-1.png",
-                "original_url": "assets/images/product-new/fashion_1-3-1.png"
+                "asset_url": "assets/images/product/fashion_1-3-1.png",
+                "original_url": "assets/images/product/fashion_1-3-1.png"
               },
               "variation_galleries": [],
               "attribute_values": [
@@ -2896,8 +2896,8 @@
                 "disk": "public",
                 "created_by_id": "1",
                 "created_at": "2025-05-06T11:09:32.000000Z",
-                "asset_url": "assets/images/product-new/fashion_1-2-1.png",
-                "original_url": "assets/images/product-new/fashion_1-2-1.png"
+                "asset_url": "assets/images/product/fashion_1-2-1.png",
+                "original_url": "assets/images/product/fashion_1-2-1.png"
               },
               "variation_galleries": [],
               "attribute_values": [
@@ -2927,8 +2927,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-06T11:09:32.000000Z",
-            "asset_url": "assets/images/product-new/fashion_1-2-1.png",
-            "original_url": "assets/images/product-new/fashion_1-2-1.png"
+            "asset_url": "assets/images/product/fashion_1-2-1.png",
+            "original_url": "assets/images/product/fashion_1-2-1.png"
           },
           "product_galleries": [
             {
@@ -2939,8 +2939,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T11:09:32.000000Z",
-              "asset_url": "assets/images/product-new/fashion_1-2-1.png",
-              "original_url": "assets/images/product-new/fashion_1-2-1.png"
+              "asset_url": "assets/images/product/fashion_1-2-1.png",
+              "original_url": "assets/images/product/fashion_1-2-1.png"
             },
             {
               "id": 181,
@@ -2950,8 +2950,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T11:09:08.000000Z",
-              "asset_url": "assets/images/product-new/fashion_1-2-2.png",
-              "original_url": "assets/images/product-new/fashion_1-2-2.png"
+              "asset_url": "assets/images/product/fashion_1-2-2.png",
+              "original_url": "assets/images/product/fashion_1-2-2.png"
             },
             {
               "id": 178,
@@ -2961,8 +2961,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-06T11:09:08.000000Z",
-              "asset_url": "assets/images/product-new/fashion_1-2-3.png",
-              "original_url": "assets/images/product-new/fashion_1-2-3.png"
+              "asset_url": "assets/images/product/fashion_1-2-3.png",
+              "original_url": "assets/images/product/fashion_1-2-3.png"
             }
           ],
           "attributes": [
@@ -3285,8 +3285,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-04T12:02:23.000000Z",
-            "asset_url": "assets/images/product-new/fashion_5-1.png",
-            "original_url": "assets/images/product-new/fashion_5-1.png"
+            "asset_url": "assets/images/product/fashion_5-1.png",
+            "original_url": "assets/images/product/fashion_5-1.png"
           },
           "product_galleries": [
             {
@@ -3297,8 +3297,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:05:19.000000Z",
-              "asset_url": "assets/images/product-new/fashion_5-1.png",
-              "original_url": "assets/images/product-new/fashion_5-1.png"
+              "asset_url": "assets/images/product/fashion_5-1.png",
+              "original_url": "assets/images/product/fashion_5-1.png"
             },
             {
               "id": 51,
@@ -3308,8 +3308,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:05:19.000000Z",
-              "asset_url": "assets/images/product-new/fashion_5-2.png",
-              "original_url": "assets/images/product-new/fashion_5-2.png"
+              "asset_url": "assets/images/product/fashion_5-2.png",
+              "original_url": "assets/images/product/fashion_5-2.png"
             }
           ],
           "attributes": [],
@@ -3360,8 +3360,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-04T12:02:19.000000Z",
-            "asset_url": "assets/images/product-new/fashion_6-1.png",
-            "original_url": "assets/images/product-new/fashion_6-1.png"
+            "asset_url": "assets/images/product/fashion_6-1.png",
+            "original_url": "assets/images/product/fashion_6-1.png"
           },
           "product_galleries": [
             {
@@ -3372,8 +3372,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:02:19.000000Z",
-              "asset_url": "assets/images/product-new/fashion_6-1.png",
-              "original_url": "assets/images/product-new/fashion_6-1.png"
+              "asset_url": "assets/images/product/fashion_6-1.png",
+              "original_url": "assets/images/product/fashion_6-1.png"
             },
             {
               "id": 46,
@@ -3383,8 +3383,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:02:19.000000Z",
-              "asset_url": "assets/images/product-new/fashion_6-2.png",
-              "original_url": "assets/images/product-new/fashion_6-2.png"
+              "asset_url": "assets/images/product/fashion_6-2.png",
+              "original_url": "assets/images/product/fashion_6-2.png"
             },
             {
               "id": 45,
@@ -3394,8 +3394,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T12:02:19.000000Z",
-              "asset_url": "assets/images/product-new/fashion_6-3.png",
-              "original_url": "assets/images/product-new/fashion_6-3.png"
+              "asset_url": "assets/images/product/fashion_6-3.png",
+              "original_url": "assets/images/product/fashion_6-3.png"
             }
           ],
           "attributes": [],
@@ -3559,8 +3559,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-21T11:25:33.000000Z",
-            "asset_url": "assets/images/product-new/fashion_7-1.png",
-            "original_url": "assets/images/product-new/fashion_7-1.png"
+            "asset_url": "assets/images/product/fashion_7-1.png",
+            "original_url": "assets/images/product/fashion_7-1.png"
           },
           "product_galleries": [
             {
@@ -3571,8 +3571,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-21T11:25:33.000000Z",
-              "asset_url": "assets/images/product-new/fashion_7-1.png",
-              "original_url": "assets/images/product-new/fashion_7-1.png"
+              "asset_url": "assets/images/product/fashion_7-1.png",
+              "original_url": "assets/images/product/fashion_7-1.png"
             },
             {
               "id": 1711,
@@ -3582,8 +3582,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-21T11:25:33.000000Z",
-              "asset_url": "assets/images/product-new/fashion_7-2.png",
-              "original_url": "assets/images/product-new/fashion_7-2.png"
+              "asset_url": "assets/images/product/fashion_7-2.png",
+              "original_url": "assets/images/product/fashion_7-2.png"
             },
             {
               "id": 1710,
@@ -3593,8 +3593,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-21T11:25:33.000000Z",
-              "asset_url": "assets/images/product-new/fashion_7-3.png",
-              "original_url": "assets/images/product-new/fashion_7-3.png"
+              "asset_url": "assets/images/product/fashion_7-3.png",
+              "original_url": "assets/images/product/fashion_7-3.png"
             }
           ],
           "attributes": [],
@@ -3636,8 +3636,8 @@
             "disk": "public",
             "created_by_id": "1",
             "created_at": "2025-05-04T11:46:48.000000Z",
-            "asset_url": "assets/images/product-new/fashion_8-1.png",
-            "original_url": "assets/images/product-new/fashion_8-1.png"
+            "asset_url": "assets/images/product/fashion_8-1.png",
+            "original_url": "assets/images/product/fashion_8-1.png"
           },
           "product_galleries": [
             {
@@ -3648,8 +3648,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T11:46:48.000000Z",
-              "asset_url": "assets/images/product-new/fashion_8-1.png",
-              "original_url": "assets/images/product-new/fashion_8-1.png"
+              "asset_url": "assets/images/product/fashion_8-1.png",
+              "original_url": "assets/images/product/fashion_8-1.png"
             },
             {
               "id": 34,
@@ -3659,8 +3659,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T11:46:48.000000Z",
-              "asset_url": "assets/images/product-new/fashion_8-2.png",
-              "original_url": "assets/images/product-new/fashion_8-2.png"
+              "asset_url": "assets/images/product/fashion_8-2.png",
+              "original_url": "assets/images/product/fashion_8-2.png"
             },
             {
               "id": 33,
@@ -3670,8 +3670,8 @@
               "disk": "public",
               "created_by_id": "1",
               "created_at": "2025-05-04T11:46:48.000000Z",
-              "asset_url": "assets/images/product-new/fashion_8-3.png",
-              "original_url": "assets/images/product-new/fashion_8-3.png"
+              "asset_url": "assets/images/product/fashion_8-3.png",
+              "original_url": "assets/images/product/fashion_8-3.png"
             }
           ],
           "attributes": [],
