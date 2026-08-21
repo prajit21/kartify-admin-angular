@@ -1,4 +1,9 @@
-import { Component, inject, input } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -6,28 +11,35 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+} from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { mergeMap, of, Subject, switchMap, takeUntil } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { mergeMap, of, Subject, switchMap, takeUntil } from "rxjs";
 
-import { Button } from '../../../shared/components/ui/button/button';
-import { FormFields } from '../../../shared/components/ui/form-fields/form-fields';
-import { IFaq } from '../../../shared/interface/faq.interface';
+import { Button } from "../../../shared/components/ui/button/button";
+import { FormFields } from "../../../shared/components/ui/form-fields/form-fields";
+import { IFaq } from "../../../shared/interface/faq.interface";
 import {
   CreateFaqAction,
   EditFaqAction,
   UpdateFaqAction,
-} from '../../../shared/store/action/faq.action';
-import { FaqState } from '../../../shared/store/state/faq.state';
+} from "../../../shared/store/action/faq.action";
+import { FaqState } from "../../../shared/store/state/faq.state";
 
 @Component({
-  selector: 'app-form-faq',
-  imports: [TranslateModule, FormsModule, ReactiveFormsModule, FormFields, Button],
-  templateUrl: './form-faq.html',
-  styleUrl: './form-faq.scss',
+  selector: "app-form-faq",
+  imports: [
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FormFields,
+    Button,
+  ],
+  templateUrl: "./form-faq.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./form-faq.scss",
 })
 export class FormFaq {
   private store = inject(Store);
@@ -44,8 +56,8 @@ export class FormFaq {
 
   constructor() {
     this.form = this.formBuilder.group({
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
+      title: new FormControl("", [Validators.required]),
+      description: new FormControl("", [Validators.required]),
       status: new FormControl(true),
     });
   }
@@ -53,15 +65,15 @@ export class FormFaq {
   ngOnInit() {
     this.route.params
       .pipe(
-        switchMap(params => {
-          if (!params['id']) return of();
+        switchMap((params) => {
+          if (!params["id"]) return of();
           return this.store
-            .dispatch(new EditFaqAction(params['id']))
+            .dispatch(new EditFaqAction(params["id"]))
             .pipe(mergeMap(() => this.store.select(FaqState.selectedFaq)));
         }),
         takeUntil(this.destroy$),
       )
-      .subscribe(faq => {
+      .subscribe((faq) => {
         this.faq = faq;
         this.form.patchValue({
           title: this.faq?.title,
@@ -75,14 +87,14 @@ export class FormFaq {
     this.form.markAllAsTouched();
     let action = new CreateFaqAction(this.form.value);
 
-    if (this.type() == 'edit' && this.faq?.id) {
+    if (this.type() == "edit" && this.faq?.id) {
       action = new UpdateFaqAction(this.form.value, this.faq.id);
     }
 
     if (this.form.valid) {
       this.store.dispatch(action).subscribe({
         complete: () => {
-          void this.router.navigateByUrl('/faq');
+          void this.router.navigateByUrl("/faq");
         },
       });
     }

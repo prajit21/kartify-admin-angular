@@ -4,7 +4,7 @@
     <a [routerLink]="['/dashboard']">
       <img
         class="img-fluid for-white"
-        [src]="(setting$ | async )?.general?.light_logo_image?.asset_url"
+        [src]="$safeNavigationMigration((setting$ | async )?.general?.light_logo_image?.asset_url)"
         alt="logo"
       />
     </a>
@@ -18,7 +18,7 @@
     } @if((setting$ | async )?.general?.tiny_logo_image){
     <img
       class="img-fluid logo-sm"
-      [src]="(setting$ | async )?.general?.tiny_logo_image?.asset_url"
+      [src]="$safeNavigationMigration((setting$ | async )?.general?.tiny_logo_image?.asset_url)"
       alt="logo"
     />
     }@else {
@@ -49,12 +49,12 @@
         ></div>
         <ng-template #recursiveMenu let-menus>
           @for(menu of menus; track i; let i = $index){
-          @if(hasMainLevelMenuPermission(menu?.acl_permission) &&
-          (!menu?.canAllow || (menu?.canAllow?.length && role &&
+          @if(hasMainLevelMenuPermission($safeNavigationMigration(menu?.acl_permission))
+          && (!menu?.canAllow || (menu?.canAllow?.length && role &&
           menu?.canAllow?.includes(role)))){
           <li
             [class.sidebar-list]="menu.type === 'sub'"
-            *hasPermission="menu?.permission"
+            *hasPermission="$safeNavigationMigration(menu?.permission)"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: false }"
           >

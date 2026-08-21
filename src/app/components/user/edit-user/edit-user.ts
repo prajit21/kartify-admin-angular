@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 
-import { PageWrapper } from '../../../shared/components/page-wrapper/page-wrapper';
-import { FormUser } from '../form-user/form-user';
+import { PageWrapper } from "../../../shared/components/page-wrapper/page-wrapper";
+import { FormUser } from "../form-user/form-user";
 
 @Component({
-  selector: 'app-edit-user',
+  selector: "app-edit-user",
   imports: [PageWrapper, FormUser],
-  templateUrl: './edit-user.html',
-  styleUrl: './edit-user.scss',
+  templateUrl: "./edit-user.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./edit-user.scss",
 })
 export class EditUser {}

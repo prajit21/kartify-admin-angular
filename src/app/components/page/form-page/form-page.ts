@@ -1,5 +1,11 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, inject, PLATFORM_ID, input } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  inject,
+  PLATFORM_ID,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -7,29 +13,29 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+} from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Editor, NgxEditorModule } from 'ngx-editor';
-import { Observable, Subject, mergeMap, of, switchMap, takeUntil } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Editor, NgxEditorModule } from "ngx-editor";
+import { Observable, Subject, mergeMap, of, switchMap, takeUntil } from "rxjs";
 
-import { Button } from '../../../shared/components/ui/button/button';
-import { FormFields } from '../../../shared/components/ui/form-fields/form-fields';
-import { ImageUpload } from '../../../shared/components/ui/image-upload/image-upload';
-import { mediaConfig } from '../../../shared/data/media-config';
-import { IAttachment } from '../../../shared/interface/attachment.interface';
-import { IPage } from '../../../shared/interface/page.interface';
+import { Button } from "../../../shared/components/ui/button/button";
+import { FormFields } from "../../../shared/components/ui/form-fields/form-fields";
+import { ImageUpload } from "../../../shared/components/ui/image-upload/image-upload";
+import { mediaConfig } from "../../../shared/data/media-config";
+import { IAttachment } from "../../../shared/interface/attachment.interface";
+import { IPage } from "../../../shared/interface/page.interface";
 import {
   CreatePageAction,
   EditPageAction,
   UpdatePageAction,
-} from '../../../shared/store/action/page.action';
-import { PageState } from '../../../shared/store/state/page.state';
+} from "../../../shared/store/action/page.action";
+import { PageState } from "../../../shared/store/state/page.state";
 
 @Component({
-  selector: 'app-form-page',
+  selector: "app-form-page",
   imports: [
     TranslateModule,
     FormsModule,
@@ -40,8 +46,9 @@ import { PageState } from '../../../shared/store/state/page.state';
     ImageUpload,
     Button,
   ],
-  templateUrl: './form-page.html',
-  styleUrl: './form-page.scss',
+  templateUrl: "./form-page.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./form-page.scss",
 })
 export class FormPage {
   private store = inject(Store);
@@ -51,16 +58,18 @@ export class FormPage {
 
   readonly type = input<string>(undefined);
 
-  page$: Observable<IPage> = inject(Store).select(PageState.selectedPage) as Observable<IPage>;
+  page$: Observable<IPage> = inject(Store).select(
+    PageState.selectedPage,
+  ) as Observable<IPage>;
 
   private destroy$ = new Subject<void>();
-  public html = '';
+  public html = "";
   public form: FormGroup;
   public id: number;
   public mediaConfig = mediaConfig;
   public editor: Editor;
   public isCodeEditor = true;
-  public textArea = new FormControl('');
+  public textArea = new FormControl("");
   public isBrowser: boolean;
 
   constructor() {
@@ -69,7 +78,7 @@ export class FormPage {
     this.isBrowser = isPlatformBrowser(platformId);
 
     this.form = this.formBuilder.group({
-      title: new FormControl('', [Validators.required]),
+      title: new FormControl("", [Validators.required]),
       content: new FormControl(),
       meta_title: new FormControl(),
       meta_description: new FormControl(),
@@ -81,15 +90,15 @@ export class FormPage {
   ngOnInit() {
     this.route.params
       .pipe(
-        switchMap(params => {
-          if (!params['id']) return of();
+        switchMap((params) => {
+          if (!params["id"]) return of();
           return this.store
-            .dispatch(new EditPageAction(params['id']))
+            .dispatch(new EditPageAction(params["id"]))
             .pipe(mergeMap(() => this.store.select(PageState.selectedPage)));
         }),
         takeUntil(this.destroy$),
       )
-      .subscribe(page => {
+      .subscribe((page) => {
         this.id = page?.id!;
         this.form.patchValue({
           title: page?.title,
@@ -107,12 +116,12 @@ export class FormPage {
 
   selectMetaImage(data: IAttachment) {
     if (!Array.isArray(data)) {
-      this.form.controls['page_meta_image_id'].setValue(data ? data.id : null);
+      this.form.controls["page_meta_image_id"].setValue(data ? data.id : null);
     }
   }
 
   getText(_event: Event) {
-    this.form.controls['content'].setValue(this.textArea.value);
+    this.form.controls["content"].setValue(this.textArea.value);
   }
 
   getData(_description: Event) {
@@ -123,14 +132,14 @@ export class FormPage {
     this.form.markAllAsTouched();
     let action = new CreatePageAction(this.form.value);
 
-    if (this.type() == 'edit' && this.id) {
+    if (this.type() == "edit" && this.id) {
       action = new UpdatePageAction(this.form.value, this.id);
     }
 
     if (this.form.valid) {
       this.store.dispatch(action).subscribe({
         complete: () => {
-          void this.router.navigateByUrl('/page');
+          void this.router.navigateByUrl("/page");
         },
       });
     }

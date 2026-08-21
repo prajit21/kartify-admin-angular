@@ -1,23 +1,29 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, input } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import {
+  Component,
+  inject,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { LoaderState } from '../../../store/state/loader.state';
+import { LoaderState } from "../../../store/state/loader.state";
 
 @Component({
-  selector: 'app-button',
+  selector: "app-button",
   imports: [CommonModule],
-  templateUrl: './button.html',
-  styleUrl: './button.scss',
+  templateUrl: "./button.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./button.scss",
 })
 export class Button {
-  readonly class = input<string>('btn btn-theme ms-auto mt-4');
+  readonly class = input<string>("btn btn-theme ms-auto mt-4");
   readonly iconClass = input<string | null>(undefined);
   readonly id = input<string>(undefined);
-  readonly label = input<string>('Submit');
-  readonly type = input<string>('submit');
+  readonly label = input<string>("Submit");
+  readonly type = input<string>("submit");
   readonly spinner = input<boolean>(true);
   readonly disabled = input<boolean>(false);
 
@@ -28,7 +34,7 @@ export class Button {
   ) as Observable<boolean>;
 
   constructor() {
-    this.spinnerStatus$.subscribe(res => {
+    this.spinnerStatus$.subscribe((res) => {
       if (res == false) {
         this.buttonId = null;
       }

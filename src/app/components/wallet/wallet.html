@@ -69,4 +69,7 @@
   />
 </app-page-wrapper>
 
-<app-confirmation-modal #confirmationModal (confirmed)="submit($event?.actionToPerform)" />
+<app-confirmation-modal
+  #confirmationModal
+  (confirmed)="submit($safeNavigationMigration($event?.actionToPerform))"
+/>

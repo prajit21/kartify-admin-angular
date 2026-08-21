@@ -1,25 +1,30 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, viewChild } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import {
+  Component,
+  inject,
+  viewChild,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { ActivatedRoute, RouterModule } from "@angular/router";
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Observable, Subject, mergeMap, of, switchMap, takeUntil } from 'rxjs';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Observable, Subject, mergeMap, of, switchMap, takeUntil } from "rxjs";
 
-import { PageWrapper } from '../../../shared/components/page-wrapper/page-wrapper';
-import { NoData } from '../../../shared/components/ui/no-data/no-data';
-import { IShipping } from '../../../shared/interface/shipping.interface';
+import { PageWrapper } from "../../../shared/components/page-wrapper/page-wrapper";
+import { NoData } from "../../../shared/components/ui/no-data/no-data";
+import { IShipping } from "../../../shared/interface/shipping.interface";
 import {
   DeleteShippingRuleAction,
   EditShippingAction,
-} from '../../../shared/store/action/shipping.action';
-import { ShippingState } from '../../../shared/store/state/shipping.state';
-import { FormShipping } from '../form-shipping/form-shipping';
-import { ShippingRuleModal } from '../modal/shipping-rule-modal/shipping-rule-modal';
+} from "../../../shared/store/action/shipping.action";
+import { ShippingState } from "../../../shared/store/state/shipping.state";
+import { FormShipping } from "../form-shipping/form-shipping";
+import { ShippingRuleModal } from "../modal/shipping-rule-modal/shipping-rule-modal";
 
 @Component({
-  selector: 'app-shipping-country',
+  selector: "app-shipping-country",
   imports: [
     CommonModule,
     RouterModule,
@@ -30,8 +35,9 @@ import { ShippingRuleModal } from '../modal/shipping-rule-modal/shipping-rule-mo
     NoData,
     ShippingRuleModal,
   ],
-  templateUrl: './shipping-country.html',
-  styleUrl: './shipping-country.scss',
+  templateUrl: "./shipping-country.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./shipping-country.scss",
 })
 export class ShippingCountry {
   private store = inject(Store);
@@ -41,7 +47,9 @@ export class ShippingCountry {
     ShippingState.selectedShipping,
   ) as Observable<IShipping>;
 
-  readonly CreateShippingRuleModal = viewChild<ShippingRuleModal>('createShippingRuleModal');
+  readonly CreateShippingRuleModal = viewChild<ShippingRuleModal>(
+    "createShippingRuleModal",
+  );
 
   public id: number;
   private destroy$ = new Subject<void>();
@@ -49,15 +57,17 @@ export class ShippingCountry {
   ngOnInit() {
     this.route.params
       .pipe(
-        switchMap(params => {
-          if (!params['id']) return of();
+        switchMap((params) => {
+          if (!params["id"]) return of();
           return this.store
-            .dispatch(new EditShippingAction(params['id']))
-            .pipe(mergeMap(() => this.store.select(ShippingState.selectedShipping)));
+            .dispatch(new EditShippingAction(params["id"]))
+            .pipe(
+              mergeMap(() => this.store.select(ShippingState.selectedShipping)),
+            );
         }),
         takeUntil(this.destroy$),
       )
-      .subscribe(shipping => {
+      .subscribe((shipping) => {
         this.id = shipping?.id!;
       });
   }

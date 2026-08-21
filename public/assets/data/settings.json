@@ -54,7 +54,7 @@
         "mime_type": "image/png",
         "disk": "public",
         "created_by_id": "1",
-        "created_at": "2025-06-25T11:42:51.000000Z",
+        "created_at": "2026-06-25T11:42:51.000000Z",
         "asset_url": "assets/images/logo/1.svg",
         "original_url": "assets/images/logo/1.svg"
       },
@@ -65,7 +65,7 @@
         "mime_type": "image/png",
         "disk": "public",
         "created_by_id": "1",
-        "created_at": "2025-06-25T11:40:46.000000Z",
+        "created_at": "2026-06-25T11:40:46.000000Z",
         "asset_url": "assets/images/logo/1-dark.svg",
         "original_url": "assets/images/logo/1-dark.svg"
       },
@@ -76,7 +76,7 @@
         "mime_type": "image/png",
         "disk": "public",
         "created_by_id": "1",
-        "created_at": "2025-05-02T08:54:01.000000Z",
+        "created_at": "2026-05-02T08:54:01.000000Z",
         "asset_url": "assets/images/logo/favicon.svg",
         "original_url": "assets/images/logo/favicon.svg"
       },
@@ -87,7 +87,7 @@
         "mime_type": "image/png",
         "disk": "public",
         "created_by_id": "1",
-        "created_at": "2025-05-15T12:33:58.000000Z",
+        "created_at": "2026-05-15T12:33:58.000000Z",
         "asset_url": "assets/images/logo/favicon.svg",
         "original_url": "assets/images/logo/favicon.svg"
       },
@@ -103,8 +103,8 @@
         "system_reserve": 0,
         "status": 1,
         "created_by_id": null,
-        "created_at": "2025-05-02T08:34:46.000000Z",
-        "updated_at": "2025-05-02T08:34:46.000000Z",
+        "created_at": "2026-05-02T08:34:46.000000Z",
+        "updated_at": "2026-05-02T08:34:46.000000Z",
         "deleted_at": null
       }
     },
@@ -156,7 +156,7 @@
     },
     "maintenance": {
       "title": "We'll be back Soon..",
-      "end_date": "2025-7-31",
+      "end_date": "2026-7-31",
       "start_date": null,
       "description": "We are busy to updating our store for you.",
       "maintenance_mode": false,
@@ -168,7 +168,7 @@
         "mime_type": "image/png",
         "disk": "public",
         "created_by_id": "1",
-        "created_at": "2025-06-21T12:10:25.000000Z",
+        "created_at": "2026-06-21T12:10:25.000000Z",
         "asset_url": "/storage/3863/maintenance.png",
         "original_url": "/storage/3863/maintenance.png"
       }
@@ -308,6 +308,6 @@
       "aws_secret_access_key": "ENTER_YOUR_AWS_SECRET_KEY"
     }
   },
-  "created_at": "2025-05-02T08:34:46.000000Z",
-  "updated_at": "2025-07-10T05:12:56.000000Z"
+  "created_at": "2026-05-02T08:34:46.000000Z",
+  "updated_at": "2026-07-10T05:12:56.000000Z"
 }

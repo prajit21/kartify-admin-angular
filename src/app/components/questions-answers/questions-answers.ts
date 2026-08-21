@@ -1,29 +1,42 @@
+import {
+  Component,
+  inject,
+  Renderer2,
+  DOCUMENT,
+  viewChild,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 
-import { Component, inject, Renderer2, DOCUMENT, viewChild } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
-
-import { AnswersModal } from './answers-modal/answers-modal';
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper';
-import { Table } from '../../shared/components/ui/table/table';
-import { IQnAModel, IQuestionAnswers } from '../../shared/interface/questions-answers.interface';
-import { IStores } from '../../shared/interface/store.interface';
-import { ITableClickedAction, ITableConfig } from '../../shared/interface/table.interface';
+import { AnswersModal } from "./answers-modal/answers-modal";
+import { PageWrapper } from "../../shared/components/page-wrapper/page-wrapper";
+import { Table } from "../../shared/components/ui/table/table";
+import {
+  IQnAModel,
+  IQuestionAnswers,
+} from "../../shared/interface/questions-answers.interface";
+import { IStores } from "../../shared/interface/store.interface";
+import {
+  ITableClickedAction,
+  ITableConfig,
+} from "../../shared/interface/table.interface";
 import {
   DeleteAllQuestionAnswersAction,
   DeleteQuestionAnswersAction,
   GetQuestionAnswersAction,
-} from '../../shared/store/action/questions-answers.action';
-import { QuestionAnswersState } from '../../shared/store/state/questions-answers.state';
+} from "../../shared/store/action/questions-answers.action";
+import { QuestionAnswersState } from "../../shared/store/state/questions-answers.state";
 
 @Component({
-  selector: 'app-questions-answers',
+  selector: "app-questions-answers",
   imports: [PageWrapper, Table, AnswersModal, TranslateModule],
-  templateUrl: './questions-answers.html',
-  styleUrl: './questions-answers.scss',
+  templateUrl: "./questions-answers.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./questions-answers.scss",
 })
 export class QuestionsAnswers {
   private store = inject(Store);
@@ -36,31 +49,41 @@ export class QuestionsAnswers {
     QuestionAnswersState.questionAnswers,
   );
 
-  readonly AnswersModal = viewChild<AnswersModal>('answersModal');
+  readonly AnswersModal = viewChild<AnswersModal>("answersModal");
 
   public total: number;
   public selectedStatus: string;
   public filter: Params = {};
   public tableConfig: ITableConfig = {
     columns: [
-      { title: 'Question', dataField: 'question' },
-      { title: 'product', dataField: 'product_name' },
+      { title: "Question", dataField: "question" },
+      { title: "product", dataField: "product_name" },
       {
-        title: 'created_at',
-        dataField: 'created_at',
-        type: 'date',
+        title: "created_at",
+        dataField: "created_at",
+        type: "date",
         sortable: true,
-        sort_direction: 'desc',
+        sort_direction: "desc",
       },
-      { title: 'status', dataField: 'status', sortable: true, sort_direction: 'desc' },
+      {
+        title: "status",
+        dataField: "status",
+        sortable: true,
+        sort_direction: "desc",
+      },
     ],
     rowActions: [
-      { label: 'Edit', actionToPerform: 'edit', icon: 'ri-pencil-line', permission: 'store.edit' },
       {
-        label: 'Delete',
-        actionToPerform: 'delete',
-        icon: 'ri-delete-bin-line',
-        permission: 'store.destroy',
+        label: "Edit",
+        actionToPerform: "edit",
+        icon: "ri-pencil-line",
+        permission: "store.edit",
+      },
+      {
+        label: "Delete",
+        actionToPerform: "delete",
+        icon: "ri-delete-bin-line",
+        permission: "store.destroy",
       },
     ],
     data: [] as IQuestionAnswers[],
@@ -68,9 +91,9 @@ export class QuestionsAnswers {
   };
 
   ngOnInit() {
-    this.questionAnswers$.subscribe(questionAnswers => {
+    this.questionAnswers$.subscribe((questionAnswers) => {
       this.total = questionAnswers.total;
-      let questions = questionAnswers.data.filter(element => {
+      let questions = questionAnswers.data.filter((element) => {
         element.product_name = element?.product?.name;
         element.status = element?.answer
           ? `<div class="status-approved"><span>Repelled</span></div>`
@@ -82,33 +105,37 @@ export class QuestionsAnswers {
         questionAnswers && questionAnswers?.total ? questionAnswers?.total : 0;
     });
 
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.filter = { ...this.filter, status: params['status'] ? params['status'] : '' };
-      this.selectedStatus = params['status'];
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.filter = {
+        ...this.filter,
+        status: params["status"] ? params["status"] : "",
+      };
+      this.selectedStatus = params["status"];
       this.store.dispatch(new GetQuestionAnswersAction(this.filter));
     });
   }
 
   onTableChange(data?: Params) {
-    const status = this.selectedStatus ? this.selectedStatus : '';
+    const status = this.selectedStatus ? this.selectedStatus : "";
     this.filter = { ...this.filter, ...data };
-    this.filter['status'] = status;
+    this.filter["status"] = status;
     this.store.dispatch(new GetQuestionAnswersAction(this.filter));
   }
 
   onActionClicked(action: ITableClickedAction) {
-    if (action.actionToPerform == 'edit') void this.AnswersModal().openModal(action.data);
-    else if (action.actionToPerform == 'delete') this.delete(action.data);
-    else if (action.actionToPerform == 'deleteAll') this.deleteAll(action.data);
+    if (action.actionToPerform == "edit")
+      void this.AnswersModal().openModal(action.data);
+    else if (action.actionToPerform == "delete") this.delete(action.data);
+    else if (action.actionToPerform == "deleteAll") this.deleteAll(action.data);
   }
 
   filterOrder(status: string) {
-    this.renderer.addClass(this.document.body, 'loader-none');
+    this.renderer.addClass(this.document.body, "loader-none");
     void this.router.navigate([], {
       queryParams: {
         status: status ? status : null,
       },
-      queryParamsHandling: 'merge',
+      queryParamsHandling: "merge",
     });
   }
 

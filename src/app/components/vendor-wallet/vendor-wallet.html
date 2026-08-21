@@ -16,7 +16,9 @@
     </form>
   </div>
   }
-  <div [ngClass]="(roleName$ | async) !== 'vendor' ? 'col-xxl-8 col-xl-7' : 'col-xxl-12 col-xl-12'">
+  <div
+    [ngClass]="(roleName$ | async) !== 'vendor' ? 'col-xxl-8 col-xl-7' : 'col-xxl-12 col-xl-12'"
+  >
     <form [formGroup]="form">
       <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'wallet'">
         <div class="wallet-sec theme-form">
@@ -29,7 +31,9 @@
               <h5>{{ 'wallet_balance' | translate }}</h5>
             </div>
           </div>
-          <ng-container *hasPermission="['vendor_wallet.credit', 'vendor_wallet.debit']">
+          <ng-container
+            *hasPermission="['vendor_wallet.credit', 'vendor_wallet.debit']"
+          >
             <input
               type="number"
               #bal
@@ -70,4 +74,7 @@
   />
 </app-page-wrapper>
 
-<app-confirmation-modal #confirmationModal (confirmed)="submit($event?.actionToPerform)" />
+<app-confirmation-modal
+  #confirmationModal
+  (confirmed)="submit($safeNavigationMigration($event?.actionToPerform))"
+/>

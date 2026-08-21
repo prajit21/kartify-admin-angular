@@ -1,5 +1,11 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, inject, PLATFORM_ID, input } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  inject,
+  PLATFORM_ID,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -7,29 +13,37 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+} from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Select2Data, Select2Module } from 'ng-select2-component';
-import { Observable, Subject, forkJoin, mergeMap, of, switchMap, takeUntil } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Select2Data, Select2Module } from "ng-select2-component";
+import {
+  Observable,
+  Subject,
+  forkJoin,
+  mergeMap,
+  of,
+  switchMap,
+  takeUntil,
+} from "rxjs";
 
-import { Button } from '../../../shared/components/ui/button/button';
-import { FormFields } from '../../../shared/components/ui/form-fields/form-fields';
-import { countryCodes } from '../../../shared/data/country-code';
-import { GetRolesAction } from '../../../shared/store/action/role.action';
+import { Button } from "../../../shared/components/ui/button/button";
+import { FormFields } from "../../../shared/components/ui/form-fields/form-fields";
+import { countryCodes } from "../../../shared/data/country-code";
+import { GetRolesAction } from "../../../shared/store/action/role.action";
 import {
   CreateUserAction,
   EditUserAction,
   UpdateUserAction,
-} from '../../../shared/store/action/user.action';
-import { RoleState } from '../../../shared/store/state/role.state';
-import { UserState } from '../../../shared/store/state/user.state';
-import { CustomValidators } from '../../../shared/validator/password-match';
+} from "../../../shared/store/action/user.action";
+import { RoleState } from "../../../shared/store/state/role.state";
+import { UserState } from "../../../shared/store/state/user.state";
+import { CustomValidators } from "../../../shared/validator/password-match";
 
 @Component({
-  selector: 'app-form-user',
+  selector: "app-form-user",
   imports: [
     TranslateModule,
     FormsModule,
@@ -39,8 +53,9 @@ import { CustomValidators } from '../../../shared/validator/password-match';
     Button,
     FormFields,
   ],
-  templateUrl: './form-user.html',
-  styleUrl: './form-user.scss',
+  templateUrl: "./form-user.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./form-user.scss",
 })
 export class FormUser {
   private store = inject(Store);
@@ -65,38 +80,47 @@ export class FormUser {
     this.isBrowser = isPlatformBrowser(platformId);
     this.form = this.formBuilder.group(
       {
-        name: new FormControl('', [Validators.required]),
-        email: new FormControl('', [Validators.required, Validators.email]),
-        phone: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/)]),
-        country_code: new FormControl('1', [Validators.required]),
-        role_id: new FormControl('', [Validators.required]),
-        password: new FormControl('', [Validators.required]),
-        password_confirmation: new FormControl('', [Validators.required]),
+        name: new FormControl("", [Validators.required]),
+        email: new FormControl("", [Validators.required, Validators.email]),
+        phone: new FormControl("", [
+          Validators.required,
+          Validators.pattern(/^[0-9]*$/),
+        ]),
+        country_code: new FormControl("1", [Validators.required]),
+        role_id: new FormControl("", [Validators.required]),
+        password: new FormControl("", [Validators.required]),
+        password_confirmation: new FormControl("", [Validators.required]),
         status: new FormControl(1),
       },
       {
-        validator: CustomValidators.MatchValidator('password', 'password_confirmation'),
+        validator: CustomValidators.MatchValidator(
+          "password",
+          "password_confirmation",
+        ),
       },
     );
   }
 
   get passwordMatchError() {
-    return this.form.getError('mismatch') && this.form.get('password_confirmation')?.touched;
+    return (
+      this.form.getError("mismatch") &&
+      this.form.get("password_confirmation")?.touched
+    );
   }
 
   ngOnInit() {
     const roles$ = this.store.dispatch(new GetRolesAction());
     this.route.params
       .pipe(
-        switchMap(params => {
-          if (!params['id']) return of();
+        switchMap((params) => {
+          if (!params["id"]) return of();
           return this.store
-            .dispatch(new EditUserAction(params['id']))
+            .dispatch(new EditUserAction(params["id"]))
             .pipe(mergeMap(() => this.store.select(UserState.selectedUser)));
         }),
         takeUntil(this.destroy$),
       )
-      .subscribe(user => {
+      .subscribe((user) => {
         this.id = user?.id!;
         forkJoin([roles$]).subscribe({
           complete: () => {
@@ -117,16 +141,16 @@ export class FormUser {
     this.form.markAllAsTouched();
     let action = new CreateUserAction(this.form.value);
 
-    if (this.type() == 'edit' && this.id) {
-      this.form.removeControl('password');
-      this.form.removeControl('password_confirmation');
+    if (this.type() == "edit" && this.id) {
+      this.form.removeControl("password");
+      this.form.removeControl("password_confirmation");
       action = new UpdateUserAction(this.form.value, this.id);
     }
 
     if (this.form.valid) {
       this.store.dispatch(action).subscribe({
         complete: () => {
-          void this.router.navigateByUrl('/user');
+          void this.router.navigateByUrl("/user");
         },
       });
     }

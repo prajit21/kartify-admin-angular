@@ -1,4 +1,9 @@
-import { Component, inject, input } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -6,30 +11,30 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+} from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Subject, mergeMap, of, switchMap, takeUntil } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Subject, mergeMap, of, switchMap, takeUntil } from "rxjs";
 
-import { PageWrapper } from '../../../shared/components/page-wrapper/page-wrapper';
-import { AdvanceDropdown } from '../../../shared/components/ui/advance-dropdown/advance-dropdown';
-import { Button } from '../../../shared/components/ui/button/button';
-import { FormFields } from '../../../shared/components/ui/form-fields/form-fields';
-import { ImageUpload } from '../../../shared/components/ui/image-upload/image-upload';
-import { mediaConfig } from '../../../shared/data/media-config';
-import { IAttachment } from '../../../shared/interface/attachment.interface';
-import { ICategory } from '../../../shared/interface/category.interface';
+import { PageWrapper } from "../../../shared/components/page-wrapper/page-wrapper";
+import { AdvanceDropdown } from "../../../shared/components/ui/advance-dropdown/advance-dropdown";
+import { Button } from "../../../shared/components/ui/button/button";
+import { FormFields } from "../../../shared/components/ui/form-fields/form-fields";
+import { ImageUpload } from "../../../shared/components/ui/image-upload/image-upload";
+import { mediaConfig } from "../../../shared/data/media-config";
+import { IAttachment } from "../../../shared/interface/attachment.interface";
+import { ICategory } from "../../../shared/interface/category.interface";
 import {
   CreateCategoryAction,
   EditCategoryAction,
   UpdateCategoryAction,
-} from '../../../shared/store/action/category.action';
-import { CategoryState } from '../../../shared/store/state/category.state';
+} from "../../../shared/store/action/category.action";
+import { CategoryState } from "../../../shared/store/state/category.state";
 
 @Component({
-  selector: 'app-form-category',
+  selector: "app-form-category",
   imports: [
     TranslateModule,
     FormsModule,
@@ -40,8 +45,9 @@ import { CategoryState } from '../../../shared/store/state/category.state';
     ImageUpload,
     Button,
   ],
-  templateUrl: './form-category.html',
-  styleUrl: './form-category.scss',
+  templateUrl: "./form-category.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./form-category.scss",
 })
 export class FormCategory {
   private store = inject(Store);
@@ -51,7 +57,7 @@ export class FormCategory {
 
   readonly type = input<string>(undefined);
   readonly categories = input<ICategory[]>(undefined);
-  readonly categoryType = input<string | null>('product');
+  readonly categoryType = input<string | null>("product");
 
   public form: FormGroup;
   public category: ICategory;
@@ -62,7 +68,7 @@ export class FormCategory {
 
   constructor() {
     this.form = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
+      name: new FormControl("", [Validators.required]),
       description: new FormControl(),
       parent_id: new FormControl(),
       type: new FormControl(this.categoryType(), []),
@@ -77,21 +83,23 @@ export class FormCategory {
   }
 
   ngOnChanges() {
-    this.form.controls['type'].setValue(this.categoryType());
+    this.form.controls["type"].setValue(this.categoryType());
   }
 
   ngOnInit() {
     this.route.params
       .pipe(
-        switchMap(params => {
-          if (!params['id']) return of();
+        switchMap((params) => {
+          if (!params["id"]) return of();
           return this.store
-            .dispatch(new EditCategoryAction(params['id']))
-            .pipe(mergeMap(() => this.store.select(CategoryState.selectedCategory)));
+            .dispatch(new EditCategoryAction(params["id"]))
+            .pipe(
+              mergeMap(() => this.store.select(CategoryState.selectedCategory)),
+            );
         }),
         takeUntil(this.destroy$),
       )
-      .subscribe(category => {
+      .subscribe((category) => {
         this.category = category!;
         this.form.patchValue({
           name: this.category?.name,
@@ -111,27 +119,29 @@ export class FormCategory {
 
   selectItem(data: number[]) {
     if (Array.isArray(data) && data.length) {
-      this.form.controls['parent_id'].setValue(data[0]);
+      this.form.controls["parent_id"].setValue(data[0]);
     } else {
-      this.form.controls['parent_id'].setValue('');
+      this.form.controls["parent_id"].setValue("");
     }
   }
 
   selectCategoryImage(data: IAttachment) {
     if (!Array.isArray(data)) {
-      this.form.controls['category_image_id'].setValue(data ? data.id : '');
+      this.form.controls["category_image_id"].setValue(data ? data.id : "");
     }
   }
 
   selectCategoryIcon(data: IAttachment) {
     if (!Array.isArray(data)) {
-      this.form.controls['category_icon_id'].setValue(data ? data.id : '');
+      this.form.controls["category_icon_id"].setValue(data ? data.id : "");
     }
   }
 
   selectMetaImage(data: IAttachment) {
     if (!Array.isArray(data)) {
-      this.form.controls['category_meta_image_id'].setValue(data ? data.id : '');
+      this.form.controls["category_meta_image_id"].setValue(
+        data ? data.id : "",
+      );
     }
   }
 
@@ -139,23 +149,23 @@ export class FormCategory {
     this.form.markAllAsTouched();
     let action = new CreateCategoryAction(this.form.value);
 
-    if (this.type() == 'edit' && this.category?.id) {
+    if (this.type() == "edit" && this.category?.id) {
       action = new UpdateCategoryAction(this.form.value, this.category.id);
     }
 
     if (this.form.valid) {
       this.store.dispatch(action).subscribe({
         complete: () => {
-          if (this.type() == 'create') {
+          if (this.type() == "create") {
             this.form.reset();
-            this.form.controls['category_image_id'].setValue('');
-            this.form.controls['category_icon_id'].setValue('');
-            this.form.controls['status'].setValue(true);
+            this.form.controls["category_image_id"].setValue("");
+            this.form.controls["category_icon_id"].setValue("");
+            this.form.controls["status"].setValue(true);
           } else {
-            if (this.form.value.type === 'product') {
-              void this.router.navigateByUrl('/category');
+            if (this.form.value.type === "product") {
+              void this.router.navigateByUrl("/category");
             } else {
-              void this.router.navigateByUrl('/blog/category');
+              void this.router.navigateByUrl("/blog/category");
             }
           }
         },

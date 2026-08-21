@@ -1,4 +1,7 @@
-<app-page-wrapper [gridClass]="'col-xxl-8 m-auto'" [title]="(shipping$ | async)?.country?.name">
+<app-page-wrapper
+  [gridClass]="'col-xxl-8 m-auto'"
+  [title]="$safeNavigationMigration((shipping$ | async)?.country?.name)"
+>
   <div class="btn-option" button>
     <a [routerLink]="['/shipping']" class="btn btn-light-bg px-3"
       ><i class="ri-arrow-left-line"></i> {{ 'back' | translate }}</a
@@ -12,7 +15,8 @@
   </div>
   <div class="shipping-accordion">
     <div ngbAccordion>
-      @for(shipping_rule of (shipping$ | async)?.shipping_rules; track shipping_rule.id){
+      @for(shipping_rule of (shipping$ | async)?.shipping_rules; track
+      shipping_rule.id){
       <div ngbAccordionItem [collapsed]="false">
         <div ngbAccordionHeader>
           <button ngbAccordionButton>{{ shipping_rule?.name }}</button>
@@ -27,7 +31,10 @@
     </div>
 
     @if(!(shipping$ | async)?.shipping_rules?.length){
-    <app-no-data [image]="'assets/svg/no-category.png'" [text]="'No Data Found'" />
+    <app-no-data
+      [image]="'assets/svg/no-category.png'"
+      [text]="'No Data Found'"
+    />
     }
   </div>
 </app-page-wrapper>

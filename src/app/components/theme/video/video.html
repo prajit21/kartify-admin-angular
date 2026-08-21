@@ -1,5 +1,9 @@
 <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'video_settings'">
-  <form class="theme-form theme-form-2 mega-form" (ngSubmit)="submit()" [formGroup]="form">
+  <form
+    class="theme-form theme-form-2 mega-form"
+    (ngSubmit)="submit()"
+    [formGroup]="form"
+  >
     <div class="vertical-tabs">
       <div class="row">
         <div class="col-xl-3 col-lg-4">
@@ -12,7 +16,10 @@
             formGroupName="content"
           >
             <li ngbNavItem="video">
-              <a ngbNavLink><i class="ri-record-circle-line"></i>{{ 'video' | translate }}</a>
+              <a ngbNavLink
+                ><i class="ri-record-circle-line"></i>{{ 'video' | translate
+                }}</a
+              >
               <ng-template ngbNavContent>
                 <div formGroupName="video">
                   <app-form-fields [label]="'Video'" [for]="'video_url'">
@@ -21,14 +28,18 @@
                       [multipleImage]="false"
                       [accept]="[mediaConfig.video]"
                       [helpText]="'*Upload video size 10mb recommended'"
-                      [imageUrl]="form.get('content.video.video_url')?.value"
+                      [imageUrl]="$safeNavigationMigration(form.get('content.video.video_url')?.value)"
                       (selectedFiles)="selectBanner($event, 'content.video.video_url')"
                     />
                   </app-form-fields>
                   <app-form-fields [label]="'status'" [for]="'status'">
                     <div class="form-check form-switch ps-0">
                       <label class="switch">
-                        <input type="checkbox" id="status" formControlName="status" />
+                        <input
+                          type="checkbox"
+                          id="status"
+                          formControlName="status"
+                        />
                         <span class="switch-state"></span>
                       </label>
                     </div>

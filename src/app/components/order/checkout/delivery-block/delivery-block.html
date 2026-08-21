@@ -10,7 +10,7 @@
                 type="radio"
                 name="standard"
                 id="standard"
-                (change)="setDeliveryDescription(setting()?.delivery?.default?.title+ '|' +setting()?.delivery?.default?.description, 'standard')"
+                (change)="setDeliveryDescription($safeNavigationMigration(setting()?.delivery?.default?.title)+ '|' +$safeNavigationMigration(setting()?.delivery?.default?.description), 'standard')"
               />
               <label class="form-check-label" for="standard">
                 {{ setting()?.delivery?.default?.title }} | {{
@@ -33,7 +33,7 @@
                 type="radio"
                 name="standard"
                 id="future"
-                (change)="setDeliveryDescription(setting()?.delivery?.same_day?.title+ '|' +setting()?.delivery?.same_day?.description, 'same_day')"
+                (change)="setDeliveryDescription($safeNavigationMigration(setting()?.delivery?.same_day?.title)+ '|' +$safeNavigationMigration(setting()?.delivery?.same_day?.description), 'same_day')"
               />
               <label class="form-check-label" for="future">
                 {{ setting()?.delivery?.same_day?.title }} | {{
@@ -45,16 +45,20 @@
       </div>
     </div>
     } @if(setting()?.delivery?.same_day_delivery){
-    <div class="col-12 future-box" [class.show]="deliveryType && deliveryType === 'same_day'">
+    <div
+      class="col-12 future-box"
+      [class.show]="deliveryType && deliveryType === 'same_day'"
+    >
       <div class="future-option">
         <div class="delivery-items">
           <div>
             <h4>{{ 'select_timing_slot' | translate }}:</h4>
             <ul>
-              @for(intervals of setting()?.delivery?.same_day_intervals; track i; let i = $index){
+              @for(intervals of setting()?.delivery?.same_day_intervals; track
+              i; let i = $index){
               <li
                 [class.active]="selectedIndex && (i + 1) === selectedIndex"
-                (click)="setDeliveryInterval(intervals?.description, (i + 1))"
+                (click)="setDeliveryInterval($safeNavigationMigration(intervals?.description), (i + 1))"
               >
                 <a href="javascript:void(0)">{{intervals?.description}}</a>
               </li>

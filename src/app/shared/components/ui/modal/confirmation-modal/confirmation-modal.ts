@@ -1,16 +1,24 @@
-import { Component, TemplateRef, inject, viewChild, output } from '@angular/core';
+import {
+  Component,
+  TemplateRef,
+  inject,
+  viewChild,
+  output,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
 
-import { ITableClickedAction } from '../../../../interface/table.interface';
-import { Button } from '../../button/button';
+import { ITableClickedAction } from "../../../../interface/table.interface";
+import { Button } from "../../button/button";
 
 @Component({
-  selector: 'app-confirmation-modal',
+  selector: "app-confirmation-modal",
   imports: [TranslateModule, Button],
-  templateUrl: './confirmation-modal.html',
-  styleUrl: './confirmation-modal.scss',
+  templateUrl: "./confirmation-modal.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./confirmation-modal.scss",
 })
 export class ConfirmationModal {
   private modalService = inject(NgbModal);
@@ -19,7 +27,8 @@ export class ConfirmationModal {
   public modalOpen: boolean = false;
   public userAction: ITableClickedAction;
 
-  readonly ConfirmationModal = viewChild<TemplateRef<ITableClickedAction>>('confirmationModal');
+  readonly ConfirmationModal =
+    viewChild<TemplateRef<ITableClickedAction>>("confirmationModal");
 
   readonly confirmed = output<ITableClickedAction>();
 
@@ -32,15 +41,15 @@ export class ConfirmationModal {
     };
     this.modalService
       .open(this.ConfirmationModal(), {
-        ariaLabelledBy: 'Confirmation-Modal',
+        ariaLabelledBy: "Confirmation-Modal",
         centered: true,
-        windowClass: 'theme-modal text-center',
+        windowClass: "theme-modal text-center",
       })
       .result.then(
-        result => {
+        (result) => {
           `Result ${result}`;
         },
-        reason => {
+        (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         },
       );
@@ -48,9 +57,9 @@ export class ConfirmationModal {
 
   private getDismissReason(reason: ModalDismissReasons): string {
     if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
+      return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
+      return "by clicking on a backdrop";
     } else {
       return `with: ${reason}`;
     }

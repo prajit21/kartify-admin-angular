@@ -73,7 +73,11 @@
           (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
           readonly
         />
-        <button class="btn btn-light-bg-secondary" (click)="datepicker.toggle()" type="button">
+        <button
+          class="btn btn-light-bg-secondary"
+          (click)="datepicker.toggle()"
+          type="button"
+        >
           <i class="ri-calendar-line"></i>
         </button>
       </div>
@@ -88,7 +92,11 @@
           (input)="toDate = validateInput(toDate, dpToDate.value)"
           readonly
         />
-        <button class="btn btn-light-bg-secondary" (click)="datepicker.toggle()" type="button">
+        <button
+          class="btn btn-light-bg-secondary"
+          (click)="datepicker.toggle()"
+          type="button"
+        >
           <i class="ri-calendar-line"></i>
         </button>
       </div>
@@ -102,14 +110,24 @@
       >
         {{"clear" | translate}}
       </button>
-      <button class="btn btn-secondary btn-sm m-2 float-end" (click)="datepicker.close()">
+      <button
+        class="btn btn-secondary btn-sm m-2 float-end"
+        (click)="datepicker.close()"
+      >
         {{'close' | translate}}
       </button>
     </ng-template>
     }
     <div class="role-search product-search justify-content-end w-auto">
-      <label for="role-search" class="form-label">{{ 'search' | translate }} :</label>
-      <input type="search" class="form-control" id="role-search" [formControl]="term" />
+      <label for="role-search" class="form-label"
+        >{{ 'search' | translate }} :</label
+      >
+      <input
+        type="search"
+        class="form-control"
+        id="role-search"
+        [formControl]="term"
+      />
     </div>
     <ng-content select="[filter]" />
   </div>
@@ -136,22 +154,28 @@
                 [checked]="(tableConfig()?.data?.length && selected?.length === tableConfig()?.data?.length) || false"
                 (change)="checkUncheckAll($event)"
               />
-              <label class="custom-control-label" for="table-checkbox">&nbsp;</label>
+              <label class="custom-control-label" for="table-checkbox"
+                >&nbsp;</label
+              >
             </div>
           </th>
-          } @for(columnHead of tableConfig()?.columns; track columnHead){ @if(!columnHead?.canAllow
-          || (columnHead?.canAllow?.length && role && columnHead?.canAllow?.includes(role))){
+          } @for(columnHead of tableConfig()?.columns; track columnHead){
+          @if(!columnHead?.canAllow || (columnHead?.canAllow?.length && role &&
+          columnHead?.canAllow?.includes(role))){
           <th
             [ngClass]="{'sm-width': columnHead?.type === 'no' || columnHead?.type === 'image'}"
             [class.cursor-pointer]="columnHead?.sortable"
             (click)="columnHead?.sortable && onChangeTable(columnHead, 'sort')"
           >
-            {{ columnHead?.title | translate }} @if(columnHead?.sortable){
+            {{ $safeNavigationMigration(columnHead?.title) | translate }}
+            @if(columnHead?.sortable){
             <div class="filter-arrow">
               <div>
-                @if(columnHead?.sort_direction && columnHead?.sort_direction === 'desc'){
+                @if(columnHead?.sort_direction && columnHead?.sort_direction ===
+                'desc'){
                 <i class="ri-arrow-up-s-fill"></i>
-                } @if(columnHead?.sort_direction && columnHead?.sort_direction === 'asc'){
+                } @if(columnHead?.sort_direction && columnHead?.sort_direction
+                === 'asc'){
                 <i class="ri-arrow-down-s-fill"></i>
                 }
               </div>
@@ -164,7 +188,8 @@
         </tr>
       </thead>
       <tbody>
-        @for(columnData of tableConfig()?.data; track columnData.id; let i = $index){
+        @for(columnData of tableConfig()?.data; track columnData.id; let i =
+        $index){
         <tr>
           @if(hasCheckbox){
           <td class="sm-width">
@@ -174,71 +199,83 @@
                 class="custom-control-input checkbox_animated"
                 id="table-checkbox-item-{{columnData.id}}"
                 [disabled]="columnData['system_reserve'] === '1'"
-                [value]="columnData?.id"
-                [checked]="columnData['system_reserve'] !== '1' && selected?.length && selected.includes(columnData?.id)"
+                [value]="$safeNavigationMigration(columnData?.id)"
+                [checked]="columnData['system_reserve'] !== '1' && selected?.length && selected.includes($safeNavigationMigration(columnData?.id))"
                 (change)="onItemChecked($event)"
               />
-              <label class="custom-control-label" for="table-checkbox-item-{{columnData.id}}"
+              <label
+                class="custom-control-label"
+                for="table-checkbox-item-{{columnData.id}}"
                 >&nbsp;</label
               >
             </div>
           </td>
-          } @for(columnHead of tableConfig()?.columns; track columnHead){ @if(!columnHead?.canAllow
-          || (columnHead?.canAllow?.length && role && columnHead?.canAllow?.includes(role))){
+          } @for(columnHead of tableConfig()?.columns; track columnHead){
+          @if(!columnHead?.canAllow || (columnHead?.canAllow?.length && role &&
+          columnHead?.canAllow?.includes(role))){
           <td
             [ngClass]="{'sm-width': columnHead?.type === 'no' || columnHead?.type === 'image'}"
             class="cursor-pointer"
             (click)="columnHead.type !== 'switch' && columnData['system_reserve'] !== '1' ? onRowClicked(columnData) : true"
           >
-            @if(columnHead?.type && columnHead?.type === 'no'){ {{ i + 1 + (tableData['page'] - 1) *
-            tableData['paginate'] }} } @else if(columnHead?.type && columnHead?.type === 'image'){
-            @if(columnData[columnHead?.dataField.toString()]){
-            <img
-              [class]="columnHead?.class"
-              [src]="columnData[columnHead?.dataField.toString()].asset_url"
-              alt="image"
-            />
-            } @else if(columnHead?.placeholder){
-            <img [class]="columnHead?.class" [src]="columnHead?.placeholder" alt="placeholder" />
-            } @else {
-            <div class="user-round">
-              <h4>
-                {{ columnData?.[columnHead?.key ? columnHead?.key?.toString() :
-                'name'].charAt(0).toString().toUpperCase() || 'F' }}
-              </h4>
-            </div>
-            } } @else if(columnHead?.type && columnHead?.type === 'switch'){
-            <div class="form-check form-switch ps-0">
-              <label class="switch switch-sm">
-                <input
-                  type="checkbox"
-                  id="status-{{i}}"
-                  [disabled]="columnData['system_reserve'] === '1' || !hasPermission(['edit'])"
-                  [value]="columnData[columnHead?.dataField.toString()] === '1' ? 0 : 1"
-                  [checked]="columnData[columnHead?.dataField.toString()] === '1' ? true : false"
-                  (click)="ConfirmationModal().openModal(columnHead?.dataField.toString(), columnData,
-                                                                                     columnData[columnHead?.dataField.toString()] === '1' ? 0 : 1);
-                                                                                     $event.preventDefault(); $event.stopPropagation()"
+            @if(columnHead?.type && columnHead?.type === 'no') {
+              {{ i + 1 + (tableData['page'] - 1) * tableData['paginate'] }}
+            } @else if(columnHead?.type && columnHead?.type === 'image') {
+              @if(columnData[columnHead?.dataField.toString()]) {
+                <img
+                  [class]="columnHead?.class"
+                  [src]="columnData[columnHead?.dataField.toString()].asset_url"
+                  alt="image"
                 />
-                <span
-                  class="switch-state"
-                  [class.disabled]="columnData['system_reserve'] === '1' || !hasPermission(['edit'])"
-                ></span>
-              </label>
-            </div>
-            } @else if(columnHead?.type && columnHead?.type === 'price'){ {{
-            columnData[columnHead?.dataField] | currencySymbol }} } @else if (columnHead?.type &&
-            columnHead?.type === 'date') { {{ columnData[columnHead?.dataField.toString()] | date:
-            columnHead?.date_format ? columnHead?.date_format : 'dd MMM yyyy hh:mm a' }} } @else if
-            (columnHead?.type && columnHead?.type === 'rating') {
-            <ngb-rating class="rating-sec" [rate]="columnData[columnHead?.dataField]" />
+              } @else if(columnHead?.placeholder) {
+                <img
+                  [class]="columnHead?.class"
+                  [src]="$safeNavigationMigration(columnHead?.placeholder)"
+                  alt="placeholder"
+                />
+              } @else {
+                <div class="user-round">
+                  <h4>
+                    {{ columnData?.[columnHead?.key ? columnHead?.key?.toString() : 'name'].charAt(0).toString().toUpperCase() || 'F' }}
+                  </h4>
+                </div>
+              }
+            } @else if(columnHead?.type && columnHead?.type === 'switch') {
+              <div class="form-check form-switch ps-0">
+                <label class="switch switch-sm">
+                  <input
+                    type="checkbox"
+                    id="status-{{i}}"
+                    [disabled]="columnData['system_reserve'] === '1' || !hasPermission(['edit'])"
+                    [value]="columnData[columnHead?.dataField.toString()] === '1' ? 0 : 1"
+                    [checked]="columnData[columnHead?.dataField.toString()] === '1' ? true : false"
+                    (click)="ConfirmationModal().openModal(columnHead?.dataField.toString(), columnData,
+                                                                                       columnData[columnHead?.dataField.toString()] === '1' ? 0 : 1);
+                                                                                       $event.preventDefault(); $event.stopPropagation()"
+                  />
+                  <span
+                    class="switch-state"
+                    [class.disabled]="columnData['system_reserve'] === '1' || !hasPermission(['edit'])"
+                  ></span>
+                </label>
+              </div>
+            } @else if(columnHead?.type && columnHead?.type === 'price') {
+              {{ columnData[columnHead?.dataField] | currencySymbol }}
+            } @else if(columnHead?.type && columnHead?.type === 'date') {
+              {{ columnData[columnHead?.dataField.toString()] | date: columnHead?.date_format ? $safeNavigationMigration(columnHead?.date_format) : 'dd MMM yyyy hh:mm a' }}
+            } @else if(columnHead?.type && columnHead?.type === 'rating') {
+              <ngb-rating
+                class="rating-sec"
+                [rate]="columnData[columnHead?.dataField]"
+              />
             } @else {
-            <div
-              [innerHtml]="getNestedPropertyValue(columnHead?.dataField.toString(), columnData)"
-            ></div>
+              <div
+                [innerHtml]="getNestedPropertyValue(columnHead?.dataField.toString(), columnData)"
+              ></div>
             }
           </td>
-          } } @if(tableConfig()?.rowActions?.length){
+          } }
+           @if(tableConfig()?.rowActions?.length){
           <td>
             <ul id="actions">
               @if(columnData['system_reserve'] === '1'){
@@ -246,8 +283,9 @@
                 <i [class]="'ri-lock-line'"></i>
               </a>
               }@else { @for(action of tableConfig()?.rowActions; track action){
-              @if((action?.conditional && isConditionMet(action?.conditional, columnData)) ||
-              !action?.conditional){
+              @if((action?.conditional &&
+              isConditionMet($safeNavigationMigration(action?.conditional),
+              columnData)) || !action?.conditional){
               <li>
                 <a
                   href="javascript:void(0)"
@@ -283,7 +321,7 @@
 @if(pagination()){
 <nav class="custom-pagination">
   <app-pagination
-    [total]="tableConfig()?.total"
+    [total]="$safeNavigationMigration(tableConfig()?.total)"
     [currentPage]="tableData['page']"
     [pageSize]="tableData['paginate']"
     (setPage)="onChangeTable($event, 'page')"
@@ -293,10 +331,10 @@
 
 <app-delete-modal
   #deleteModal
-  (deleteItem)="onActionClicked($event?.actionToPerform, $event?.data)"
+  (deleteItem)="onActionClicked($safeNavigationMigration($event?.actionToPerform), $safeNavigationMigration($event?.data))"
 />
 
 <app-confirmation-modal
   #confirmationModal
-  (confirmed)="onActionClicked($event?.actionToPerform, $event?.data, $event?.value)"
+  (confirmed)="onActionClicked($safeNavigationMigration($event?.actionToPerform), $safeNavigationMigration($event?.data), $safeNavigationMigration($event?.value))"
 />

@@ -5,7 +5,9 @@
     <li [class.unread]="!notification.read_at">
       <h4>{{ notification?.data?.message }}</h4>
       <h5>
-        <i class="ri-time-line"></i> {{ notification?.created_at | date: 'dd MMM yyyy hh:mm:a' }}
+        <i class="ri-time-line"></i> {{
+        $safeNavigationMigration(notification?.created_at) | date: 'dd MMM yyyy
+        hh:mm:a' }}
       </h5>
     </li>
     }

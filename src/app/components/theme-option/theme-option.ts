@@ -1,5 +1,12 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, inject, PLATFORM_ID, Renderer2, DOCUMENT } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  inject,
+  PLATFORM_ID,
+  Renderer2,
+  DOCUMENT,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormArray,
   FormBuilder,
@@ -7,25 +14,25 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-} from '@angular/forms';
+} from "@angular/forms";
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Select2Data, Select2Module } from 'ng-select2-component';
-import { Editor, NgxEditorModule } from 'ngx-editor';
-import { Observable, forkJoin } from 'rxjs';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Select2Data, Select2Module } from "ng-select2-component";
+import { Editor, NgxEditorModule } from "ngx-editor";
+import { Observable, forkJoin } from "rxjs";
 
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper';
-import { AdvanceDropdown } from '../../shared/components/ui/advance-dropdown/advance-dropdown';
-import { Button } from '../../shared/components/ui/button/button';
-import { FormFields } from '../../shared/components/ui/form-fields/form-fields';
-import { ImageUpload } from '../../shared/components/ui/image-upload/image-upload';
-import * as media from '../../shared/data/media-config';
-import * as data from '../../shared/data/theme-option';
-import { HasPermissionDirective } from '../../shared/directive/has-permission.directive';
-import { IAttachment } from '../../shared/interface/attachment.interface';
-import { ICategoryModel } from '../../shared/interface/category.interface';
+import { PageWrapper } from "../../shared/components/page-wrapper/page-wrapper";
+import { AdvanceDropdown } from "../../shared/components/ui/advance-dropdown/advance-dropdown";
+import { Button } from "../../shared/components/ui/button/button";
+import { FormFields } from "../../shared/components/ui/form-fields/form-fields";
+import { ImageUpload } from "../../shared/components/ui/image-upload/image-upload";
+import * as media from "../../shared/data/media-config";
+import * as data from "../../shared/data/theme-option";
+import { HasPermissionDirective } from "../../shared/directive/has-permission.directive";
+import { IAttachment } from "../../shared/interface/attachment.interface";
+import { ICategoryModel } from "../../shared/interface/category.interface";
 import {
   IAboutFutures,
   ICustomDropdown,
@@ -33,21 +40,21 @@ import {
   IOption,
   IReview,
   ITopBarContent,
-} from '../../shared/interface/theme-option.interface';
-import { IBanners } from '../../shared/interface/theme.interface';
-import { GetBlogsAction } from '../../shared/store/action/blog.action';
-import { GetCategoriesAction } from '../../shared/store/action/category.action';
+} from "../../shared/interface/theme-option.interface";
+import { IBanners } from "../../shared/interface/theme.interface";
+import { GetBlogsAction } from "../../shared/store/action/blog.action";
+import { GetCategoriesAction } from "../../shared/store/action/category.action";
 import {
   GetThemeOptionAction,
   UpdateThemeOptionAction,
-} from '../../shared/store/action/theme-option.action';
-import { BlogState } from '../../shared/store/state/blog.state';
-import { CategoryState } from '../../shared/store/state/category.state';
-import { ProductState } from '../../shared/store/state/product.state';
-import { ThemeOptionState } from '../../shared/store/state/theme-option.state';
+} from "../../shared/store/action/theme-option.action";
+import { BlogState } from "../../shared/store/state/blog.state";
+import { CategoryState } from "../../shared/store/state/category.state";
+import { ProductState } from "../../shared/store/state/product.state";
+import { ThemeOptionState } from "../../shared/store/state/theme-option.state";
 
 @Component({
-  selector: 'app-theme-option',
+  selector: "app-theme-option",
   imports: [
     CommonModule,
     FormsModule,
@@ -63,8 +70,9 @@ import { ThemeOptionState } from '../../shared/store/state/theme-option.state';
     NgxEditorModule,
     HasPermissionDirective,
   ],
-  templateUrl: './theme-option.html',
-  styleUrl: './theme-option.scss',
+  templateUrl: "./theme-option.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./theme-option.scss",
 })
 export class ThemeOption {
   private store = inject(Store);
@@ -75,17 +83,21 @@ export class ThemeOption {
   themeOption$: Observable<IOption> = inject(Store).select(
     ThemeOptionState.themeOptions,
   ) as Observable<IOption>;
-  product$: Observable<Select2Data> = inject(Store).select(ProductState.products);
+  product$: Observable<Select2Data> = inject(Store).select(
+    ProductState.products,
+  );
   category$: Observable<ICategoryModel> = inject(Store).select(
     CategoryState.category,
   ) as Observable<ICategoryModel>;
   blogs$: Observable<Select2Data> = inject(Store).select(BlogState.blogs);
-  categories$: Observable<Select2Data> = inject(Store).select(CategoryState.categories);
+  categories$: Observable<Select2Data> = inject(Store).select(
+    CategoryState.categories,
+  );
 
-  public active = 'general';
-  public seller = 'about';
-  public about = 'about';
-  public popup = 'news_letter';
+  public active = "general";
+  public seller = "about";
+  public about = "about";
+  public popup = "news_letter";
   public form: FormGroup;
   public selectedCategories: number[] = [];
   public selectedCollectionCategories: number[] = [];
@@ -103,38 +115,38 @@ export class ThemeOption {
   public usefulLinks: number[] = [];
   public helpCenterIds: number[] = [];
   public editor: Editor;
-  public html = '';
+  public html = "";
   public mediaConfig = media.mediaConfig;
   public isBrowser: boolean;
 
-  public top_bar_content = [{ content: '' }, { content: '' }, { content: '' }];
+  public top_bar_content = [{ content: "" }, { content: "" }, { content: "" }];
 
   public filter = {
-    search: '',
+    search: "",
     paginate: 15,
-    ids: '',
+    ids: "",
     with_union_products: 0,
   };
 
   public mode: Select2Data = [
     {
-      value: 'light',
-      label: 'Light',
+      value: "light",
+      label: "Light",
     },
     {
-      value: 'dark',
-      label: 'Dark',
+      value: "dark",
+      label: "Dark",
     },
   ];
 
   public cart_style: Select2Data = [
     {
-      value: 'cart_sidebar',
-      label: 'Cart Sidebar',
+      value: "cart_sidebar",
+      label: "Cart Sidebar",
     },
     {
-      value: 'cart_mini',
-      label: 'Cart Mini',
+      value: "cart_mini",
+      label: "Cart Mini",
     },
   ];
 
@@ -147,220 +159,220 @@ export class ThemeOption {
       general: new FormGroup({
         site_title: new FormControl(),
         site_tagline: new FormControl(),
-        cart_style: new FormControl('cart_sidebar'),
+        cart_style: new FormControl("cart_sidebar"),
         back_to_top_enable: new FormControl(false),
-        language_direction: new FormControl('rtl'),
-        primary_color: new FormControl(''),
-        secondary_color: new FormControl(''),
-        mode: new FormControl('light'),
+        language_direction: new FormControl("rtl"),
+        primary_color: new FormControl(""),
+        secondary_color: new FormControl(""),
+        mode: new FormControl("light"),
         celebration_effect: new FormControl(true),
         seller_register_url: new FormControl(),
         exit_tagline_enable: new FormControl(true),
-        taglines: new FormArray([new FormControl(''), new FormControl('')]),
+        taglines: new FormArray([new FormControl(""), new FormControl("")]),
       }),
       logo: new FormGroup({
-        header_logo_id: new FormControl(''),
-        footer_logo_id: new FormControl(''),
-        favicon_icon_id: new FormControl(''),
+        header_logo_id: new FormControl(""),
+        footer_logo_id: new FormControl(""),
+        favicon_icon_id: new FormControl(""),
       }),
       header: new FormGroup({
         sticky_header_enable: new FormControl(true),
-        header_options: new FormControl('header_one'),
+        header_options: new FormControl("header_one"),
         page_top_bar_enable: new FormControl(true),
         top_bar_content: new FormArray([]),
-        support_number: new FormControl(''),
+        support_number: new FormControl(""),
         category_ids: new FormControl([]),
       }),
       footer: new FormGroup({
-        footer_style: new FormControl('footer_one'),
-        bg_image: new FormControl(''),
-        bg_color: new FormControl(''),
-        title: new FormControl(''),
-        sub_title: new FormControl(''),
+        footer_style: new FormControl("footer_one"),
+        bg_image: new FormControl(""),
+        bg_color: new FormControl(""),
+        title: new FormControl(""),
+        sub_title: new FormControl(""),
         footer_copyright: new FormControl(true),
-        copyright_content: new FormControl(''),
-        footer_about: new FormControl(''),
-        about_address: new FormControl(''),
-        about_email: new FormControl(''),
+        copyright_content: new FormControl(""),
+        footer_about: new FormControl(""),
+        about_address: new FormControl(""),
+        about_email: new FormControl(""),
         footer_categories: new FormControl([]),
         useful_link: new FormControl([]),
         help_center: new FormControl([]),
-        support_number: new FormControl(''),
-        payment_option_image_url: new FormControl(''),
-        support_email: new FormControl(''),
-        play_store_url: new FormControl(''),
-        app_store_url: new FormControl(''),
+        support_number: new FormControl(""),
+        payment_option_image_url: new FormControl(""),
+        support_email: new FormControl(""),
+        play_store_url: new FormControl(""),
+        app_store_url: new FormControl(""),
         social_media_enable: new FormControl(true),
-        facebook: new FormControl(''),
-        instagram: new FormControl(''),
-        twitter: new FormControl(''),
-        pinterest: new FormControl(''),
+        facebook: new FormControl(""),
+        instagram: new FormControl(""),
+        twitter: new FormControl(""),
+        pinterest: new FormControl(""),
       }),
       collection: new FormGroup({
-        collection_layout: new FormControl('collection_category_slider'),
+        collection_layout: new FormControl("collection_category_slider"),
         collection_categories_ids: new FormControl([]),
-        collection_banner_image_url: new FormControl(''),
+        collection_banner_image_url: new FormControl(""),
       }),
       product: new FormGroup({
-        product_layout: new FormControl('product_images'),
-        product_box_variant: new FormControl('product_box_one'),
-        image_variant: new FormControl('image_thumbnail'),
+        product_layout: new FormControl("product_images"),
+        product_box_variant: new FormControl("product_box_one"),
+        image_variant: new FormControl("image_thumbnail"),
         is_trending_product: new FormControl(true),
         safe_checkout: new FormControl(true),
-        safe_checkout_image: new FormControl(''),
+        safe_checkout_image: new FormControl(""),
         secure_checkout: new FormControl(true),
-        secure_checkout_image: new FormControl(''),
+        secure_checkout_image: new FormControl(""),
         encourage_order: new FormControl(true),
-        encourage_max_order_count: new FormControl(''),
+        encourage_max_order_count: new FormControl(""),
         encourage_view: new FormControl(true),
-        encourage_max_view_count: new FormControl(''),
+        encourage_max_view_count: new FormControl(""),
         sticky_checkout: new FormControl(true),
         sticky_product: new FormControl(true),
         social_share: new FormControl(true),
-        shipping_and_return: new FormControl(''),
+        shipping_and_return: new FormControl(""),
         services: new FormGroup({
           banners: new FormArray([]),
           status: new FormControl(true),
         }),
       }),
       blog: new FormGroup({
-        blog_style: new FormControl('grid_view'),
-        blog_sidebar_type: new FormControl('left_sidebar'),
+        blog_style: new FormControl("grid_view"),
+        blog_sidebar_type: new FormControl("left_sidebar"),
         blog_author_enable: new FormControl(true),
         read_more_enable: new FormControl(true),
       }),
       seller: new FormGroup({
         about: new FormGroup({
           status: new FormControl(true),
-          title: new FormControl(''),
-          description: new FormControl(''),
-          image_url: new FormControl(''),
+          title: new FormControl(""),
+          description: new FormControl(""),
+          image_url: new FormControl(""),
         }),
         services: new FormGroup({
           status: new FormControl(true),
-          title: new FormControl(''),
+          title: new FormControl(""),
           service_1: new FormGroup({
-            title: new FormControl(''),
-            description: new FormControl(''),
-            image_url: new FormControl(''),
+            title: new FormControl(""),
+            description: new FormControl(""),
+            image_url: new FormControl(""),
           }),
           service_2: new FormGroup({
-            title: new FormControl(''),
-            description: new FormControl(''),
-            image_url: new FormControl(''),
+            title: new FormControl(""),
+            description: new FormControl(""),
+            image_url: new FormControl(""),
           }),
           service_3: new FormGroup({
-            title: new FormControl(''),
-            description: new FormControl(''),
-            image_url: new FormControl(''),
+            title: new FormControl(""),
+            description: new FormControl(""),
+            image_url: new FormControl(""),
           }),
           service_4: new FormGroup({
-            title: new FormControl(''),
-            description: new FormControl(''),
-            image_url: new FormControl(''),
+            title: new FormControl(""),
+            description: new FormControl(""),
+            image_url: new FormControl(""),
           }),
         }),
         steps: new FormGroup({
           status: new FormControl(true),
-          title: new FormControl(''),
+          title: new FormControl(""),
           step_1: new FormGroup({
-            title: new FormControl(''),
-            description: new FormControl(''),
+            title: new FormControl(""),
+            description: new FormControl(""),
           }),
           step_2: new FormGroup({
-            title: new FormControl(''),
-            description: new FormControl(''),
+            title: new FormControl(""),
+            description: new FormControl(""),
           }),
           step_3: new FormGroup({
-            title: new FormControl(''),
-            description: new FormControl(''),
+            title: new FormControl(""),
+            description: new FormControl(""),
           }),
         }),
         start_selling: new FormGroup({
           status: new FormControl(true),
-          title: new FormControl(''),
-          description: new FormControl(''),
+          title: new FormControl(""),
+          description: new FormControl(""),
         }),
       }),
       contact_us: new FormGroup({
-        title: new FormControl(''),
-        description: new FormControl(''),
+        title: new FormControl(""),
+        description: new FormControl(""),
         detail_1: new FormGroup({
-          label: new FormControl(''),
-          icon: new FormControl(''),
-          text: new FormControl(''),
+          label: new FormControl(""),
+          icon: new FormControl(""),
+          text: new FormControl(""),
         }),
         detail_2: new FormGroup({
-          label: new FormControl(''),
-          icon: new FormControl(''),
-          text: new FormControl(''),
+          label: new FormControl(""),
+          icon: new FormControl(""),
+          text: new FormControl(""),
         }),
         detail_3: new FormGroup({
-          label: new FormControl(''),
-          icon: new FormControl(''),
-          text: new FormControl(''),
+          label: new FormControl(""),
+          icon: new FormControl(""),
+          text: new FormControl(""),
         }),
         detail_4: new FormGroup({
-          label: new FormControl(''),
-          icon: new FormControl(''),
-          text: new FormControl(''),
+          label: new FormControl(""),
+          icon: new FormControl(""),
+          text: new FormControl(""),
         }),
       }),
       about_us: new FormGroup({
         about: new FormGroup({
           status: new FormControl(true),
-          content_bg_image_url: new FormControl(''),
-          title: new FormControl(''),
-          description: new FormControl(''),
+          content_bg_image_url: new FormControl(""),
+          title: new FormControl(""),
+          description: new FormControl(""),
           futures: new FormArray([]),
         }),
         team: new FormGroup({
           status: new FormControl(true),
-          sub_title: new FormControl(''),
-          title: new FormControl(''),
+          sub_title: new FormControl(""),
+          title: new FormControl(""),
           members: new FormArray([]),
         }),
         testimonial: new FormGroup({
           status: new FormControl(true),
-          sub_title: new FormControl(''),
-          title: new FormControl(''),
+          sub_title: new FormControl(""),
+          title: new FormControl(""),
           reviews: new FormArray([]),
         }),
       }),
       error_page: new FormGroup({
-        error_page_content: new FormControl(''),
+        error_page_content: new FormControl(""),
         back_button_enable: new FormControl(true),
-        back_button_text: new FormControl(''),
+        back_button_text: new FormControl(""),
       }),
       popup: new FormGroup({
         news_letter: new FormGroup({
           is_enable: new FormControl(true),
-          image_url: new FormControl(''),
-          offer: new FormControl(''),
-          title: new FormControl(''),
-          description: new FormControl(''),
+          image_url: new FormControl(""),
+          offer: new FormControl(""),
+          title: new FormControl(""),
+          description: new FormControl(""),
         }),
         exit: new FormGroup({
           is_enable: new FormControl(true),
-          image_url: new FormControl(''),
-          title: new FormControl(''),
-          sub_title: new FormControl(''),
-          description: new FormControl(''),
+          image_url: new FormControl(""),
+          title: new FormControl(""),
+          sub_title: new FormControl(""),
+          description: new FormControl(""),
         }),
         sale: new FormGroup({
           is_enable: new FormControl(true),
-          text: new FormControl(''),
+          text: new FormControl(""),
         }),
         auth: new FormGroup({
-          image_url: new FormControl(''),
+          image_url: new FormControl(""),
         }),
       }),
       seo: new FormGroup({
-        meta_tags: new FormControl(''),
-        meta_title: new FormControl(''),
-        meta_description: new FormControl(''),
-        og_title: new FormControl(''),
-        og_description: new FormControl(''),
+        meta_tags: new FormControl(""),
+        meta_title: new FormControl(""),
+        meta_description: new FormControl(""),
+        og_title: new FormControl(""),
+        og_description: new FormControl(""),
         og_image_id: new FormControl(),
       }),
     });
@@ -369,7 +381,7 @@ export class ThemeOption {
   ngOnInit() {
     const themeOption$ = this.store.dispatch(new GetThemeOptionAction());
     const categories$ = this.store.dispatch(
-      new GetCategoriesAction({ status: 1, type: 'product' }),
+      new GetCategoriesAction({ status: 1, type: "product" }),
     );
     const blog$ = this.store.dispatch(new GetBlogsAction({ status: 1 }));
 
@@ -379,31 +391,33 @@ export class ThemeOption {
       },
     });
 
-    this.form.get('product.product_box_bg')?.valueChanges.subscribe(data => {
+    this.form.get("product.product_box_bg")?.valueChanges.subscribe((data) => {
       if (data) {
-        this.form.get('product.image_bg')?.setValue(false);
-        this.form.get('product.full_border')?.setValue(false);
+        this.form.get("product.image_bg")?.setValue(false);
+        this.form.get("product.full_border")?.setValue(false);
       }
     });
 
-    this.form.get('product.image_bg')?.valueChanges.subscribe(data => {
+    this.form.get("product.image_bg")?.valueChanges.subscribe((data) => {
       if (data) {
-        this.form.get('product.product_box_bg')?.setValue(false);
-        this.form.get('product.full_border')?.setValue(false);
+        this.form.get("product.product_box_bg")?.setValue(false);
+        this.form.get("product.full_border")?.setValue(false);
       }
     });
 
-    this.form.get('product.product_box_border')?.valueChanges.subscribe(data => {
-      if (data) {
-        this.form.get('product.full_border')?.setValue(false);
-      }
-    });
+    this.form
+      .get("product.product_box_border")
+      ?.valueChanges.subscribe((data) => {
+        if (data) {
+          this.form.get("product.full_border")?.setValue(false);
+        }
+      });
 
-    this.form.get('product.full_border')?.valueChanges.subscribe(data => {
+    this.form.get("product.full_border")?.valueChanges.subscribe((data) => {
       if (data) {
-        this.form.get('product.product_box_border')?.setValue(false);
-        this.form.get('product.product_box_bg')?.setValue(false);
-        this.form.get('product.image_bg')?.setValue(false);
+        this.form.get("product.product_box_border")?.setValue(false);
+        this.form.get("product.product_box_bg")?.setValue(false);
+        this.form.get("product.image_bg")?.setValue(false);
       }
     });
 
@@ -413,16 +427,20 @@ export class ThemeOption {
   }
 
   patchForm() {
-    this.store.select(ThemeOptionState.themeOptions).subscribe(option => {
+    this.store.select(ThemeOptionState.themeOptions).subscribe((option) => {
       this.selectedCategories = option?.footer?.footer_categories!;
-      this.selectedCollectionCategories = option?.collection?.collection_categories_ids!;
+      this.selectedCollectionCategories =
+        option?.collection?.collection_categories_ids!;
       this.theme_option_data = option!;
 
       this.topBarContent.clear();
       this.initializeForm(option?.header?.top_bar_content!);
-      this.usefulLinks = option?.footer?.useful_link?.map((link: ICustomDropdown) => link.id) || [];
+      this.usefulLinks =
+        option?.footer?.useful_link?.map((link: ICustomDropdown) => link.id) ||
+        [];
       this.helpCenterIds =
-        option?.footer?.help_center?.map((link: ICustomDropdown) => link.id) || [];
+        option?.footer?.help_center?.map((link: ICustomDropdown) => link.id) ||
+        [];
       this.form.patchValue({
         general: {
           site_title: option?.general?.site_title,
@@ -593,7 +611,8 @@ export class ThemeOption {
         },
         collection: {
           collection_layout: option?.collection?.collection_layout,
-          collection_banner_image_url: option?.collection?.collection_banner_image_url,
+          collection_banner_image_url:
+            option?.collection?.collection_banner_image_url,
         },
         product: {
           product_layout: option?.product?.product_layout,
@@ -641,7 +660,7 @@ export class ThemeOption {
         },
       });
 
-      this.renderer.removeClass(this.document.body, 'loader-none');
+      this.renderer.removeClass(this.document.body, "loader-none");
 
       this.servicesArray.clear();
       option?.product?.services?.banners?.forEach((banner: IBanners) =>
@@ -697,31 +716,31 @@ export class ThemeOption {
   }
 
   get taglines() {
-    return this.form.get('general.taglines') as FormArray;
+    return this.form.get("general.taglines") as FormArray;
   }
 
   get topBarContent(): FormArray {
-    return this.form.get('header.top_bar_content') as FormArray;
+    return this.form.get("header.top_bar_content") as FormArray;
   }
 
   get futuresContent(): FormArray {
-    return this.form.get('about_us.about.futures') as FormArray;
+    return this.form.get("about_us.about.futures") as FormArray;
   }
 
   get members(): FormArray {
-    return this.form.get('about_us.team.members') as FormArray;
+    return this.form.get("about_us.team.members") as FormArray;
   }
 
   get testimonials(): FormArray {
-    return this.form.get('about_us.testimonial.reviews') as FormArray;
+    return this.form.get("about_us.testimonial.reviews") as FormArray;
   }
 
   get servicesArray(): FormArray {
-    return this.form.get('product.services.banners') as FormArray;
+    return this.form.get("product.services.banners") as FormArray;
   }
 
   initializeForm(_value: ITopBarContent[]) {
-    this.top_bar_content.forEach(item => {
+    this.top_bar_content.forEach((item) => {
       const group = this.formBuilder.group({
         content: item.content,
       });
@@ -745,9 +764,9 @@ export class ThemeOption {
     event.preventDefault();
     this.futuresContent.push(
       this.formBuilder.group({
-        icon: new FormControl(''),
-        title: new FormControl(''),
-        description: new FormControl(''),
+        icon: new FormControl(""),
+        title: new FormControl(""),
+        description: new FormControl(""),
       }),
     );
   }
@@ -756,13 +775,13 @@ export class ThemeOption {
     event.preventDefault();
     this.members.push(
       this.formBuilder.group({
-        profile_image_url: new FormControl(''),
-        name: new FormControl(''),
-        designation: new FormControl(''),
-        instagram: new FormControl(''),
-        twitter: new FormControl(''),
-        pinterest: new FormControl(''),
-        facebook: new FormControl(''),
+        profile_image_url: new FormControl(""),
+        name: new FormControl(""),
+        designation: new FormControl(""),
+        instagram: new FormControl(""),
+        twitter: new FormControl(""),
+        pinterest: new FormControl(""),
+        facebook: new FormControl(""),
       }),
     );
   }
@@ -771,42 +790,42 @@ export class ThemeOption {
     event.preventDefault();
     this.testimonials.push(
       this.formBuilder.group({
-        title: new FormControl(''),
-        profile_image_url: new FormControl(''),
-        name: new FormControl(''),
-        designation: new FormControl(''),
-        review: new FormControl(''),
+        title: new FormControl(""),
+        profile_image_url: new FormControl(""),
+        name: new FormControl(""),
+        designation: new FormControl(""),
+        review: new FormControl(""),
       }),
     );
   }
 
   selectHeaderLogo(data: IAttachment) {
     if (!Array.isArray(data)) {
-      (<FormGroup>this.form.controls['logo']).controls['header_logo_id'].setValue(
-        data ? data?.id : null,
-      );
+      (<FormGroup>this.form.controls["logo"]).controls[
+        "header_logo_id"
+      ].setValue(data ? data?.id : null);
     }
   }
 
   selectFooterLogo(data: IAttachment) {
     if (!Array.isArray(data)) {
-      (<FormGroup>this.form.controls['logo']).controls['footer_logo_id']?.setValue(
-        data ? data?.id : null,
-      );
+      (<FormGroup>this.form.controls["logo"]).controls[
+        "footer_logo_id"
+      ]?.setValue(data ? data?.id : null);
     }
   }
 
   selectFaviconIcon(data: IAttachment) {
     if (!Array.isArray(data)) {
-      (<FormGroup>this.form.controls['logo']).controls['favicon_icon_id']?.setValue(
-        data ? data?.id : null,
-      );
+      (<FormGroup>this.form.controls["logo"]).controls[
+        "favicon_icon_id"
+      ]?.setValue(data ? data?.id : null);
     }
   }
 
   selectOgImage(data: IAttachment) {
     if (!Array.isArray(data)) {
-      (<FormGroup>this.form.controls['seo']).controls['og_image_id']?.setValue(
+      (<FormGroup>this.form.controls["seo"]).controls["og_image_id"]?.setValue(
         data ? data?.id : null,
       );
     }
@@ -815,7 +834,7 @@ export class ThemeOption {
   selectServiceImage(url: string, index: number) {
     this.servicesArray
       .at(index)
-      .get('image_url')
+      .get("image_url")
       ?.setValue(url ? url : null);
   }
 
@@ -827,23 +846,25 @@ export class ThemeOption {
 
   usefulLink(data: number[]) {
     if (Array.isArray(data)) {
-      (<FormGroup>this.form.controls['footer']).controls['useful_link']?.setValue(
-        this.useful_link.filter(value => data.includes(value.id)),
-      );
+      (<FormGroup>this.form.controls["footer"]).controls[
+        "useful_link"
+      ]?.setValue(this.useful_link.filter((value) => data.includes(value.id)));
     }
   }
 
   helpCenter(data: number[]) {
     if (Array.isArray(data)) {
-      (<FormGroup>this.form.controls['footer']).controls['help_center']?.setValue(
-        this.help_center.filter(value => data.includes(value.id)),
-      );
+      (<FormGroup>this.form.controls["footer"]).controls[
+        "help_center"
+      ]?.setValue(this.help_center.filter((value) => data.includes(value.id)));
     }
   }
 
   selectCategory(data: []) {
     if (Array.isArray(data)) {
-      (<FormGroup>this.form.controls['footer']).controls['footer_categories']?.setValue(data);
+      (<FormGroup>this.form.controls["footer"]).controls[
+        "footer_categories"
+      ]?.setValue(data);
     }
   }
 
@@ -858,21 +879,21 @@ export class ThemeOption {
   selectFutures(url: string, index: number) {
     this.futuresContent
       .at(index)
-      .get('icon')
+      .get("icon")
       ?.setValue(url ? url : null);
   }
 
   selectMemberProfile(url: string, index: number) {
     this.members
       .at(index)
-      .get('profile_image_url')
+      .get("profile_image_url")
       ?.setValue(url ? url : null);
   }
 
   selectReviewProfile(url: string, index: number) {
     this.testimonials
       .at(index)
-      .get('profile_image_url')
+      .get("profile_image_url")
       ?.setValue(url ? url : null);
   }
 
@@ -898,10 +919,12 @@ export class ThemeOption {
   }
 
   submit() {
-    this.store.dispatch(new UpdateThemeOptionAction({ options: this.form.value }));
+    this.store.dispatch(
+      new UpdateThemeOptionAction({ options: this.form.value }),
+    );
   }
 
   ngOnDestroy() {
-    this.renderer.removeClass(this.document.body, 'loader-none');
+    this.renderer.removeClass(this.document.body, "loader-none");
   }
 }

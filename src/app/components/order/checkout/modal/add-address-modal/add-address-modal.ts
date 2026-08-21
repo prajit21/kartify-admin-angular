@@ -1,5 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, TemplateRef, viewChild, input } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import {
+  Component,
+  inject,
+  TemplateRef,
+  viewChild,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -7,24 +14,28 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
+} from "@angular/forms";
 
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Select2Data, Select2Module, Select2UpdateEvent } from 'ng-select2-component';
-import { Observable, map } from 'rxjs';
+import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import {
+  Select2Data,
+  Select2Module,
+  Select2UpdateEvent,
+} from "ng-select2-component";
+import { Observable, map } from "rxjs";
 
-import { Button } from '../../../../../shared/components/ui/button/button';
-import { FormFields } from '../../../../../shared/components/ui/form-fields/form-fields';
-import { countryCodes } from '../../../../../shared/data/country-code';
-import { SelectUserAction } from '../../../../../shared/store/action/order.action';
-import { CreateUserAddressAction } from '../../../../../shared/store/action/user.action';
-import { CountryState } from '../../../../../shared/store/state/country.state';
-import { StateState } from '../../../../../shared/store/state/state.state';
+import { Button } from "../../../../../shared/components/ui/button/button";
+import { FormFields } from "../../../../../shared/components/ui/form-fields/form-fields";
+import { countryCodes } from "../../../../../shared/data/country-code";
+import { SelectUserAction } from "../../../../../shared/store/action/order.action";
+import { CreateUserAddressAction } from "../../../../../shared/store/action/user.action";
+import { CountryState } from "../../../../../shared/store/state/country.state";
+import { StateState } from "../../../../../shared/store/state/state.state";
 
 @Component({
-  selector: 'app-add-address-modal',
+  selector: "app-add-address-modal",
   imports: [
     TranslateModule,
     FormsModule,
@@ -34,8 +45,9 @@ import { StateState } from '../../../../../shared/store/state/state.state';
     Button,
     FormFields,
   ],
-  templateUrl: './add-address-modal.html',
-  styleUrl: './add-address-modal.scss',
+  templateUrl: "./add-address-modal.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./add-address-modal.scss",
 })
 export class AddAddressModal {
   private modalService = inject(NgbModal);
@@ -49,7 +61,7 @@ export class AddAddressModal {
 
   public codes = countryCodes;
 
-  readonly AddAddressModal = viewChild<TemplateRef<string>>('addAddressModal');
+  readonly AddAddressModal = viewChild<TemplateRef<string>>("addAddressModal");
   countries$: Observable<Select2Data> = inject(Store).select(
     CountryState.countries,
   ) as Observable<Select2Data>;
@@ -58,16 +70,19 @@ export class AddAddressModal {
 
   constructor() {
     this.form = this.formBuilder.group({
-      user_id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
-      street: new FormControl('', [Validators.required]),
-      type: new FormControl('shipping', [Validators.required]),
-      state_id: new FormControl('', [Validators.required]),
-      country_id: new FormControl('', [Validators.required]),
-      city: new FormControl('', [Validators.required]),
-      pincode: new FormControl('', [Validators.required]),
-      country_code: new FormControl('1', [Validators.required]),
-      phone: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/)]),
+      user_id: new FormControl(""),
+      title: new FormControl("", [Validators.required]),
+      street: new FormControl("", [Validators.required]),
+      type: new FormControl("shipping", [Validators.required]),
+      state_id: new FormControl("", [Validators.required]),
+      country_id: new FormControl("", [Validators.required]),
+      city: new FormControl("", [Validators.required]),
+      pincode: new FormControl("", [Validators.required]),
+      country_code: new FormControl("1", [Validators.required]),
+      phone: new FormControl("", [
+        Validators.required,
+        Validators.pattern(/^[0-9]*$/),
+      ]),
     });
   }
 
@@ -75,25 +90,25 @@ export class AddAddressModal {
     if (data && data?.value) {
       this.states$ = this.store
         .select(StateState.states)
-        .pipe(map(filterFn => filterFn(+data?.value)));
-      this.form.controls['state_id'].setValue('');
+        .pipe(map((filterFn) => filterFn(+data?.value)));
+      this.form.controls["state_id"].setValue("");
     }
   }
 
   async openModal(value?: string) {
-    this.form.controls['type'].setValue(value);
+    this.form.controls["type"].setValue(value);
     this.modalOpen = true;
     this.modalService
       .open(this.AddAddressModal(), {
-        ariaLabelledBy: 'address-add-Modal',
+        ariaLabelledBy: "address-add-Modal",
         centered: true,
-        windowClass: 'theme-modal modal-lg',
+        windowClass: "theme-modal modal-lg",
       })
       .result.then(
-        result => {
+        (result) => {
           `Result ${result}`;
         },
-        reason => {
+        (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         },
       );
@@ -101,9 +116,9 @@ export class AddAddressModal {
 
   private getDismissReason(reason: ModalDismissReasons): string {
     if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
+      return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
+      return "by clicking on a backdrop";
     } else {
       return `with: ${reason}`;
     }
@@ -111,13 +126,15 @@ export class AddAddressModal {
 
   submit(id: number) {
     this.form.markAllAsTouched();
-    this.form.controls['user_id'].setValue(id);
+    this.form.controls["user_id"].setValue(id);
     if (this.form.valid) {
-      this.store.dispatch(new CreateUserAddressAction(this.form.value)).subscribe({
-        complete: () => {
-          this.store.dispatch(new SelectUserAction(id));
-        },
-      });
+      this.store
+        .dispatch(new CreateUserAddressAction(this.form.value))
+        .subscribe({
+          complete: () => {
+            this.store.dispatch(new SelectUserAction(id));
+          },
+        });
     }
   }
 

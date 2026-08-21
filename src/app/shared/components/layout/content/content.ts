@@ -1,24 +1,37 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, PLATFORM_ID, inject } from '@angular/core';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  PLATFORM_ID,
+  inject,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { NavigationEnd, Router, RouterModule } from "@angular/router";
 
-import { Store } from '@ngxs/store';
+import { Store } from "@ngxs/store";
 
-import { GetUserDetailsAction } from 'src/app/shared/store/action/account.action';
-import { GetNotificationAction } from 'src/app/shared/store/action/notification.action';
-import { GetBadgesAction } from 'src/app/shared/store/action/sidebar.action';
+import { GetUserDetailsAction } from "src/app/shared/store/action/account.action";
+import { GetNotificationAction } from "src/app/shared/store/action/notification.action";
+import { GetBadgesAction } from "src/app/shared/store/action/sidebar.action";
 
-import { NavService } from '../../../services/nav.service';
-import { Footer } from '../../footer/footer';
-import { Header } from '../../header/header';
-import { Sidebar } from '../../sidebar/sidebar';
-import { SidebarMenuSkeleton } from '../../ui/skeleton/sidebar-menu-skeleton/sidebar-menu-skeleton';
+import { NavService } from "../../../services/nav.service";
+import { Footer } from "../../footer/footer";
+import { Header } from "../../header/header";
+import { Sidebar } from "../../sidebar/sidebar";
+import { SidebarMenuSkeleton } from "../../ui/skeleton/sidebar-menu-skeleton/sidebar-menu-skeleton";
 
 @Component({
-  selector: 'app-content',
-  imports: [RouterModule, Header, Footer, SidebarMenuSkeleton, Sidebar, RouterModule],
-  templateUrl: './content.html',
-  styleUrl: './content.scss',
+  selector: "app-content",
+  imports: [
+    RouterModule,
+    Header,
+    Footer,
+    SidebarMenuSkeleton,
+    Sidebar,
+    RouterModule,
+  ],
+  templateUrl: "./content.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./content.scss",
 })
 export class Content {
   navServices = inject(NavService);
@@ -38,14 +51,12 @@ export class Content {
       },
     });
     this.isBrowser = isPlatformBrowser(this.platformId);
-    this.router.events.subscribe(event => {
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url === '/order/create') {
+        if (event.url === "/order/create") {
           this.navServices.collapseSidebar = true;
         }
       }
     });
   }
-
-  
 }

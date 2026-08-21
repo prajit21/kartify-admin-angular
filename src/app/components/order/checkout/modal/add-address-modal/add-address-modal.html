@@ -1,8 +1,9 @@
 <ng-template #addAddressModal let-modal>
   <div class="modal-header">
     <h3 class="fw-semibold">
-      {{ 'add' | translate }} {{ form.controls['type']?.value | titlecase }} {{'address' | translate
-      }}
+      {{ 'add' | translate }} {{
+      $safeNavigationMigration(form.controls['type']?.value) | titlecase }}
+      {{'address' | translate }}
     </h3>
     <app-button
       [class]="'btn btn-close'"
@@ -14,7 +15,11 @@
     </app-button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="form" class="theme-form theme-form-2" (ngSubmit)="submit(id())">
+    <form
+      [formGroup]="form"
+      class="theme-form theme-form-2"
+      (ngSubmit)="submit(id())"
+    >
       <app-form-fields [label]="'title'" [for]="'title'" [required]="true">
         <input
           class="form-control"
@@ -23,8 +28,11 @@
           placeholder="{{ 'enter_name' | translate }}"
           formControlName="title"
         />
-        @if(form?.controls['title']?.touched && form.controls['title']?.errors?.['required']){
-        <div class="invalid-feedback">{{ 'title_is_required' | translate }}</div>
+        @if(form?.controls['title']?.touched &&
+        form.controls['title']?.errors?.['required']){
+        <div class="invalid-feedback">
+          {{ 'title_is_required' | translate }}
+        </div>
         }
       </app-form-fields>
       <app-form-fields [label]="'phone'" [for]="'phone'" [required]="true">
@@ -50,10 +58,16 @@
           placeholder="{{ 'enter_phone' | translate }}"
           name="phone"
         />
-        @if(form.controls['phone'].touched && form.controls['phone'].errors?.['required']){
-        <div class="invalid-feedback">{{ 'phone_number_is_required' | translate }}</div>
-        } @if(form.controls['phone'].touched && form.controls['phone'].errors?.['pattern']){
-        <div class="invalid-feedback">{{ 'phone_number_is_invalid' | translate }}</div>
+        @if(form.controls['phone'].touched &&
+        form.controls['phone'].errors?.['required']){
+        <div class="invalid-feedback">
+          {{ 'phone_number_is_required' | translate }}
+        </div>
+        } @if(form.controls['phone'].touched &&
+        form.controls['phone'].errors?.['pattern']){
+        <div class="invalid-feedback">
+          {{ 'phone_number_is_invalid' | translate }}
+        </div>
         }
       </app-form-fields>
       <app-form-fields [label]="'address'" [for]="'address'" [required]="true">
@@ -64,11 +78,18 @@
           placeholder="{{ 'enter_address' | translate }}"
           formControlName="street"
         />
-        @if(form?.controls['street']?.touched && form.controls['street']?.errors?.['required']){
-        <div class="invalid-feedback">{{ 'street_is_required' | translate }}</div>
+        @if(form?.controls['street']?.touched &&
+        form.controls['street']?.errors?.['required']){
+        <div class="invalid-feedback">
+          {{ 'street_is_required' | translate }}
+        </div>
         }
       </app-form-fields>
-      <app-form-fields [label]="'country'" [for]="'country_id'" [required]="true">
+      <app-form-fields
+        [label]="'country'"
+        [for]="'country_id'"
+        [required]="true"
+      >
         <select2
           class="custom-select"
           [data]="(countries$ | async)?.length ? (countries$ | async) : []"
@@ -79,7 +100,9 @@
         />
         @if(form?.controls['country_id']?.touched &&
         form?.controls['country_id']?.errors?.['required']){
-        <div class="invalid-feedback">{{ 'country_is_required' | translate }}</div>
+        <div class="invalid-feedback">
+          {{ 'country_is_required' | translate }}
+        </div>
         }
       </app-form-fields>
       <app-form-fields [label]="'state'" [for]="'state_id'" [required]="true">
@@ -90,8 +113,11 @@
           formControlName="state_id"
           resettable
         />
-        @if(form?.controls['state_id'].touched && form?.controls['state_id'].errors?.['required']){
-        <div class="invalid-feedback">{{ 'state_is_required' | translate }}</div>
+        @if(form?.controls['state_id'].touched &&
+        form?.controls['state_id'].errors?.['required']){
+        <div class="invalid-feedback">
+          {{ 'state_is_required' | translate }}
+        </div>
         }
       </app-form-fields>
       <app-form-fields [label]="'city'" [for]="'city'" [required]="true">
@@ -102,7 +128,8 @@
           placeholder="{{'enter_city' | translate }}"
           formControlName="city"
         />
-        @if(form?.controls['city']?.touched && form.controls['city']?.errors?.['required']){
+        @if(form?.controls['city']?.touched &&
+        form.controls['city']?.errors?.['required']){
         <div class="invalid-feedback">{{ 'city_is_required' | translate }}</div>
         }
       </app-form-fields>
@@ -114,8 +141,11 @@
           placeholder="{{ 'enter_pincode' | translate }}"
           formControlName="pincode"
         />
-        @if(form?.controls['pincode']?.touched && form.controls['pincode']?.errors?.['required']){
-        <div class="invalid-feedback">{{ 'pincode_is_required' | translate }}</div>
+        @if(form?.controls['pincode']?.touched &&
+        form.controls['pincode']?.errors?.['required']){
+        <div class="invalid-feedback">
+          {{ 'pincode_is_required' | translate }}
+        </div>
         }
       </app-form-fields>
       <div class="button-box">
@@ -128,7 +158,10 @@
         >
           {{ 'cancel' | translate }}
         </app-button>
-        <app-button [class]="'btn-theme btn-md fw-bold btn'" [id]="'submit_address_btn'">
+        <app-button
+          [class]="'btn-theme btn-md fw-bold btn'"
+          [id]="'submit_address_btn'"
+        >
           {{ 'submit' | translate }}
         </app-button>
       </div>

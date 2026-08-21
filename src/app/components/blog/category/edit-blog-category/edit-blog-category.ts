@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 
-import { EditCategory } from '../../../category/edit-category/edit-category';
+import { EditCategory } from "../../../category/edit-category/edit-category";
 
 @Component({
-  selector: 'app-edit-blog-category',
+  selector: "app-edit-blog-category",
   imports: [EditCategory],
-  templateUrl: './edit-blog-category.html',
-  styleUrl: './edit-blog-category.scss',
+  templateUrl: "./edit-blog-category.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./edit-blog-category.scss",
 })
 export class EditBlogCategory {}

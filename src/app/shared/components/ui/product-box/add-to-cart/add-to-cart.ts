@@ -1,31 +1,45 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, inject, PLATFORM_ID, TemplateRef, viewChild } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  inject,
+  PLATFORM_ID,
+  TemplateRef,
+  viewChild,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { IAttributeValue } from '../../../../interface/attribute.interface';
-import { ICart, ICartAddOrUpdate } from '../../../../interface/cart.interface';
-import { IProduct, ISelectedVariant, IVariation } from '../../../../interface/product.interface';
-import { CurrencySymbolPipe } from '../../../../pipe/currency-symbol.pipe';
-import { AddToCartAction } from '../../../../store/action/cart.action';
-import { CartState } from '../../../../store/state/cart.state';
-import { Button } from '../../button/button';
+import { IAttributeValue } from "../../../../interface/attribute.interface";
+import { ICart, ICartAddOrUpdate } from "../../../../interface/cart.interface";
+import {
+  IProduct,
+  ISelectedVariant,
+  IVariation,
+} from "../../../../interface/product.interface";
+import { CurrencySymbolPipe } from "../../../../pipe/currency-symbol.pipe";
+import { AddToCartAction } from "../../../../store/action/cart.action";
+import { CartState } from "../../../../store/state/cart.state";
+import { Button } from "../../button/button";
 
 @Component({
-  selector: 'app-add-to-cart',
+  selector: "app-add-to-cart",
   imports: [TranslateModule, CurrencySymbolPipe, CommonModule, Button],
-  templateUrl: './add-to-cart.html',
-  styleUrl: './add-to-cart.scss',
+  templateUrl: "./add-to-cart.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./add-to-cart.scss",
 })
 export class AddToCart {
   private modalService = inject(NgbModal);
   private store = inject(Store);
   private platformId = inject(PLATFORM_ID);
 
-  cartItem$: Observable<ICart[]> = inject(Store).select(CartState.cartItems) as Observable<ICart[]>;
+  cartItem$: Observable<ICart[]> = inject(Store).select(
+    CartState.cartItems,
+  ) as Observable<ICart[]>;
 
   public cartItem: ICart | null;
 
@@ -41,11 +55,13 @@ export class AddToCart {
 
   public totalPrice: number = 0;
 
-  readonly addToCartModal = viewChild<TemplateRef<string>>('addToCartModal');
+  readonly addToCartModal = viewChild<TemplateRef<string>>("addToCartModal");
 
   constructor() {
-    this.cartItem$.subscribe(items => {
-      this.cartItem = items.find(item => item?.product?.id == this.product?.id)!;
+    this.cartItem$.subscribe((items) => {
+      this.cartItem = items.find(
+        (item) => item?.product?.id == this.product?.id,
+      )!;
     });
   }
 
@@ -56,16 +72,16 @@ export class AddToCart {
     this.modalOpen = true;
     this.modalService
       .open(this.addToCartModal(), {
-        ariaLabelledBy: 'AddToCartModal',
+        ariaLabelledBy: "AddToCartModal",
         centered: true,
-        windowClass: 'theme-modal modal-lg view-modal',
+        windowClass: "theme-modal modal-lg view-modal",
       })
       .result.then(
-        result => {
+        (result) => {
           `Result ${result}`;
           this.closeResult = `Closed with: ${result}`;
         },
-        reason => {
+        (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         },
       );
@@ -76,8 +92,8 @@ export class AddToCart {
     this.attributeValues = [];
     this.selectedVariation = null;
 
-    product?.variations?.forEach(variation => {
-      variation?.attribute_values?.filter(attribute_value => {
+    product?.variations?.forEach((variation) => {
+      variation?.attribute_values?.filter((attribute_value) => {
         if (this.attributeValues.indexOf(attribute_value?.id) === -1)
           this.attributeValues.push(attribute_value?.id);
       });
@@ -85,7 +101,7 @@ export class AddToCart {
 
     // Set cart variant Default
     if (this.cartItem?.variation) {
-      this.cartItem?.variation.attribute_values.filter(attribute_val => {
+      this.cartItem?.variation.attribute_values.filter((attribute_val) => {
         this.setVariant(this.product.variations, attribute_val);
       });
     }
@@ -93,7 +109,10 @@ export class AddToCart {
     if (!this.cartItem) {
       // Set First variant Default
       for (const attribute of product?.attributes) {
-        if (this.attributeValues?.length && attribute?.attribute_values?.length) {
+        if (
+          this.attributeValues?.length &&
+          attribute?.attribute_values?.length
+        ) {
           let values: number[] = [];
           for (const value of attribute.attribute_values) {
             if (values.indexOf(value.id) === -1) values.push(value.id);
@@ -108,11 +127,13 @@ export class AddToCart {
     }
 
     // Set Variation Image
-    product.variations?.forEach(variation => {
-      let attrValues = variation?.attribute_values?.map(attribute_value => attribute_value?.id);
-      product?.attributes.filter(attribute => {
-        if (attribute.style == 'image') {
-          attribute.attribute_values.filter(attribute_value => {
+    product.variations?.forEach((variation) => {
+      let attrValues = variation?.attribute_values?.map(
+        (attribute_value) => attribute_value?.id,
+      );
+      product?.attributes.filter((attribute) => {
+        if (attribute.style == "image") {
+          attribute.attribute_values.filter((attribute_value) => {
             if (this.attributeValues.includes(attribute_value.id)) {
               if (attrValues.includes(attribute_value.id)) {
                 attribute_value.variation_image = variation.variation_image;
@@ -126,7 +147,7 @@ export class AddToCart {
 
   setVariant(variations: IVariation[], value: IAttributeValue) {
     const index = this.selectedOptions.findIndex(
-      item => Number(item.attribute_id) === Number(value?.attribute_id),
+      (item) => Number(item.attribute_id) === Number(value?.attribute_id),
     );
     this.soldOutAttributesIds = [];
     if (index === -1) {
@@ -137,34 +158,39 @@ export class AddToCart {
     } else {
       this.selectedOptions[index].id = value?.id;
     }
-    variations?.forEach(variation => {
-      let attrValues = variation?.attribute_values?.map(attribute_value => attribute_value?.id);
-      this.variantIds = this.selectedOptions?.map(variants => variants?.id);
+    variations?.forEach((variation) => {
+      let attrValues = variation?.attribute_values?.map(
+        (attribute_value) => attribute_value?.id,
+      );
+      this.variantIds = this.selectedOptions?.map((variants) => variants?.id);
       let doValuesMatch =
         attrValues.length === this.selectedOptions.length &&
-        attrValues.every(value => this.variantIds.includes(value));
+        attrValues.every((value) => this.variantIds.includes(value));
       if (doValuesMatch) {
         this.selectedVariation = variation;
         this.product &&
-          (this.product['quantity'] = this.selectedVariation
+          (this.product["quantity"] = this.selectedVariation
             ? this.selectedVariation?.quantity
             : this.product?.quantity);
         this.product &&
-          (this.product['sku'] = this.selectedVariation
+          (this.product["sku"] = this.selectedVariation
             ? this.selectedVariation?.sku
             : this.product?.sku);
         this.checkStockAvailable();
       }
 
-      if (variation.stock_status == 'out_of_stock') {
-        variation?.attribute_values.filter(attr_value => {
-          if (attrValues.some(value => this.variantIds.includes(value))) {
-            if (attrValues.every(value => this.variantIds.includes(value))) {
+      if (variation.stock_status == "out_of_stock") {
+        variation?.attribute_values.filter((attr_value) => {
+          if (attrValues.some((value) => this.variantIds.includes(value))) {
+            if (attrValues.every((value) => this.variantIds.includes(value))) {
               this.soldOutAttributesIds.push(attr_value.id);
             } else if (!this.variantIds.includes(attr_value.id)) {
               this.soldOutAttributesIds.push(attr_value.id);
             }
-          } else if (attrValues.length == 1 && attrValues.includes(attr_value.id)) {
+          } else if (
+            attrValues.length == 1 &&
+            attrValues.includes(attr_value.id)
+          ) {
             this.soldOutAttributesIds.push(attr_value.id);
           }
         });
@@ -172,8 +198,8 @@ export class AddToCart {
     });
 
     // Set Attribute Value
-    this.product?.attributes.filter(attribute => {
-      attribute.attribute_values.filter(a_value => {
+    this.product?.attributes.filter((attribute) => {
+      attribute.attribute_values.filter((a_value) => {
         if (a_value.id == value.id) {
           attribute.selected_value = a_value.value;
         }
@@ -191,29 +217,37 @@ export class AddToCart {
   wholesalePriceCal() {
     let wholesale =
       this.product.wholesales.find(
-        value => value.min_qty <= this.productQty && value.max_qty >= this.productQty,
+        (value) =>
+          value.min_qty <= this.productQty && value.max_qty >= this.productQty,
       ) || null;
-    if (wholesale && this.product.wholesale_price_type == 'fixed') {
+    if (wholesale && this.product.wholesale_price_type == "fixed") {
       this.totalPrice = this.productQty * wholesale.value;
-    } else if (wholesale && this.product.wholesale_price_type == 'percentage') {
+    } else if (wholesale && this.product.wholesale_price_type == "percentage") {
       this.totalPrice =
         this.productQty *
-        (this.selectedVariation ? this.selectedVariation.sale_price : this.product.sale_price);
-      this.totalPrice = this.totalPrice - this.totalPrice * (wholesale.value / 100);
+        (this.selectedVariation
+          ? this.selectedVariation.sale_price
+          : this.product.sale_price);
+      this.totalPrice =
+        this.totalPrice - this.totalPrice * (wholesale.value / 100);
     } else {
       this.totalPrice =
         this.productQty *
-        (this.selectedVariation ? this.selectedVariation.sale_price : this.product.sale_price);
+        (this.selectedVariation
+          ? this.selectedVariation.sale_price
+          : this.product.sale_price);
     }
   }
 
   checkStockAvailable() {
     if (this.selectedVariation) {
-      this.selectedVariation['stock_status'] =
-        this.selectedVariation?.quantity < this.productQty ? 'out_of_stock' : 'in_stock';
+      this.selectedVariation["stock_status"] =
+        this.selectedVariation?.quantity < this.productQty
+          ? "out_of_stock"
+          : "in_stock";
     } else {
-      this.product['stock_status'] =
-        this.product?.quantity < this.productQty ? 'out_of_stock' : 'in_stock';
+      this.product["stock_status"] =
+        this.product?.quantity < this.productQty ? "out_of_stock" : "in_stock";
     }
   }
 
@@ -235,16 +269,16 @@ export class AddToCart {
   externalProductLink(link: string) {
     if (isPlatformBrowser(this.platformId)) {
       if (link) {
-        window.open(link, '_blank');
+        window.open(link, "_blank");
       }
     }
   }
 
   private getDismissReason(reason: ModalDismissReasons): string {
     if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
+      return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
+      return "by clicking on a backdrop";
     } else {
       return `with: ${reason}`;
     }

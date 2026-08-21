@@ -1,4 +1,9 @@
-import { Component, inject, DOCUMENT } from '@angular/core';
+import {
+  Component,
+  inject,
+  DOCUMENT,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormArray,
   FormBuilder,
@@ -6,27 +11,33 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-} from '@angular/forms';
+} from "@angular/forms";
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Select2SearchEvent } from 'ng-select2-component';
-import { Observable, Subject, forkJoin } from 'rxjs';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Select2SearchEvent } from "ng-select2-component";
+import { Observable, Subject, forkJoin } from "rxjs";
 
-import { PageWrapper } from '../../../shared/components/page-wrapper/page-wrapper';
-import { Button } from '../../../shared/components/ui/button/button';
-import { FormFields } from '../../../shared/components/ui/form-fields/form-fields';
-import { ImageUpload } from '../../../shared/components/ui/image-upload/image-upload';
-import { mediaConfig } from '../../../shared/data/media-config';
-import { HasPermissionDirective } from '../../../shared/directive/has-permission.directive';
-import { IParallax, IParallaxBanner } from '../../../shared/interface/theme.interface';
-import { GetProductsAction } from '../../../shared/store/action/product.action';
-import { GetHomePageAction, UpdateHomePageAction } from '../../../shared/store/action/theme.action';
-import { ThemeState } from '../../../shared/store/state/theme.state';
+import { PageWrapper } from "../../../shared/components/page-wrapper/page-wrapper";
+import { Button } from "../../../shared/components/ui/button/button";
+import { FormFields } from "../../../shared/components/ui/form-fields/form-fields";
+import { ImageUpload } from "../../../shared/components/ui/image-upload/image-upload";
+import { mediaConfig } from "../../../shared/data/media-config";
+import { HasPermissionDirective } from "../../../shared/directive/has-permission.directive";
+import {
+  IParallax,
+  IParallaxBanner,
+} from "../../../shared/interface/theme.interface";
+import { GetProductsAction } from "../../../shared/store/action/product.action";
+import {
+  GetHomePageAction,
+  UpdateHomePageAction,
+} from "../../../shared/store/action/theme.action";
+import { ThemeState } from "../../../shared/store/state/theme.state";
 
 @Component({
-  selector: 'app-parallax',
+  selector: "app-parallax",
   imports: [
     TranslateModule,
     FormsModule,
@@ -38,8 +49,9 @@ import { ThemeState } from '../../../shared/store/state/theme.state';
     FormFields,
     ImageUpload,
   ],
-  templateUrl: './parallax.html',
-  styleUrl: './parallax.scss',
+  templateUrl: "./parallax.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./parallax.scss",
 })
 export class Parallax {
   private store = inject(Store);
@@ -50,15 +62,15 @@ export class Parallax {
 
   public form: FormGroup;
   public page_data: IParallax;
-  public active = 'parallax_banner';
+  public active = "parallax_banner";
   public banner = 1;
   private search = new Subject<string>();
   public mediaConfig = mediaConfig;
   public filter = {
     status: 1,
-    search: '',
+    search: "",
     paginate: 15,
-    ids: '',
+    ids: "",
     with_union_products: 0,
     is_approved: 1,
   };
@@ -71,23 +83,26 @@ export class Parallax {
           banners: new FormArray([]),
         }),
       }),
-      slug: new FormControl('parallax'),
+      slug: new FormControl("parallax"),
     });
   }
 
   ngOnInit() {
-    const home_page$ = this.store.dispatch(new GetHomePageAction({ slug: 'parallax' }));
+    const home_page$ = this.store.dispatch(
+      new GetHomePageAction({ slug: "parallax" }),
+    );
     forkJoin([home_page$]).subscribe({
       complete: () => {
         this.store.select(ThemeState.homePage).subscribe({
-          next: homePage => {
+          next: (homePage) => {
             if (homePage?.content?.products_ids) {
-              this.filter['paginate'] =
+              this.filter["paginate"] =
                 homePage?.content?.products_ids?.length >= 15
                   ? homePage?.content?.products_ids?.length
                   : 15;
-              this.filter['ids'] = homePage?.content?.products_ids?.join();
-              this.filter['with_union_products'] = homePage?.content?.products_ids?.length
+              this.filter["ids"] = homePage?.content?.products_ids?.join();
+              this.filter["with_union_products"] = homePage?.content
+                ?.products_ids?.length
                 ? homePage?.content?.products_ids?.length >= 15
                   ? 0
                   : 1
@@ -105,7 +120,7 @@ export class Parallax {
   }
 
   patchForm() {
-    this.home_page$.subscribe(homePage => {
+    this.home_page$.subscribe((homePage) => {
       this.page_data = homePage;
       this.form.patchValue({
         content: {
@@ -117,16 +132,17 @@ export class Parallax {
       });
 
       this.parallaxBannersArray.clear();
-      homePage?.content?.parallax_banner?.banners?.forEach((banner: IParallaxBanner) =>
-        this.parallaxBannersArray.push(
-          this.formBuilder.group({
-            status: new FormControl(banner?.status),
-            main_title: new FormControl(banner?.main_title),
-            title: new FormControl(banner?.title),
-            sub_title: new FormControl(banner?.sub_title),
-            image_url: new FormControl(banner?.image_url),
-          }),
-        ),
+      homePage?.content?.parallax_banner?.banners?.forEach(
+        (banner: IParallaxBanner) =>
+          this.parallaxBannersArray.push(
+            this.formBuilder.group({
+              status: new FormControl(banner?.status),
+              main_title: new FormControl(banner?.main_title),
+              title: new FormControl(banner?.title),
+              sub_title: new FormControl(banner?.sub_title),
+              image_url: new FormControl(banner?.image_url),
+            }),
+          ),
       );
     });
   }
@@ -142,16 +158,16 @@ export class Parallax {
   }
 
   get parallaxBannersArray(): FormArray {
-    return this.form.get('content.parallax_banner.banners') as FormArray;
+    return this.form.get("content.parallax_banner.banners") as FormArray;
   }
 
   addParallaxBanner(event: Event) {
     event.preventDefault();
     this.parallaxBannersArray.push(
       this.formBuilder.group({
-        main_title: new FormControl(''),
-        title: new FormControl(''),
-        sub_title: new FormControl(''),
+        main_title: new FormControl(""),
+        title: new FormControl(""),
+        sub_title: new FormControl(""),
         image_url: new FormControl(),
         status: new FormControl(true),
       }),
@@ -166,7 +182,7 @@ export class Parallax {
   selectParallaxBannerArray(url: string, index: number) {
     this.parallaxBannersArray
       .at(index)
-      .get('image_url')
+      .get("image_url")
       ?.setValue(url ? url : null);
   }
 
@@ -181,15 +197,15 @@ export class Parallax {
     function traverse(value: unknown): void {
       if (Array.isArray(value)) {
         value.forEach(traverse);
-      } else if (value !== null && typeof value === 'object') {
+      } else if (value !== null && typeof value === "object") {
         for (const [key, nested] of Object.entries(value)) {
           if (
-            key === 'product_ids' &&
+            key === "product_ids" &&
             Array.isArray(nested) &&
-            nested.every(item => typeof item === 'number')
+            nested.every((item) => typeof item === "number")
           ) {
             result.push(...nested);
-          } else if (key === 'product_ids' && typeof nested === 'number') {
+          } else if (key === "product_ids" && typeof nested === "number") {
             result.push(nested);
           } else {
             traverse(nested);
@@ -203,11 +219,15 @@ export class Parallax {
   }
 
   submit() {
-    const productIds = Array.from(new Set(this.concatDynamicProductKeys(this.form.value)));
-    this.form.get('content.products_ids')?.setValue(productIds);
+    const productIds = Array.from(
+      new Set(this.concatDynamicProductKeys(this.form.value)),
+    );
+    this.form.get("content.products_ids")?.setValue(productIds);
 
     if (this.form.valid) {
-      this.store.dispatch(new UpdateHomePageAction(this.page_data.id, this.form.value));
+      this.store.dispatch(
+        new UpdateHomePageAction(this.page_data.id, this.form.value),
+      );
     }
   }
 }

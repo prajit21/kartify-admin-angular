@@ -1,5 +1,5 @@
 import { AsyncPipe } from "@angular/common";
-import { Component, inject } from "@angular/core";
+import { Component, inject, ChangeDetectionStrategy } from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -32,6 +32,7 @@ import { SettingState } from "../../../shared/store/state/setting.state";
     AsyncPipe,
   ],
   templateUrl: "./login.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: "./login.scss",
 })
 export class Login {

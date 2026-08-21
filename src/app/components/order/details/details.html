@@ -43,8 +43,9 @@
                 />
               </div>
               <div class="status">
-                {{ order?.order_status?.name?.replaceAll('_', ' ') | titlecase
-                }}
+                {{
+                $safeNavigationMigration(order?.order_status?.name?.replaceAll('_',
+                ' ')) | titlecase }}
               </div>
             </div>
           </li>
@@ -56,7 +57,7 @@
 
     <app-page-wrapper
       [gridClass]="'col-sm-12'"
-      [title]="('order_number' | translate)+': #'+order?.order_number"
+      [title]="('order_number' | translate)+': #'+$safeNavigationMigration(order?.order_number)"
     >
       @if(!order?.sub_orders?.length && (order?.order_status?.slug !==
       'cancelled' && order?.order_status?.slug !== 'delivered')){
@@ -66,7 +67,7 @@
           class="custom-select min-w-cls"
           [data]="(orderStatuses$ | async)?.length ? (orderStatuses$ | async) : []"
           [placeholder]="'select_status' | translate"
-          [value]="order?.order_status?.id"
+          [value]="$safeNavigationMigration(order?.order_status?.id)"
           (update)="updateOrderStatus($event)"
         />
         }
@@ -89,9 +90,9 @@
               <td class="product-image">
                 <img
                   [src]="product?.pivot?.variation && product?.pivot?.variation?.variation_image
-                                          ? product?.pivot?.variation?.variation_image?.original_url
+                                          ? $safeNavigationMigration(product?.pivot?.variation?.variation_image?.original_url)
                                           : product?.product_thumbnail
-                                          ? product?.product_thumbnail?.original_url
+                                          ? $safeNavigationMigration(product?.product_thumbnail?.original_url)
                                           : 'assets/images/product.png'"
                   class="img-fluid"
                   alt="product"
@@ -106,15 +107,19 @@
               <td>
                 <h6>
                   {{ (product?.pivot?.wholesale_price ?
-                  product?.pivot?.wholesale_price :
-                  product?.pivot?.single_price) | currencySymbol }}
+                  $safeNavigationMigration(product?.pivot?.wholesale_price) :
+                  $safeNavigationMigration(product?.pivot?.single_price)) |
+                  currencySymbol }}
                 </h6>
               </td>
               <td>
                 <h6>{{ product?.pivot?.quantity }}</h6>
               </td>
               <td>
-                <h6>{{ product?.pivot?.subtotal | currencySymbol }}</h6>
+                <h6>
+                  {{ $safeNavigationMigration(product?.pivot?.subtotal) |
+                  currencySymbol }}
+                </h6>
               </td>
             </tr>
             }
@@ -144,12 +149,16 @@
               </td>
               <td>
                 <h6>
-                  {{ subOrder?.created_at | date: 'dd MMM yyyy hh:mm a' }}
+                  {{ $safeNavigationMigration(subOrder?.created_at) | date: 'dd
+                  MMM yyyy hh:mm a' }}
                 </h6>
               </td>
               <td>
                 @if(isBrowser) {
-                <h6>{{ subOrder?.amount | currencySymbol }}</h6>
+                <h6>
+                  {{ $safeNavigationMigration(subOrder?.amount) | currencySymbol
+                  }}
+                </h6>
                 }
               </td>
               <td>
@@ -162,7 +171,7 @@
               <td>
                 <a
                   href="javascript:void(0)"
-                  [routerLink]="['/order/details', subOrder?.order_number]"
+                  [routerLink]="['/order/details', $safeNavigationMigration(subOrder?.order_number)]"
                 >
                   <i [class]="'ri-eye-line'"></i>
                 </a>
@@ -200,8 +209,8 @@
             <li>
               {{ 'subtotal' | translate }}
               <span
-                >{{ (order?.amount ? order?.amount : 0) | currencySymbol
-                }}</span
+                >{{ (order?.amount ? $safeNavigationMigration(order?.amount) :
+                0) | currencySymbol }}</span
               >
             </li>
 
@@ -209,7 +218,8 @@
             <li>
               {{ 'shipping' | translate }}
               <span
-                >{{ (order?.shipping_total ? order?.shipping_total : 0) |
+                >{{ (order?.shipping_total ?
+                $safeNavigationMigration(order?.shipping_total) : 0) |
                 currencySymbol }}</span
               >
             </li>
@@ -218,7 +228,8 @@
             <li>
               {{ 'tax' | translate }}
               <span
-                >{{ (order?.tax_total ? order?.tax_total : 0) | currencySymbol
+                >{{ (order?.tax_total ?
+                $safeNavigationMigration(order?.tax_total) : 0) | currencySymbol
                 }}</span
               >
             </li>
@@ -226,24 +237,34 @@
             @if(order?.points_amount !== 0){
             <li class="txt-primary fw-bold">
               {{ 'points' | translate }}
-              <span>{{ order?.points_amount | currencySymbol }}</span>
+              <span
+                >{{ $safeNavigationMigration(order?.points_amount) |
+                currencySymbol }}</span
+              >
             </li>
             } @if(order?.wallet_balance !== 0){
             <li class="txt-primary fw-bold">
               {{ 'wallet_balance' | translate }}
-              <span>{{ order?.wallet_balance | currencySymbol }}</span>
+              <span
+                >{{ $safeNavigationMigration(order?.wallet_balance) |
+                currencySymbol }}</span
+              >
             </li>
             } @if(order?.coupon_total_discount !== 0){
             <li class="txt-primary fw-bold">
               {{ 'discount' | translate }}
-              <span>{{ order?.coupon_total_discount | currencySymbol }}</span>
+              <span
+                >{{ $safeNavigationMigration(order?.coupon_total_discount) |
+                currencySymbol }}</span
+              >
             </li>
             }
 
             <li>
               {{ 'total' | translate }}
               <span
-                >{{ (order?.total ? order?.total : 0) | currencySymbol }}</span
+                >{{ (order?.total ? $safeNavigationMigration(order?.total) : 0)
+                | currencySymbol }}</span
               >
             </li>
           </ul>
@@ -297,7 +318,10 @@
             }
             <li>
               <label>{{ 'payment_mode' | translate }}:</label>
-              <h4>{{ order?.payment_method | uppercase }}</h4>
+              <h4>
+                {{ $safeNavigationMigration(order?.payment_method) | uppercase
+                }}
+              </h4>
             </li>
           </ul>
         </div>

@@ -1,4 +1,10 @@
-import { Component, TemplateRef, inject, viewChild } from '@angular/core';
+import {
+  Component,
+  TemplateRef,
+  inject,
+  viewChild,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -6,24 +12,32 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
+} from "@angular/forms";
 
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Select2Module } from 'ng-select2-component';
+import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Select2Module } from "ng-select2-component";
 
-import { Button } from '../../../../../shared/components/ui/button/button';
-import { FormFields } from '../../../../../shared/components/ui/form-fields/form-fields';
-import { countryCodes } from '../../../../../shared/data/country-code';
-import { CreateUserAction } from '../../../../../shared/store/action/user.action';
-import { CustomValidators } from '../../../../../shared/validator/password-match';
+import { Button } from "../../../../../shared/components/ui/button/button";
+import { FormFields } from "../../../../../shared/components/ui/form-fields/form-fields";
+import { countryCodes } from "../../../../../shared/data/country-code";
+import { CreateUserAction } from "../../../../../shared/store/action/user.action";
+import { CustomValidators } from "../../../../../shared/validator/password-match";
 
 @Component({
-  selector: 'app-add-customer-modal',
-  imports: [TranslateModule, FormsModule, ReactiveFormsModule, Select2Module, FormFields, Button],
-  templateUrl: './add-customer-modal.html',
-  styleUrl: './add-customer-modal.scss',
+  selector: "app-add-customer-modal",
+  imports: [
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    Select2Module,
+    FormFields,
+    Button,
+  ],
+  templateUrl: "./add-customer-modal.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./add-customer-modal.scss",
 })
 export class AddCustomerModal {
   private modalService = inject(NgbModal);
@@ -35,40 +49,52 @@ export class AddCustomerModal {
   public modalOpen: boolean = false;
   public codes = countryCodes;
 
-  readonly AddCustomerModal = viewChild<TemplateRef<string>>('addCustomerModal');
+  readonly AddCustomerModal =
+    viewChild<TemplateRef<string>>("addCustomerModal");
 
   constructor() {
     this.form = this.formBuilder.group(
       {
-        name: new FormControl('', [Validators.required]),
-        email: new FormControl('', [Validators.required, Validators.email]),
-        country_code: new FormControl('1', [Validators.required]),
-        phone: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]*$/)]),
-        password: new FormControl('', [Validators.required]),
-        password_confirmation: new FormControl('', [Validators.required]),
+        name: new FormControl("", [Validators.required]),
+        email: new FormControl("", [Validators.required, Validators.email]),
+        country_code: new FormControl("1", [Validators.required]),
+        phone: new FormControl("", [
+          Validators.required,
+          Validators.pattern(/^[0-9]*$/),
+        ]),
+        password: new FormControl("", [Validators.required]),
+        password_confirmation: new FormControl("", [Validators.required]),
         status: new FormControl(1, [Validators.required]),
       },
-      { validator: CustomValidators.MatchValidator('password', 'password_confirmation') },
+      {
+        validator: CustomValidators.MatchValidator(
+          "password",
+          "password_confirmation",
+        ),
+      },
     );
   }
 
   get passwordMatchError() {
-    return this.form.getError('mismatch') && this.form.get('password_confirmation')?.touched;
+    return (
+      this.form.getError("mismatch") &&
+      this.form.get("password_confirmation")?.touched
+    );
   }
 
   async openModal() {
     this.modalOpen = true;
     this.modalService
       .open(this.AddCustomerModal(), {
-        ariaLabelledBy: 'add-customer-Modal',
+        ariaLabelledBy: "add-customer-Modal",
         centered: true,
-        windowClass: 'theme-modal modal-lg',
+        windowClass: "theme-modal modal-lg",
       })
       .result.then(
-        result => {
+        (result) => {
           `Result ${result}`;
         },
-        reason => {
+        (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         },
       );
@@ -76,9 +102,9 @@ export class AddCustomerModal {
 
   private getDismissReason(reason: ModalDismissReasons): string {
     if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
+      return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
+      return "by clicking on a backdrop";
     } else {
       return `with: ${reason}`;
     }

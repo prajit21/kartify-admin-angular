@@ -6,15 +6,15 @@
       "name": "admin",
       "guard_name": "web",
       "system_reserve": "1",
-      "created_at": "2025-05-02T08:34:46.000000Z",
-      "updated_at": "2025-05-02T08:34:46.000000Z",
+      "created_at": "2026-05-02T08:34:46.000000Z",
+      "updated_at": "2026-05-02T08:34:46.000000Z",
       "permissions": [
         {
           "id": 1,
           "name": "user.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "1"
@@ -24,8 +24,8 @@
           "id": 2,
           "name": "user.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "2"
@@ -35,8 +35,8 @@
           "id": 3,
           "name": "user.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "3"
@@ -46,8 +46,8 @@
           "id": 4,
           "name": "user.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "4"
@@ -57,8 +57,8 @@
           "id": 5,
           "name": "role.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "5"
@@ -68,8 +68,8 @@
           "id": 6,
           "name": "role.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "6"
@@ -79,8 +79,8 @@
           "id": 7,
           "name": "role.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "7"
@@ -90,8 +90,8 @@
           "id": 8,
           "name": "role.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "8"
@@ -101,8 +101,8 @@
           "id": 9,
           "name": "product.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "9"
@@ -112,8 +112,8 @@
           "id": 10,
           "name": "product.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "10"
@@ -123,8 +123,8 @@
           "id": 11,
           "name": "product.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "11"
@@ -134,8 +134,8 @@
           "id": 12,
           "name": "product.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "12"
@@ -145,8 +145,8 @@
           "id": 13,
           "name": "attribute.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "13"
@@ -156,8 +156,8 @@
           "id": 14,
           "name": "attribute.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "14"
@@ -167,8 +167,8 @@
           "id": 15,
           "name": "attribute.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "15"
@@ -178,8 +178,8 @@
           "id": 16,
           "name": "attribute.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "16"
@@ -189,8 +189,8 @@
           "id": 17,
           "name": "category.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "17"
@@ -200,8 +200,8 @@
           "id": 18,
           "name": "category.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "18"
@@ -211,8 +211,8 @@
           "id": 19,
           "name": "category.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "19"
@@ -222,8 +222,8 @@
           "id": 20,
           "name": "category.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "20"
@@ -233,8 +233,8 @@
           "id": 21,
           "name": "tag.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "21"
@@ -244,8 +244,8 @@
           "id": 22,
           "name": "tag.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "22"
@@ -255,8 +255,8 @@
           "id": 23,
           "name": "tag.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "23"
@@ -266,8 +266,8 @@
           "id": 24,
           "name": "tag.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "24"
@@ -277,8 +277,8 @@
           "id": 25,
           "name": "brand.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "25"
@@ -288,8 +288,8 @@
           "id": 26,
           "name": "brand.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "26"
@@ -299,8 +299,8 @@
           "id": 27,
           "name": "brand.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "27"
@@ -310,8 +310,8 @@
           "id": 28,
           "name": "brand.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "28"
@@ -321,8 +321,8 @@
           "id": 29,
           "name": "license_key.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "29"
@@ -332,8 +332,8 @@
           "id": 30,
           "name": "license_key.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "30"
@@ -343,8 +343,8 @@
           "id": 31,
           "name": "license_key.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "31"
@@ -354,8 +354,8 @@
           "id": 32,
           "name": "license_key.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "32"
@@ -365,8 +365,8 @@
           "id": 33,
           "name": "store.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "33"
@@ -376,8 +376,8 @@
           "id": 34,
           "name": "store.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "34"
@@ -387,8 +387,8 @@
           "id": 35,
           "name": "store.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "35"
@@ -398,8 +398,8 @@
           "id": 36,
           "name": "store.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "36"
@@ -409,8 +409,8 @@
           "id": 37,
           "name": "vendor_wallet.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "37"
@@ -420,8 +420,8 @@
           "id": 38,
           "name": "vendor_wallet.credit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "38"
@@ -431,8 +431,8 @@
           "id": 39,
           "name": "vendor_wallet.debit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "39"
@@ -442,8 +442,8 @@
           "id": 40,
           "name": "commission_history.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "40"
@@ -453,8 +453,8 @@
           "id": 41,
           "name": "withdraw_request.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "41"
@@ -464,8 +464,8 @@
           "id": 42,
           "name": "withdraw_request.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "42"
@@ -475,8 +475,8 @@
           "id": 43,
           "name": "withdraw_request.action",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "43"
@@ -486,8 +486,8 @@
           "id": 44,
           "name": "order.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "44"
@@ -497,8 +497,8 @@
           "id": 45,
           "name": "order.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "45"
@@ -508,8 +508,8 @@
           "id": 46,
           "name": "order.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "46"
@@ -519,8 +519,8 @@
           "id": 47,
           "name": "attachment.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "47"
@@ -530,8 +530,8 @@
           "id": 48,
           "name": "attachment.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "48"
@@ -541,8 +541,8 @@
           "id": 49,
           "name": "attachment.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "49"
@@ -552,8 +552,8 @@
           "id": 50,
           "name": "blog.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "50"
@@ -563,8 +563,8 @@
           "id": 51,
           "name": "blog.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "51"
@@ -574,8 +574,8 @@
           "id": 52,
           "name": "blog.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "52"
@@ -585,8 +585,8 @@
           "id": 53,
           "name": "blog.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "53"
@@ -596,8 +596,8 @@
           "id": 54,
           "name": "page.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "54"
@@ -607,8 +607,8 @@
           "id": 55,
           "name": "page.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "55"
@@ -618,8 +618,8 @@
           "id": 56,
           "name": "page.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "56"
@@ -629,8 +629,8 @@
           "id": 57,
           "name": "page.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "57"
@@ -640,8 +640,8 @@
           "id": 58,
           "name": "tax.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "58"
@@ -651,8 +651,8 @@
           "id": 59,
           "name": "tax.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "59"
@@ -662,8 +662,8 @@
           "id": 60,
           "name": "tax.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "60"
@@ -673,8 +673,8 @@
           "id": 61,
           "name": "tax.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "61"
@@ -684,8 +684,8 @@
           "id": 62,
           "name": "shipping.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "62"
@@ -695,8 +695,8 @@
           "id": 63,
           "name": "shipping.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "63"
@@ -706,8 +706,8 @@
           "id": 64,
           "name": "shipping.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "64"
@@ -717,8 +717,8 @@
           "id": 65,
           "name": "shipping.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "65"
@@ -728,8 +728,8 @@
           "id": 66,
           "name": "coupon.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "66"
@@ -739,8 +739,8 @@
           "id": 67,
           "name": "coupon.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "67"
@@ -750,8 +750,8 @@
           "id": 68,
           "name": "coupon.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "68"
@@ -761,8 +761,8 @@
           "id": 69,
           "name": "coupon.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "69"
@@ -772,8 +772,8 @@
           "id": 70,
           "name": "currency.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "70"
@@ -783,8 +783,8 @@
           "id": 71,
           "name": "currency.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "71"
@@ -794,8 +794,8 @@
           "id": 72,
           "name": "currency.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "72"
@@ -805,8 +805,8 @@
           "id": 73,
           "name": "currency.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "73"
@@ -816,8 +816,8 @@
           "id": 74,
           "name": "point.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "74"
@@ -827,8 +827,8 @@
           "id": 75,
           "name": "point.credit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "75"
@@ -838,8 +838,8 @@
           "id": 76,
           "name": "point.debit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "76"
@@ -849,8 +849,8 @@
           "id": 77,
           "name": "wallet.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "77"
@@ -860,8 +860,8 @@
           "id": 78,
           "name": "wallet.credit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "78"
@@ -871,8 +871,8 @@
           "id": 79,
           "name": "wallet.debit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "79"
@@ -882,8 +882,8 @@
           "id": 80,
           "name": "refund.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "80"
@@ -893,8 +893,8 @@
           "id": 81,
           "name": "refund.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "81"
@@ -904,8 +904,8 @@
           "id": 82,
           "name": "refund.action",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "82"
@@ -915,8 +915,8 @@
           "id": 83,
           "name": "review.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "83"
@@ -926,8 +926,8 @@
           "id": 84,
           "name": "review.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "84"
@@ -937,8 +937,8 @@
           "id": 85,
           "name": "review.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "85"
@@ -948,8 +948,8 @@
           "id": 86,
           "name": "faq.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "86"
@@ -959,8 +959,8 @@
           "id": 87,
           "name": "faq.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "87"
@@ -970,8 +970,8 @@
           "id": 88,
           "name": "faq.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "88"
@@ -981,8 +981,8 @@
           "id": 89,
           "name": "faq.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "89"
@@ -992,8 +992,8 @@
           "id": 90,
           "name": "question_and_answer.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "90"
@@ -1003,8 +1003,8 @@
           "id": 91,
           "name": "question_and_answer.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "91"
@@ -1014,8 +1014,8 @@
           "id": 92,
           "name": "question_and_answer.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "92"
@@ -1025,8 +1025,8 @@
           "id": 93,
           "name": "question_and_answer.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "93"
@@ -1036,8 +1036,8 @@
           "id": 94,
           "name": "subscribe.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "94"
@@ -1047,8 +1047,8 @@
           "id": 95,
           "name": "subscribe.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "95"
@@ -1058,8 +1058,8 @@
           "id": 96,
           "name": "subscribe.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "96"
@@ -1069,8 +1069,8 @@
           "id": 97,
           "name": "subscribe.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "97"
@@ -1080,8 +1080,8 @@
           "id": 98,
           "name": "notice.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "98"
@@ -1091,8 +1091,8 @@
           "id": 99,
           "name": "notice.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "99"
@@ -1102,8 +1102,8 @@
           "id": 100,
           "name": "notice.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "100"
@@ -1113,8 +1113,8 @@
           "id": 101,
           "name": "notice.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "101"
@@ -1124,8 +1124,8 @@
           "id": 102,
           "name": "theme.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "102"
@@ -1135,8 +1135,8 @@
           "id": 103,
           "name": "theme.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "103"
@@ -1146,8 +1146,8 @@
           "id": 104,
           "name": "theme_option.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "104"
@@ -1157,8 +1157,8 @@
           "id": 105,
           "name": "theme_option.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "105"
@@ -1168,8 +1168,8 @@
           "id": 106,
           "name": "menu.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "106"
@@ -1179,8 +1179,8 @@
           "id": 107,
           "name": "menu.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "107"
@@ -1190,8 +1190,8 @@
           "id": 108,
           "name": "menu.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "108"
@@ -1201,8 +1201,8 @@
           "id": 109,
           "name": "menu.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "109"
@@ -1212,8 +1212,8 @@
           "id": 110,
           "name": "app_setting.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "110"
@@ -1223,8 +1223,8 @@
           "id": 111,
           "name": "app_setting.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "111"
@@ -1234,8 +1234,8 @@
           "id": 112,
           "name": "setting.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "112"
@@ -1245,8 +1245,8 @@
           "id": 113,
           "name": "setting.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "1",
             "permission_id": "113"
@@ -1259,15 +1259,15 @@
       "name": "consumer",
       "guard_name": "web",
       "system_reserve": "1",
-      "created_at": "2025-05-02T08:34:46.000000Z",
-      "updated_at": "2025-05-02T08:34:46.000000Z",
+      "created_at": "2026-05-02T08:34:46.000000Z",
+      "updated_at": "2026-05-02T08:34:46.000000Z",
       "permissions": [
         {
           "id": 44,
           "name": "order.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "44"
@@ -1277,8 +1277,8 @@
           "id": 45,
           "name": "order.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "45"
@@ -1288,8 +1288,8 @@
           "id": 74,
           "name": "point.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "74"
@@ -1299,8 +1299,8 @@
           "id": 77,
           "name": "wallet.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "77"
@@ -1310,8 +1310,8 @@
           "id": 80,
           "name": "refund.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "80"
@@ -1321,8 +1321,8 @@
           "id": 81,
           "name": "refund.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "81"
@@ -1332,8 +1332,8 @@
           "id": 83,
           "name": "review.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "83"
@@ -1343,8 +1343,8 @@
           "id": 84,
           "name": "review.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "84"
@@ -1354,8 +1354,8 @@
           "id": 85,
           "name": "review.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "85"
@@ -1365,8 +1365,8 @@
           "id": 90,
           "name": "question_and_answer.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "90"
@@ -1376,8 +1376,8 @@
           "id": 91,
           "name": "question_and_answer.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "91"
@@ -1387,8 +1387,8 @@
           "id": 92,
           "name": "question_and_answer.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "2",
             "permission_id": "92"
@@ -1401,15 +1401,15 @@
       "name": "vendor",
       "guard_name": "web",
       "system_reserve": "1",
-      "created_at": "2025-05-02T08:34:46.000000Z",
-      "updated_at": "2025-05-02T08:34:46.000000Z",
+      "created_at": "2026-05-02T08:34:46.000000Z",
+      "updated_at": "2026-05-02T08:34:46.000000Z",
       "permissions": [
         {
           "id": 9,
           "name": "product.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "9"
@@ -1419,8 +1419,8 @@
           "id": 10,
           "name": "product.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "10"
@@ -1430,8 +1430,8 @@
           "id": 11,
           "name": "product.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "11"
@@ -1441,8 +1441,8 @@
           "id": 12,
           "name": "product.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "12"
@@ -1452,8 +1452,8 @@
           "id": 13,
           "name": "attribute.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "13"
@@ -1463,8 +1463,8 @@
           "id": 14,
           "name": "attribute.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "14"
@@ -1474,8 +1474,8 @@
           "id": 15,
           "name": "attribute.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "15"
@@ -1485,8 +1485,8 @@
           "id": 16,
           "name": "attribute.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "16"
@@ -1496,8 +1496,8 @@
           "id": 25,
           "name": "brand.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "25"
@@ -1507,8 +1507,8 @@
           "id": 26,
           "name": "brand.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "26"
@@ -1518,8 +1518,8 @@
           "id": 27,
           "name": "brand.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "27"
@@ -1529,8 +1529,8 @@
           "id": 28,
           "name": "brand.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "28"
@@ -1540,8 +1540,8 @@
           "id": 29,
           "name": "license_key.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "29"
@@ -1551,8 +1551,8 @@
           "id": 30,
           "name": "license_key.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "30"
@@ -1562,8 +1562,8 @@
           "id": 31,
           "name": "license_key.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "31"
@@ -1573,8 +1573,8 @@
           "id": 32,
           "name": "license_key.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "32"
@@ -1584,8 +1584,8 @@
           "id": 37,
           "name": "vendor_wallet.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "37"
@@ -1595,8 +1595,8 @@
           "id": 40,
           "name": "commission_history.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "40"
@@ -1606,8 +1606,8 @@
           "id": 41,
           "name": "withdraw_request.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "41"
@@ -1617,8 +1617,8 @@
           "id": 42,
           "name": "withdraw_request.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "42"
@@ -1628,8 +1628,8 @@
           "id": 44,
           "name": "order.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "44"
@@ -1639,8 +1639,8 @@
           "id": 46,
           "name": "order.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "46"
@@ -1650,8 +1650,8 @@
           "id": 47,
           "name": "attachment.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "47"
@@ -1661,8 +1661,8 @@
           "id": 48,
           "name": "attachment.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "48"
@@ -1672,8 +1672,8 @@
           "id": 49,
           "name": "attachment.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:45.000000Z",
-          "updated_at": "2025-05-02T08:34:45.000000Z",
+          "created_at": "2026-05-02T08:34:45.000000Z",
+          "updated_at": "2026-05-02T08:34:45.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "49"
@@ -1683,8 +1683,8 @@
           "id": 66,
           "name": "coupon.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "66"
@@ -1694,8 +1694,8 @@
           "id": 67,
           "name": "coupon.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "67"
@@ -1705,8 +1705,8 @@
           "id": 68,
           "name": "coupon.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "68"
@@ -1716,8 +1716,8 @@
           "id": 69,
           "name": "coupon.destroy",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "69"
@@ -1727,8 +1727,8 @@
           "id": 80,
           "name": "refund.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "80"
@@ -1738,8 +1738,8 @@
           "id": 82,
           "name": "refund.action",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "82"
@@ -1749,8 +1749,8 @@
           "id": 83,
           "name": "review.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "83"
@@ -1760,8 +1760,8 @@
           "id": 90,
           "name": "question_and_answer.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "90"
@@ -1771,8 +1771,8 @@
           "id": 91,
           "name": "question_and_answer.create",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "91"
@@ -1782,8 +1782,8 @@
           "id": 92,
           "name": "question_and_answer.edit",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "92"
@@ -1793,8 +1793,8 @@
           "id": 98,
           "name": "notice.index",
           "guard_name": "web",
-          "created_at": "2025-05-02T08:34:46.000000Z",
-          "updated_at": "2025-05-02T08:34:46.000000Z",
+          "created_at": "2026-05-02T08:34:46.000000Z",
+          "updated_at": "2026-05-02T08:34:46.000000Z",
           "pivot": {
             "role_id": "3",
             "permission_id": "98"

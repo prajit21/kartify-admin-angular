@@ -1,28 +1,38 @@
-import { Component, inject } from '@angular/core';
-import { Params, Router, RouterModule } from '@angular/router';
+import { Component, inject, ChangeDetectionStrategy } from "@angular/core";
+import { Params, Router, RouterModule } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper';
-import { Table } from '../../shared/components/ui/table/table';
-import { HasPermissionDirective } from '../../shared/directive/has-permission.directive';
-import { IBrand, IBrandModel } from '../../shared/interface/brand.interface';
-import { ITableClickedAction, ITableConfig } from '../../shared/interface/table.interface';
+import { PageWrapper } from "../../shared/components/page-wrapper/page-wrapper";
+import { Table } from "../../shared/components/ui/table/table";
+import { HasPermissionDirective } from "../../shared/directive/has-permission.directive";
+import { IBrand, IBrandModel } from "../../shared/interface/brand.interface";
+import {
+  ITableClickedAction,
+  ITableConfig,
+} from "../../shared/interface/table.interface";
 import {
   DeleteAllBrandAction,
   DeleteBrandAction,
   GetBrandsAction,
   UpdateBrandStatusAction,
-} from '../../shared/store/action/brand.action';
-import { BrandState } from '../../shared/store/state/brand.state';
+} from "../../shared/store/action/brand.action";
+import { BrandState } from "../../shared/store/state/brand.state";
 
 @Component({
-  selector: 'app-brand',
-  imports: [TranslateModule, RouterModule, HasPermissionDirective, PageWrapper, Table],
-  templateUrl: './brand.html',
-  styleUrl: './brand.scss',
+  selector: "app-brand",
+  imports: [
+    TranslateModule,
+    RouterModule,
+    HasPermissionDirective,
+    PageWrapper,
+    Table,
+  ],
+  templateUrl: "./brand.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./brand.scss",
 })
 export class Brand {
   private store = inject(Store);
@@ -33,29 +43,39 @@ export class Brand {
   public tableConfig: ITableConfig = {
     columns: [
       {
-        title: 'image',
-        dataField: 'brand_image',
-        class: 'tbl-image',
-        type: 'image',
-        placeholder: 'assets/images/product.png',
+        title: "image",
+        dataField: "brand_image",
+        class: "tbl-image",
+        type: "image",
+        placeholder: "assets/images/product.png",
       },
-      { title: 'Name', dataField: 'name', sortable: true, sort_direction: 'desc' },
       {
-        title: 'created_at',
-        dataField: 'created_at',
-        type: 'date',
+        title: "Name",
+        dataField: "name",
         sortable: true,
-        sort_direction: 'desc',
+        sort_direction: "desc",
       },
-      { title: 'status', dataField: 'status', type: 'switch' },
+      {
+        title: "created_at",
+        dataField: "created_at",
+        type: "date",
+        sortable: true,
+        sort_direction: "desc",
+      },
+      { title: "status", dataField: "status", type: "switch" },
     ],
     rowActions: [
-      { label: 'Edit', actionToPerform: 'edit', icon: 'ri-pencil-line', permission: 'brand.edit' },
       {
-        label: 'Delete',
-        actionToPerform: 'delete',
-        icon: 'ri-delete-bin-line',
-        permission: 'brand.destroy',
+        label: "Edit",
+        actionToPerform: "edit",
+        icon: "ri-pencil-line",
+        permission: "brand.edit",
+      },
+      {
+        label: "Delete",
+        actionToPerform: "delete",
+        icon: "ri-delete-bin-line",
+        permission: "brand.destroy",
       },
     ],
     data: [] as IBrand[],
@@ -63,7 +83,7 @@ export class Brand {
   };
 
   ngOnInit() {
-    this.brand$.subscribe(brand => {
+    this.brand$.subscribe((brand) => {
       this.tableConfig.data = brand ? brand?.data : [];
       this.tableConfig.total = brand ? brand?.total : 0;
     });
@@ -74,10 +94,10 @@ export class Brand {
   }
 
   onActionClicked(action: ITableClickedAction) {
-    if (action.actionToPerform == 'edit') this.edit(action.data);
-    else if (action.actionToPerform == 'status') this.status(action.data);
-    else if (action.actionToPerform == 'delete') this.delete(action.data);
-    else if (action.actionToPerform == 'deleteAll') this.deleteAll(action.data);
+    if (action.actionToPerform == "edit") this.edit(action.data);
+    else if (action.actionToPerform == "status") this.status(action.data);
+    else if (action.actionToPerform == "delete") this.delete(action.data);
+    else if (action.actionToPerform == "deleteAll") this.deleteAll(action.data);
   }
 
   edit(data: IBrand) {

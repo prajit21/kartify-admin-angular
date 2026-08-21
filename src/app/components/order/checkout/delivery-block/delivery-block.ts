@@ -1,14 +1,23 @@
-import { Component, output, input } from '@angular/core';
+import {
+  Component,
+  output,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from "@ngx-translate/core";
 
-import { IDeliveryBlock, IValues } from '../../../../shared/interface/setting.interface';
+import {
+  IDeliveryBlock,
+  IValues,
+} from "../../../../shared/interface/setting.interface";
 
 @Component({
-  selector: 'app-delivery-block',
+  selector: "app-delivery-block",
   imports: [TranslateModule],
-  templateUrl: './delivery-block.html',
-  styleUrl: './delivery-block.scss',
+  templateUrl: "./delivery-block.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./delivery-block.scss",
 })
 export class DeliveryBlock {
   readonly setting = input<IValues>(undefined);

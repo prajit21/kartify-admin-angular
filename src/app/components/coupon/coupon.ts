@@ -1,28 +1,38 @@
-import { Component, inject } from '@angular/core';
-import { Params, Router, RouterModule } from '@angular/router';
+import { Component, inject, ChangeDetectionStrategy } from "@angular/core";
+import { Params, Router, RouterModule } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper';
-import { Table } from '../../shared/components/ui/table/table';
-import { HasPermissionDirective } from '../../shared/directive/has-permission.directive';
-import { ICoupon, ICouponModel } from '../../shared/interface/coupon.interface';
-import { ITableClickedAction, ITableConfig } from '../../shared/interface/table.interface';
+import { PageWrapper } from "../../shared/components/page-wrapper/page-wrapper";
+import { Table } from "../../shared/components/ui/table/table";
+import { HasPermissionDirective } from "../../shared/directive/has-permission.directive";
+import { ICoupon, ICouponModel } from "../../shared/interface/coupon.interface";
+import {
+  ITableClickedAction,
+  ITableConfig,
+} from "../../shared/interface/table.interface";
 import {
   DeleteAllCouponAction,
   DeleteCouponAction,
   GetCouponsAction,
   UpdateCouponStatusAction,
-} from '../../shared/store/action/coupon.action';
-import { CouponState } from '../../shared/store/state/coupon.state';
+} from "../../shared/store/action/coupon.action";
+import { CouponState } from "../../shared/store/state/coupon.state";
 
 @Component({
-  selector: 'app-coupon',
-  imports: [TranslateModule, RouterModule, HasPermissionDirective, PageWrapper, Table],
-  templateUrl: './coupon.html',
-  styleUrl: './coupon.scss',
+  selector: "app-coupon",
+  imports: [
+    TranslateModule,
+    RouterModule,
+    HasPermissionDirective,
+    PageWrapper,
+    Table,
+  ],
+  templateUrl: "./coupon.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./coupon.scss",
 })
 export class Coupon {
   private store = inject(Store);
@@ -32,24 +42,39 @@ export class Coupon {
 
   public tableConfig: ITableConfig = {
     columns: [
-      { title: 'title', dataField: 'title', sortable: true, sort_direction: 'desc' },
-      { title: 'code', dataField: 'code', sortable: true, sort_direction: 'desc' },
       {
-        title: 'created_at',
-        dataField: 'created_at',
-        type: 'date',
+        title: "title",
+        dataField: "title",
         sortable: true,
-        sort_direction: 'desc',
+        sort_direction: "desc",
       },
-      { title: 'status', dataField: 'status', type: 'switch' },
+      {
+        title: "code",
+        dataField: "code",
+        sortable: true,
+        sort_direction: "desc",
+      },
+      {
+        title: "created_at",
+        dataField: "created_at",
+        type: "date",
+        sortable: true,
+        sort_direction: "desc",
+      },
+      { title: "status", dataField: "status", type: "switch" },
     ],
     rowActions: [
-      { label: 'Edit', actionToPerform: 'edit', icon: 'ri-pencil-line', permission: 'coupon.edit' },
       {
-        label: 'Delete',
-        actionToPerform: 'delete',
-        icon: 'ri-delete-bin-line',
-        permission: 'coupon.destroy',
+        label: "Edit",
+        actionToPerform: "edit",
+        icon: "ri-pencil-line",
+        permission: "coupon.edit",
+      },
+      {
+        label: "Delete",
+        actionToPerform: "delete",
+        icon: "ri-delete-bin-line",
+        permission: "coupon.destroy",
       },
     ],
     data: [] as ICoupon[],
@@ -57,7 +82,7 @@ export class Coupon {
   };
 
   ngOnInit() {
-    this.coupon$.subscribe(coupon => {
+    this.coupon$.subscribe((coupon) => {
       this.tableConfig.data = coupon ? coupon?.data : [];
       this.tableConfig.total = coupon ? coupon?.total : 0;
     });
@@ -68,10 +93,10 @@ export class Coupon {
   }
 
   onActionClicked(action: ITableClickedAction) {
-    if (action.actionToPerform == 'edit') this.edit(action.data);
-    else if (action.actionToPerform == 'status') this.status(action.data);
-    else if (action.actionToPerform == 'delete') this.delete(action.data);
-    else if (action.actionToPerform == 'deleteAll') this.deleteAll(action.data);
+    if (action.actionToPerform == "edit") this.edit(action.data);
+    else if (action.actionToPerform == "status") this.status(action.data);
+    else if (action.actionToPerform == "delete") this.delete(action.data);
+    else if (action.actionToPerform == "deleteAll") this.deleteAll(action.data);
   }
 
   edit(data: ICoupon) {

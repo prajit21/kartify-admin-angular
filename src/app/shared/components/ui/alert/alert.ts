@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from "@angular/core";
 
-import { NotificationService } from '../../../services/notification.service';
+import { NotificationService } from "../../../services/notification.service";
 
 export interface Alert {
   type: string;
@@ -8,10 +8,11 @@ export interface Alert {
 }
 
 @Component({
-  selector: 'app-alert',
+  selector: "app-alert",
   imports: [],
-  templateUrl: './alert.html',
-  styleUrl: './alert.scss',
+  templateUrl: "./alert.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./alert.scss",
 })
 export class Alert {
   private notificationService = inject(NotificationService);
@@ -19,7 +20,7 @@ export class Alert {
   public alert: Alert;
 
   constructor() {
-    this.notificationService.alertSubject.subscribe(alert => {
+    this.notificationService.alertSubject.subscribe((alert) => {
       this.alert = <Alert>alert;
     });
   }

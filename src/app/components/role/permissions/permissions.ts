@@ -1,19 +1,27 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, Input, output, SimpleChanges } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import {
+  Component,
+  inject,
+  Input,
+  output,
+  SimpleChanges,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { IModule } from '../../../shared/interface/role.interface';
-import { GetRoleModulesAction } from '../../../shared/store/action/role.action';
-import { RoleState } from '../../../shared/store/state/role.state';
+import { IModule } from "../../../shared/interface/role.interface";
+import { GetRoleModulesAction } from "../../../shared/store/action/role.action";
+import { RoleState } from "../../../shared/store/state/role.state";
 
 @Component({
-  selector: 'app-permissions',
+  selector: "app-permissions",
   imports: [CommonModule, TranslateModule],
-  templateUrl: './permissions.html',
-  styleUrl: './permissions.scss',
+  templateUrl: "./permissions.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./permissions.scss",
 })
 export class Permissions {
   private store = inject(Store);
@@ -29,37 +37,41 @@ export class Permissions {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    let ids = changes['selectedPermission']?.currentValue;
-    this.modules$.subscribe(modules => {
-      modules?.map(item => {
-        item.module_permissions.map(permission => {
+    let ids = changes["selectedPermission"]?.currentValue;
+    this.modules$.subscribe((modules) => {
+      modules?.map((item) => {
+        item.module_permissions.map((permission) => {
           permission.isChecked = ids.includes(permission.id);
         });
       });
-      modules?.filter(module => {
+      modules?.filter((module) => {
         this.updateCheckBoxStatus(module);
       });
     });
   }
 
   checkUncheckAll(event: Event, module: IModule) {
-    module.module_permissions.forEach(item => {
+    module.module_permissions.forEach((item) => {
       item.isChecked = (<HTMLInputElement>event.target).checked;
-      this.addPermission((<HTMLInputElement>event.target).checked, item?.id, module);
+      this.addPermission(
+        (<HTMLInputElement>event.target).checked,
+        item?.id,
+        module,
+      );
     });
   }
 
   checkIndex(event: Event, module: IModule) {
-    module.module_permissions.forEach(item => {
+    module.module_permissions.forEach((item) => {
       item.isChecked = false;
       this.addPermission(false, item?.id, module);
     });
   }
 
   onPermissionChecked(event: Event, module: IModule) {
-    module.module_permissions.forEach(item => {
+    module.module_permissions.forEach((item) => {
       item.isChecked = false;
-      if (item.name == 'index') {
+      if (item.name == "index") {
         item.isChecked = !item.isChecked ? true : false;
         this.addPermission(true, +item.id, module);
       }
@@ -76,7 +88,9 @@ export class Permissions {
     if (checked) {
       if (index == -1) this.selectedPermission.push(Number(value));
     } else {
-      this.selectedPermission = this.selectedPermission.filter(id => id != Number(value));
+      this.selectedPermission = this.selectedPermission.filter(
+        (id) => id != Number(value),
+      );
     }
     this.setPermissions.emit(this.selectedPermission);
     this.updateCheckBoxStatus(module);
@@ -84,7 +98,7 @@ export class Permissions {
 
   updateCheckBoxStatus(module: IModule) {
     let count = 0;
-    module.module_permissions.filter(permission => {
+    module.module_permissions.filter((permission) => {
       if (this.selectedPermission.includes(permission.id!)) {
         count++;
       }

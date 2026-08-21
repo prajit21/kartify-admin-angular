@@ -6,7 +6,7 @@
         <div class="log-in-box">
           <div class="log-in-title">
             <img
-              [src]="(setting$ | async)?.general?.dark_logo_image?.asset_url"
+              [src]="$safeNavigationMigration((setting$ | async)?.general?.dark_logo_image?.asset_url)"
               class="img-fluid logo-img"
               alt="logo"
             />

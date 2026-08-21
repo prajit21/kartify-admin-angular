@@ -1,4 +1,9 @@
-import { Component, inject, input } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -6,27 +11,34 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+} from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Subject, mergeMap, of, switchMap, takeUntil } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Subject, mergeMap, of, switchMap, takeUntil } from "rxjs";
 
-import { Button } from '../../../shared/components/ui/button/button';
-import { FormFields } from '../../../shared/components/ui/form-fields/form-fields';
+import { Button } from "../../../shared/components/ui/button/button";
+import { FormFields } from "../../../shared/components/ui/form-fields/form-fields";
 import {
   CreateTaxAction,
   EditTaxAction,
   UpdateTaxAction,
-} from '../../../shared/store/action/tax.action';
-import { TaxState } from '../../../shared/store/state/tax.state';
+} from "../../../shared/store/action/tax.action";
+import { TaxState } from "../../../shared/store/state/tax.state";
 
 @Component({
-  selector: 'app-form-tax',
-  imports: [TranslateModule, FormsModule, ReactiveFormsModule, FormFields, Button],
-  templateUrl: './form-tax.html',
-  styleUrl: './form-tax.scss',
+  selector: "app-form-tax",
+  imports: [
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FormFields,
+    Button,
+  ],
+  templateUrl: "./form-tax.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./form-tax.scss",
 })
 export class FormTax {
   private store = inject(Store);
@@ -43,8 +55,8 @@ export class FormTax {
 
   constructor() {
     this.form = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
-      rate: new FormControl('', [Validators.required]),
+      name: new FormControl("", [Validators.required]),
+      rate: new FormControl("", [Validators.required]),
       status: new FormControl(1),
     });
   }
@@ -52,15 +64,15 @@ export class FormTax {
   ngOnInit() {
     this.route.params
       .pipe(
-        switchMap(params => {
-          if (!params['id']) return of();
+        switchMap((params) => {
+          if (!params["id"]) return of();
           return this.store
-            .dispatch(new EditTaxAction(params['id']))
+            .dispatch(new EditTaxAction(params["id"]))
             .pipe(mergeMap(() => this.store.select(TaxState.selectedTax)));
         }),
         takeUntil(this.destroy$),
       )
-      .subscribe(tax => {
+      .subscribe((tax) => {
         this.id = tax?.id!;
         this.form.patchValue({
           name: tax?.name,
@@ -74,14 +86,14 @@ export class FormTax {
     this.form.markAllAsTouched();
     let action = new CreateTaxAction(this.form.value);
 
-    if (this.type() == 'edit' && this.id) {
+    if (this.type() == "edit" && this.id) {
       action = new UpdateTaxAction(this.form.value, this.id);
     }
 
     if (this.form.valid) {
       this.store.dispatch(action).subscribe({
         complete: () => {
-          void this.router.navigateByUrl('/tax');
+          void this.router.navigateByUrl("/tax");
         },
       });
     }

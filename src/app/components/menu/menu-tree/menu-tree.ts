@@ -1,22 +1,35 @@
-import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
-import { CommonModule } from '@angular/common';
-import { Component, inject, viewChild, input } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import {
+  CdkDragDrop,
+  DragDropModule,
+  moveItemInArray,
+} from "@angular/cdk/drag-drop";
+import { CommonModule } from "@angular/common";
+import {
+  Component,
+  inject,
+  viewChild,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
 
-import { DeleteModal } from '../../../shared/components/ui/modal/delete-modal/delete-modal';
-import { NoData } from '../../../shared/components/ui/no-data/no-data';
-import { HasPermissionDirective } from '../../../shared/directive/has-permission.directive';
-import { ICategory } from '../../../shared/interface/category.interface';
-import { IMenu } from '../../../shared/interface/menu.interface';
-import { DeleteMenuAction, UpdateSortMenuAction } from '../../../shared/store/action/menu.action';
-import { Button } from './../../../shared/components/ui/button/button';
+import { DeleteModal } from "../../../shared/components/ui/modal/delete-modal/delete-modal";
+import { NoData } from "../../../shared/components/ui/no-data/no-data";
+import { HasPermissionDirective } from "../../../shared/directive/has-permission.directive";
+import { ICategory } from "../../../shared/interface/category.interface";
+import { IMenu } from "../../../shared/interface/menu.interface";
+import {
+  DeleteMenuAction,
+  UpdateSortMenuAction,
+} from "../../../shared/store/action/menu.action";
+import { Button } from "./../../../shared/components/ui/button/button";
 
 @Component({
-  selector: 'app-menu-tree',
+  selector: "app-menu-tree",
   imports: [
     CommonModule,
     NoData,
@@ -29,32 +42,33 @@ import { Button } from './../../../shared/components/ui/button/button';
     HasPermissionDirective,
     Button,
   ],
-  templateUrl: './menu-tree.html',
-  styleUrl: './menu-tree.scss',
+  templateUrl: "./menu-tree.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./menu-tree.scss",
 })
 export class MenuTree {
   private store = inject(Store);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
-  readonly DeleteModal = viewChild<DeleteModal>('deleteModal');
+  readonly DeleteModal = viewChild<DeleteModal>("deleteModal");
 
   readonly type = input<string>(undefined);
   readonly data = input<IMenu[]>(undefined);
   readonly recursionKey = input<string>(undefined);
-  readonly displayKey = input<string>('title');
-  readonly categoryType = input<string | null>('product');
+  readonly displayKey = input<string>("title");
+  readonly categoryType = input<string | null>("product");
 
-  public treeSearch = new FormControl('');
+  public treeSearch = new FormControl("");
   public dataToShow: IMenu[] = [];
   public showChildrenNode: boolean = true;
   public id: number;
 
   constructor() {
-    this.treeSearch.valueChanges.subscribe(data => {
+    this.treeSearch.valueChanges.subscribe((data) => {
       if (data) {
         this.dataToShow = [];
-        this.data().forEach(item => {
+        this.data().forEach((item) => {
           this.hasValue(item) && this.dataToShow.push(item);
         });
       } else {
@@ -64,17 +78,17 @@ export class MenuTree {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => (this.id = params['id']));
+    this.route.params.subscribe((params) => (this.id = params["id"]));
   }
 
   onShowChildrenNode(node: IMenu) {
-    node['show'] = !node['show'];
+    node["show"] = !node["show"];
   }
 
   delete(actionType: string, data: ICategory) {
     this.store.dispatch(new DeleteMenuAction(data.id!)).subscribe({
       complete: () => {
-        void this.router.navigateByUrl('/menu');
+        void this.router.navigateByUrl("/menu");
       },
     });
   }
@@ -85,15 +99,19 @@ export class MenuTree {
   }
 
   addKey(data: IMenu[]) {
-    data.forEach(item => {
-      item['show'] = true;
+    data.forEach((item) => {
+      item["show"] = true;
       this.addKey(item.child);
     });
   }
 
   hasValue(item: IMenu) {
     let valueToReturn = false;
-    if (item[this.displayKey()].toLowerCase().includes(this.treeSearch?.value?.toLowerCase())) {
+    if (
+      item[this.displayKey()]
+        .toLowerCase()
+        .includes(this.treeSearch?.value?.toLowerCase())
+    ) {
       valueToReturn = true;
     }
     item[this.recursionKey()]?.length &&
@@ -123,22 +141,24 @@ export class MenuTree {
 
   saveChanges() {
     this.filterJson(this.dataToShow);
-    this.store.dispatch(new UpdateSortMenuAction({ menus: this.filterJson(this.dataToShow) }));
+    this.store.dispatch(
+      new UpdateSortMenuAction({ menus: this.filterJson(this.dataToShow) }),
+    );
   }
 
   filterJson(obj: any): any {
     if (Array.isArray(obj)) {
       return obj.map((item, index) => {
-        item['sort'] = index;
+        item["sort"] = index;
         return this.filterJson(item);
       });
-    } else if (typeof obj === 'object') {
+    } else if (typeof obj === "object") {
       const newObj: any = {};
-      newObj['id'] = obj['id'];
-      newObj['parent_id'] = obj['parent_id'];
-      newObj['sort'] = obj['sort'];
-      if (Array.isArray(obj['child'])) {
-        newObj['child'] = this.filterJson(obj['child']);
+      newObj["id"] = obj["id"];
+      newObj["parent_id"] = obj["parent_id"];
+      newObj["sort"] = obj["sort"];
+      if (Array.isArray(obj["child"])) {
+        newObj["child"] = this.filterJson(obj["child"]);
       }
       return newObj;
     } else {

@@ -10,7 +10,10 @@
                 <i class="ri-wallet-line"></i>
               </div>
               <div>
-                <h2 class="fw-semibold">{{ (wallet$ | async)?.balance | currencySymbol}}</h2>
+                <h2 class="fw-semibold">
+                  {{ $safeNavigationMigration((wallet$ | async)?.balance) |
+                  currencySymbol}}
+                </h2>
                 <h5>{{ 'pending_balance' | translate }}</h5>
               </div>
             </div>
@@ -43,6 +46,11 @@
   />
 </app-page-wrapper>
 
-<app-payout-modal #payoutModal [label]="'withdrawal'" [action]="true" (payout)="approved($event)" />
+<app-payout-modal
+  #payoutModal
+  [label]="'withdrawal'"
+  [action]="true"
+  (payout)="approved($event)"
+/>
 
 <app-withdraw-request-modal #requestModal />

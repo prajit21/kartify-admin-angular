@@ -1,31 +1,39 @@
-import { Component, ElementRef, viewChild, output, input } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  Component,
+  ElementRef,
+  viewChild,
+  output,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from "@ngx-translate/core";
 
-import { ICategory } from 'src/app/shared/interface/category.interface';
-import { IMenu } from 'src/app/shared/interface/menu.interface';
+import { ICategory } from "src/app/shared/interface/category.interface";
+import { IMenu } from "src/app/shared/interface/menu.interface";
 
-import { DropdownList } from './dropdown-list/dropdown-list';
+import { DropdownList } from "./dropdown-list/dropdown-list";
 
 @Component({
-  selector: 'app-advance-dropdown',
+  selector: "app-advance-dropdown",
   imports: [TranslateModule, FormsModule, ReactiveFormsModule, DropdownList],
-  templateUrl: './advance-dropdown.html',
-  styleUrl: './advance-dropdown.scss',
+  templateUrl: "./advance-dropdown.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./advance-dropdown.scss",
 })
 export class AdvanceDropdown {
-  readonly dropdownContainer = viewChild<ElementRef>('dropdownContainer');
-  readonly toggleButton = viewChild<ElementRef>('toggleButton');
-  readonly items = viewChild<ElementRef>('items');
+  readonly dropdownContainer = viewChild<ElementRef>("dropdownContainer");
+  readonly toggleButton = viewChild<ElementRef>("toggleButton");
+  readonly items = viewChild<ElementRef>("items");
 
   readonly selectSingle = input<boolean>(false);
-  readonly displayKey = input<string>('name');
+  readonly displayKey = input<string>("name");
   readonly subArrayKey = input<string>(undefined);
   readonly options = input<any[]>(undefined);
   readonly selectedOption = input<Number[]>(undefined);
-  readonly position = input<string>('bottom');
-  readonly text = input<string>('select_option');
+  readonly position = input<string>("bottom");
+  readonly text = input<string>("select_option");
   readonly showImage = input<boolean>(true);
 
   readonly selectedItem = output<any>();
@@ -35,14 +43,14 @@ export class AdvanceDropdown {
   public selectedPills: any[] = [];
   public selectedIds: number[] = [];
   public breadCrumbValues: any[] = [];
-  public term = new FormControl('');
+  public term = new FormControl("");
   public parent: number[] = [];
 
   constructor() {
     this.term.valueChanges.subscribe((data: any) => {
       if (data) {
         this.optionsData = [];
-        this.options().forEach(item => {
+        this.options().forEach((item) => {
           this.hasValue(item) && this.optionsData.push(item);
         });
       } else {
@@ -62,7 +70,7 @@ export class AdvanceDropdown {
       this.selectedPills = [];
       this.selectedIds = [];
     }
-    this.optionsData.map(categories => this.getParentIds(categories));
+    this.optionsData.map((categories) => this.getParentIds(categories));
   }
 
   getParentIds(data: ICategory) {
@@ -75,7 +83,7 @@ export class AdvanceDropdown {
   }
 
   getSelectedData(value: any) {
-    this.options().forEach(item => {
+    this.options().forEach((item) => {
       this.recursiveSelected(
         item,
         value.map(function (x: any) {
@@ -98,7 +106,11 @@ export class AdvanceDropdown {
 
   hasValue(item: IMenu) {
     let valueToReturn = false;
-    if (item[this.displayKey()].toLowerCase().includes(this.term?.value?.toLowerCase())) {
+    if (
+      item[this.displayKey()]
+        .toLowerCase()
+        .includes(this.term?.value?.toLowerCase())
+    ) {
       valueToReturn = true;
     }
     item[this.subArrayKey()]?.length &&
@@ -112,13 +124,14 @@ export class AdvanceDropdown {
 
   toggleDropdown(_event: Event) {
     this.isOpen = !this.isOpen;
-    let selector = this.dropdownContainer().nativeElement.querySelector('.dropdown-open');
-    if (this.position() == 'bottom') {
-      selector.style.bottom = 'auto';
-      selector.style.top = '100%';
+    let selector =
+      this.dropdownContainer().nativeElement.querySelector(".dropdown-open");
+    if (this.position() == "bottom") {
+      selector.style.bottom = "auto";
+      selector.style.top = "100%";
     } else {
-      selector.style.bottom = '100%';
-      selector.style.top = 'auto';
+      selector.style.bottom = "100%";
+      selector.style.top = "auto";
     }
   }
 
@@ -149,7 +162,8 @@ export class AdvanceDropdown {
   subItemClicked(data: any) {
     this.isOpen = true;
     data[this.subArrayKey()]?.length && this.breadCrumbValues.push(data);
-    data[this.subArrayKey()]?.length && (this.optionsData = data[this.subArrayKey()]);
+    data[this.subArrayKey()]?.length &&
+      (this.optionsData = data[this.subArrayKey()]);
   }
 
   changeTo(data: any) {

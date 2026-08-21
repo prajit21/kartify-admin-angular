@@ -8,7 +8,7 @@
       <div class="col-xxl-8 col-xl-7">
         <div class="left-sidebar-checkout">
           <div class="checkout-detail-box">
-            @if(addressLoading){ 
+            @if(addressLoading){
             <div class="box-loader">
               <app-loader [loaderClass]="'custom-loader-wrapper blur-bg'" />
             </div>
@@ -68,7 +68,7 @@
                   </div>
                   <div class="checkout-detail">
                     <app-address-block
-                      [addresses]="(selectedUser$ | async )?.address"
+                      [addresses]="$safeNavigationMigration((selectedUser$ | async )?.address)"
                       [type]="'shipping'"
                       (selectAddress)="selectShippingAddress($event)"
                     />
@@ -97,7 +97,7 @@
                   </div>
                   <div class="checkout-detail">
                     <app-address-block
-                      [addresses]="(selectedUser$ | async)?.address"
+                      [addresses]="$safeNavigationMigration((selectedUser$ | async)?.address)"
                       [type]="'billing'"
                       (selectAddress)="selectBillingAddress($event)"
                     />
@@ -173,9 +173,9 @@
                 <li>
                   <img
                     [src]="item?.variation && item?.variation?.variation_image
-                                                    ? item?.variation?.variation_image?.original_url
+                                                    ? $safeNavigationMigration(item?.variation?.variation_image?.original_url)
                                                     : item?.product?.product_thumbnail
-                                                    ? item?.product?.product_thumbnail?.original_url
+                                                    ? $safeNavigationMigration(item?.product?.product_thumbnail?.original_url)
                                                     : 'assets/images/product.png'"
                     class="img-fluid"
                     alt="product"
@@ -186,16 +186,21 @@
                       item?.product?.name }}
                     </h4>
                     <h5 class="text-theme">
-                      {{ (item?.variation ? item?.variation.sale_price :
+                      {{ (item?.variation ?
+                      $safeNavigationMigration(item?.variation.sale_price) :
                       item?.product && item?.wholesale_price ?
-                      item?.wholesale_price : item?.product?.sale_price) |
+                      $safeNavigationMigration(item?.wholesale_price) :
+                      $safeNavigationMigration(item?.product?.sale_price)) |
                       currencySymbol }} X {{ item?.quantity }}
                     </h5>
                     <h5 class="price">
-                      {{ (item?.variation ? item?.variation.sale_price :
+                      {{ (item?.variation ?
+                      $safeNavigationMigration(item?.variation.sale_price) :
                       item?.product && item?.wholesale_price ?
-                      item?.wholesale_price : item?.product?.sale_price) *
-                      item?.quantity | currencySymbol }}
+                      $safeNavigationMigration(item?.wholesale_price) :
+                      $safeNavigationMigration(item?.product?.sale_price)) *
+                      $safeNavigationMigration(item?.quantity) | currencySymbol
+                      }}
                     </h5>
                   </div>
                 </li>
@@ -256,15 +261,17 @@
                   <li>
                     <h4>{{ 'subtotal' | translate }}</h4>
                     <h4 class="price">
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.sub_total |
-                      currencySymbol) : 'not_calculated_yet' | translate) }}
+                      {{ (checkoutTotal ?
+                      ($safeNavigationMigration(checkoutTotal?.total?.sub_total)
+                      | currencySymbol) : 'not_calculated_yet' | translate) }}
                     </h4>
                   </li>
                   @if(!(cartDigital$ | async)){
                   <li>
                     <h4>{{ 'shipping' | translate }}</h4>
                     <h4 class="price">
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.shipping_total
+                      {{ (checkoutTotal ?
+                      ($safeNavigationMigration(checkoutTotal?.total?.shipping_total)
                       | currencySymbol) : 'not_calculated_yet' | translate) }}
                     </h4>
                   </li>
@@ -273,8 +280,9 @@
                   <li>
                     <h4>{{ 'tax' | translate }}</h4>
                     <h4 class="price">
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.tax_total |
-                      currencySymbol) : 'not_calculated_yet' | translate) }}
+                      {{ (checkoutTotal ?
+                      ($safeNavigationMigration(checkoutTotal?.total?.tax_total)
+                      | currencySymbol) : 'not_calculated_yet' | translate) }}
                     </h4>
                   </li>
 
@@ -290,8 +298,8 @@
                       [class]="form.controls['points_amount'].value ? 'txt-primary fw-bold price' : 'text-muted price'"
                     >
                       {{ (checkoutTotal ?
-                      (checkoutTotal?.total?.convert_point_amount |
-                      currencySymbol) : 'not_calculated_yet' | translate) }}
+                      ($safeNavigationMigration(checkoutTotal?.total?.convert_point_amount)
+                      | currencySymbol) : 'not_calculated_yet' | translate) }}
                     </h4>
                   </li>
                   } @if((selectedUser$ | async) && checkoutTotal &&
@@ -320,8 +328,8 @@
                       [class]="form.controls['wallet_balance'].value ? 'txt-primary fw-bold price' : 'text-muted price'"
                     >
                       {{ (checkoutTotal ?
-                      (checkoutTotal?.total?.convert_wallet_balance |
-                      currencySymbol) : 'not_calculated_yet' | translate ) }}
+                      ($safeNavigationMigration(checkoutTotal?.total?.convert_wallet_balance)
+                      | currencySymbol) : 'not_calculated_yet' | translate ) }}
                     </h4>
                   </li>
                   } @if((selectedUser$ | async) && checkoutTotal &&
@@ -384,8 +392,9 @@
                         <h4>
                           {{ 'you_saved' | translate }}
                           <span
-                            >{{ checkoutTotal?.total?.coupon_total_discount |
-                            currencySymbol }}</span
+                            >{{
+                            $safeNavigationMigration(checkoutTotal?.total?.coupon_total_discount)
+                            | currencySymbol }}</span
                           >
                           {{ 'with_this_code' | translate }} 🎉
                           <p>{{ 'coupon_applied' | translate }}</p>
@@ -401,7 +410,8 @@
                   <li class="list-total">
                     <h4>{{ 'total' | translate }}</h4>
                     <h4 class="price">
-                      {{ (checkoutTotal ? (checkoutTotal?.total?.total |
+                      {{ (checkoutTotal ?
+                      ($safeNavigationMigration(checkoutTotal?.total?.total) |
                       currencySymbol) : 'not_calculated_yet' | translate ) }}
                     </h4>
                   </li>

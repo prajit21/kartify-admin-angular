@@ -1,25 +1,33 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, viewChild } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import {
+  Component,
+  inject,
+  viewChild,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { RouterModule } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { ShippingCountryModal } from './modal/shipping-country-modal/shipping-country-modal';
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper';
-import { DeleteModal } from '../../shared/components/ui/modal/delete-modal/delete-modal';
-import { NoData } from '../../shared/components/ui/no-data/no-data';
-import { HasPermissionDirective } from '../../shared/directive/has-permission.directive';
-import { IShipping, IShippingModel } from '../../shared/interface/shipping.interface';
+import { ShippingCountryModal } from "./modal/shipping-country-modal/shipping-country-modal";
+import { PageWrapper } from "../../shared/components/page-wrapper/page-wrapper";
+import { DeleteModal } from "../../shared/components/ui/modal/delete-modal/delete-modal";
+import { NoData } from "../../shared/components/ui/no-data/no-data";
+import { HasPermissionDirective } from "../../shared/directive/has-permission.directive";
+import {
+  IShipping,
+  IShippingModel,
+} from "../../shared/interface/shipping.interface";
 import {
   DeleteShippingAction,
   GetShippingsAction,
-} from '../../shared/store/action/shipping.action';
-import { ShippingState } from '../../shared/store/state/shipping.state';
+} from "../../shared/store/action/shipping.action";
+import { ShippingState } from "../../shared/store/state/shipping.state";
 
 @Component({
-  selector: 'app-shipping',
+  selector: "app-shipping",
   imports: [
     CommonModule,
     RouterModule,
@@ -30,8 +38,9 @@ import { ShippingState } from '../../shared/store/state/shipping.state';
     ShippingCountryModal,
     DeleteModal,
   ],
-  templateUrl: './shipping.html',
-  styleUrl: './shipping.scss',
+  templateUrl: "./shipping.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./shipping.scss",
 })
 export class Shipping {
   private store = inject(Store);
@@ -40,8 +49,10 @@ export class Shipping {
     ShippingState.shipping,
   ) as Observable<IShippingModel>;
 
-  readonly CountryShippingModal = viewChild<ShippingCountryModal>('countryShippingModal');
-  readonly DeleteModal = viewChild<DeleteModal>('deleteModal');
+  readonly CountryShippingModal = viewChild<ShippingCountryModal>(
+    "countryShippingModal",
+  );
+  readonly DeleteModal = viewChild<DeleteModal>("deleteModal");
 
   constructor() {
     this.store.dispatch(new GetShippingsAction());

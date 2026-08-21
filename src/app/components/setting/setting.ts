@@ -1,5 +1,10 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  inject,
+  PLATFORM_ID,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormArray,
   FormBuilder,
@@ -8,7 +13,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
+} from "@angular/forms";
 
 import {
   NgbCalendar,
@@ -16,37 +21,40 @@ import {
   NgbDateParserFormatter,
   NgbDateStruct,
   NgbModule,
-} from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Select2Data, Select2Module } from 'ng-select2-component';
-import { forkJoin, Observable } from 'rxjs';
+} from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Select2Data, Select2Module } from "ng-select2-component";
+import { forkJoin, Observable } from "rxjs";
 
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper';
-import { Button } from '../../shared/components/ui/button/button';
-import { FormFields } from '../../shared/components/ui/form-fields/form-fields';
-import { ImageUpload } from '../../shared/components/ui/image-upload/image-upload';
-import * as media from '../../shared/data/media-config';
-import * as data from '../../shared/data/time-zone';
-import { HasPermissionDirective } from '../../shared/directive/has-permission.directive';
-import { IAttachment } from '../../shared/interface/attachment.interface';
-import { IDayInterval, IValues } from '../../shared/interface/setting.interface';
-import { NotificationService } from '../../shared/services/notification.service';
-import { GetCurrenciesAction } from '../../shared/store/action/currency.action';
+import { PageWrapper } from "../../shared/components/page-wrapper/page-wrapper";
+import { Button } from "../../shared/components/ui/button/button";
+import { FormFields } from "../../shared/components/ui/form-fields/form-fields";
+import { ImageUpload } from "../../shared/components/ui/image-upload/image-upload";
+import * as media from "../../shared/data/media-config";
+import * as data from "../../shared/data/time-zone";
+import { HasPermissionDirective } from "../../shared/directive/has-permission.directive";
+import { IAttachment } from "../../shared/interface/attachment.interface";
+import {
+  IDayInterval,
+  IValues,
+} from "../../shared/interface/setting.interface";
+import { NotificationService } from "../../shared/services/notification.service";
+import { GetCurrenciesAction } from "../../shared/store/action/currency.action";
 import {
   GetSettingOptionAction,
   TestEmailAction,
   UpdateSettingOptionAction,
-} from '../../shared/store/action/setting.action';
-import { CurrencyState } from '../../shared/store/state/currency.state';
-import { SettingState } from '../../shared/store/state/setting.state';
+} from "../../shared/store/action/setting.action";
+import { CurrencyState } from "../../shared/store/state/currency.state";
+import { SettingState } from "../../shared/store/state/setting.state";
 
 function convertToNgbDate(date: NgbDateStruct): NgbDate {
   return new NgbDate(date?.year, date?.month, date?.day);
 }
 
 @Component({
-  selector: 'app-setting',
+  selector: "app-setting",
   imports: [
     CommonModule,
     PageWrapper,
@@ -60,8 +68,9 @@ function convertToNgbDate(date: NgbDateStruct): NgbDate {
     Button,
     HasPermissionDirective,
   ],
-  templateUrl: './setting.html',
-  styleUrl: './setting.scss',
+  templateUrl: "./setting.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./setting.scss",
 })
 export class Setting {
   private store = inject(Store);
@@ -70,14 +79,18 @@ export class Setting {
   private notificationService = inject(NotificationService);
   formatter = inject(NgbDateParserFormatter);
 
-  currency$: Observable<Select2Data> = inject(Store).select(CurrencyState.currencies);
-  setting$: Observable<IValues> = inject(Store).select(SettingState.setting) as Observable<IValues>;
+  currency$: Observable<Select2Data> = inject(Store).select(
+    CurrencyState.currencies,
+  );
+  setting$: Observable<IValues> = inject(Store).select(
+    SettingState.setting,
+  ) as Observable<IValues>;
 
   public form: FormGroup;
-  public active = 'general';
+  public active = "general";
   public active_payment = 1;
   public time_zone = data.time_zone;
-  public active_analytics = 'facebook';
+  public active_analytics = "facebook";
   public mediaConfig = media.mediaConfig;
 
   public hoveredDate: NgbDate | null = null;
@@ -87,60 +100,60 @@ export class Setting {
 
   public mail_mailer: Select2Data = [
     {
-      value: 'sendmail',
-      label: 'Sendmail',
+      value: "sendmail",
+      label: "Sendmail",
     },
     {
-      value: 'smtp',
-      label: 'SMTP',
+      value: "smtp",
+      label: "SMTP",
     },
     {
-      value: 'mailgun',
-      label: 'Mailgun',
+      value: "mailgun",
+      label: "Mailgun",
     },
   ];
 
   public encryption: Select2Data = [
     {
-      value: 'ssl',
-      label: 'SSL',
+      value: "ssl",
+      label: "SSL",
     },
     {
-      value: 'tls',
-      label: 'TLS',
+      value: "tls",
+      label: "TLS",
     },
   ];
 
   public language_direction: Select2Data = [
     {
-      value: 'ltr',
-      label: 'LTR',
+      value: "ltr",
+      label: "LTR",
     },
     {
-      value: 'rtl',
-      label: 'RTL',
+      value: "rtl",
+      label: "RTL",
     },
   ];
 
   public mode: Select2Data = [
     {
-      value: 'light-only',
-      label: 'Light',
+      value: "light-only",
+      label: "Light",
     },
     {
-      value: 'dark-only',
-      label: 'Dark',
+      value: "dark-only",
+      label: "Dark",
     },
   ];
 
   public mediaDisk: Select2Data = [
     {
-      value: 'public',
-      label: 'Local',
+      value: "public",
+      label: "Local",
     },
     {
-      value: 's3',
-      label: 'AWS(s3)',
+      value: "s3",
+      label: "AWS(s3)",
     },
   ];
 
@@ -156,18 +169,18 @@ export class Setting {
         dark_logo_image_id: new FormControl(),
         tiny_logo_image_id: new FormControl(),
         favicon_image_id: new FormControl(),
-        site_url: new FormControl(''),
-        site_title: new FormControl('', Validators.required),
-        site_name: new FormControl(''),
+        site_url: new FormControl(""),
+        site_title: new FormControl("", Validators.required),
+        site_name: new FormControl(""),
         site_tagline: new FormControl(),
-        default_timezone: new FormControl('Asia/Kolkata', Validators.required),
-        default_currency_id: new FormControl('', Validators.required),
-        admin_site_language_direction: new FormControl('ltr'),
+        default_timezone: new FormControl("Asia/Kolkata", Validators.required),
+        default_currency_id: new FormControl("", Validators.required),
+        admin_site_language_direction: new FormControl("ltr"),
         min_order_amount: new FormControl(0, Validators.required),
         min_order_free_shipping: new FormControl(0, Validators.required),
         product_sku_prefix: new FormControl(),
-        mode: new FormControl('light-only', Validators.required),
-        copyright: new FormControl('Copyright Text Here'),
+        mode: new FormControl("light-only", Validators.required),
+        copyright: new FormControl("Copyright Text Here"),
       }),
       activation: new FormGroup({
         multivendor: new FormControl(true),
@@ -186,16 +199,16 @@ export class Setting {
         signup_points: new FormControl(100),
         min_per_order_amount: new FormControl(100),
         point_currency_ratio: new FormControl(30),
-        reward_per_order_amount: new FormControl(''),
+        reward_per_order_amount: new FormControl(""),
       }),
       email: new FormGroup({
-        email: new FormControl('', [Validators.required, Validators.email]),
+        email: new FormControl("", [Validators.required, Validators.email]),
         mail_host: new FormControl(),
         mail_port: new FormControl(465),
-        mail_mailer: new FormControl('smtp'),
+        mail_mailer: new FormControl("smtp"),
         mail_password: new FormControl(),
         mail_username: new FormControl(),
-        mail_encryption: new FormControl('ssl'),
+        mail_encryption: new FormControl("ssl"),
         mail_from_name: new FormControl(),
         mail_from_address: new FormControl(),
         mailgun_domain: new FormControl(),
@@ -215,7 +228,7 @@ export class Setting {
         new_vendor_notification_mail: new FormControl(true),
       }),
       sms_methods: new FormGroup({
-        default_sms_method: new FormControl('twillo'),
+        default_sms_method: new FormControl("twillo"),
         twilio: new FormGroup({
           title: new FormControl(),
           status: new FormControl(false),
@@ -237,11 +250,11 @@ export class Setting {
         }),
       }),
       media_configuration: new FormGroup({
-        media_disk: new FormControl('public'),
-        aws_access_key_id: new FormControl(''),
-        aws_secret_access_key: new FormControl(''),
-        aws_bucket: new FormControl(''),
-        aws_default_region: new FormControl(''),
+        media_disk: new FormControl("public"),
+        aws_access_key_id: new FormControl(""),
+        aws_secret_access_key: new FormControl(""),
+        aws_bucket: new FormControl(""),
+        aws_default_region: new FormControl(""),
       }),
       vendor_commissions: new FormGroup({
         status: new FormControl(true),
@@ -301,7 +314,7 @@ export class Setting {
           title: new FormControl(),
           merchant_id: new FormControl(),
           salt_key: new FormControl(),
-          salt_index: new FormControl(''),
+          salt_index: new FormControl(""),
           sandbox_mode: new FormControl(true),
         }),
         instamojo: new FormGroup({
@@ -382,14 +395,18 @@ export class Setting {
   }
 
   get sameDayIntervals(): FormArray {
-    return (this.form.controls['delivery'] as FormArray).controls[
-      'same_day_intervals'
+    return (this.form.controls["delivery"] as FormArray).controls[
+      "same_day_intervals"
     ] as FormArray;
   }
 
   ngOnInit() {
-    const backendSettingOption$ = this.store.dispatch(new GetSettingOptionAction());
-    const getCurrencies$ = this.store.dispatch(new GetCurrenciesAction({ status: 1 }));
+    const backendSettingOption$ = this.store.dispatch(
+      new GetSettingOptionAction(),
+    );
+    const getCurrencies$ = this.store.dispatch(
+      new GetCurrenciesAction({ status: 1 }),
+    );
 
     forkJoin([backendSettingOption$, getCurrencies$]).subscribe({
       complete: () => {
@@ -399,9 +416,11 @@ export class Setting {
   }
 
   patchForm() {
-    this.store.select(SettingState.setting).subscribe(option => {
+    this.store.select(SettingState.setting).subscribe((option) => {
       this.fromDate = option?.maintenance?.start_date
-        ? convertToNgbDate(this.formatter.parse(option?.maintenance?.start_date)!)
+        ? convertToNgbDate(
+            this.formatter.parse(option?.maintenance?.start_date)!,
+          )
         : null;
       this.toDate = option?.maintenance?.end_date
         ? convertToNgbDate(this.formatter.parse(option?.maintenance?.end_date)!)
@@ -418,7 +437,8 @@ export class Setting {
           site_tagline: option?.general?.site_tagline,
           default_timezone: option?.general?.default_timezone,
           default_currency_id: +option?.general?.default_currency_id!,
-          admin_site_language_direction: option?.general?.admin_site_language_direction,
+          admin_site_language_direction:
+            option?.general?.admin_site_language_direction,
           min_order_amount: option?.general?.min_order_amount,
           min_order_free_shipping: option?.general?.min_order_free_shipping,
           product_sku_prefix: option?.general?.product_sku_prefix,
@@ -442,7 +462,8 @@ export class Setting {
           signup_points: option?.wallet_points?.signup_points,
           min_per_order_amount: option?.wallet_points?.min_per_order_amount,
           point_currency_ratio: option?.wallet_points?.point_currency_ratio,
-          reward_per_order_amount: option?.wallet_points?.reward_per_order_amount,
+          reward_per_order_amount:
+            option?.wallet_points?.reward_per_order_amount,
         },
         email: {
           email: option?.email?.email,
@@ -467,8 +488,10 @@ export class Setting {
           signup_welcome_mail: option?.email?.signup_welcome_mail,
           order_status_update_mail: option?.email?.order_status_update_mail,
           refund_status_update_mail: option?.email?.refund_status_update_mail,
-          withdrawal_status_update_mail: option?.email?.withdrawal_status_update_mail,
-          new_vendor_notification_mail: option?.email?.new_vendor_notification_mail,
+          withdrawal_status_update_mail:
+            option?.email?.withdrawal_status_update_mail,
+          new_vendor_notification_mail:
+            option?.email?.new_vendor_notification_mail,
         },
         sms_methods: {
           default_sms_method: option?.sms_methods?.default_sms_method,
@@ -482,28 +505,36 @@ export class Setting {
           config: {
             cancel_order_sms: option?.sms_methods?.config?.cancel_order_sms,
             refund_request_sms: option?.sms_methods?.config?.refund_request_sms,
-            withdraw_request_sms: option?.sms_methods?.config?.withdraw_request_sms,
+            withdraw_request_sms:
+              option?.sms_methods?.config?.withdraw_request_sms,
             pending_order_sms: option?.sms_methods?.config?.pending_order_sms,
             place_order_sms: option?.sms_methods?.config?.place_order_sms,
             signup_bonus_sms: option?.sms_methods?.config?.signup_bonus_sms,
-            update_order_status_sms: option?.sms_methods?.config?.update_order_status_sms,
-            update_refund_request_sms: option?.sms_methods?.config?.update_refund_request_sms,
-            update_withdraw_request_sms: option?.sms_methods?.config?.update_withdraw_request_sms,
-            vendor_register_sms: option?.sms_methods?.config?.vendor_register_sms,
+            update_order_status_sms:
+              option?.sms_methods?.config?.update_order_status_sms,
+            update_refund_request_sms:
+              option?.sms_methods?.config?.update_refund_request_sms,
+            update_withdraw_request_sms:
+              option?.sms_methods?.config?.update_withdraw_request_sms,
+            vendor_register_sms:
+              option?.sms_methods?.config?.vendor_register_sms,
           },
         },
         media_configuration: {
           media_disk: option?.media_configuration?.media_disk,
           aws_access_key_id: option?.media_configuration?.aws_access_key_id,
-          aws_secret_access_key: option?.media_configuration?.aws_secret_access_key,
+          aws_secret_access_key:
+            option?.media_configuration?.aws_secret_access_key,
           aws_bucket: option?.media_configuration?.aws_bucket,
           aws_default_region: option?.media_configuration?.aws_default_region,
         },
         vendor_commissions: {
           status: option?.vendor_commissions?.status,
           min_withdraw_amount: option?.vendor_commissions?.min_withdraw_amount,
-          default_commission_rate: option?.vendor_commissions?.default_commission_rate,
-          is_category_based_commission: option?.vendor_commissions?.is_category_based_commission,
+          default_commission_rate:
+            option?.vendor_commissions?.default_commission_rate,
+          is_category_based_commission:
+            option?.vendor_commissions?.is_category_based_commission,
         },
         refund: {
           status: option?.refund?.status,
@@ -647,41 +678,41 @@ export class Setting {
 
   selectLightLogo(data: IAttachment) {
     if (!Array.isArray(data)) {
-      (<FormGroup>this.form.controls['general']).controls['light_logo_image_id'].setValue(
-        data ? data?.id : null,
-      );
+      (<FormGroup>this.form.controls["general"]).controls[
+        "light_logo_image_id"
+      ].setValue(data ? data?.id : null);
     }
   }
 
   selectDarkLogo(data: IAttachment) {
     if (!Array.isArray(data)) {
-      (<FormGroup>this.form.controls['general']).controls['dark_logo_image_id'].setValue(
-        data ? data?.id : null,
-      );
+      (<FormGroup>this.form.controls["general"]).controls[
+        "dark_logo_image_id"
+      ].setValue(data ? data?.id : null);
     }
   }
 
   selectTinyLogo(data: IAttachment) {
     if (!Array.isArray(data)) {
-      (<FormGroup>this.form.controls['general']).controls['tiny_logo_image_id'].setValue(
-        data ? data?.id : null,
-      );
+      (<FormGroup>this.form.controls["general"]).controls[
+        "tiny_logo_image_id"
+      ].setValue(data ? data?.id : null);
     }
   }
 
   selectFavicon(data: IAttachment) {
     if (!Array.isArray(data)) {
-      (<FormGroup>this.form.controls['general']).controls['favicon_image_id'].setValue(
-        data ? data?.id : null,
-      );
+      (<FormGroup>this.form.controls["general"]).controls[
+        "favicon_image_id"
+      ].setValue(data ? data?.id : null);
     }
   }
 
   selectMaintenance(data: IAttachment) {
     if (!Array.isArray(data)) {
-      (<FormGroup>this.form.controls['maintenance']).controls['maintenance_image_id'].setValue(
-        data ? data?.id : null,
-      );
+      (<FormGroup>this.form.controls["maintenance"]).controls[
+        "maintenance_image_id"
+      ].setValue(data ? data?.id : null);
     }
   }
 
@@ -704,17 +735,26 @@ export class Setting {
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
       this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && date && date.after(this.fromDate)) {
+    } else if (
+      this.fromDate &&
+      !this.toDate &&
+      date &&
+      date.after(this.fromDate)
+    ) {
       this.toDate = date;
     } else {
       this.toDate = null;
       this.fromDate = date;
     }
 
-    (<FormGroup>this.form.controls['maintenance']).controls['start_date'].setValue(
+    (<FormGroup>this.form.controls["maintenance"]).controls[
+      "start_date"
+    ].setValue(
       `${this.fromDate.year}-${this.fromDate.month}-${this.fromDate.day}`,
     );
-    (<FormGroup>this.form.controls['maintenance']).controls['end_date'].setValue(
+    (<FormGroup>this.form.controls["maintenance"]).controls[
+      "end_date"
+    ].setValue(
       `${this.toDate?.year}-${this.toDate?.month}-${this.toDate?.day}`,
     );
   }
@@ -756,23 +796,29 @@ export class Setting {
 
   mailSubmit() {
     this.form.markAllAsTouched();
-    if (this.form.get('email.email')?.value) {
-      this.store.dispatch(new TestEmailAction(this.form.get('email')?.value)).subscribe({
-        complete: () => {
-          this.form.get('email.email')?.removeValidators([Validators.required, Validators.email]);
-          this.notificationService.showSuccess(
-            `Test mail send to ${this.form.get('email.email')?.value}`,
-          );
-        },
-      });
+    if (this.form.get("email.email")?.value) {
+      this.store
+        .dispatch(new TestEmailAction(this.form.get("email")?.value))
+        .subscribe({
+          complete: () => {
+            this.form
+              .get("email.email")
+              ?.removeValidators([Validators.required, Validators.email]);
+            this.notificationService.showSuccess(
+              `Test mail send to ${this.form.get("email.email")?.value}`,
+            );
+          },
+        });
     }
   }
 
   submit() {
-    (this.form.get('email') as FormGroup).removeControl('email');
+    (this.form.get("email") as FormGroup).removeControl("email");
     this.form.markAllAsTouched();
     if (this.form.valid) {
-      this.store.dispatch(new UpdateSettingOptionAction({ values: this.form.value }));
+      this.store.dispatch(
+        new UpdateSettingOptionAction({ values: this.form.value }),
+      );
     }
   }
 }

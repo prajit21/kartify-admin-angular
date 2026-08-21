@@ -1,5 +1,12 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, inject, PLATFORM_ID, viewChild, input } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  inject,
+  PLATFORM_ID,
+  viewChild,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -7,29 +14,32 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+} from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Select2Data, Select2Module } from 'ng-select2-component';
-import { Observable } from 'rxjs';
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Select2Data, Select2Module } from "ng-select2-component";
+import { Observable } from "rxjs";
 
-import { Button } from '../../../shared/components/ui/button/button';
-import { FormFields } from '../../../shared/components/ui/form-fields/form-fields';
-import { DeleteModal } from '../../../shared/components/ui/modal/delete-modal/delete-modal';
-import { IValues } from '../../../shared/interface/setting.interface';
-import { IShipping, IShippingRule } from '../../../shared/interface/shipping.interface';
+import { Button } from "../../../shared/components/ui/button/button";
+import { FormFields } from "../../../shared/components/ui/form-fields/form-fields";
+import { DeleteModal } from "../../../shared/components/ui/modal/delete-modal/delete-modal";
+import { IValues } from "../../../shared/interface/setting.interface";
+import {
+  IShipping,
+  IShippingRule,
+} from "../../../shared/interface/shipping.interface";
 import {
   CreateShippingRuleAction,
   DeleteShippingRuleAction,
   UpdateShippingRuleAction,
-} from '../../../shared/store/action/shipping.action';
-import { SettingState } from '../../../shared/store/state/setting.state';
+} from "../../../shared/store/action/shipping.action";
+import { SettingState } from "../../../shared/store/state/setting.state";
 
 @Component({
-  selector: 'app-form-shipping',
+  selector: "app-form-shipping",
   imports: [
     CommonModule,
     TranslateModule,
@@ -40,8 +50,9 @@ import { SettingState } from '../../../shared/store/state/setting.state';
     Button,
     DeleteModal,
   ],
-  templateUrl: './form-shipping.html',
-  styleUrl: './form-shipping.scss',
+  templateUrl: "./form-shipping.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./form-shipping.scss",
 })
 export class FormShipping {
   private modalService = inject(NgbModal);
@@ -51,8 +62,10 @@ export class FormShipping {
 
   readonly data = input<IShippingRule>(undefined);
 
-  readonly DeleteModal = viewChild<DeleteModal>('deleteModal');
-  setting$: Observable<IValues> = inject(Store).select(SettingState.setting) as Observable<IValues>;
+  readonly DeleteModal = viewChild<DeleteModal>("deleteModal");
+  setting$: Observable<IValues> = inject(Store).select(
+    SettingState.setting,
+  ) as Observable<IValues>;
 
   public form: FormGroup;
   public shipping_id: number;
@@ -60,27 +73,27 @@ export class FormShipping {
 
   public ruleType: Select2Data = [
     {
-      value: 'base_on_price',
-      label: 'Base on Price',
+      value: "base_on_price",
+      label: "Base on Price",
     },
     {
-      value: 'base_on_weight',
-      label: 'Base on Weight',
+      value: "base_on_weight",
+      label: "Base on Weight",
     },
   ];
 
   public shippingType: Select2Data = [
     {
-      value: 'percentage',
-      label: 'Percentage',
+      value: "percentage",
+      label: "Percentage",
     },
     {
-      value: 'free',
-      label: 'Free',
+      value: "free",
+      label: "Free",
     },
     {
-      value: 'fixed',
-      label: 'Fixed',
+      value: "fixed",
+      label: "Fixed",
     },
   ];
 
@@ -89,15 +102,15 @@ export class FormShipping {
 
     this.isBrowser = isPlatformBrowser(platformID);
 
-    this.shipping_id = this.route.snapshot.params['id'];
+    this.shipping_id = this.route.snapshot.params["id"];
     this.form = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
+      name: new FormControl("", [Validators.required]),
       shipping_id: new FormControl(this.shipping_id, []),
-      rule_type: new FormControl('', [Validators.required]),
-      min: new FormControl('', [Validators.required]),
-      max: new FormControl('', [Validators.required]),
-      shipping_type: new FormControl('fixed', [Validators.required]),
-      amount: new FormControl('', [Validators.required]),
+      rule_type: new FormControl("", [Validators.required]),
+      min: new FormControl("", [Validators.required]),
+      max: new FormControl("", [Validators.required]),
+      shipping_type: new FormControl("fixed", [Validators.required]),
+      amount: new FormControl("", [Validators.required]),
       status: new FormControl(1),
     });
   }
@@ -119,21 +132,23 @@ export class FormShipping {
   }
 
   ngOnInit() {
-    this.form.controls['shipping_type'].valueChanges.subscribe(data => {
-      if (data === 'free') {
-        this.form.removeControl('amount');
+    this.form.controls["shipping_type"].valueChanges.subscribe((data) => {
+      if (data === "free") {
+        this.form.removeControl("amount");
       } else {
         const dataValue = this.data();
         this.form.setControl(
-          'amount',
-          new FormControl(dataValue ? dataValue.amount : '', [Validators.required]),
+          "amount",
+          new FormControl(dataValue ? dataValue.amount : "", [
+            Validators.required,
+          ]),
         );
       }
     });
   }
 
   selectShippingType() {
-    this.form.get('amount')?.setValue('');
+    this.form.get("amount")?.setValue("");
   }
 
   submit() {

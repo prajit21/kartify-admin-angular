@@ -1,5 +1,9 @@
 <app-page-wrapper [gridClass]="'col-sm-12'" [title]="'books_settings'">
-  <form class="theme-form theme-form-2 mega-form" (ngSubmit)="submit()" [formGroup]="form">
+  <form
+    class="theme-form theme-form-2 mega-form"
+    (ngSubmit)="submit()"
+    [formGroup]="form"
+  >
     <div class="vertical-tabs">
       <div class="row">
         <div class="col-xl-3 col-lg-4">
@@ -12,7 +16,10 @@
             formGroupName="content"
           >
             <li ngbNavItem="home_banner">
-              <a ngbNavLink><i class="ri-record-circle-line"></i>{{ 'home_banner' | translate }}</a>
+              <a ngbNavLink
+                ><i class="ri-record-circle-line"></i>{{ 'home_banner' |
+                translate }}</a
+              >
               <ng-template ngbNavContent>
                 <div formGroupName="home_banner">
                   <app-button
@@ -28,7 +35,8 @@
                   <div class="shipping-accordion variant-accordion">
                     <div formArrayName="banners">
                       <ng-container>
-                        @for(banners of homeBannersArray.controls; track banners; let i = $index){
+                        @for(banners of homeBannersArray.controls; track
+                        banners; let i = $index){
                         <div class="d-flex" formGroupName="{{ i }}">
                           <div class="col-11">
                             <div ngbAccordion>
@@ -41,7 +49,10 @@
                                 <div ngbAccordionCollapse>
                                   <div ngbAccordionBody>
                                     <ng-template>
-                                      <app-form-fields [label]="'image'" [for]="'image_url'">
+                                      <app-form-fields
+                                        [label]="'image'"
+                                        [for]="'image_url'"
+                                      >
                                         <app-image-upload
                                           [url]="true"
                                           [multipleImage]="false"
@@ -58,8 +69,13 @@
                                         [linkForm]="banners.get('redirect_link')"
                                       />
 
-                                      <app-form-fields [label]="'status'" [for]="'status'+i">
-                                        <div class="form-check form-switch ps-0">
+                                      <app-form-fields
+                                        [label]="'status'"
+                                        [for]="'status'+i"
+                                      >
+                                        <div
+                                          class="form-check form-switch ps-0"
+                                        >
                                           <label class="switch">
                                             <input
                                               type="checkbox"
@@ -97,7 +113,8 @@
 
             <li ngbNavItem="categories_1">
               <a ngbNavLink
-                ><i class="ri-record-circle-line"></i>{{ 'categories' | translate }} 1</a
+                ><i class="ri-record-circle-line"></i>{{ 'categories' |
+                translate }} 1</a
               >
               <ng-template ngbNavContent>
                 <div formGroupName="categories_1">
@@ -105,7 +122,7 @@
                     <app-advance-dropdown
                       [position]="'bottom'"
                       [selectedOption]="selectedCategories"
-                      [options]="(category$ | async)?.data?.length ? (category$ | async )?.data : []"
+                      [options]="(category$ | async)?.data?.length ? $safeNavigationMigration((category$ | async )?.data) : []"
                       [subArrayKey]="'subcategories'"
                       (selectedItem)="selectCategoryItem($event, 'content.categories_1.category_ids')"
                     />
@@ -114,7 +131,11 @@
                   <app-form-fields [label]="'status'" [for]="'status'">
                     <div class="form-check form-switch ps-0">
                       <label class="switch">
-                        <input type="checkbox" id="status" formControlName="status" />
+                        <input
+                          type="checkbox"
+                          id="status"
+                          formControlName="status"
+                        />
                         <span class="switch-state"></span>
                       </label>
                     </div>
@@ -125,7 +146,8 @@
 
             <li ngbNavItem="category_product">
               <a ngbNavLink
-                ><i class="ri-record-circle-line"></i>{{ 'category_product' | translate }}</a
+                ><i class="ri-record-circle-line"></i>{{ 'category_product' |
+                translate }}</a
               >
               <ng-template ngbNavContent>
                 <div formGroupName="category_product">
@@ -153,7 +175,7 @@
                     <app-advance-dropdown
                       [position]="'bottom'"
                       [selectedOption]="selectedCategories2"
-                      [options]="(category$ | async)?.data?.length ? (category$ | async )?.data : []"
+                      [options]="(category$ | async)?.data?.length ? $safeNavigationMigration((category$ | async )?.data) : []"
                       [subArrayKey]="'subcategories'"
                       (selectedItem)="selectCategoryItem($event, 'content.category_product.category_ids')"
                     />
@@ -162,7 +184,11 @@
                   <app-form-fields [label]="'status'" [for]="'status'">
                     <div class="form-check form-switch ps-0">
                       <label class="switch">
-                        <input type="checkbox" id="status" formControlName="status" />
+                        <input
+                          type="checkbox"
+                          id="status"
+                          formControlName="status"
+                        />
                         <span class="switch-state"></span>
                       </label>
                     </div>
@@ -173,7 +199,8 @@
 
             <li ngbNavItem="categories_2">
               <a ngbNavLink
-                ><i class="ri-record-circle-line"></i>{{ 'categories' | translate }} 2</a
+                ><i class="ri-record-circle-line"></i>{{ 'categories' |
+                translate }} 2</a
               >
               <ng-template ngbNavContent>
                 <div formGroupName="categories_2">
@@ -181,7 +208,7 @@
                     <app-advance-dropdown
                       [position]="'bottom'"
                       [selectedOption]="selectedCategories1"
-                      [options]="(category$ | async)?.data?.length ? (category$ | async )?.data : []"
+                      [options]="(category$ | async)?.data?.length ? $safeNavigationMigration((category$ | async )?.data) : []"
                       [subArrayKey]="'subcategories'"
                       (selectedItem)="selectCategoryItem($event, 'content.categories_2.category_ids')"
                     />
@@ -190,7 +217,11 @@
                   <app-form-fields [label]="'status'" [for]="'status'">
                     <div class="form-check form-switch ps-0">
                       <label class="switch">
-                        <input type="checkbox" id="status" formControlName="status" />
+                        <input
+                          type="checkbox"
+                          id="status"
+                          formControlName="status"
+                        />
                         <span class="switch-state"></span>
                       </label>
                     </div>
@@ -201,7 +232,8 @@
 
             <li ngbNavItem="slider_products">
               <a ngbNavLink
-                ><i class="ri-record-circle-line"></i>{{ 'slider_products' | translate }}</a
+                ><i class="ri-record-circle-line"></i>{{ 'slider_products' |
+                translate }}</a
               >
               <ng-template ngbNavContent>
                 <div formGroupName="slider_products">
@@ -212,7 +244,11 @@
                   <app-form-fields [label]="'status'" [for]="'status'">
                     <div class="form-check form-switch ps-0">
                       <label class="switch">
-                        <input type="checkbox" id="status" formControlName="status" />
+                        <input
+                          type="checkbox"
+                          id="status"
+                          formControlName="status"
+                        />
                         <span class="switch-state"></span>
                       </label>
                     </div>
@@ -244,7 +280,7 @@
                       [multipleImage]="false"
                       [accept]="[mediaConfig.image]"
                       [helpText]="'*Upload image size 806x670px recommended'"
-                      [imageUrl]="form.get('content.slider_products.image_url')?.value"
+                      [imageUrl]="$safeNavigationMigration(form.get('content.slider_products.image_url')?.value)"
                       (selectedFiles)="selectImage($event, 'content.slider_products.image_url')"
                     />
                   </app-form-fields>
@@ -254,7 +290,8 @@
                         <div ngbAccordionItem [collapsed]="false">
                           <div ngbAccordionHeader>
                             <button ngbAccordionButton>
-                              {{ form.get('content.slider_products.product_slider_1.title')?.value
+                              {{
+                              form.get('content.slider_products.product_slider_1.title')?.value
                               }}
                             </button>
                           </div>
@@ -262,7 +299,10 @@
                             <div ngbAccordionBody>
                               <ng-template>
                                 <div formGroupName="product_slider_1">
-                                  <app-form-fields [label]="'title'" [for]="'title'">
+                                  <app-form-fields
+                                    [label]="'title'"
+                                    [for]="'title'"
+                                  >
                                     <input
                                       class="form-control"
                                       id="title"
@@ -272,7 +312,10 @@
                                     />
                                   </app-form-fields>
 
-                                  <app-form-fields [label]="'product'" [for]="'product_ids'">
+                                  <app-form-fields
+                                    [label]="'product'"
+                                    [for]="'product_ids'"
+                                  >
                                     @if(isBrowser) {
                                     <select2
                                       class="custom-select"
@@ -291,7 +334,8 @@
                                         <div class="image">
                                           <img
                                             [src]="data.image"
-                                            [class]="'img-fluid selection-image'" alt="img"
+                                            [class]="'img-fluid selection-image'"
+                                            alt="img"
                                           />
                                         </div>
                                         {{ data.name }}
@@ -300,7 +344,10 @@
                                     }
                                   </app-form-fields>
 
-                                  <app-form-fields [label]="'status'" [for]="'status'">
+                                  <app-form-fields
+                                    [label]="'status'"
+                                    [for]="'status'"
+                                  >
                                     <div class="form-check form-switch ps-0">
                                       <label class="switch">
                                         <input
@@ -320,14 +367,19 @@
                         <div ngbAccordionItem [collapsed]="false">
                           <div ngbAccordionHeader>
                             <button ngbAccordionButton>
-                              {{ form.get('content.slider_products.product_slider_2.title').value }}
+                              {{
+                              form.get('content.slider_products.product_slider_2.title').value
+                              }}
                             </button>
                           </div>
                           <div ngbAccordionCollapse>
                             <div ngbAccordionBody>
                               <ng-template>
                                 <div formGroupName="product_slider_2">
-                                  <app-form-fields [label]="'title'" [for]="'title'">
+                                  <app-form-fields
+                                    [label]="'title'"
+                                    [for]="'title'"
+                                  >
                                     <input
                                       class="form-control"
                                       id="title"
@@ -337,7 +389,10 @@
                                     />
                                   </app-form-fields>
 
-                                  <app-form-fields [label]="'product'" [for]="'product_ids'">
+                                  <app-form-fields
+                                    [label]="'product'"
+                                    [for]="'product_ids'"
+                                  >
                                     @if(isBrowser) {
                                     <select2
                                       class="custom-select"
@@ -356,7 +411,8 @@
                                         <div class="image">
                                           <img
                                             [src]="data.image"
-                                            [class]="'img-fluid selection-image'" alt="img"
+                                            [class]="'img-fluid selection-image'"
+                                            alt="img"
                                           />
                                         </div>
                                         {{ data.name }}
@@ -365,7 +421,10 @@
                                     }
                                   </app-form-fields>
 
-                                  <app-form-fields [label]="'status'" [for]="'status'">
+                                  <app-form-fields
+                                    [label]="'status'"
+                                    [for]="'status'"
+                                  >
                                     <div class="form-check form-switch ps-0">
                                       <label class="switch">
                                         <input
@@ -385,14 +444,19 @@
                         <div ngbAccordionItem [collapsed]="false">
                           <div ngbAccordionHeader>
                             <button ngbAccordionButton>
-                              {{ form.get('content.slider_products.product_slider_3.title').value }}
+                              {{
+                              form.get('content.slider_products.product_slider_3.title').value
+                              }}
                             </button>
                           </div>
                           <div ngbAccordionCollapse>
                             <div ngbAccordionBody>
                               <ng-template>
                                 <div formGroupName="product_slider_3">
-                                  <app-form-fields [label]="'title'" [for]="'title'">
+                                  <app-form-fields
+                                    [label]="'title'"
+                                    [for]="'title'"
+                                  >
                                     <input
                                       class="form-control"
                                       id="title"
@@ -402,7 +466,10 @@
                                     />
                                   </app-form-fields>
 
-                                  <app-form-fields [label]="'product'" [for]="'product_ids'">
+                                  <app-form-fields
+                                    [label]="'product'"
+                                    [for]="'product_ids'"
+                                  >
                                     @if(isBrowser) {
                                     <select2
                                       class="custom-select"
@@ -421,7 +488,8 @@
                                         <div class="image">
                                           <img
                                             [src]="data.image"
-                                            [class]="'img-fluid selection-image'" alt="img"
+                                            [class]="'img-fluid selection-image'"
+                                            alt="img"
                                           />
                                         </div>
                                         {{ data.name }}
@@ -430,7 +498,10 @@
                                     }
                                   </app-form-fields>
 
-                                  <app-form-fields [label]="'status'" [for]="'status'">
+                                  <app-form-fields
+                                    [label]="'status'"
+                                    [for]="'status'"
+                                  >
                                     <div class="form-check form-switch ps-0">
                                       <label class="switch">
                                         <input
@@ -456,23 +527,32 @@
 
             <li ngbNavItem="offer_banner">
               <a ngbNavLink
-                ><i class="ri-record-circle-line"></i>{{ 'offer_banner' | translate }}</a
+                ><i class="ri-record-circle-line"></i>{{ 'offer_banner' |
+                translate }}</a
               >
               <ng-template ngbNavContent>
                 <div formGroupName="offer_banner">
                   <div class="inside-horizontal-tabs">
-                    <ul ngbNav #nav="ngbNav" [(activeId)]="banner" class="nav-tabs">
+                    <ul
+                      ngbNav
+                      #nav="ngbNav"
+                      [(activeId)]="banner"
+                      class="nav-tabs"
+                    >
                       <li [ngbNavItem]="1">
                         <a ngbNavLink>{{ 'banner' | translate }} 1</a>
                         <ng-template ngbNavContent>
                           <div formGroupName="banner_1">
-                            <app-form-fields [label]="'image'" [for]="'image_url'">
+                            <app-form-fields
+                              [label]="'image'"
+                              [for]="'image_url'"
+                            >
                               <app-image-upload
                                 [url]="true"
                                 [multipleImage]="false"
                                 [accept]="[mediaConfig.image]"
                                 [helpText]="'*Upload image size 806x670px recommended'"
-                                [imageUrl]="form.get('content.offer_banner.banner_1.image_url')?.value"
+                                [imageUrl]="$safeNavigationMigration(form.get('content.offer_banner.banner_1.image_url')?.value)"
                                 (selectedFiles)="selectImage($event, 'content.offer_banner.banner_1.image_url')"
                               />
                             </app-form-fields>
@@ -483,10 +563,17 @@
                               [linkForm]="form.get('content.offer_banner.banner_1.redirect_link')"
                             />
 
-                            <app-form-fields [label]="'status'" [for]="'status'">
+                            <app-form-fields
+                              [label]="'status'"
+                              [for]="'status'"
+                            >
                               <div class="form-check form-switch ps-0">
                                 <label class="switch">
-                                  <input type="checkbox" id="status" formControlName="status" />
+                                  <input
+                                    type="checkbox"
+                                    id="status"
+                                    formControlName="status"
+                                  />
                                   <span class="switch-state"></span>
                                 </label>
                               </div>
@@ -499,13 +586,16 @@
                         <a ngbNavLink>{{ 'banner' | translate }} 2</a>
                         <ng-template ngbNavContent>
                           <div formGroupName="banner_2">
-                            <app-form-fields [label]="'image'" [for]="'image_url'">
+                            <app-form-fields
+                              [label]="'image'"
+                              [for]="'image_url'"
+                            >
                               <app-image-upload
                                 [url]="true"
                                 [multipleImage]="false"
                                 [accept]="[mediaConfig.image]"
                                 [helpText]="'*Upload image size 806x670px recommended'"
-                                [imageUrl]="form.get('content.offer_banner.banner_2.image_url')?.value"
+                                [imageUrl]="$safeNavigationMigration(form.get('content.offer_banner.banner_2.image_url')?.value)"
                                 (selectedFiles)="selectImage($event, 'content.offer_banner.banner_2.image_url')"
                               />
                             </app-form-fields>
@@ -516,10 +606,17 @@
                               [linkForm]="form.get('content.offer_banner.banner_2.redirect_link')"
                             />
 
-                            <app-form-fields [label]="'status'" [for]="'status'">
+                            <app-form-fields
+                              [label]="'status'"
+                              [for]="'status'"
+                            >
                               <div class="form-check form-switch ps-0">
                                 <label class="switch">
-                                  <input type="checkbox" id="status" formControlName="status" />
+                                  <input
+                                    type="checkbox"
+                                    id="status"
+                                    formControlName="status"
+                                  />
                                   <span class="switch-state"></span>
                                 </label>
                               </div>
@@ -536,7 +633,8 @@
 
             <li ngbNavItem="products_list">
               <a ngbNavLink
-                ><i class="ri-record-circle-line"></i>{{ 'products_list' | translate }}</a
+                ><i class="ri-record-circle-line"></i>{{ 'products_list' |
+                translate }}</a
               >
               <ng-template ngbNavContent>
                 <div formGroupName="products_list">
@@ -577,7 +675,11 @@
                     >
                       <ng-template #template let-data="data">
                         <div class="image">
-                          <img [src]="data.image" [class]="'img-fluid selection-image'" alt="img"/>
+                          <img
+                            [src]="data.image"
+                            [class]="'img-fluid selection-image'"
+                            alt="img"
+                          />
                         </div>
                         {{ data.name }}
                       </ng-template>
@@ -588,7 +690,11 @@
                   <app-form-fields [label]="'status'" [for]="'status'">
                     <div class="form-check form-switch ps-0">
                       <label class="switch">
-                        <input type="checkbox" id="status" formControlName="status" />
+                        <input
+                          type="checkbox"
+                          id="status"
+                          formControlName="status"
+                        />
                         <span class="switch-state"></span>
                       </label>
                     </div>
@@ -599,7 +705,8 @@
 
             <li ngbNavItem="featured_blogs">
               <a ngbNavLink
-                ><i class="ri-record-circle-line"></i>{{ 'featured_blogs' | translate }}</a
+                ><i class="ri-record-circle-line"></i>{{ 'featured_blogs' |
+                translate }}</a
               >
               <ng-template ngbNavContent>
                 <div formGroupName="featured_blogs">
@@ -639,7 +746,11 @@
                   <app-form-fields [label]="'status'" [for]="'status'">
                     <div class="form-check form-switch ps-0">
                       <label class="switch">
-                        <input type="checkbox" id="status" formControlName="status" />
+                        <input
+                          type="checkbox"
+                          id="status"
+                          formControlName="status"
+                        />
                         <span class="switch-state"></span>
                       </label>
                     </div>
@@ -649,7 +760,10 @@
             </li>
 
             <li ngbNavItem="brand">
-              <a ngbNavLink><i class="ri-record-circle-line"></i>{{ 'brand' | translate }}</a>
+              <a ngbNavLink
+                ><i class="ri-record-circle-line"></i>{{ 'brand' | translate
+                }}</a
+              >
               <ng-template ngbNavContent>
                 <div formGroupName="brand">
                   <app-form-fields [label]="'brand'" [for]="'type'">
@@ -668,7 +782,11 @@
                   <app-form-fields [label]="'status'" [for]="'status'">
                     <div class="form-check form-switch ps-0">
                       <label class="switch">
-                        <input type="checkbox" id="status" formControlName="status" />
+                        <input
+                          type="checkbox"
+                          id="status"
+                          formControlName="status"
+                        />
                         <span class="switch-state"></span>
                       </label>
                     </div>

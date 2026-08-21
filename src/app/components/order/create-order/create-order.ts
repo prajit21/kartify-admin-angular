@@ -1,36 +1,51 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, Renderer2, DOCUMENT } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Params, RouterModule } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import {
+  Component,
+  inject,
+  Renderer2,
+  DOCUMENT,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { Params, RouterModule } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { Observable, debounceTime, distinctUntilChanged } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { CarouselModule, OwlOptions } from "ngx-owl-carousel-o";
+import { Observable, debounceTime, distinctUntilChanged } from "rxjs";
 
-import { Loader } from '../../../shared/components/loader/loader';
-import { AdvanceDropdown } from '../../../shared/components/ui/advance-dropdown/advance-dropdown';
-import { Button } from '../../../shared/components/ui/button/button';
-import { NoData } from '../../../shared/components/ui/no-data/no-data';
-import { Pagination } from '../../../shared/components/ui/pagination/pagination';
-import { ProductBox } from '../../../shared/components/ui/product-box/product-box';
-import { ProductBoxSkeleton } from '../../../shared/components/ui/skeleton/product-box-skeleton/product-box-skeleton';
-import { HasPermissionDirective } from '../../../shared/directive/has-permission.directive';
-import { ICart, ICartAddOrUpdate } from '../../../shared/interface/cart.interface';
-import { ICategory, ICategoryModel } from '../../../shared/interface/category.interface';
-import { IProductModel } from '../../../shared/interface/product.interface';
-import { CurrencySymbolPipe } from '../../../shared/pipe/currency-symbol.pipe';
-import { NavService } from '../../../shared/services/nav.service';
-import { GetCartItemsAction, UpdateCartAction } from '../../../shared/store/action/cart.action';
-import { GetCategoriesAction } from '../../../shared/store/action/category.action';
-import { GetProductsAction } from '../../../shared/store/action/product.action';
-import { CartState } from '../../../shared/store/state/cart.state';
-import { CategoryState } from '../../../shared/store/state/category.state';
-import { LoaderState } from '../../../shared/store/state/loader.state';
-import { ProductState } from '../../../shared/store/state/product.state';
+import { Loader } from "../../../shared/components/loader/loader";
+import { AdvanceDropdown } from "../../../shared/components/ui/advance-dropdown/advance-dropdown";
+import { Button } from "../../../shared/components/ui/button/button";
+import { NoData } from "../../../shared/components/ui/no-data/no-data";
+import { Pagination } from "../../../shared/components/ui/pagination/pagination";
+import { ProductBox } from "../../../shared/components/ui/product-box/product-box";
+import { ProductBoxSkeleton } from "../../../shared/components/ui/skeleton/product-box-skeleton/product-box-skeleton";
+import { HasPermissionDirective } from "../../../shared/directive/has-permission.directive";
+import {
+  ICart,
+  ICartAddOrUpdate,
+} from "../../../shared/interface/cart.interface";
+import {
+  ICategory,
+  ICategoryModel,
+} from "../../../shared/interface/category.interface";
+import { IProductModel } from "../../../shared/interface/product.interface";
+import { CurrencySymbolPipe } from "../../../shared/pipe/currency-symbol.pipe";
+import { NavService } from "../../../shared/services/nav.service";
+import {
+  GetCartItemsAction,
+  UpdateCartAction,
+} from "../../../shared/store/action/cart.action";
+import { GetCategoriesAction } from "../../../shared/store/action/category.action";
+import { GetProductsAction } from "../../../shared/store/action/product.action";
+import { CartState } from "../../../shared/store/state/cart.state";
+import { CategoryState } from "../../../shared/store/state/category.state";
+import { LoaderState } from "../../../shared/store/state/loader.state";
+import { ProductState } from "../../../shared/store/state/product.state";
 
 @Component({
-  selector: 'app-create-order',
+  selector: "app-create-order",
   imports: [
     CommonModule,
     TranslateModule,
@@ -48,8 +63,9 @@ import { ProductState } from '../../../shared/store/state/product.state';
     NoData,
     Button,
   ],
-  templateUrl: './create-order.html',
-  styleUrl: './create-order.scss',
+  templateUrl: "./create-order.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./create-order.scss",
 })
 export class CreateOrder {
   private store = inject(Store);
@@ -63,7 +79,9 @@ export class CreateOrder {
   category$: Observable<ICategoryModel> = inject(Store).select(
     CategoryState.category,
   ) as Observable<ICategoryModel>;
-  product$: Observable<IProductModel> = inject(Store).select(ProductState.product);
+  product$: Observable<IProductModel> = inject(Store).select(
+    ProductState.product,
+  );
   cartItem$: Observable<ICart[]> = inject(Store).select(CartState.cartItems);
   cartTotal$: Observable<number> = inject(Store).select(CartState.cartTotal);
 
@@ -75,12 +93,12 @@ export class CreateOrder {
   public selectedCategory: Number[] = [];
   public totalItems: number = 0;
   public filter = {
-    search: '',
-    field: '',
-    sort: '', // current Sorting Order
+    search: "",
+    field: "",
+    sort: "", // current Sorting Order
     page: 1, // current page number
     paginate: 20, // Display per page,
-    category_ids: '',
+    category_ids: "",
     is_approved: 1,
   };
 
@@ -109,8 +127,10 @@ export class CreateOrder {
   public loading: boolean = true;
 
   constructor() {
-    this.store.dispatch(new GetCategoriesAction({ type: 'product', status: 1 }));
-    this.product$.subscribe(product => (this.totalItems = product?.total));
+    this.store.dispatch(
+      new GetCategoriesAction({ type: "product", status: 1 }),
+    );
+    this.product$.subscribe((product) => (this.totalItems = product?.total));
     this.getProducts(this.filter, true);
     this.store.dispatch(new GetCartItemsAction());
 
@@ -124,19 +144,21 @@ export class CreateOrder {
 
   getProducts(filter: Params, loader?: boolean) {
     this.loading = true;
-    filter['status'] = 1;
+    filter["status"] = 1;
     this.store.dispatch(new GetProductsAction(filter)).subscribe({
       complete: () => {
         this.loading = false;
       },
     });
-    if (!loader) this.renderer.addClass(this.document.body, 'loader-none');
+    if (!loader) this.renderer.addClass(this.document.body, "loader-none");
   }
 
   selectCategory(data: ICategory) {
     this.activeCategory = this.activeCategory?.id != data?.id ? data : null;
     this.selectedCategory = [];
-    this.filter.category_ids = String(this.activeCategory ? this.activeCategory?.id! : '');
+    this.filter.category_ids = String(
+      this.activeCategory ? this.activeCategory?.id! : "",
+    );
     this.filter.page = 1;
     this.getProducts(this.filter);
   }
@@ -148,12 +170,12 @@ export class CreateOrder {
   }
 
   updateQuantity(item: ICart, qty: number) {
-    this.renderer.addClass(this.document.body, 'loader-none');
+    this.renderer.addClass(this.document.body, "loader-none");
     const params: ICartAddOrUpdate = {
       id: item?.id,
       product_id: item?.product?.id!,
       product: item?.product!,
-      variation_id: item?.variation_id ? item?.variation_id : '',
+      variation_id: item?.variation_id ? item?.variation_id : "",
       variation: item?.variation ? item?.variation : null,
       quantity: qty,
     };
@@ -167,6 +189,6 @@ export class CreateOrder {
 
   ngOnDestroy() {
     this.navServices.collapseSidebar = false;
-    this.renderer.removeClass(this.document.body, 'loader-none');
+    this.renderer.removeClass(this.document.body, "loader-none");
   }
 }

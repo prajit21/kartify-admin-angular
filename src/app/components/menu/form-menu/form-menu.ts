@@ -1,5 +1,13 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, inject, PLATFORM_ID, Renderer2, DOCUMENT, input } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  inject,
+  PLATFORM_ID,
+  Renderer2,
+  DOCUMENT,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -7,42 +15,50 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+} from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
 import {
   Select2,
   Select2Data,
   Select2Module,
   Select2SearchEvent,
   Select2UpdateEvent,
-} from 'ng-select2-component';
-import { debounceTime, mergeMap, Observable, of, Subject, switchMap, takeUntil } from 'rxjs';
+} from "ng-select2-component";
+import {
+  debounceTime,
+  mergeMap,
+  Observable,
+  of,
+  Subject,
+  switchMap,
+  takeUntil,
+} from "rxjs";
 
-import { AdvanceDropdown } from '../../../shared/components/ui/advance-dropdown/advance-dropdown';
-import { Button } from '../../../shared/components/ui/button/button';
-import { FormFields } from '../../../shared/components/ui/form-fields/form-fields';
-import { ImageUpload } from '../../../shared/components/ui/image-upload/image-upload';
-import * as media from '../../../shared/data/media-config';
-import { IAttachment } from '../../../shared/interface/attachment.interface';
-import { IMenu, IMenuModel } from '../../../shared/interface/menu.interface';
-import { GetBlogsAction } from '../../../shared/store/action/blog.action';
+import { AdvanceDropdown } from "../../../shared/components/ui/advance-dropdown/advance-dropdown";
+import { Button } from "../../../shared/components/ui/button/button";
+import { FormFields } from "../../../shared/components/ui/form-fields/form-fields";
+import { ImageUpload } from "../../../shared/components/ui/image-upload/image-upload";
+import * as media from "../../../shared/data/media-config";
+import { IAttachment } from "../../../shared/interface/attachment.interface";
+import { IMenu, IMenuModel } from "../../../shared/interface/menu.interface";
+import { GetBlogsAction } from "../../../shared/store/action/blog.action";
 import {
   CreateMenuAction,
   EditMenuAction,
   UpdateMenuAction,
-} from '../../../shared/store/action/menu.action';
-import { GetPagesAction } from '../../../shared/store/action/page.action';
-import { GetProductsAction } from '../../../shared/store/action/product.action';
-import { BlogState } from '../../../shared/store/state/blog.state';
-import { MenuState } from '../../../shared/store/state/menu.state';
-import { PageState } from '../../../shared/store/state/page.state';
-import { ProductState } from '../../../shared/store/state/product.state';
+} from "../../../shared/store/action/menu.action";
+import { GetPagesAction } from "../../../shared/store/action/page.action";
+import { GetProductsAction } from "../../../shared/store/action/product.action";
+import { BlogState } from "../../../shared/store/state/blog.state";
+import { MenuState } from "../../../shared/store/state/menu.state";
+import { PageState } from "../../../shared/store/state/page.state";
+import { ProductState } from "../../../shared/store/state/product.state";
 
 @Component({
-  selector: 'app-form-menu',
+  selector: "app-form-menu",
   imports: [
     CommonModule,
     FormsModule,
@@ -54,8 +70,9 @@ import { ProductState } from '../../../shared/store/state/product.state';
     AdvanceDropdown,
     Button,
   ],
-  templateUrl: './form-menu.html',
-  styleUrl: './form-menu.scss',
+  templateUrl: "./form-menu.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./form-menu.scss",
 })
 export class FormMenu {
   private formBuilder = inject(FormBuilder);
@@ -68,7 +85,9 @@ export class FormMenu {
   readonly type = input<string>(undefined);
 
   menu$: Observable<IMenuModel> = inject(Store).select(MenuState.menu);
-  products$: Observable<Select2Data> = inject(Store).select(ProductState.products);
+  products$: Observable<Select2Data> = inject(Store).select(
+    ProductState.products,
+  );
   blogs$: Observable<Select2Data> = inject(Store).select(BlogState.blogs);
   page$: Observable<Select2Data> = inject(Store).select(PageState.pages);
 
@@ -76,70 +95,70 @@ export class FormMenu {
   public menu: IMenu;
   public selectedMenu: IMenu[];
   public mediaConfig = media.mediaConfig;
-  public colors = ['bg-danger', 'bg-dark', 'bg-success', 'bg-warning'];
+  public colors = ["bg-danger", "bg-dark", "bg-success", "bg-warning"];
   private destroy$ = new Subject<void>();
   private search = new Subject<string>();
   public isBrowser: boolean;
 
   public link_type = [
     {
-      value: 'sub',
-      label: 'Sub',
+      value: "sub",
+      label: "Sub",
     },
     {
-      value: 'link',
-      label: 'Link',
+      value: "link",
+      label: "Link",
     },
   ];
 
   public target = [
     {
-      value: 'product',
-      label: 'Product',
+      value: "product",
+      label: "Product",
     },
     {
-      value: 'blog',
-      label: 'Blog',
+      value: "blog",
+      label: "Blog",
     },
   ];
 
   public megaMenuLayout = [
     {
-      value: 'simple',
-      label: 'Simple',
-      image: 'assets/images/menu/menu_6.png',
+      value: "simple",
+      label: "Simple",
+      image: "assets/images/menu/menu_6.png",
     },
     {
-      value: 'link_with_image',
-      label: 'Link With Image',
-      image: 'assets/images/menu/menu_1.png',
+      value: "link_with_image",
+      label: "Link With Image",
+      image: "assets/images/menu/menu_1.png",
     },
     {
-      value: 'side_banner',
-      label: 'Side Banner',
-      image: 'assets/images/menu/menu_3.png',
+      value: "side_banner",
+      label: "Side Banner",
+      image: "assets/images/menu/menu_3.png",
     },
     {
-      value: 'bottom_banner',
-      label: 'Bottom Banner',
-      image: 'assets/images/menu/menu_4.png',
+      value: "bottom_banner",
+      label: "Bottom Banner",
+      image: "assets/images/menu/menu_4.png",
     },
     {
-      value: 'product_box',
-      label: 'Product Box',
-      image: 'assets/images/menu/menu_2.png',
+      value: "product_box",
+      label: "Product Box",
+      image: "assets/images/menu/menu_2.png",
     },
     {
-      value: 'blog_box',
-      label: 'Blog Box',
-      image: 'assets/images/menu/menu_5.png',
+      value: "blog_box",
+      label: "Blog Box",
+      image: "assets/images/menu/menu_5.png",
     },
   ];
 
   public filter = {
-    search: '',
+    search: "",
     paginate: 15,
-    ids: '',
+    ids: "",
     with_union_products: 0,
     is_approved: 1,
   };
@@ -150,16 +169,16 @@ export class FormMenu {
     this.isBrowser = isPlatformBrowser(platformId);
 
     this.form = this.formBuilder.group({
-      title: new FormControl('', [Validators.required]),
-      link_type: new FormControl('sub'),
-      path: new FormControl(''),
+      title: new FormControl("", [Validators.required]),
+      link_type: new FormControl("sub"),
+      path: new FormControl(""),
       is_target_blank: new FormControl(0),
-      set_page_link: new FormControl(''),
+      set_page_link: new FormControl(""),
       parent_id: new FormControl(),
       mega_menu: new FormControl(1),
-      mega_menu_type: new FormControl('simple'),
-      badge_text: new FormControl(''),
-      badge_color: new FormControl(''),
+      mega_menu_type: new FormControl("simple"),
+      badge_text: new FormControl(""),
+      badge_color: new FormControl(""),
       product_ids: new FormControl([]),
       blog_ids: new FormControl([]),
       banner_image_id: new FormControl(),
@@ -174,28 +193,28 @@ export class FormMenu {
 
     this.search
       .pipe(debounceTime(300)) // Adjust the debounce time as needed (in milliseconds)
-      .subscribe(inputValue => {
-        this.renderer.addClass(this.document.body, 'loader-none');
-        this.filter['search'] = inputValue;
+      .subscribe((inputValue) => {
+        this.renderer.addClass(this.document.body, "loader-none");
+        this.filter["search"] = inputValue;
         this.store.dispatch(new GetProductsAction(this.filter));
       });
 
     this.route.params
       .pipe(
-        switchMap(params => {
-          if (!params['id']) return of();
+        switchMap((params) => {
+          if (!params["id"]) return of();
           return this.store
-            .dispatch(new EditMenuAction(params['id']))
+            .dispatch(new EditMenuAction(params["id"]))
             .pipe(mergeMap(() => this.store.select(MenuState.selectedMenu)));
         }),
         takeUntil(this.destroy$),
       )
-      .subscribe(menu => {
+      .subscribe((menu) => {
         if (menu?.product_ids) {
-          this.filter['paginate'] =
+          this.filter["paginate"] =
             menu?.product_ids?.length >= 15 ? menu?.product_ids?.length : 15;
-          this.filter['ids'] = menu?.product_ids?.join();
-          this.filter['with_union_products'] = menu?.product_ids?.length
+          this.filter["ids"] = menu?.product_ids?.join();
+          this.filter["with_union_products"] = menu?.product_ids?.length
             ? menu?.product_ids?.length >= 15
               ? 0
               : 1
@@ -220,53 +239,69 @@ export class FormMenu {
         });
       });
 
-    this.form.controls['mega_menu_type'].valueChanges.subscribe(data => {
-      if (data === 'side_banner' || data === 'bottom_banner') {
-        this.form.setControl('banner_image_id', new FormControl('', [Validators.required]));
+    this.form.controls["mega_menu_type"].valueChanges.subscribe((data) => {
+      if (data === "side_banner" || data === "bottom_banner") {
+        this.form.setControl(
+          "banner_image_id",
+          new FormControl("", [Validators.required]),
+        );
       } else {
-        this.form.setControl('banner_image_id', new FormControl(''));
+        this.form.setControl("banner_image_id", new FormControl(""));
       }
     });
 
-    this.form.controls['link_type'].valueChanges.subscribe(data => {
-      if (data === 'sub') {
-        this.form.setControl('path', new FormControl(''));
-        this.form.setControl('is_target_blank', new FormControl(''));
+    this.form.controls["link_type"].valueChanges.subscribe((data) => {
+      if (data === "sub") {
+        this.form.setControl("path", new FormControl(""));
+        this.form.setControl("is_target_blank", new FormControl(""));
       } else {
         this.form.setControl(
-          'path',
-          new FormControl(this.menu ? this.menu.path : '', [Validators.required]),
+          "path",
+          new FormControl(this.menu ? this.menu.path : "", [
+            Validators.required,
+          ]),
         );
         this.form.setControl(
-          'mega_menu',
-          new FormControl(this.menu ? this.menu.mega_menu : 0, [Validators.required]),
+          "mega_menu",
+          new FormControl(this.menu ? this.menu.mega_menu : 0, [
+            Validators.required,
+          ]),
         );
         this.form.setControl(
-          'is_target_blank',
-          new FormControl(this.menu ? this.menu.is_target_blank : 0, [Validators.required]),
+          "is_target_blank",
+          new FormControl(this.menu ? this.menu.is_target_blank : 0, [
+            Validators.required,
+          ]),
         );
       }
     });
 
-    this.form.controls['badge_text'].valueChanges.subscribe(data => {
+    this.form.controls["badge_text"].valueChanges.subscribe((data) => {
       if (!data?.length) {
-        this.form.setControl('badge_color', new FormControl(''));
+        this.form.setControl("badge_color", new FormControl(""));
       } else {
         this.form.setControl(
-          'badge_color',
-          new FormControl(this.menu ? this.menu.badge_color : 'bg-danger', [Validators.required]),
+          "badge_color",
+          new FormControl(this.menu ? this.menu.badge_color : "bg-danger", [
+            Validators.required,
+          ]),
         );
       }
     });
 
-    this.form.controls['set_page_link'].valueChanges.subscribe(data => {
+    this.form.controls["set_page_link"].valueChanges.subscribe((data) => {
       if (!data?.length) {
-        this.form.setControl('badge_color', new FormControl(''));
+        this.form.setControl("badge_color", new FormControl(""));
       } else {
-        this.form.setControl('is_target_blank', new FormControl(0, [Validators.required]));
         this.form.setControl(
-          'badge_color',
-          new FormControl(this.menu ? this.menu.badge_color : 'bg-danger', [Validators.required]),
+          "is_target_blank",
+          new FormControl(0, [Validators.required]),
+        );
+        this.form.setControl(
+          "badge_color",
+          new FormControl(this.menu ? this.menu.badge_color : "bg-danger", [
+            Validators.required,
+          ]),
         );
       }
     });
@@ -275,22 +310,23 @@ export class FormMenu {
   setPage(data: Select2UpdateEvent) {
     if (data && data.value) {
       let option: any = data.component.option;
-      this.form.controls['path'].setValue(`page/${option.value}`);
+      this.form.controls["path"].setValue(`page/${option.value}`);
     } else {
-      this.form.controls['path'].setValue(this.menu ? this.menu.path : '');
+      this.form.controls["path"].setValue(this.menu ? this.menu.path : "");
     }
   }
 
   selectItem(data: number[]) {
     if (Array.isArray(data) && data.length) {
-      this.form.controls['parent_id'].setValue(data[0]);
-      this.form.controls['mega_menu'].setValue(0);
+      this.form.controls["parent_id"].setValue(data[0]);
+      this.form.controls["mega_menu"].setValue(0);
       this.menu$.subscribe(
-        res => (this.selectedMenu = res.data.filter(id => data?.includes(id.id!))),
+        (res) =>
+          (this.selectedMenu = res.data.filter((id) => data?.includes(id.id!))),
       );
     } else {
-      this.form.controls['parent_id'].setValue('');
-      this.form.controls['mega_menu'].setValue(1);
+      this.form.controls["parent_id"].setValue("");
+      this.form.controls["mega_menu"].setValue(1);
     }
   }
 
@@ -301,8 +337,8 @@ export class FormMenu {
   }
 
   productDropdown(event: Select2) {
-    if (event['innerSearchText']) {
-      this.search.next('');
+    if (event["innerSearchText"]) {
+      this.search.next("");
     }
   }
 
@@ -314,21 +350,21 @@ export class FormMenu {
     this.form.markAllAsTouched();
     let action = new CreateMenuAction(this.form.value);
 
-    if (this.type() == 'edit' && this.menu?.id) {
+    if (this.type() == "edit" && this.menu?.id) {
       action = new UpdateMenuAction(this.form.value, this.menu.id);
     }
 
     if (this.form.valid) {
       this.store.dispatch(action).subscribe({
         complete: () => {
-          if (this.type() == 'create') {
+          if (this.type() == "create") {
             this.form.reset();
-            this.form.controls['banner_image_id'].setValue('');
-            this.form.controls['item_image_id'].setValue('');
-            this.form.controls['mega_menu'].setValue(1);
-            this.form.controls['link_type'].setValue('sub');
+            this.form.controls["banner_image_id"].setValue("");
+            this.form.controls["item_image_id"].setValue("");
+            this.form.controls["mega_menu"].setValue(1);
+            this.form.controls["link_type"].setValue("sub");
           } else {
-            void this.router.navigateByUrl('/menu');
+            void this.router.navigateByUrl("/menu");
           }
         },
       });

@@ -4,18 +4,31 @@
       <div button *hasPermission="'category.create'">
         @if(categoryType() === 'product' || type() === 'edit'){
         <div ngbDropdown class="d-inline-block dropdown-box">
-          <button type="button" class="btn btn-sm btn-light-bg" id="action" ngbDropdownToggle>
+          <button
+            type="button"
+            class="btn btn-sm btn-light-bg"
+            id="action"
+            ngbDropdownToggle
+          >
             {{ 'action' | translate }}
           </button>
-          <div ngbDropdownMenu aria-labelledby="action" class="dropdown-menu dropdown-menu-end">
+          <div
+            ngbDropdownMenu
+            aria-labelledby="action"
+            class="dropdown-menu dropdown-menu-end"
+          >
             @if(categoryType() === 'product'){
             <button ngbDropdownItem (click)="CSVModal().openModal()">
               {{ 'bulk_import' | translate }}
             </button>
             } @if(categoryType() === 'product'){
-            <button ngbDropdownItem (click)="export()">{{ 'export' | translate }}</button>
+            <button ngbDropdownItem (click)="export()">
+              {{ 'export' | translate }}
+            </button>
             } @if(type() === 'edit'){
-            <button ngbDropdownItem (click)="create(type())">{{ 'create' | translate }}</button>
+            <button ngbDropdownItem (click)="create(type())">
+              {{ 'create' | translate }}
+            </button>
             }
           </div>
         </div>
@@ -23,7 +36,7 @@
       </div>
       <div class="category-tree-box">
         <app-tree
-          [data]="(category$ | async)?.data"
+          [data]="$safeNavigationMigration((category$ | async)?.data)"
           [recursionKey]="'subcategories'"
           [type]="type()"
           [categoryType]="categoryType()"
@@ -33,7 +46,7 @@
   </div>
   <div class="col-xl-8 p-0">
     <app-form-category
-      [categories]="(category$ | async)?.data"
+      [categories]="$safeNavigationMigration((category$ | async)?.data)"
       [type]="type()"
       [categoryType]="categoryType()"
       *hasPermission="'category.'+type()"

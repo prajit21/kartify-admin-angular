@@ -1,12 +1,18 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, PLATFORM_ID, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  PLATFORM_ID,
+  inject,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { RouterModule } from "@angular/router";
 
 @Component({
-  selector: 'app-full',
+  selector: "app-full",
   imports: [RouterModule],
-  templateUrl: './full.html',
-  styleUrl: './full.scss',
+  templateUrl: "./full.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./full.scss",
 })
 export class Full {
   private platformId = inject<Object>(PLATFORM_ID);

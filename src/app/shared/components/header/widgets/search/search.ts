@@ -1,18 +1,28 @@
-import { Component, ElementRef, EventEmitter, Output, Renderer2, inject, viewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  Renderer2,
+  inject,
+  viewChild,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from "@ngx-translate/core";
 
-import { menu } from '../../../../data/menu';
-import { ISidebar } from '../../../../interface/sidebar.interface';
-import { NavService } from '../../../../services/nav.service';
+import { menu } from "../../../../data/menu";
+import { ISidebar } from "../../../../interface/sidebar.interface";
+import { NavService } from "../../../../services/nav.service";
 
 @Component({
-  selector: 'app-search',
+  selector: "app-search",
   imports: [TranslateModule, RouterModule, FormsModule],
-  templateUrl: './search.html',
-  styleUrl: './search.scss',
+  templateUrl: "./search.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./search.scss",
 })
 export class Search {
   navServices = inject(NavService);
@@ -27,9 +37,9 @@ export class Search {
   public text: string;
   public open = false;
 
-  readonly toggleButton = viewChild<ElementRef>('toggleButton');
-  readonly menu = viewChild<ElementRef>('menu');
-  readonly dropdownContainer = viewChild<ElementRef>('dropdownContainer');
+  readonly toggleButton = viewChild<ElementRef>("toggleButton");
+  readonly menu = viewChild<ElementRef>("menu");
+  readonly dropdownContainer = viewChild<ElementRef>("dropdownContainer");
 
   closeSearch() {
     this.navServices.search = false;
@@ -39,11 +49,10 @@ export class Search {
     this.searchChange.emit(value);
   }
 
-
   openDropDown(text: string) {
     text && (this.searchResult = !this.searchResult);
-    var element = document.getElementsByTagName('body')[0];
-    element.classList.toggle('overlay-search');
+    var element = document.getElementsByTagName("body")[0];
+    element.classList.toggle("overlay-search");
   }
 
   searchTerm(term?: string) {
@@ -52,22 +61,28 @@ export class Search {
       this.addFix();
       let items: ISidebar[] = [];
       term = term.toLowerCase();
-      this.items.filter(menuItems => {
+      this.items.filter((menuItems) => {
         if (!menuItems?.title) return false;
 
-        if (menuItems.title.toLowerCase().includes(term!) && menuItems.type === 'link') {
+        if (
+          menuItems.title.toLowerCase().includes(term!) &&
+          menuItems.type === "link"
+        ) {
           items.push(menuItems);
         }
         if (!menuItems.children) return false;
-        menuItems.children.filter(subItems => {
+        menuItems.children.filter((subItems) => {
           if (subItems && subItems.title) {
-            if (subItems.title.toLowerCase().includes(term!) && subItems.type === 'link') {
+            if (
+              subItems.title.toLowerCase().includes(term!) &&
+              subItems.type === "link"
+            ) {
               subItems.icon = menuItems.icon;
               items.push(subItems);
             }
           }
           if (!subItems.children) return false;
-          subItems.children.filter(suSubItems => {
+          subItems.children.filter((suSubItems) => {
             if (suSubItems && suSubItems.title) {
               if (suSubItems.title.toLowerCase().includes(term!)) {
                 suSubItems.icon = menuItems.icon;
@@ -93,13 +108,13 @@ export class Search {
 
   addFix() {
     this.searchResult = true;
-    document.getElementsByTagName('body')[0].classList.add('overlay-search');
+    document.getElementsByTagName("body")[0].classList.add("overlay-search");
   }
 
   removeFix() {
     this.searchResult = false;
-    this.text = '';
-    document.getElementsByTagName('body')[0].classList.remove('overlay-search');
+    this.text = "";
+    document.getElementsByTagName("body")[0].classList.remove("overlay-search");
   }
 
   clickOutside(): void {

@@ -1,24 +1,31 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, inject, PLATFORM_ID, output, input } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Params } from '@angular/router';
+import { CommonModule, isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  inject,
+  PLATFORM_ID,
+  output,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { Params } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
 import {
   Select2,
   Select2Data,
   Select2Module,
   Select2SearchEvent,
   Select2UpdateEvent,
-} from 'ng-select2-component';
-import { Observable, Subject, debounceTime } from 'rxjs';
+} from "ng-select2-component";
+import { Observable, Subject, debounceTime } from "rxjs";
 
-import { CategoryState } from '../../../store/state/category.state';
-import { FormFields } from '../form-fields/form-fields';
+import { CategoryState } from "../../../store/state/category.state";
+import { FormFields } from "../form-fields/form-fields";
 
 @Component({
-  selector: 'app-link',
+  selector: "app-link",
   imports: [
     CommonModule,
     FormsModule,
@@ -27,8 +34,9 @@ import { FormFields } from '../form-fields/form-fields';
     TranslateModule,
     FormFields,
   ],
-  templateUrl: './link.html',
-  styleUrl: './link.scss',
+  templateUrl: "./link.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./link.scss",
 })
 export class Link {
   readonly linkForm = input<any>(undefined);
@@ -36,7 +44,9 @@ export class Link {
 
   readonly productFilter = output<Params>();
 
-  categories$: Observable<Select2Data> = inject(Store).select(CategoryState.categories);
+  categories$: Observable<Select2Data> = inject(Store).select(
+    CategoryState.categories,
+  );
 
   private destroy$ = new Subject<void>();
   public categories: Select2Data;
@@ -44,24 +54,24 @@ export class Link {
   public isBrowser: boolean;
 
   public filter = {
-    search: '',
+    search: "",
     paginate: 15,
-    ids: '',
+    ids: "",
     with_union_products: false,
   };
 
   public linkOption = [
     {
-      label: 'Product',
-      value: 'product',
+      label: "Product",
+      value: "product",
     },
     {
-      label: 'Collection',
-      value: 'collection',
+      label: "Collection",
+      value: "collection",
     },
     {
-      label: 'External Url',
-      value: 'external_url',
+      label: "External Url",
+      value: "external_url",
     },
   ];
 
@@ -71,15 +81,17 @@ export class Link {
     this.isBrowser = isPlatformBrowser(platformId);
 
     this.categories = [];
-    this.categories$.subscribe(categories => {
-      categories?.forEach(category => {
+    this.categories$.subscribe((categories) => {
+      categories?.forEach((category) => {
         this.categories?.push({
           label: category?.label,
           value: category?.data.slug,
           data: {
             name: category?.data.name,
             slug: category?.data.slug,
-            image: category?.data.image ? category?.data.image : 'assets/images/product.png',
+            image: category?.data.image
+              ? category?.data.image
+              : "assets/images/product.png",
           },
         });
       });
@@ -89,20 +101,20 @@ export class Link {
   ngOnInit() {
     this.search
       .pipe(debounceTime(300)) // Adjust the debounce time as needed (in milliseconds)
-      .subscribe(inputValue => {
-        this.filter['search'] = inputValue;
+      .subscribe((inputValue) => {
+        this.filter["search"] = inputValue;
         this.productFilter.emit(this.filter);
       });
   }
 
   selectProduct(event: Select2UpdateEvent) {
-    this.linkForm()?.get('product_ids')?.setValue(event?.value);
+    this.linkForm()?.get("product_ids")?.setValue(event?.value);
   }
 
   productDropdown(event: Select2) {
-    if (event['innerSearchText']) {
+    if (event["innerSearchText"]) {
       this.productFilter.emit(this.filter);
-      this.search.next('');
+      this.search.next("");
     }
   }
 

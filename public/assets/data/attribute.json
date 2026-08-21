@@ -8,8 +8,8 @@
       "slug": "number",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-06-09T06:35:28.000000Z",
-      "updated_at": "2025-06-09T06:35:28.000000Z",
+      "created_at": "2026-06-09T06:35:28.000000Z",
+      "updated_at": "2026-06-09T06:35:28.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -19,8 +19,8 @@
           "slug": "5",
           "attribute_id": "18",
           "created_by_id": "1",
-          "created_at": "2025-06-09T06:35:28.000000Z",
-          "updated_at": "2025-06-09T06:35:28.000000Z",
+          "created_at": "2026-06-09T06:35:28.000000Z",
+          "updated_at": "2026-06-09T06:35:28.000000Z",
           "deleted_at": null
         },
         {
@@ -30,8 +30,8 @@
           "slug": "6",
           "attribute_id": "18",
           "created_by_id": "1",
-          "created_at": "2025-06-09T06:35:28.000000Z",
-          "updated_at": "2025-06-09T06:35:28.000000Z",
+          "created_at": "2026-06-09T06:35:28.000000Z",
+          "updated_at": "2026-06-09T06:35:28.000000Z",
           "deleted_at": null
         },
         {
@@ -41,8 +41,8 @@
           "slug": "7",
           "attribute_id": "18",
           "created_by_id": "1",
-          "created_at": "2025-06-09T06:35:28.000000Z",
-          "updated_at": "2025-06-09T06:35:28.000000Z",
+          "created_at": "2026-06-09T06:35:28.000000Z",
+          "updated_at": "2026-06-09T06:35:28.000000Z",
           "deleted_at": null
         },
         {
@@ -52,8 +52,8 @@
           "slug": "8",
           "attribute_id": "18",
           "created_by_id": "1",
-          "created_at": "2025-06-09T06:35:28.000000Z",
-          "updated_at": "2025-06-09T06:35:28.000000Z",
+          "created_at": "2026-06-09T06:35:28.000000Z",
+          "updated_at": "2026-06-09T06:35:28.000000Z",
           "deleted_at": null
         },
         {
@@ -63,8 +63,8 @@
           "slug": "9",
           "attribute_id": "18",
           "created_by_id": "1",
-          "created_at": "2025-06-09T06:35:28.000000Z",
-          "updated_at": "2025-06-09T06:35:28.000000Z",
+          "created_at": "2026-06-09T06:35:28.000000Z",
+          "updated_at": "2026-06-09T06:35:28.000000Z",
           "deleted_at": null
         },
         {
@@ -74,8 +74,8 @@
           "slug": "10",
           "attribute_id": "18",
           "created_by_id": "1",
-          "created_at": "2025-06-09T06:35:28.000000Z",
-          "updated_at": "2025-06-09T06:35:28.000000Z",
+          "created_at": "2026-06-09T06:35:28.000000Z",
+          "updated_at": "2026-06-09T06:35:28.000000Z",
           "deleted_at": null
         },
         {
@@ -85,8 +85,8 @@
           "slug": "11",
           "attribute_id": "18",
           "created_by_id": "1",
-          "created_at": "2025-06-09T06:35:28.000000Z",
-          "updated_at": "2025-06-09T06:35:28.000000Z",
+          "created_at": "2026-06-09T06:35:28.000000Z",
+          "updated_at": "2026-06-09T06:35:28.000000Z",
           "deleted_at": null
         },
         {
@@ -96,8 +96,8 @@
           "slug": "12",
           "attribute_id": "18",
           "created_by_id": "1",
-          "created_at": "2025-06-09T06:35:28.000000Z",
-          "updated_at": "2025-06-09T06:35:28.000000Z",
+          "created_at": "2026-06-09T06:35:28.000000Z",
+          "updated_at": "2026-06-09T06:35:28.000000Z",
           "deleted_at": null
         }
       ]
@@ -109,8 +109,8 @@
       "slug": "ml",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-05-17T03:31:23.000000Z",
-      "updated_at": "2025-05-17T03:31:23.000000Z",
+      "created_at": "2026-05-17T03:31:23.000000Z",
+      "updated_at": "2026-05-17T03:31:23.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -120,8 +120,8 @@
           "slug": "100-ml",
           "attribute_id": "17",
           "created_by_id": "1",
-          "created_at": "2025-05-17T03:31:23.000000Z",
-          "updated_at": "2025-05-17T03:31:23.000000Z",
+          "created_at": "2026-05-17T03:31:23.000000Z",
+          "updated_at": "2026-05-17T03:31:23.000000Z",
           "deleted_at": null
         },
         {
@@ -131,8 +131,8 @@
           "slug": "50-ml",
           "attribute_id": "17",
           "created_by_id": "1",
-          "created_at": "2025-05-17T03:31:23.000000Z",
-          "updated_at": "2025-05-17T03:31:23.000000Z",
+          "created_at": "2026-05-17T03:31:23.000000Z",
+          "updated_at": "2026-05-17T03:31:23.000000Z",
           "deleted_at": null
         },
         {
@@ -142,8 +142,8 @@
           "slug": "20-ml",
           "attribute_id": "17",
           "created_by_id": "1",
-          "created_at": "2025-05-17T03:31:23.000000Z",
-          "updated_at": "2025-05-17T03:31:23.000000Z",
+          "created_at": "2026-05-17T03:31:23.000000Z",
+          "updated_at": "2026-05-17T03:31:23.000000Z",
           "deleted_at": null
         }
       ]
@@ -155,8 +155,8 @@
       "slug": "gb",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-05-16T04:06:30.000000Z",
-      "updated_at": "2025-05-16T04:06:30.000000Z",
+      "created_at": "2026-05-16T04:06:30.000000Z",
+      "updated_at": "2026-05-16T04:06:30.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -166,8 +166,8 @@
           "slug": "128-gb",
           "attribute_id": "16",
           "created_by_id": "1",
-          "created_at": "2025-05-16T04:06:30.000000Z",
-          "updated_at": "2025-05-16T04:06:30.000000Z",
+          "created_at": "2026-05-16T04:06:30.000000Z",
+          "updated_at": "2026-05-16T04:06:30.000000Z",
           "deleted_at": null
         },
         {
@@ -177,8 +177,8 @@
           "slug": "256-gb",
           "attribute_id": "16",
           "created_by_id": "1",
-          "created_at": "2025-05-16T04:06:30.000000Z",
-          "updated_at": "2025-05-16T04:06:30.000000Z",
+          "created_at": "2026-05-16T04:06:30.000000Z",
+          "updated_at": "2026-05-16T04:06:30.000000Z",
           "deleted_at": null
         },
         {
@@ -188,8 +188,8 @@
           "slug": "512-gb",
           "attribute_id": "16",
           "created_by_id": "1",
-          "created_at": "2025-05-16T04:06:30.000000Z",
-          "updated_at": "2025-05-16T04:06:30.000000Z",
+          "created_at": "2026-05-16T04:06:30.000000Z",
+          "updated_at": "2026-05-16T04:06:30.000000Z",
           "deleted_at": null
         }
       ]
@@ -201,8 +201,8 @@
       "slug": "license",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-05-04T05:43:59.000000Z",
-      "updated_at": "2025-05-04T05:43:59.000000Z",
+      "created_at": "2026-05-04T05:43:59.000000Z",
+      "updated_at": "2026-05-04T05:43:59.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -212,8 +212,8 @@
           "slug": "regular",
           "attribute_id": "9",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -223,8 +223,8 @@
           "slug": "extended",
           "attribute_id": "9",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         }
       ]
@@ -236,8 +236,8 @@
       "slug": "litre",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-05-04T05:43:59.000000Z",
-      "updated_at": "2025-05-04T05:43:59.000000Z",
+      "created_at": "2026-05-04T05:43:59.000000Z",
+      "updated_at": "2026-05-04T05:43:59.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -247,8 +247,8 @@
           "slug": "5-litre",
           "attribute_id": "10",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -258,8 +258,8 @@
           "slug": "10-litre",
           "attribute_id": "10",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         }
       ]
@@ -271,8 +271,8 @@
       "slug": "color",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-05-04T05:43:59.000000Z",
-      "updated_at": "2025-05-04T05:43:59.000000Z",
+      "created_at": "2026-05-04T05:43:59.000000Z",
+      "updated_at": "2026-05-04T05:43:59.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -282,8 +282,8 @@
           "slug": "red",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:45:06.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:45:06.000000Z",
           "deleted_at": null
         },
         {
@@ -293,8 +293,8 @@
           "slug": "black",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-15T05:23:27.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-15T05:23:27.000000Z",
           "deleted_at": null
         },
         {
@@ -304,8 +304,8 @@
           "slug": "purple",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:45:06.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:45:06.000000Z",
           "deleted_at": null
         },
         {
@@ -315,8 +315,8 @@
           "slug": "white",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:45:06.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:45:06.000000Z",
           "deleted_at": null
         },
         {
@@ -326,8 +326,8 @@
           "slug": "green",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:45:06.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:45:06.000000Z",
           "deleted_at": null
         },
         {
@@ -337,8 +337,8 @@
           "slug": "yellow",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:45:06.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:45:06.000000Z",
           "deleted_at": null
         },
         {
@@ -348,8 +348,8 @@
           "slug": "blue",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:45:06.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:45:06.000000Z",
           "deleted_at": null
         },
         {
@@ -359,8 +359,8 @@
           "slug": "orange",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:45:06.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:45:06.000000Z",
           "deleted_at": null
         },
         {
@@ -370,8 +370,8 @@
           "slug": "brown-2",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-04T12:19:46.000000Z",
-          "updated_at": "2025-05-04T12:19:46.000000Z",
+          "created_at": "2026-05-04T12:19:46.000000Z",
+          "updated_at": "2026-05-04T12:19:46.000000Z",
           "deleted_at": null
         },
         {
@@ -381,8 +381,8 @@
           "slug": "blue-3",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-16T04:20:12.000000Z",
-          "updated_at": "2025-05-16T04:20:12.000000Z",
+          "created_at": "2026-05-16T04:20:12.000000Z",
+          "updated_at": "2026-05-16T04:20:12.000000Z",
           "deleted_at": null
         },
         {
@@ -392,8 +392,8 @@
           "slug": "black-3",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-16T04:20:12.000000Z",
-          "updated_at": "2025-05-16T04:20:12.000000Z",
+          "created_at": "2026-05-16T04:20:12.000000Z",
+          "updated_at": "2026-05-16T04:20:12.000000Z",
           "deleted_at": null
         },
         {
@@ -403,8 +403,8 @@
           "slug": "natural",
           "attribute_id": "11",
           "created_by_id": "1",
-          "created_at": "2025-05-16T04:20:12.000000Z",
-          "updated_at": "2025-05-16T04:23:05.000000Z",
+          "created_at": "2026-05-16T04:20:12.000000Z",
+          "updated_at": "2026-05-16T04:23:05.000000Z",
           "deleted_at": null
         }
       ]
@@ -416,8 +416,8 @@
       "slug": "chest",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-05-04T05:43:59.000000Z",
-      "updated_at": "2025-06-22T05:19:45.000000Z",
+      "created_at": "2026-05-04T05:43:59.000000Z",
+      "updated_at": "2026-06-22T05:19:45.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -427,8 +427,8 @@
           "slug": "32-b",
           "attribute_id": "12",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-06-22T05:19:45.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-06-22T05:19:45.000000Z",
           "deleted_at": null
         },
         {
@@ -438,8 +438,8 @@
           "slug": "32-c",
           "attribute_id": "12",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-06-22T05:19:45.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-06-22T05:19:45.000000Z",
           "deleted_at": null
         },
         {
@@ -449,8 +449,8 @@
           "slug": "34-b",
           "attribute_id": "12",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-06-22T05:19:45.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-06-22T05:19:45.000000Z",
           "deleted_at": null
         },
         {
@@ -460,8 +460,8 @@
           "slug": "34-c",
           "attribute_id": "12",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-06-22T05:19:45.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-06-22T05:19:45.000000Z",
           "deleted_at": null
         },
         {
@@ -471,8 +471,8 @@
           "slug": "36-b",
           "attribute_id": "12",
           "created_by_id": "1",
-          "created_at": "2025-06-22T05:19:45.000000Z",
-          "updated_at": "2025-06-22T05:19:45.000000Z",
+          "created_at": "2026-06-22T05:19:45.000000Z",
+          "updated_at": "2026-06-22T05:19:45.000000Z",
           "deleted_at": null
         },
         {
@@ -482,8 +482,8 @@
           "slug": "36-c",
           "attribute_id": "12",
           "created_by_id": "1",
-          "created_at": "2025-06-22T05:19:45.000000Z",
-          "updated_at": "2025-06-22T05:19:45.000000Z",
+          "created_at": "2026-06-22T05:19:45.000000Z",
+          "updated_at": "2026-06-22T05:19:45.000000Z",
           "deleted_at": null
         }
       ]
@@ -495,8 +495,8 @@
       "slug": "colour",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-05-04T05:43:59.000000Z",
-      "updated_at": "2025-05-04T05:43:59.000000Z",
+      "created_at": "2026-05-04T05:43:59.000000Z",
+      "updated_at": "2026-05-04T05:43:59.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -506,8 +506,8 @@
           "slug": "burgundy",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -517,8 +517,8 @@
           "slug": "brown",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -528,8 +528,8 @@
           "slug": "white-2",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -539,8 +539,8 @@
           "slug": "grey",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-08T12:25:58.000000Z",
-          "updated_at": "2025-05-08T12:25:58.000000Z",
+          "created_at": "2026-05-08T12:25:58.000000Z",
+          "updated_at": "2026-05-08T12:25:58.000000Z",
           "deleted_at": null
         },
         {
@@ -550,8 +550,8 @@
           "slug": "pink",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-08T12:25:58.000000Z",
-          "updated_at": "2025-05-08T12:25:58.000000Z",
+          "created_at": "2026-05-08T12:25:58.000000Z",
+          "updated_at": "2026-05-08T12:25:58.000000Z",
           "deleted_at": null
         },
         {
@@ -561,8 +561,8 @@
           "slug": "purple-2",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-08T12:25:58.000000Z",
-          "updated_at": "2025-05-08T12:25:58.000000Z",
+          "created_at": "2026-05-08T12:25:58.000000Z",
+          "updated_at": "2026-05-08T12:25:58.000000Z",
           "deleted_at": null
         },
         {
@@ -572,8 +572,8 @@
           "slug": "blue-2",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-08T12:25:58.000000Z",
-          "updated_at": "2025-05-08T12:25:58.000000Z",
+          "created_at": "2026-05-08T12:25:58.000000Z",
+          "updated_at": "2026-05-08T12:25:58.000000Z",
           "deleted_at": null
         },
         {
@@ -583,8 +583,8 @@
           "slug": "green-2",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-08T12:25:58.000000Z",
-          "updated_at": "2025-05-08T12:25:58.000000Z",
+          "created_at": "2026-05-08T12:25:58.000000Z",
+          "updated_at": "2026-05-08T12:25:58.000000Z",
           "deleted_at": null
         },
         {
@@ -594,8 +594,8 @@
           "slug": "beige",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-08T12:25:58.000000Z",
-          "updated_at": "2025-05-08T12:25:58.000000Z",
+          "created_at": "2026-05-08T12:25:58.000000Z",
+          "updated_at": "2026-05-08T12:25:58.000000Z",
           "deleted_at": null
         },
         {
@@ -605,8 +605,8 @@
           "slug": "black-2",
           "attribute_id": "13",
           "created_by_id": "1",
-          "created_at": "2025-05-08T12:25:58.000000Z",
-          "updated_at": "2025-05-08T12:25:58.000000Z",
+          "created_at": "2026-05-08T12:25:58.000000Z",
+          "updated_at": "2026-05-08T12:25:58.000000Z",
           "deleted_at": null
         }
       ]
@@ -618,8 +618,8 @@
       "slug": "size",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-05-04T05:43:59.000000Z",
-      "updated_at": "2025-05-15T10:27:05.000000Z",
+      "created_at": "2026-05-04T05:43:59.000000Z",
+      "updated_at": "2026-05-15T10:27:05.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -629,8 +629,8 @@
           "slug": "s",
           "attribute_id": "14",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -640,8 +640,8 @@
           "slug": "m",
           "attribute_id": "14",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -651,8 +651,8 @@
           "slug": "l",
           "attribute_id": "14",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -662,8 +662,8 @@
           "slug": "xl",
           "attribute_id": "14",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -673,8 +673,8 @@
           "slug": "xxl",
           "attribute_id": "14",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         }
       ]
@@ -686,8 +686,8 @@
       "slug": "weight",
       "status": 1,
       "created_by_id": "1",
-      "created_at": "2025-05-04T05:43:59.000000Z",
-      "updated_at": "2025-05-04T05:43:59.000000Z",
+      "created_at": "2026-05-04T05:43:59.000000Z",
+      "updated_at": "2026-05-04T05:43:59.000000Z",
       "deleted_at": null,
       "attribute_values": [
         {
@@ -697,8 +697,8 @@
           "slug": "1-kg",
           "attribute_id": "15",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -708,8 +708,8 @@
           "slug": "5-kg",
           "attribute_id": "15",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         },
         {
@@ -719,8 +719,8 @@
           "slug": "10-kg",
           "attribute_id": "15",
           "created_by_id": "1",
-          "created_at": "2025-05-04T05:43:59.000000Z",
-          "updated_at": "2025-05-04T05:43:59.000000Z",
+          "created_at": "2026-05-04T05:43:59.000000Z",
+          "updated_at": "2026-05-04T05:43:59.000000Z",
           "deleted_at": null
         }
       ]

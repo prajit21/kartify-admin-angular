@@ -21,7 +21,10 @@
     <ul>
       @for(menu of menuItems; track menu.id){
       <li>
-        <a class="main-content" [routerLink]="menu?.path">
+        <a
+          class="main-content"
+          [routerLink]="$safeNavigationMigration(menu?.path)"
+        >
           @if(menu.icon){
           <i class="{{ menu.icon }}"></i>
           } @if(menu.title){ {{ menu.title.replace(' ', '_') | translate }} }

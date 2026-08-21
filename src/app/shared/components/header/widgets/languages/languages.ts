@@ -1,9 +1,14 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  PLATFORM_ID,
+  inject,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from "@ngx-translate/core";
 
-import { Button } from '../../../ui/button/button';
+import { Button } from "../../../ui/button/button";
 
 export interface ILanguage {
   language: string;
@@ -12,10 +17,11 @@ export interface ILanguage {
 }
 
 @Component({
-  selector: 'app-languages',
+  selector: "app-languages",
   imports: [Button],
-  templateUrl: './languages.html',
-  styleUrl: './languages.scss',
+  templateUrl: "./languages.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./languages.scss",
 })
 export class Languages {
   private translate = inject(TranslateService);
@@ -24,29 +30,29 @@ export class Languages {
   public active: boolean = false;
   public languages: ILanguage[] = [
     {
-      language: 'English',
-      code: 'en',
-      icon: 'us',
+      language: "English",
+      code: "en",
+      icon: "us",
     },
     {
-      language: 'Français',
-      code: 'fr',
-      icon: 'fr',
+      language: "Français",
+      code: "fr",
+      icon: "fr",
     },
   ];
 
   public selectedLanguage: ILanguage = {
-    language: 'English',
-    code: 'en',
-    icon: 'us',
+    language: "English",
+    code: "en",
+    icon: "us",
   };
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      let language = localStorage.getItem('language');
+      let language = localStorage.getItem("language");
 
       if (language == null) {
-        localStorage.setItem('language', JSON.stringify(this.selectedLanguage));
+        localStorage.setItem("language", JSON.stringify(this.selectedLanguage));
         this.translate.use(this.selectedLanguage.code);
       } else {
         this.selectedLanguage = JSON.parse(language);

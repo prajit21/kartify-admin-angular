@@ -1,4 +1,8 @@
-<form class="theme-form theme-form-2 mega-form" [formGroup]="form" (ngSubmit)="submit()">
+<form
+  class="theme-form theme-form-2 mega-form"
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+>
   <app-form-fields [label]="'name'" [for]="'name'" [required]="true">
     <input
       class="form-control"
@@ -7,30 +11,43 @@
       name="name"
       formControlName="name"
     />
-    @if(form.controls['name'].touched && form.controls['name'].errors?.['required']){
+    @if(form.controls['name'].touched &&
+    form.controls['name'].errors?.['required']){
     <div class="invalid-feedback">{{ 'name_is_required' | translate }}</div>
     }
   </app-form-fields>
 
-  <app-form-fields [label]="'image' | translate " [for]="'image'" [required]="false">
+  <app-form-fields
+    [label]="'image' | translate "
+    [for]="'image'"
+    [required]="false"
+  >
     <app-image-upload
       [accept]="[mediaConfig.image]"
       [multipleImage]="false"
-      [image]="brand?.brand_image"
+      [image]="$safeNavigationMigration(brand?.brand_image)"
       (selectedFiles)="selectBrandImage($event)"
     />
   </app-form-fields>
 
-  <app-form-fields [label]="'banner_image' | translate " [for]="'banner_image'" [required]="false">
+  <app-form-fields
+    [label]="'banner_image' | translate "
+    [for]="'banner_image'"
+    [required]="false"
+  >
     <app-image-upload
       [accept]="[mediaConfig.image]"
       [multipleImage]="false"
-      [image]="brand?.brand_banner"
+      [image]="$safeNavigationMigration(brand?.brand_banner)"
       (selectedFiles)="selectBannerImage($event)"
     />
   </app-form-fields>
 
-  <app-form-fields [label]="'meta_title'" [for]="'metatitle'" [required]="false">
+  <app-form-fields
+    [label]="'meta_title'"
+    [for]="'metatitle'"
+    [required]="false"
+  >
     <input
       class="form-control"
       type="text"
@@ -39,7 +56,11 @@
     />
   </app-form-fields>
 
-  <app-form-fields [label]="'meta_description'" [for]="'desc'" [required]="false">
+  <app-form-fields
+    [label]="'meta_description'"
+    [for]="'desc'"
+    [required]="false"
+  >
     <textarea
       class="form-control"
       placeholder="{{ 'enter_meta_description' | translate }}"
@@ -48,11 +69,15 @@
     ></textarea>
   </app-form-fields>
 
-  <app-form-fields [label]="'meta_image' | translate " [for]="'meta_image'" [required]="false">
+  <app-form-fields
+    [label]="'meta_image' | translate "
+    [for]="'meta_image'"
+    [required]="false"
+  >
     <app-image-upload
       [accept]="[mediaConfig.image]"
       [multipleImage]="false"
-      [image]="brand?.brand_meta_image"
+      [image]="$safeNavigationMigration(brand?.brand_meta_image)"
       (selectedFiles)="selectMetaImage($event)"
     />
   </app-form-fields>

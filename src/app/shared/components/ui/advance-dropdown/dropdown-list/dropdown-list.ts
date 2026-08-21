@@ -1,10 +1,16 @@
-import { Component, output, input } from '@angular/core';
+import {
+  Component,
+  output,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
 @Component({
-  selector: 'app-dropdown-list',
+  selector: "app-dropdown-list",
   imports: [],
-  templateUrl: './dropdown-list.html',
-  styleUrl: './dropdown-list.scss',
+  templateUrl: "./dropdown-list.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./dropdown-list.scss",
 })
 export class DropdownList {
   readonly data = input<any>(undefined);

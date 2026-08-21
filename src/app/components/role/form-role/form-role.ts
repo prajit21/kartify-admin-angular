@@ -1,4 +1,9 @@
-import { Component, inject, input } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import {
   FormArray,
   FormBuilder,
@@ -7,28 +12,36 @@ import {
   FormsModule,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+} from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Subject, mergeMap, of, switchMap, takeUntil } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Subject, mergeMap, of, switchMap, takeUntil } from "rxjs";
 
-import { Button } from '../../../shared/components/ui/button/button';
-import { FormFields } from '../../../shared/components/ui/form-fields/form-fields';
+import { Button } from "../../../shared/components/ui/button/button";
+import { FormFields } from "../../../shared/components/ui/form-fields/form-fields";
 import {
   CreateRoleAction,
   EditRoleAction,
   UpdateRoleAction,
-} from '../../../shared/store/action/role.action';
-import { RoleState } from '../../../shared/store/state/role.state';
-import { Permissions } from '../permissions/permissions';
+} from "../../../shared/store/action/role.action";
+import { RoleState } from "../../../shared/store/state/role.state";
+import { Permissions } from "../permissions/permissions";
 
 @Component({
-  selector: 'app-form-role',
-  imports: [TranslateModule, FormsModule, ReactiveFormsModule, FormFields, Permissions, Button],
-  templateUrl: './form-role.html',
-  styleUrl: './form-role.scss',
+  selector: "app-form-role",
+  imports: [
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FormFields,
+    Permissions,
+    Button,
+  ],
+  templateUrl: "./form-role.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./form-role.scss",
 })
 export class FormRole {
   private store = inject(Store);
@@ -46,29 +59,31 @@ export class FormRole {
 
   constructor() {
     this.form = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
-      permissions: new FormControl('', [Validators.required]),
+      name: new FormControl("", [Validators.required]),
+      permissions: new FormControl("", [Validators.required]),
     });
   }
 
   get permissionControl(): FormArray {
-    return this.form.get('permissions') as FormArray;
+    return this.form.get("permissions") as FormArray;
   }
 
   ngOnInit() {
     this.route.params
       .pipe(
-        switchMap(params => {
-          if (!params['id']) return of();
+        switchMap((params) => {
+          if (!params["id"]) return of();
           return this.store
-            .dispatch(new EditRoleAction(params['id']))
+            .dispatch(new EditRoleAction(params["id"]))
             .pipe(mergeMap(() => this.store.select(RoleState.selectedRole)));
         }),
         takeUntil(this.destroy$),
       )
-      .subscribe(role => {
+      .subscribe((role) => {
         this.id = role?.id!;
-        let permissions = role?.permissions!.map(permission => permission?.id);
+        let permissions = role?.permissions!.map(
+          (permission) => permission?.id,
+        );
         this.permissions = permissions!;
         this.form.patchValue({
           name: role?.name,
@@ -79,7 +94,7 @@ export class FormRole {
 
   setPermissions(permissions: number[]) {
     if (Array.isArray(permissions)) {
-      this.form.controls['permissions'].setValue(permissions);
+      this.form.controls["permissions"].setValue(permissions);
     }
   }
 
@@ -87,14 +102,14 @@ export class FormRole {
     this.form.markAllAsTouched();
     let action = new CreateRoleAction(this.form.value);
 
-    if (this.type() == 'edit' && this.id) {
+    if (this.type() == "edit" && this.id) {
       action = new UpdateRoleAction(this.form.value, this.id);
     }
 
     if (this.form.valid) {
       this.store.dispatch(action).subscribe({
         complete: () => {
-          void this.router.navigateByUrl('/role');
+          void this.router.navigateByUrl("/role");
         },
       });
     }

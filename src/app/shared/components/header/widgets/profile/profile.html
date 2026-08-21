@@ -4,7 +4,7 @@
     <div class="profile-img">
       <img
         class="user-profile rounded-circle"
-        [src]="(user$ | async)?.profile_image?.original_url"
+        [src]="$safeNavigationMigration((user$ | async)?.profile_image?.original_url)"
         alt="profile"
       />
     </div>

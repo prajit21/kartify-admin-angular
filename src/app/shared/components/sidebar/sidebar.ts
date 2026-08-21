@@ -1,5 +1,11 @@
 import { CommonModule, isPlatformBrowser } from "@angular/common";
-import { Component, inject, input, PLATFORM_ID } from "@angular/core";
+import {
+  Component,
+  inject,
+  input,
+  PLATFORM_ID,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import { RouterModule } from "@angular/router";
 
 import { TranslateModule } from "@ngx-translate/core";
@@ -28,6 +34,7 @@ import { Search } from "../header/widgets/search/search";
     Search,
   ],
   templateUrl: "./sidebar.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: "./sidebar.scss",
 })
 export class Sidebar {

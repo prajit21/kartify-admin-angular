@@ -1,28 +1,33 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, DOCUMENT } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import {
+  Component,
+  inject,
+  DOCUMENT,
+  ChangeDetectionStrategy,
+} from "@angular/core";
+import { RouterModule } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { IAccountUser } from '../../interface/account.interface';
-import { INotification } from '../../interface/notification.interface';
-import { ILanguage, IValues } from '../../interface/setting.interface';
-import { NavService } from '../../services/nav.service';
-import { Languages } from './widgets/languages/languages';
-import { Mode } from './widgets/mode/mode';
-import { Notification } from './widgets/notification/notification';
-import { Profile } from './widgets/profile/profile';
-import { QuickView } from './widgets/quick-view/quick-view';
-import { Search } from './widgets/search/search';
-import { HasPermissionDirective } from '../../directive/has-permission.directive';
-import { AccountState } from '../../store/state/account.state';
-import { NotificationState } from '../../store/state/notification.state';
-import { SettingState } from '../../store/state/setting.state';
+import { IAccountUser } from "../../interface/account.interface";
+import { INotification } from "../../interface/notification.interface";
+import { ILanguage, IValues } from "../../interface/setting.interface";
+import { NavService } from "../../services/nav.service";
+import { Languages } from "./widgets/languages/languages";
+import { Mode } from "./widgets/mode/mode";
+import { Notification } from "./widgets/notification/notification";
+import { Profile } from "./widgets/profile/profile";
+import { QuickView } from "./widgets/quick-view/quick-view";
+import { Search } from "./widgets/search/search";
+import { HasPermissionDirective } from "../../directive/has-permission.directive";
+import { AccountState } from "../../store/state/account.state";
+import { NotificationState } from "../../store/state/notification.state";
+import { SettingState } from "../../store/state/setting.state";
 
 @Component({
-  selector: 'app-header',
+  selector: "app-header",
   imports: [
     CommonModule,
     RouterModule,
@@ -35,16 +40,21 @@ import { SettingState } from '../../store/state/setting.state';
     Profile,
     HasPermissionDirective,
   ],
-  templateUrl: './header.html',
-  styleUrl: './header.scss',
+  templateUrl: "./header.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./header.scss",
 })
 export class Header {
   navServices = inject(NavService);
   private document = inject(DOCUMENT);
 
   user$: Observable<IAccountUser> = inject(Store).select(AccountState.user);
-  setting$: Observable<IValues> = inject(Store).select(SettingState.setting) as Observable<IValues>;
-  notification$: Observable<INotification[]> = inject(Store).select(NotificationState.notification);
+  setting$: Observable<IValues> = inject(Store).select(
+    SettingState.setting,
+  ) as Observable<IValues>;
+  notification$: Observable<INotification[]> = inject(Store).select(
+    NotificationState.notification,
+  );
 
   public unreadNotificationCount: number;
 
@@ -54,21 +64,21 @@ export class Header {
 
   public languages: ILanguage[] = [
     {
-      language: 'English',
-      code: 'en',
-      icon: 'us',
+      language: "English",
+      code: "en",
+      icon: "us",
     },
     {
-      language: 'Français',
-      code: 'fr',
-      icon: 'fr',
+      language: "Français",
+      code: "fr",
+      icon: "fr",
     },
   ];
 
   public selectedLanguage: ILanguage = {
-    language: 'English',
-    code: 'en',
-    icon: 'us',
+    language: "English",
+    code: "en",
+    icon: "us",
   };
   public elem: HTMLElement;
   public url: string;
@@ -76,10 +86,12 @@ export class Header {
   constructor() {
     const document = this.document;
 
-    this.notification$.subscribe(notification => {
-      this.unreadNotificationCount = notification?.filter(item => !item.read_at)?.length;
+    this.notification$.subscribe((notification) => {
+      this.unreadNotificationCount = notification?.filter(
+        (item) => !item.read_at,
+      )?.length;
     });
-    this.setting$.subscribe(setting => {
+    this.setting$.subscribe((setting) => {
       if (setting && setting.general) {
         this.url = setting.general.site_url;
         document.body.classList.add(setting.general.mode!);
@@ -102,19 +114,19 @@ export class Header {
     if (this.navServices.fullScreen) {
       if (this.elem.requestFullscreen) {
         void this.elem.requestFullscreen();
-      } else if ('mozRequestFullScreen' in this.elem) {
+      } else if ("mozRequestFullScreen" in this.elem) {
         void (
           this.elem as HTMLElement & {
             mozRequestFullScreen: () => Promise<void>;
           }
         ).mozRequestFullScreen();
-      } else if ('webkitRequestFullscreen' in this.elem) {
+      } else if ("webkitRequestFullscreen" in this.elem) {
         void (
           this.elem as HTMLElement & {
             webkitRequestFullscreen: () => Promise<void>;
           }
         ).webkitRequestFullscreen();
-      } else if ('msRequestFullscreen' in this.elem) {
+      } else if ("msRequestFullscreen" in this.elem) {
         void (
           this.elem as HTMLElement & {
             msRequestFullscreen: () => Promise<void>;
@@ -124,19 +136,19 @@ export class Header {
     } else {
       if (this.document.exitFullscreen) {
         void this.document.exitFullscreen();
-      } else if ('mozCancelFullScreen' in this.document) {
+      } else if ("mozCancelFullScreen" in this.document) {
         void (
           this.document as Document & {
             mozCancelFullScreen: () => Promise<void>;
           }
         ).mozCancelFullScreen();
-      } else if ('webkitExitFullscreen' in this.document) {
+      } else if ("webkitExitFullscreen" in this.document) {
         void (
           this.document as Document & {
             webkitExitFullscreen: () => Promise<void>;
           }
         ).webkitExitFullscreen();
-      } else if ('msExitFullscreen' in this.document) {
+      } else if ("msExitFullscreen" in this.document) {
         void (
           this.document as Document & {
             msExitFullscreen: () => Promise<void>;

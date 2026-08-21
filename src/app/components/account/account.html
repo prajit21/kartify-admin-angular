@@ -2,7 +2,10 @@
   <div class="inside-horizontal-tabs mt-0">
     <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
       <li ngbNavItem="profile">
-        <a ngbNavLink><i class="ri-account-pin-box-line"></i>{{ 'profile_setting' | translate }}</a>
+        <a ngbNavLink
+          ><i class="ri-account-pin-box-line"></i>{{ 'profile_setting' |
+          translate }}</a
+        >
         <ng-template ngbNavContent>
           <form
             class="theme-form theme-form-2 mega-form"
@@ -10,17 +13,25 @@
             (ngSubmit)="profileFormSubmit();"
           >
             <div class="row">
-              <app-form-fields [label]="'avatar'" [for]="'image'" [required]="false">
+              <app-form-fields
+                [label]="'avatar'"
+                [for]="'image'"
+                [required]="false"
+              >
                 <app-image-upload
                   [multipleImage]="false"
                   [accept]="[mediaConfig.image]"
-                  [image]="(user$ | async)?.profile_image"
+                  [image]="$safeNavigationMigration((user$ | async)?.profile_image)"
                   (selectedFiles)="selectedFiles($event)"
                   [helpText]="'*Upload image size 100x100px recommended'"
                 />
               </app-form-fields>
 
-              <app-form-fields [label]="'name' | translate" [for]="'name'" [required]="true">
+              <app-form-fields
+                [label]="'name' | translate"
+                [for]="'name'"
+                [required]="true"
+              >
                 <input
                   class="form-control"
                   type="text"
@@ -31,11 +42,17 @@
 
                 @if(profileForm.controls['name'].touched &&
                 profileForm.controls['name'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'name_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'name_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
-              <app-form-fields [label]="'email'" [for]="'email'" [required]="true">
+              <app-form-fields
+                [label]="'email'"
+                [for]="'email'"
+                [required]="true"
+              >
                 <input
                   class="form-control"
                   type="email"
@@ -46,20 +63,28 @@
 
                 @if(profileForm.controls['email'].touched &&
                 profileForm.controls['email'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'email_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'email_is_required' | translate }}
+                </div>
                 } @if(profileForm.controls['email'].touched &&
                 profileForm.controls['email'].errors?.['email']){
-                <div class="invalid-feedback">{{ 'enter_valid_email' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'enter_valid_email' | translate }}
+                </div>
                 }
               </app-form-fields>
 
-              <app-form-fields [label]="'phone'" [for]="'phone'" [required]="true">
+              <app-form-fields
+                [label]="'phone'"
+                [for]="'phone'"
+                [required]="true"
+              >
                 @if(isBrowser) {
                 <select2
                   class="custom-select intl-tel-input"
                   [templates]="template"
                   [data]="codes"
-                  [value]="(user$ | async)?.country_code"
+                  [value]="$safeNavigationMigration((user$ | async)?.country_code)"
                   (update)="selectCode($event)"
                 >
                   <ng-template #template let-data="data">
@@ -82,14 +107,20 @@
 
                 @if(profileForm.controls['phone'].touched &&
                 profileForm.controls['phone'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'phone_number_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'phone_number_is_required' | translate }}
+                </div>
                 } @if(profileForm.controls['phone'].touched &&
                 profileForm.controls['phone'].errors?.['pattern']){
-                <div class="invalid-feedback">{{'phone_number_is_invalid' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{'phone_number_is_invalid' | translate }}
+                </div>
                 }
               </app-form-fields>
             </div>
-            <app-button [id]="'profile_btn'">{{ 'save' | translate }}</app-button>
+            <app-button [id]="'profile_btn'"
+              >{{ 'save' | translate }}</app-button
+            >
           </form>
         </ng-template>
       </li>
@@ -97,7 +128,10 @@
       @if((roleName$ | async) === 'vendor' && !flicker){
 
       <li ngbNavItem="vendor-setting">
-        <a ngbNavLink><i class="ri-account-pin-box-line"></i>{{ 'store_setting' | translate }}</a>
+        <a ngbNavLink
+          ><i class="ri-account-pin-box-line"></i>{{ 'store_setting' | translate
+          }}</a
+        >
         <ng-template ngbNavContent>
           <form
             class="theme-form theme-form-2 mega-form"
@@ -105,16 +139,24 @@
             (ngSubmit)="updateStore();"
           >
             <div class="row">
-              <app-form-fields [label]="'store_logo' | translate" [for]="'logo'" [required]="false">
+              <app-form-fields
+                [label]="'store_logo' | translate"
+                [for]="'logo'"
+                [required]="false"
+              >
                 <app-image-upload
                   [accept]="[mediaConfig.image]"
                   [multipleImage]="false"
-                  [image]="(user$ | async)?.store?.store_logo"
+                  [image]="$safeNavigationMigration((user$ | async)?.store?.store_logo)"
                   (selectedFiles)="selectStoreLogo($event)"
                 />
               </app-form-fields>
 
-              <app-form-fields [label]="'store_name'" [for]="'store_name'" [required]="true">
+              <app-form-fields
+                [label]="'store_name'"
+                [for]="'store_name'"
+                [required]="true"
+              >
                 <input
                   class="form-control"
                   type="text"
@@ -123,7 +165,9 @@
                 />
                 @if(form?.controls['store_name'].touched &&
                 form.controls['store_name'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'store_name_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'store_name_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
@@ -140,11 +184,17 @@
                 ></textarea>
                 @if(form.controls['description'].touched &&
                 form.controls['description'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'description_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'description_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
-              <app-form-fields [label]="'country'" [for]="'country'" [required]="true">
+              <app-form-fields
+                [label]="'country'"
+                [for]="'country'"
+                [required]="true"
+              >
                 @if(isBrowser) {
                 <select2
                   class="custom-select"
@@ -156,11 +206,17 @@
                 />
                 } @if(form?.controls['country_id']?.touched &&
                 form?.controls['country_id']?.errors?.['required']){
-                <div class="invalid-feedback">{{ 'country_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'country_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
-              <app-form-fields [label]="'state'" [for]="'state'" [required]="true">
+              <app-form-fields
+                [label]="'state'"
+                [for]="'state'"
+                [required]="true"
+              >
                 @if(isBrowser) {
                 <select2
                   class="custom-select"
@@ -171,11 +227,17 @@
                 />
                 } @if(form?.controls['state_id'].touched &&
                 form?.controls['state_id'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'state_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'state_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
-              <app-form-fields [label]="'city'" [for]="'city'" [required]="true">
+              <app-form-fields
+                [label]="'city'"
+                [for]="'city'"
+                [required]="true"
+              >
                 <input
                   class="form-control"
                   type="text"
@@ -184,12 +246,19 @@
                   formControlName="city"
                 />
 
-                @if(form.controls['city'].touched && form.controls['city'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'city_is_required' | translate }}</div>
+                @if(form.controls['city'].touched &&
+                form.controls['city'].errors?.['required']){
+                <div class="invalid-feedback">
+                  {{ 'city_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
-              <app-form-fields [label]="'address'" [for]="'address'" [required]="true">
+              <app-form-fields
+                [label]="'address'"
+                [for]="'address'"
+                [required]="true"
+              >
                 <input
                   class="form-control"
                   type="text"
@@ -200,11 +269,17 @@
 
                 @if(form.controls['address'].touched &&
                 form.controls['address'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'address_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'address_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
-              <app-form-fields [label]="'pincode'" [for]="'pincode'" [required]="true">
+              <app-form-fields
+                [label]="'pincode'"
+                [for]="'pincode'"
+                [required]="true"
+              >
                 <input
                   class="form-control"
                   type="number"
@@ -214,7 +289,9 @@
                 />
                 @if(form.controls['pincode'].touched &&
                 form.controls['pincode'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'pincode_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'pincode_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
@@ -297,14 +374,19 @@
                 </div>
               </app-form-fields>
             </div>
-            <app-button [id]="'store_setting_btn'">{{ 'save' | translate }}</app-button>
+            <app-button [id]="'store_setting_btn'"
+              >{{ 'save' | translate }}</app-button
+            >
           </form>
         </ng-template>
       </li>
       }
 
       <li ngbNavItem="password">
-        <a ngbNavLink><i class="ri-phone-lock-line"></i> {{ 'change_password' | translate }}</a>
+        <a ngbNavLink
+          ><i class="ri-phone-lock-line"></i> {{ 'change_password' | translate
+          }}</a
+        >
         <ng-template ngbNavContent>
           <form
             class="theme-form theme-form-2 mega-form"
@@ -326,11 +408,17 @@
                 />
                 @if(passwordForm.controls['current_password'].touched &&
                 passwordForm.controls['current_password'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'current_password_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'current_password_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
-              <app-form-fields [label]="'new_password'" [for]="'new_password'" [required]="true">
+              <app-form-fields
+                [label]="'new_password'"
+                [for]="'new_password'"
+                [required]="true"
+              >
                 <input
                   class="form-control"
                   type="password"
@@ -340,7 +428,9 @@
                 />
                 @if(passwordForm.controls['password'].touched &&
                 passwordForm.controls['password'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'new_password_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'new_password_is_required' | translate }}
+                </div>
                 }
               </app-form-fields>
 
@@ -359,7 +449,9 @@
 
                 @if(passwordForm.controls['password_confirmation'].touched &&
                 passwordForm.controls['password_confirmation'].errors?.['required']){
-                <div class="invalid-feedback">{{ 'confirm_password_is_required' | translate }}</div>
+                <div class="invalid-feedback">
+                  {{ 'confirm_password_is_required' | translate }}
+                </div>
                 }@else if(passwordMatchError){
                 <div class="invalid-feedback">
                   {{ 'confirm_password_does_not_matched' | translate }}
@@ -367,7 +459,9 @@
                 }
               </app-form-fields>
             </div>
-            <app-button [id]="'password_btn'">{{ 'save' | translate }}</app-button>
+            <app-button [id]="'password_btn'"
+              >{{ 'save' | translate }}</app-button
+            >
           </form>
         </ng-template>
       </li>

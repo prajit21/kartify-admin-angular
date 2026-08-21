@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 
-import { PageWrapper } from '../../../shared/components/page-wrapper/page-wrapper';
-import { FormTax } from '../form-tax/form-tax';
+import { PageWrapper } from "../../../shared/components/page-wrapper/page-wrapper";
+import { FormTax } from "../form-tax/form-tax";
 
 @Component({
-  selector: 'app-edit-tax',
+  selector: "app-edit-tax",
   imports: [PageWrapper, FormTax],
-  templateUrl: './edit-tax.html',
-  styleUrl: './edit-tax.scss',
+  templateUrl: "./edit-tax.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./edit-tax.scss",
 })
 export class EditTax {}

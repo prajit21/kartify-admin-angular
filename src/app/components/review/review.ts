@@ -1,25 +1,29 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from "@angular/core";
 
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper';
-import { Table } from '../../shared/components/ui/table/table';
-import { Params } from '../../shared/interface/core.interface';
-import { IReview, IReviewModel } from '../../shared/interface/review.interface';
-import { ITableClickedAction, ITableConfig } from '../../shared/interface/table.interface';
+import { PageWrapper } from "../../shared/components/page-wrapper/page-wrapper";
+import { Table } from "../../shared/components/ui/table/table";
+import { Params } from "../../shared/interface/core.interface";
+import { IReview, IReviewModel } from "../../shared/interface/review.interface";
+import {
+  ITableClickedAction,
+  ITableConfig,
+} from "../../shared/interface/table.interface";
 import {
   GetReviewsAction,
   DeleteReviewAction,
   DeleteAllReviewAction,
-} from '../../shared/store/action/review.action';
-import { ReviewState } from '../../shared/store/state/review.state';
+} from "../../shared/store/action/review.action";
+import { ReviewState } from "../../shared/store/state/review.state";
 
 @Component({
-  selector: 'app-review',
+  selector: "app-review",
   imports: [PageWrapper, Table],
-  templateUrl: './review.html',
-  styleUrl: './review.scss',
+  templateUrl: "./review.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./review.scss",
 })
 export class Review {
   private store = inject(Store);
@@ -29,35 +33,35 @@ export class Review {
   public tableConfig: ITableConfig = {
     columns: [
       {
-        title: 'image',
-        dataField: 'product_review_image',
-        class: 'tbl-image',
-        type: 'image',
-        placeholder: 'assets/images/product.png',
+        title: "image",
+        dataField: "product_review_image",
+        class: "tbl-image",
+        type: "image",
+        placeholder: "assets/images/product.png",
       },
-      { title: 'consumer_name', dataField: 'consumer_name' },
-      { title: 'product_name', dataField: 'product_name' },
+      { title: "consumer_name", dataField: "consumer_name" },
+      { title: "product_name", dataField: "product_name" },
       {
-        title: 'rating',
-        dataField: 'rating',
-        type: 'rating',
+        title: "rating",
+        dataField: "rating",
+        type: "rating",
         sortable: true,
-        sort_direction: 'desc',
+        sort_direction: "desc",
       },
       {
-        title: 'created_at',
-        dataField: 'created_at',
-        type: 'date',
+        title: "created_at",
+        dataField: "created_at",
+        type: "date",
         sortable: true,
-        sort_direction: 'desc',
+        sort_direction: "desc",
       },
     ],
     rowActions: [
       {
-        label: 'Delete',
-        actionToPerform: 'delete',
-        icon: 'ri-delete-bin-line',
-        permission: 'review.destroy',
+        label: "Delete",
+        actionToPerform: "delete",
+        icon: "ri-delete-bin-line",
+        permission: "review.destroy",
       },
     ],
     data: [] as IReview[],
@@ -69,7 +73,7 @@ export class Review {
   }
 
   ngOnInit() {
-    this.review$.subscribe(review => {
+    this.review$.subscribe((review) => {
       let reviews = review?.data?.filter((element: IReview) => {
         element.product_review_image = element?.product?.product_thumbnail;
         element.consumer_name = element?.consumer?.name;
@@ -86,8 +90,8 @@ export class Review {
   }
 
   onActionClicked(action: ITableClickedAction) {
-    if (action.actionToPerform == 'delete') this.delete(action.data);
-    else if (action.actionToPerform == 'deleteAll') this.deleteAll(action.data);
+    if (action.actionToPerform == "delete") this.delete(action.data);
+    else if (action.actionToPerform == "deleteAll") this.deleteAll(action.data);
   }
 
   delete(data: IReview) {

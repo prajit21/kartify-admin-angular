@@ -4,7 +4,10 @@
   *hasPermission="['notice.create', 'notice.destroy', 'notice.index' ]"
 >
   <div class="d-flex flex-wrap gap-2" *hasPermission="'notice.create'" button>
-    <a [routerLink]="['/notice/create']" class="align-items-center btn btn-theme">
+    <a
+      [routerLink]="['/notice/create']"
+      class="align-items-center btn btn-theme"
+    >
       <i class="ri-add-line"></i> {{ 'add_notice' | translate }}
     </a>
   </div>
@@ -17,7 +20,8 @@
   />
 </app-page-wrapper>
 
-@if(role !== 'admin'){ @if(!hasPermission('notice.create') && !hasPermission('notice.destroy')){
+@if(role !== 'admin'){ @if(!hasPermission('notice.create') &&
+!hasPermission('notice.destroy')){
 <app-page-wrapper [gridClass]="'col-xxl-8 m-auto'" [title]="'Notice'">
   @if((notice$ | async)?.data?.length){
   <ul class="notification-setting notification-page">
@@ -29,7 +33,7 @@
         </div>
         <div class="notice-box">
           <h3>{{ notice?.title }}</h3>
-          <p [innerHTML]="notice?.description"></p>
+          <p [innerHTML]="$safeNavigationMigration(notice?.description)"></p>
         </div>
       </div>
     </li>

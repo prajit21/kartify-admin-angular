@@ -2,7 +2,7 @@
   <div class="product-image">
     <img
       [src]="product()?.product_thumbnail 
-                ? product()?.product_thumbnail?.asset_url 
+                ? $safeNavigationMigration(product()?.product_thumbnail?.asset_url) 
                 : 'assets/images/product.png'"
       class="img-fluid blur-up lazyload"
       alt="product"
@@ -23,13 +23,13 @@
     </h6>
     <div class="counter-box">
       <h6 class="sold theme-color">
-        {{product()?.sale_price | currencySymbol}}
+        {{$safeNavigationMigration(product()?.sale_price) | currencySymbol}}
       </h6>
       <div class="addtocart_btn">
         @if(product()?.product_type !== 'external'){ @if(product().stock_status
         === 'in_stock'){
         <app-button
-          [id]="product().type === 'classified'? '':'addcartbtn'+product()?.id"
+          [id]="product().type === 'classified'? '':'addcartbtn'+$safeNavigationMigration(product()?.id)"
           [class]="'add-button addcart-button btn buy-button'"
           [iconClass]="'ri-add-line'"
           (click)="addToCartModal.openModal(product())"

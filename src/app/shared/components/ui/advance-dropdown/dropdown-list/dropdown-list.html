@@ -3,7 +3,8 @@
   <div class="image">
     <img
       class="img-fluid selection-image"
-      [src]="data()?.category_icon ? data()?.category_icon.original_url : 'assets/images/category.png'" alt="img"
+      [src]="data()?.category_icon ? $safeNavigationMigration(data()?.category_icon.original_url) : 'assets/images/category.png'"
+      alt="img"
     />
   </div>
   } {{ data()[key()] }}
@@ -17,7 +18,11 @@
   </a>
 
   @if(data()[subArrayKey()]?.length){
-  <a href="javascript:void(0)" class="right-arrow" (click)="onArrowClick($event, data())">
+  <a
+    href="javascript:void(0)"
+    class="right-arrow"
+    (click)="onArrowClick($event, data())"
+  >
     <i class="ri-arrow-right-s-line"></i>
   </a>
   }

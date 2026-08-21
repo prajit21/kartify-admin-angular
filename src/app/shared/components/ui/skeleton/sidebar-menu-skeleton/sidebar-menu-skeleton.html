@@ -5,7 +5,7 @@
     <a>
       <img
         class="img-fluid for-white"
-        [src]="(setting$ | async )?.general?.light_logo_image?.asset_url"
+        [src]="$safeNavigationMigration((setting$ | async )?.general?.light_logo_image?.asset_url)"
         alt="logo"
       />
     </a>
@@ -20,7 +20,7 @@
     <div class="back-btn"><i class="fa fa-angle-left"></i></div>
     <div class="toggle-sidebar">
       <i class="ri-menu-line"></i>
-    </div> 
+    </div>
   </div>
   <nav class="sidebar-main">
     <div class="left-arrow" id="left-arrow">

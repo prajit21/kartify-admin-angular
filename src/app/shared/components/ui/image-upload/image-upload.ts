@@ -1,18 +1,25 @@
+import {
+  Component,
+  viewChild,
+  output,
+  input,
+  Input,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
-import { Component, viewChild, output, input, Input } from '@angular/core';
-
-import { environment } from '../../../../../environments/environment.development';
-import { IAttachment } from '../../../interface/attachment.interface';
-import { MediaModal } from '../modal/media-modal/media-modal';
+import { environment } from "../../../../../environments/environment.development";
+import { IAttachment } from "../../../interface/attachment.interface";
+import { MediaModal } from "../modal/media-modal/media-modal";
 
 @Component({
-  selector: 'app-image-upload',
+  selector: "app-image-upload",
   imports: [MediaModal],
-  templateUrl: './image-upload.html',
-  styleUrl: './image-upload.scss',
+  templateUrl: "./image-upload.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./image-upload.scss",
 })
 export class ImageUpload {
-  readonly MediaModal = viewChild<MediaModal>('mediaModal');
+  readonly MediaModal = viewChild<MediaModal>("mediaModal");
 
   readonly id = input<string>(undefined);
   readonly url = input<boolean>(false);
@@ -30,35 +37,44 @@ export class ImageUpload {
   public showImage: IAttachment | null;
   public showImageUrl: string | null;
   public selected: any;
-  public videoType = ['mp4', 'webm', 'ogg'];
+  public videoType = ["mp4", "webm", "ogg"];
   public StorageURL = environment.URL;
   public mimeImageMapping: { mimeType: string; imagePath: string }[] = [
-    { mimeType: 'application/pdf', imagePath: 'assets/images/pdf.png' },
-    { mimeType: 'application/msword', imagePath: 'assets/images/word.png' },
+    { mimeType: "application/pdf", imagePath: "assets/images/pdf.png" },
+    { mimeType: "application/msword", imagePath: "assets/images/word.png" },
     {
-      mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-      imagePath: 'assets/images/word.png',
+      mimeType:
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      imagePath: "assets/images/word.png",
     },
-    { mimeType: 'application/vnd.ms-excel', imagePath: 'assets/images/xls.png' },
     {
-      mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      imagePath: 'assets/images/xls.png',
+      mimeType: "application/vnd.ms-excel",
+      imagePath: "assets/images/xls.png",
     },
-    { mimeType: 'application/vnd.ms-powerpoint', imagePath: 'assets/images/folder.png' },
     {
-      mimeType: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-      imagePath: 'assets/images/folder.png',
+      mimeType:
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      imagePath: "assets/images/xls.png",
     },
-    { mimeType: 'text/plain', imagePath: 'assets/images/txt.png' },
-    { mimeType: 'audio/mpeg', imagePath: 'assets/images/sound.png' },
-    { mimeType: 'audio/wav', imagePath: 'assets/images/sound.png' },
-    { mimeType: 'audio/ogg', imagePath: 'assets/images/sound.png' },
-    { mimeType: 'video/mp4', imagePath: 'assets/images/video.png' },
-    { mimeType: 'video/webm', imagePath: 'assets/images/video.png' },
-    { mimeType: 'video/ogg', imagePath: 'assets/images/video.png' },
-    { mimeType: 'application/zip', imagePath: 'assets/images/zip.png' },
-    { mimeType: 'application/x-tar', imagePath: 'assets/images/zip.png' },
-    { mimeType: 'application/gzip', imagePath: 'assets/images/zip.png' },
+    {
+      mimeType: "application/vnd.ms-powerpoint",
+      imagePath: "assets/images/folder.png",
+    },
+    {
+      mimeType:
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      imagePath: "assets/images/folder.png",
+    },
+    { mimeType: "text/plain", imagePath: "assets/images/txt.png" },
+    { mimeType: "audio/mpeg", imagePath: "assets/images/sound.png" },
+    { mimeType: "audio/wav", imagePath: "assets/images/sound.png" },
+    { mimeType: "audio/ogg", imagePath: "assets/images/sound.png" },
+    { mimeType: "video/mp4", imagePath: "assets/images/video.png" },
+    { mimeType: "video/webm", imagePath: "assets/images/video.png" },
+    { mimeType: "video/ogg", imagePath: "assets/images/video.png" },
+    { mimeType: "application/zip", imagePath: "assets/images/zip.png" },
+    { mimeType: "application/x-tar", imagePath: "assets/images/zip.png" },
+    { mimeType: "application/gzip", imagePath: "assets/images/zip.png" },
   ];
 
   ngOnChanges() {
@@ -88,10 +104,10 @@ export class ImageUpload {
 
   remove(index: number, type: string) {
     const images = this.images;
-    if (type == 'multiple' && Array.isArray(images)) {
+    if (type == "multiple" && Array.isArray(images)) {
       images.splice(index, 1);
       this.showImages = images;
-    } else if (type == 'single_image_url') {
+    } else if (type == "single_image_url") {
       this.imageUrl = null;
       this.showImageUrl = null;
       this.image = null;
@@ -103,6 +119,7 @@ export class ImageUpload {
   }
 
   getMimeTypeImage(mimeType: string) {
-    return this.mimeImageMapping.find(value => value.mimeType == mimeType)?.imagePath;
+    return this.mimeImageMapping.find((value) => value.mimeType == mimeType)
+      ?.imagePath;
   }
 }

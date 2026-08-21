@@ -1,19 +1,34 @@
-import { Component, TemplateRef, inject, viewChild } from '@angular/core';
+import {
+  Component,
+  TemplateRef,
+  inject,
+  viewChild,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
-import { ModalDismissReasons, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Select2Data, Select2Module, Select2UpdateEvent } from 'ng-select2-component';
+import {
+  ModalDismissReasons,
+  NgbModal,
+  NgbModalRef,
+} from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import {
+  Select2Data,
+  Select2Module,
+  Select2UpdateEvent,
+} from "ng-select2-component";
 
-import { IProduct, IVariation } from '../../../../interface/product.interface';
-import { DownloadAction } from '../../../../store/action/product.action';
-import { Button } from '../../button/button';
+import { IProduct, IVariation } from "../../../../interface/product.interface";
+import { DownloadAction } from "../../../../store/action/product.action";
+import { Button } from "../../button/button";
 
 @Component({
-  selector: 'app-digital-download-modal',
+  selector: "app-digital-download-modal",
   imports: [TranslateModule, Select2Module, Button],
-  templateUrl: './digital-download-modal.html',
-  styleUrl: './digital-download-modal.scss',
+  templateUrl: "./digital-download-modal.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./digital-download-modal.scss",
 })
 export class DigitalDownloadModal {
   private modalService = inject(NgbModal);
@@ -25,29 +40,29 @@ export class DigitalDownloadModal {
   public variations: Select2Data = [];
   public variation_id: number;
 
-  readonly DownloadModal = viewChild<TemplateRef<string>>('downloadModal');
+  readonly DownloadModal = viewChild<TemplateRef<string>>("downloadModal");
 
   async openModal(data: IProduct) {
     this.modalOpen = true;
     this.product = data;
     if (data.variations.length) {
       this.variations = data.variations
-        .filter(res => res?.digital_files?.length)
+        .filter((res) => res?.digital_files?.length)
         .map((res: IVariation) => {
           return { label: res?.name, value: res?.id! };
         });
     }
     this.modalService
       .open(this.DownloadModal(), {
-        ariaLabelledBy: 'Download-Modal',
+        ariaLabelledBy: "Download-Modal",
         centered: true,
-        windowClass: 'theme-modal',
+        windowClass: "theme-modal",
       })
       .result.then(
-        result => {
+        (result) => {
           `Result ${result}`;
         },
-        reason => {
+        (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         },
       );
@@ -55,9 +70,9 @@ export class DigitalDownloadModal {
 
   private getDismissReason(reason: ModalDismissReasons): string {
     if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
+      return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
+      return "by clicking on a backdrop";
     } else {
       return `with: ${reason}`;
     }
@@ -65,7 +80,10 @@ export class DigitalDownloadModal {
 
   download(modal: NgbModalRef) {
     this.store.dispatch(
-      new DownloadAction({ product_id: this.product.id, variation_id: this.variation_id }),
+      new DownloadAction({
+        product_id: this.product.id,
+        variation_id: this.variation_id,
+      }),
     );
     modal.close();
   }

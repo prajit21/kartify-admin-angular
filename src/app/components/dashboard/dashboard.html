@@ -9,11 +9,13 @@
         </div>
         <div class="notice-box">
           <h3>{{ notice?.title }}</h3>
-          <p [innerHTML]="notice?.description"></p>
+          <p [innerHTML]="$safeNavigationMigration(notice?.description)"></p>
         </div>
       </div>
       <a [routerLink]="['/notice']">{{ 'see_all' | translate }}</a>
-      <a class="close-icon" (click)="markAsRead(notice?.id)"
+      <a
+        class="close-icon"
+        (click)="markAsRead($safeNavigationMigration(notice?.id))"
         ><i class="ri-close-line"></i
       ></a>
     </div>
@@ -193,7 +195,8 @@
             <div>
               <h6>{{ 'total_revenue' | translate }}</h6>
               <h2>
-                {{ (statistics$ | async)?.total_revenue | currencySymbol }}
+                {{ $safeNavigationMigration((statistics$ |
+                async)?.total_revenue) | currencySymbol }}
               </h2>
             </div>
           </a>
@@ -418,13 +421,19 @@
                 />
                 <div>
                   <h6>{{ product?.name }}</h6>
-                  <span>{{ product?.created_at | date: 'dd MMM yyyy' }}</span>
+                  <span
+                    >{{ $safeNavigationMigration(product?.created_at) | date:
+                    'dd MMM yyyy' }}</span
+                  >
                 </div>
               </div>
 
               <div class="product-meta">
                 <span>Price</span>
-                <h6>{{ product?.sale_price | currencySymbol }}</h6>
+                <h6>
+                  {{ $safeNavigationMigration(product?.sale_price) |
+                  currencySymbol }}
+                </h6>
               </div>
 
               <div class="product-meta">
@@ -439,7 +448,10 @@
 
               <div class="product-meta amount">
                 <span>Amount</span>
-                <h6>{{ +product?.order_amount | currencySymbol }}</h6>
+                <h6>
+                  {{ +$safeNavigationMigration(product?.order_amount) |
+                  currencySymbol }}
+                </h6>
               </div>
             </div>
             }
@@ -545,12 +557,12 @@
                       />
                       <div class="review-title">
                         <h4>{{ review?.consumer?.name }}</h4>
-                        <span class="date">SEPTEMBER 24, 2025</span>
+                        <span class="date">SEPTEMBER 24, 2026</span>
                       </div>
                     </div>
                     <ngb-rating
                       class="rating"
-                      [rate]="review?.rating"
+                      [rate]="$safeNavigationMigration(review?.rating)"
                       [readonly]="true"
                     />
                   </div>

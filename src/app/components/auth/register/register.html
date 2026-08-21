@@ -6,7 +6,7 @@
         <div class="log-in-box">
           <div class="log-in-title">
             <img
-              [src]="(setting$ | async)?.general?.dark_logo_image?.asset_url"
+              [src]="$safeNavigationMigration((setting$ | async)?.general?.dark_logo_image?.asset_url)"
               class="img-fluid logo-img"
               alt="logo"
             />
@@ -24,8 +24,11 @@
                     placeholder="{{ 'name' | translate }}"
                   />
                   <label for="name">{{ 'name' | translate }}</label>
-                  @if(form.controls['name'].touched && form.controls['name'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'name_is_required' | translate }}</div>
+                  @if(form.controls['name'].touched &&
+                  form.controls['name'].errors?.['required']){
+                  <div class="invalid-feedback">
+                    {{ 'name_is_required' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -41,9 +44,14 @@
                   <label for="email">{{ 'email_address' | translate }}</label>
                   @if(form.controls['email'].touched &&
                   form.controls['email'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'email_is_required' | translate }}</div>
-                  } @if(form.controls['email'].touched && form.controls['email'].errors?.['email']){
-                  <div class="invalid-feedback">{{ 'invalid_email' | translate }}</div>
+                  <div class="invalid-feedback">
+                    {{ 'email_is_required' | translate }}
+                  </div>
+                  } @if(form.controls['email'].touched &&
+                  form.controls['email'].errors?.['email']){
+                  <div class="invalid-feedback">
+                    {{ 'invalid_email' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -59,7 +67,9 @@
                   <label for="password">{{ 'password' | translate }}</label>
                   @if(form.controls['password'].touched &&
                   form.controls['password'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'password_is_required' | translate }}</div>
+                  <div class="invalid-feedback">
+                    {{ 'password_is_required' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -72,7 +82,9 @@
                     formControlName="password_confirmation"
                     placeholder="{{ 'confirm_password' | translate }} "
                   />
-                  <label for="confirm_password">{{ 'confirm_password' | translate }}</label>
+                  <label for="confirm_password"
+                    >{{ 'confirm_password' | translate }}</label
+                  >
                   @if(form.controls['password_confirmation'].touched &&
                   form.controls['password_confirmation'].errors?.['required']){
                   <div class="invalid-feedback">
@@ -97,7 +109,9 @@
                   <label for="store_name">{{ 'store_name' | translate }}</label>
                   @if(form.controls['store_name'].touched &&
                   form.controls['store_name'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'store_name_is_required' | translate }}</div>
+                  <div class="invalid-feedback">
+                    {{ 'store_name_is_required' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -110,10 +124,14 @@
                     formControlName="description"
                     placeholder="{{ 'store_description' | translate }}"
                   ></textarea>
-                  <label for="store_description">{{ 'store_description' | translate }}</label>
+                  <label for="store_description"
+                    >{{ 'store_description' | translate }}</label
+                  >
                   @if(form.controls['description'].touched &&
                   form.controls['description'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'description_is_required' | translate }}</div>
+                  <div class="invalid-feedback">
+                    {{ 'description_is_required' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -131,7 +149,9 @@
                   />
                   } @if(form.controls['country_id'].touched &&
                   form.controls['country_id'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'country_is_required' | translate }}</div>
+                  <div class="invalid-feedback">
+                    {{ 'country_is_required' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -148,7 +168,9 @@
                   />
                   } @if(form.controls['state_id'].touched &&
                   form.controls['state_id'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'state_is_required' | translate }}</div>
+                  <div class="invalid-feedback">
+                    {{ 'state_is_required' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -162,8 +184,11 @@
                     placeholder="{{ 'city' | translate }}"
                   />
                   <label for="city">{{ 'city' | translate }}</label>
-                  @if(form.controls['city'].touched && form.controls['city'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'city_is_required' | translate }}</div>
+                  @if(form.controls['city'].touched &&
+                  form.controls['city'].errors?.['required']){
+                  <div class="invalid-feedback">
+                    {{ 'city_is_required' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -179,7 +204,9 @@
                   <label for="address">{{ 'address' | translate }}</label>
                   @if(form.controls['address'].touched &&
                   form.controls['address'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'address_is_required' | translate }}</div>
+                  <div class="invalid-feedback">
+                    {{ 'address_is_required' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -195,7 +222,9 @@
                   <label for="pincode">{{ 'pincode' | translate }}</label>
                   @if(form.controls['pincode'].touched &&
                   form.controls['pincode'].errors?.['required']){
-                  <div class="invalid-feedback">{{ 'pincode_is_required' | translate }}</div>
+                  <div class="invalid-feedback">
+                    {{ 'pincode_is_required' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -233,7 +262,9 @@
                   </div>
                   } @if(form.controls['phone'].touched &&
                   form.controls['phone'].errors?.['pattern']){
-                  <div class="invalid-feedback">{{ 'phone_number_is_invalid' | translate }}</div>
+                  <div class="invalid-feedback">
+                    {{ 'phone_number_is_invalid' | translate }}
+                  </div>
                   }
                 </div>
               </div>
@@ -246,7 +277,9 @@
                 </app-button>
                 <div class="sign-up-box">
                   <h4>{{ 'already_have_account' | translate }}</h4>
-                  <a [routerLink]="['/auth/login']">{{ 'log_in' | translate }}</a>
+                  <a [routerLink]="['/auth/login']"
+                    >{{ 'log_in' | translate }}</a
+                  >
                 </div>
               </div>
             </form>

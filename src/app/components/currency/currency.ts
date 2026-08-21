@@ -1,61 +1,81 @@
-import { Component, inject } from '@angular/core';
-import { Params, Router, RouterModule } from '@angular/router';
+import { Component, inject, ChangeDetectionStrategy } from "@angular/core";
+import { Params, Router, RouterModule } from "@angular/router";
 
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 
-import { PageWrapper } from '../../shared/components/page-wrapper/page-wrapper';
-import { Table } from '../../shared/components/ui/table/table';
-import { HasPermissionDirective } from '../../shared/directive/has-permission.directive';
-import { ICurrency, ICurrencyModel } from '../../shared/interface/currency.interface';
-import { ITableClickedAction, ITableConfig } from '../../shared/interface/table.interface';
+import { PageWrapper } from "../../shared/components/page-wrapper/page-wrapper";
+import { Table } from "../../shared/components/ui/table/table";
+import { HasPermissionDirective } from "../../shared/directive/has-permission.directive";
+import {
+  ICurrency,
+  ICurrencyModel,
+} from "../../shared/interface/currency.interface";
+import {
+  ITableClickedAction,
+  ITableConfig,
+} from "../../shared/interface/table.interface";
 import {
   DeleteAllCurrencyAction,
   DeleteCurrencyAction,
   GetCurrenciesAction,
   UpdateCurrencyStatusAction,
-} from '../../shared/store/action/currency.action';
-import { CurrencyState } from '../../shared/store/state/currency.state';
+} from "../../shared/store/action/currency.action";
+import { CurrencyState } from "../../shared/store/state/currency.state";
 
 @Component({
-  selector: 'app-currency',
-  imports: [TranslateModule, RouterModule, HasPermissionDirective, PageWrapper, Table],
-  templateUrl: './currency.html',
-  styleUrl: './currency.scss',
+  selector: "app-currency",
+  imports: [
+    TranslateModule,
+    RouterModule,
+    HasPermissionDirective,
+    PageWrapper,
+    Table,
+  ],
+  templateUrl: "./currency.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./currency.scss",
 })
 export class Currency {
   private store = inject(Store);
   router = inject(Router);
 
-  currency$: Observable<ICurrencyModel> = inject(Store).select(CurrencyState.currency);
+  currency$: Observable<ICurrencyModel> = inject(Store).select(
+    CurrencyState.currency,
+  );
 
   public tableConfig: ITableConfig = {
     columns: [
-      { title: 'code', dataField: 'code', sortable: true, sort_direction: 'desc' },
-      { title: 'symbol', dataField: 'symbol' },
-      { title: 'exchange_rate', dataField: 'exchange_rate' },
       {
-        title: 'created_at',
-        dataField: 'created_at',
-        type: 'date',
+        title: "code",
+        dataField: "code",
         sortable: true,
-        sort_direction: 'desc',
+        sort_direction: "desc",
       },
-      { title: 'status', dataField: 'status', type: 'switch' },
+      { title: "symbol", dataField: "symbol" },
+      { title: "exchange_rate", dataField: "exchange_rate" },
+      {
+        title: "created_at",
+        dataField: "created_at",
+        type: "date",
+        sortable: true,
+        sort_direction: "desc",
+      },
+      { title: "status", dataField: "status", type: "switch" },
     ],
     rowActions: [
       {
-        label: 'Edit',
-        actionToPerform: 'edit',
-        icon: 'ri-pencil-line',
-        permission: 'currency.edit',
+        label: "Edit",
+        actionToPerform: "edit",
+        icon: "ri-pencil-line",
+        permission: "currency.edit",
       },
       {
-        label: 'Delete',
-        actionToPerform: 'delete',
-        icon: 'ri-delete-bin-line',
-        permission: 'currency.destroy',
+        label: "Delete",
+        actionToPerform: "delete",
+        icon: "ri-delete-bin-line",
+        permission: "currency.destroy",
       },
     ],
     data: [] as ICurrency[],
@@ -63,7 +83,7 @@ export class Currency {
   };
 
   ngOnInit(): void {
-    this.currency$.subscribe(currency => {
+    this.currency$.subscribe((currency) => {
       this.tableConfig.data = currency ? currency?.data : [];
       this.tableConfig.total = currency ? currency?.total : 0;
     });
@@ -74,10 +94,10 @@ export class Currency {
   }
 
   onActionClicked(action: ITableClickedAction) {
-    if (action.actionToPerform == 'edit') this.edit(action.data);
-    else if (action.actionToPerform == 'status') this.status(action.data);
-    else if (action.actionToPerform == 'delete') this.delete(action.data);
-    else if (action.actionToPerform == 'deleteAll') this.deleteAll(action.data);
+    if (action.actionToPerform == "edit") this.edit(action.data);
+    else if (action.actionToPerform == "status") this.status(action.data);
+    else if (action.actionToPerform == "delete") this.delete(action.data);
+    else if (action.actionToPerform == "deleteAll") this.deleteAll(action.data);
   }
 
   edit(data: ICurrency) {

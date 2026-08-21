@@ -6,7 +6,8 @@ import {
   viewChild,
   output,
   input,
-} from '@angular/core';
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
 import {
   ModalDismissReasons,
@@ -14,21 +15,21 @@ import {
   NgbModalRef,
   NgbModule,
   NgbNav,
-} from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { Store } from '@ngxs/store';
-import { NgxDropzoneChangeEvent, NgxDropzoneModule } from 'ngx-dropzone';
+} from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule } from "@ngx-translate/core";
+import { Store } from "@ngxs/store";
+import { NgxDropzoneChangeEvent, NgxDropzoneModule } from "ngx-dropzone";
 
-import * as media from '../../../../../shared/data/media-config';
-import { HasPermissionDirective } from '../../../../directive/has-permission.directive';
-import { IAttachment } from '../../../../interface/attachment.interface';
-import { NotificationService } from '../../../../services/notification.service';
-import { CreateAttachmentAction } from '../../../../store/action/attachment.action';
-import { Button } from '../../button/button';
-import { MediaBox } from '../../media-box/media-box';
+import * as media from "../../../../../shared/data/media-config";
+import { HasPermissionDirective } from "../../../../directive/has-permission.directive";
+import { IAttachment } from "../../../../interface/attachment.interface";
+import { NotificationService } from "../../../../services/notification.service";
+import { CreateAttachmentAction } from "../../../../store/action/attachment.action";
+import { Button } from "../../button/button";
+import { MediaBox } from "../../media-box/media-box";
 
 @Component({
-  selector: 'app-media-modal',
+  selector: "app-media-modal",
   imports: [
     TranslateModule,
     NgbModule,
@@ -37,15 +38,16 @@ import { MediaBox } from '../../media-box/media-box';
     MediaBox,
     HasPermissionDirective,
   ],
-  templateUrl: './media-modal.html',
-  styleUrl: './media-modal.scss',
+  templateUrl: "./media-modal.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./media-modal.scss",
 })
 export class MediaModal {
   private store = inject(Store);
   private notificationService = inject(NotificationService);
   private modalService = inject(NgbModal);
 
-  public active = 'select';
+  public active = "select";
   public closeResult: string;
   public modalOpen: boolean = false;
   public media: IAttachment;
@@ -62,49 +64,49 @@ export class MediaModal {
   ]);
   readonly selectedImagesIds = input<any>(undefined);
 
-  readonly MediaModal = viewChild<TemplateRef<string>>('mediaModal');
+  readonly MediaModal = viewChild<TemplateRef<string>>("mediaModal");
 
   readonly selectImage = output<IAttachment>();
 
   ngOnChanges(change: SimpleChanges) {
     this.selectedImages = [];
-    if (Array.isArray(change['selectedImagesIds']?.currentValue)) {
-      this.selectedImages = change['selectedImagesIds']?.currentValue;
-    } else if (change['selectedImagesIds']?.currentValue) {
-      this.selectedImages.push(change['selectedImagesIds']?.currentValue);
+    if (Array.isArray(change["selectedImagesIds"]?.currentValue)) {
+      this.selectedImages = change["selectedImagesIds"]?.currentValue;
+    } else if (change["selectedImagesIds"]?.currentValue) {
+      this.selectedImages.push(change["selectedImagesIds"]?.currentValue);
     } else {
-      this.selectedImages.push(change['selectedImagesIds']?.currentValue);
+      this.selectedImages.push(change["selectedImagesIds"]?.currentValue);
     }
   }
 
   async openModal() {
     this.modalOpen = true;
-    if (this.selectMedia()) this.active = 'select';
-    else this.active = 'upload';
+    if (this.selectMedia()) this.active = "select";
+    else this.active = "upload";
     this.modalService
       .open(this.MediaModal(), {
-        ariaLabelledBy: 'Media-Modal',
+        ariaLabelledBy: "Media-Modal",
         centered: true,
-        windowClass: 'theme-modal modal-xl media-modal',
+        windowClass: "theme-modal modal-xl media-modal",
       })
       .result.then(
-        result => {
+        (result) => {
           `Result ${result}`;
           this.closeResult = `Closed with: ${result}`;
         },
-        reason => {
+        (reason) => {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         },
       );
   }
 
   private getDismissReason(reason: ModalDismissReasons): string {
-    if (this.selectMedia()) this.active = 'select';
-    else this.active = 'upload';
+    if (this.selectMedia()) this.active = "select";
+    else this.active = "upload";
     if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
+      return "by pressing ESC";
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
+      return "by clicking on a backdrop";
     } else {
       return `with: ${reason}`;
     }
@@ -122,12 +124,12 @@ export class MediaModal {
 
   addMedia(nav: NgbNav) {
     if (this.files.length) {
-      if (this.active == 'upload') {
+      if (this.active == "upload") {
         this.store.dispatch(new CreateAttachmentAction(this.files)).subscribe({
           complete: () => {
             this.files = [];
             if (this.selectMedia()) {
-              nav.select('select');
+              nav.select("select");
             } else {
               this.modalService.dismissAll();
             }
@@ -143,7 +145,7 @@ export class MediaModal {
 
   selectedMedia(modal: NgbModalRef) {
     this.selectImage.emit(this.media);
-    modal.dismiss('close');
+    modal.dismiss("close");
   }
 
   ngOnDestroy() {

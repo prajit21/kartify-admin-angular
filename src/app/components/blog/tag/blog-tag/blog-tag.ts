@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 
-import { Tag } from '../../../tag/tag';
+import { Tag } from "../../../tag/tag";
 
 @Component({
-  selector: 'app-blog-tag',
+  selector: "app-blog-tag",
   imports: [Tag],
-  templateUrl: './blog-tag.html',
-  styleUrl: './blog-tag.scss',
+  templateUrl: "./blog-tag.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./blog-tag.scss",
 })
 export class BlogTag {}

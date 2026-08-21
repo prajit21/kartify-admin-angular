@@ -1,13 +1,14 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from "@angular/core";
 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from "@ngx-translate/core";
 
 @Component({
-  selector: 'app-loader',
+  selector: "app-loader",
   imports: [TranslateModule],
-  templateUrl: './loader.html',
-  styleUrl: './loader.scss',
+  templateUrl: "./loader.html",
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: "./loader.scss",
 })
 export class Loader {
-  readonly loaderClass = input<string>('loader-wrapper');
+  readonly loaderClass = input<string>("loader-wrapper");
 }
